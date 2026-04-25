@@ -12,7 +12,7 @@ Mediabunny can extract the width and height of a video file. It works in browser
 ## Getting video dimensions
 
 ```tsx
-import { Input, ALL_FORMATS, UrlSource } from "mediabunny";
+import { ALL_FORMATS, Input, UrlSource } from "mediabunny";
 
 export const getVideoDimensions = async (src: string) => {
   const input = new Input({
@@ -47,7 +47,7 @@ console.log(dimensions.height); // e.g. 1080
 For local files, use `FileSource` instead of `UrlSource`:
 
 ```tsx
-import { Input, ALL_FORMATS, FileSource } from "mediabunny";
+import { ALL_FORMATS, FileSource, Input } from "mediabunny";
 
 const input = new Input({
   formats: ALL_FORMATS,

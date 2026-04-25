@@ -23,14 +23,15 @@ npx remotion add @remotion/install-whisper-cpp
 Make a Node.js script to download Whisper.cpp and a model, and transcribe the audio.
 
 ```ts
+import fs from "fs";
 import path from "path";
+
 import {
   downloadWhisperModel,
   installWhisperCpp,
-  transcribe,
   toCaptions,
+  transcribe,
 } from "@remotion/install-whisper-cpp";
-import fs from "fs";
 
 const to = path.join(process.cwd(), "whisper.cpp");
 

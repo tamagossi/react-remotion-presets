@@ -76,8 +76,9 @@ pnpm exec remotion add @remotion/fonts # If project uses pnpm
 Place your font file in the `public/` folder and use `loadFont()`:
 
 ```tsx
-import { loadFont } from "@remotion/fonts";
 import { staticFile } from "remotion";
+
+import { loadFont } from "@remotion/fonts";
 
 await loadFont({
   family: "MyFont",
@@ -94,8 +95,9 @@ export const MyComposition = () => {
 Load each weight separately with the same family name:
 
 ```tsx
-import { loadFont } from "@remotion/fonts";
 import { staticFile } from "remotion";
+
+import { loadFont } from "@remotion/fonts";
 
 await Promise.all([
   loadFont({

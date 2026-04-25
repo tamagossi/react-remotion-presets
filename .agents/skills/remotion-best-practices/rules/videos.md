@@ -22,8 +22,9 @@ pnpm exec remotion add @remotion/media # If project uses pnpm
 Use `<Video>` from `@remotion/media` to embed videos into your composition.
 
 ```tsx
-import { Video } from "@remotion/media";
 import { staticFile } from "remotion";
+
+import { Video } from "@remotion/media";
 
 export const MyComposition = () => {
   return <Video src={staticFile("video.mp4")} />;
@@ -58,6 +59,7 @@ Wrap the video in a `<Sequence>` to delay when it appears:
 
 ```tsx
 import { Sequence, staticFile } from "remotion";
+
 import { Video } from "@remotion/media";
 
 const { fps } = useVideoConfig();

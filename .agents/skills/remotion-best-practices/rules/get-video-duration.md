@@ -12,7 +12,7 @@ Mediabunny can extract the duration of a video file. It works in browser, Node.j
 ## Getting video duration
 
 ```tsx
-import { Input, ALL_FORMATS, UrlSource } from "mediabunny";
+import { ALL_FORMATS, Input, UrlSource } from "mediabunny";
 
 export const getVideoDuration = async (src: string) => {
   const input = new Input({
@@ -49,7 +49,7 @@ const duration = await getVideoDuration(staticFile("video.mp4"));
 Use `FileSource` instead of `UrlSource`:
 
 ```tsx
-import { Input, ALL_FORMATS, FileSource } from "mediabunny";
+import { ALL_FORMATS, FileSource, Input } from "mediabunny";
 
 const input = new Input({
   formats: ALL_FORMATS,

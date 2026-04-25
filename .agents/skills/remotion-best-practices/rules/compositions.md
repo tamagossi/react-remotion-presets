@@ -11,6 +11,7 @@ It normally is placed in the `src/Root.tsx` file.
 
 ```tsx
 import { Composition } from "remotion";
+
 import { MyComposition } from "./MyComposition";
 
 export const RemotionRoot = () => {
@@ -34,6 +35,7 @@ Values must be JSON-serializable (`Date`, `Map`, `Set`, and `staticFile()` are s
 
 ```tsx
 import { Composition } from "remotion";
+
 import { MyComposition, MyCompositionProps } from "./MyComposition";
 
 export const RemotionRoot = () => {
@@ -90,6 +92,7 @@ Use `<Still>` for single-frame images. It does not require `durationInFrames` or
 
 ```tsx
 import { Still } from "remotion";
+
 import { Thumbnail } from "./Thumbnail";
 
 export const RemotionRoot = () => {
@@ -104,7 +107,8 @@ export const RemotionRoot = () => {
 Use `calculateMetadata` to make dimensions, duration, or props dynamic based on data.
 
 ```tsx
-import { Composition, CalculateMetadataFunction } from "remotion";
+import { CalculateMetadataFunction, Composition } from "remotion";
+
 import { MyComposition, MyCompositionProps } from "./MyComposition";
 
 const calculateMetadata: CalculateMetadataFunction<

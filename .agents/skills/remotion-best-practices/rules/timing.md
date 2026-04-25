@@ -30,7 +30,7 @@ const opacity = interpolate(frame, [0, 100], [0, 1], {
 Use `Easing.bezier(x1, y1, x2, y2)` inside the `interpolate` options object. The curve is identical in spirit to CSS animations and transitions, which helps when you are stealing timing from the web or from a designer’s spec.
 
 ```ts
-import { interpolate, Easing } from "remotion";
+import { Easing, interpolate } from "remotion";
 
 const opacity = interpolate(frame, [0, 60], [0, 1], {
   easing: Easing.bezier(0.16, 1, 0.3, 1),
@@ -76,7 +76,7 @@ const pop = interpolate(frame, [0, 30], [0, 1], {
 Easing can be added to the `interpolate` function without a custom cubic:
 
 ```ts
-import { interpolate, Easing } from "remotion";
+import { Easing, interpolate } from "remotion";
 
 const value1 = interpolate(frame, [0, 100], [0, 1], {
   easing: Easing.inOut(Easing.cubic),
@@ -123,7 +123,11 @@ const slideOut = interpolate(
   frame,
   [slideOutStart, slideOutStart + slideOutDuration],
   [0, 1],
-  { easing: Easing.in(Easing.cubic), extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+  {
+    easing: Easing.in(Easing.cubic),
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  },
 );
 const progress = slideIn - slideOut;
 

@@ -28,8 +28,10 @@ pnpm exec remotion add @remotion/captions # If project uses pnpm
 Use `staticFile()` to reference an `.srt` file in your `public` folder, then fetch and parse it:
 
 ```tsx
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
+
 import { AbsoluteFill, staticFile, useDelayRender } from "remotion";
+
 import { parseSrt } from "@remotion/captions";
 import type { Caption } from "@remotion/captions";
 

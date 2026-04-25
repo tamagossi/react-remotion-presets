@@ -22,8 +22,8 @@ npx remotion add @remotion/light-leaks
 ## Basic usage with TransitionSeries
 
 ```tsx
-import { TransitionSeries } from "@remotion/transitions";
 import { LightLeak } from "@remotion/light-leaks";
+import { TransitionSeries } from "@remotion/transitions";
 
 <TransitionSeries>
   <TransitionSeries.Sequence durationInFrames={60}>
@@ -62,6 +62,7 @@ import { LightLeak } from "@remotion/light-leaks";
 
 ```tsx
 import { AbsoluteFill } from "remotion";
+
 import { LightLeak } from "@remotion/light-leaks";
 
 const MyComp: React.FC = () => (

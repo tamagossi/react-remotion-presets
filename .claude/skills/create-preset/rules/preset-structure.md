@@ -17,6 +17,7 @@ src/shared/presets/
 ## Category Names
 
 Use kebab-case category folders:
+
 - `backgrounds`
 - `text-animations`
 - `transitions`
@@ -66,6 +67,7 @@ export const [PresetName]: React.FC<[PresetName]Props> = ({
 ```
 
 **Rules:**
+
 - Export both component and Props type
 - Props interface: every visual parameter exposed
 - Defaults in destructuring, not inside logic
@@ -101,6 +103,7 @@ export const [PresetName]Composition: React.FC<[PresetName]Props> = (props) => {
 ```
 
 **Rules:**
+
 - Forward all props via spread
 - Include realistic demo content (lorem ipsum or generic text)
 - Show preset at its best — good colors, readable text
@@ -132,9 +135,10 @@ import { [PresetName]Props } from "./shared/presets/[category]";
 ```
 
 **Rules:**
+
 - Use `satisfies` for type safety
-- Duration: 3-10 seconds for most presets (15 * FPS to 30 * FPS)
-- Background presets: 20 * FPS for full animation cycle
+- Duration: 3-10 seconds for most presets (15 _ FPS to 30 _ FPS)
+- Background presets: 20 \* FPS for full animation cycle
 - fps import: `import { FPS } from "./shared/constatns/fps"`
 - id: PascalCase matching component name
 

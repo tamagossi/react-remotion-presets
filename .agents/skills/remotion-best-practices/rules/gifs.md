@@ -97,8 +97,9 @@ npx remotion add @remotion/gif
 ```
 
 ```tsx
-import { getGifDurationInSeconds } from "@remotion/gif";
 import { staticFile } from "remotion";
+
+import { getGifDurationInSeconds } from "@remotion/gif";
 
 const duration = await getGifDurationInSeconds(staticFile("animation.gif"));
 console.log(duration); // e.g. 2.5
@@ -107,8 +108,9 @@ console.log(duration); // e.g. 2.5
 This is useful for setting the composition duration to match the GIF:
 
 ```tsx
+import { CalculateMetadataFunction, staticFile } from "remotion";
+
 import { getGifDurationInSeconds } from "@remotion/gif";
-import { staticFile, CalculateMetadataFunction } from "remotion";
 
 const calculateMetadata: CalculateMetadataFunction = async () => {
   const duration = await getGifDurationInSeconds(staticFile("animation.gif"));
@@ -130,8 +132,9 @@ pnpm exec remotion add @remotion/gif # If project uses pnpm
 ```
 
 ```tsx
-import { Gif } from "@remotion/gif";
 import { staticFile } from "remotion";
+
+import { Gif } from "@remotion/gif";
 
 export const MyComposition = () => {
   return <Gif src={staticFile("animation.gif")} width={500} height={500} />;

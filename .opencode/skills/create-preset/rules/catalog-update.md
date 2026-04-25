@@ -5,6 +5,7 @@ How to read, append, and maintain `CATALOG.md` files per preset category.
 ## Catalog Location
 
 One catalog per category folder:
+
 - `src/shared/presets/backgrounds/CATALOG.md`
 - `src/shared/presets/text-animations/CATALOG.md`
 - etc.
@@ -12,6 +13,7 @@ One catalog per category folder:
 ## Reading Existing Catalog
 
 Before adding new preset:
+
 1. Read existing `CATALOG.md`
 2. Note existing presets, their metadata, suggestedOverrides patterns
 3. Ensure new preset name doesn't conflict
@@ -21,7 +23,7 @@ Before adding new preset:
 
 Append new preset entry with this exact structure:
 
-```markdown
+````markdown
 ### [PresetName]
 
 **ID**: `[PresetName]`
@@ -31,12 +33,14 @@ Append new preset entry with this exact structure:
 [1-2 sentence visual description. What does it look like? What does it do?]
 
 **Visual Characteristics**
+
 - Style: [abstract/geometric/organic/typographic/etc]
 - Motion: [continuous/discrete/staggered/etc]
 - Texture: [none/grain/blur/particles/etc]
 - Depth: [flat/layered/parallax/etc]
 
 **Metadata**
+
 ```json
 {
   "mood": ["calm", "energetic", "dramatic", "playful", "mysterious"],
@@ -48,8 +52,10 @@ Append new preset entry with this exact structure:
   "readability": "high|medium|low"
 }
 ```
+````
 
 **Default Props**
+
 ```json
 {
   // All props with default values
@@ -58,17 +64,20 @@ Append new preset entry with this exact structure:
 
 **Suggested Prop Overrides by Context**
 
-| Context | Override Rationale | Props |
-|---------|-------------------|-------|
+| Context        | Override Rationale               | Props             |
+| -------------- | -------------------------------- | ----------------- |
 | `context-name` | Why these props fit this context | `{ prop: value }` |
 
 **When to Use**
+
 - [bullet points]
 
 **When NOT to Use**
+
 - [bullet points]
 
 **Composition Example**
+
 ```tsx
 import { [PresetName] } from "./shared/presets/[category]";
 
@@ -76,7 +85,8 @@ import { [PresetName] } from "./shared/presets/[category]";
   <Content />
 </[PresetName]>
 ```
-```
+
+````
 
 ## Context Naming Convention
 
@@ -101,7 +111,7 @@ Maintain table at top of catalog. Add row for new preset:
 | Script Tone | Mood | Energy | Color Temp | Formality | Recommended Preset |
 |-------------|------|--------|------------|-----------|-------------------|
 | [tone] | [mood] | [energy] | [temp] | [formality] | `[PresetName]` (override notes) |
-```
+````
 
 If multiple presets fit same cell, list both with context: `[PresetName]` for corporate, `[PresetName2]` for playful.
 
@@ -141,11 +151,12 @@ AI selection guide for `src/shared/presets/[category]/`.
 ## Quick Selection Guide
 
 | Script Tone | Mood | Energy | Color Temp | Formality | Recommended Preset |
-|-------------|------|--------|------------|-----------|-------------------|
+| ----------- | ---- | ------ | ---------- | --------- | ------------------ |
 
 ## How to Use This Catalog
 
 When generating a video composition:
+
 1. **Analyze the script**: Extract mood, theme, energy level, target audience, formality.
 2. **Match dimensions**: Use table above or scan preset metadata.
 3. **Select preset**: Pick best match. If unsure, suggest top 2 with tradeoffs.
@@ -159,13 +170,14 @@ When generating a video composition:
 ## Selection Algorithm for AI Agents
 
 Given: `script`, `theme`, `tone`
-
 ```
+
 1. Extract features from script
-2. Score each preset: mood_overlap * 0.4 + energy_match * 0.2 + color_match * 0.2 + formality_match * 0.2
+2. Score each preset: mood_overlap _ 0.4 + energy_match _ 0.2 + color_match _ 0.2 + formality_match _ 0.2
 3. Pick top 2-3
 4. Apply suggestedOverrides[context]
 5. Generate code
+
 ```
 
 **Rule**: Always suggest top 2-3 with brief rationale. Never auto-pick without alternatives unless user asks.

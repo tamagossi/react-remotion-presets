@@ -25,8 +25,10 @@ npx remotion add @remotion/captions
 First, fetch your captions JSON file. Use [`useDelayRender()`](https://www.remotion.dev/docs/use-delay-render) to hold the render until the captions are loaded:
 
 ```tsx
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
+
 import { AbsoluteFill, staticFile, useDelayRender } from "remotion";
+
 import type { Caption } from "@remotion/captions";
 
 export const MyComponent: React.FC = () => {
@@ -64,6 +66,7 @@ Use `createTikTokStyleCaptions()` to group captions into pages. The `combineToke
 
 ```tsx
 import { useMemo } from "react";
+
 import { createTikTokStyleCaptions } from "@remotion/captions";
 import type { Caption } from "@remotion/captions";
 
@@ -85,7 +88,8 @@ const { pages } = useMemo(() => {
 Map over the pages and render each one in a `<Sequence>`. Calculate the start frame and duration from the page timing:
 
 ```tsx
-import { Sequence, useVideoConfig, AbsoluteFill } from "remotion";
+import { AbsoluteFill, Sequence, useVideoConfig } from "remotion";
+
 import type { TikTokPage } from "@remotion/captions";
 
 const CaptionedContent: React.FC = () => {
@@ -136,6 +140,7 @@ A caption page contains `tokens` which you can use to highlight the currently sp
 
 ```tsx
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
+
 import type { TikTokPage } from "@remotion/captions";
 
 const HIGHLIGHT_COLOR = "#39E508";

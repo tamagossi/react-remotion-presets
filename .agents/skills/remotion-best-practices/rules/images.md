@@ -119,9 +119,9 @@ This is useful for calculating aspect ratios or sizing compositions:
 
 ```tsx
 import {
+  CalculateMetadataFunction,
   getImageDimensions,
   staticFile,
-  CalculateMetadataFunction,
 } from "remotion";
 
 const calculateMetadata: CalculateMetadataFunction = async () => {

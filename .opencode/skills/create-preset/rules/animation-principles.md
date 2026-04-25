@@ -7,7 +7,9 @@ Apply the 12 principles of animation adapted for frame-driven React video.
 Give objects weight and flexibility. Use `scaleX` + `scaleY` with inverse relationship.
 
 ```tsx
-const scaleY = interpolate(frame, [0, 10], [0.5, 1], { extrapolateLeft: "clamp" });
+const scaleY = interpolate(frame, [0, 10], [0.5, 1], {
+  extrapolateLeft: "clamp",
+});
 const scaleX = 1 + (1 - scaleY) * 0.3; // squash when stretch, stretch when squash
 ```
 
@@ -54,8 +56,12 @@ Elements don't stop simultaneously. Primary stops, secondary overshoots and sett
 
 ```tsx
 // Title stops at frame 20, subtitle follows with 10 frame delay
-const titleY = interpolate(frame, [0, 20], [50, 0], { easing: Easing.out(Easing.back(1.2)) });
-const subtitleY = interpolate(frame, [10, 30], [50, 0], { easing: Easing.out(Easing.back(1.2)) });
+const titleY = interpolate(frame, [0, 20], [50, 0], {
+  easing: Easing.out(Easing.back(1.2)),
+});
+const subtitleY = interpolate(frame, [10, 30], [50, 0], {
+  easing: Easing.out(Easing.back(1.2)),
+});
 ```
 
 **When to use:** Multi-element presets. Stagger by 5-15 frames.
@@ -66,16 +72,16 @@ Natural motion accelerates and decelerates. Never linear for UI elements.
 
 **Easing cheat sheet:**
 
-| Curve | Feel | Use Case |
-|-------|------|----------|
-| `Easing.out(Easing.quad)` | Fast start, gentle stop | UI entrances, reveals |
-| `Easing.in(Easing.quad)` | Gentle start, abrupt stop | Exits, dismissals |
-| `Easing.inOut(Easing.quad)` | Symmetric smooth | Transitions, morphs |
-| `Easing.out(Easing.back(1.5))` | Overshoot, settle | Playful entrances |
-| `[0.22, 1, 0.36, 1]` | Apple-style smooth | Premium UI, luxury |
-| `[0.45, 0, 0.55, 1]` | Sine-like, dreamy | Backgrounds, atmospheric |
-| `[0.16, 1, 0.3, 1]` | Strong ease-out, snappy | Modern UI, responsive |
-| `spring({ fps, frame, config: { damping: 10 } })` | Physics-based bounce | Organic, natural motion |
+| Curve                                             | Feel                      | Use Case                 |
+| ------------------------------------------------- | ------------------------- | ------------------------ |
+| `Easing.out(Easing.quad)`                         | Fast start, gentle stop   | UI entrances, reveals    |
+| `Easing.in(Easing.quad)`                          | Gentle start, abrupt stop | Exits, dismissals        |
+| `Easing.inOut(Easing.quad)`                       | Symmetric smooth          | Transitions, morphs      |
+| `Easing.out(Easing.back(1.5))`                    | Overshoot, settle         | Playful entrances        |
+| `[0.22, 1, 0.36, 1]`                              | Apple-style smooth        | Premium UI, luxury       |
+| `[0.45, 0, 0.55, 1]`                              | Sine-like, dreamy         | Backgrounds, atmospheric |
+| `[0.16, 1, 0.3, 1]`                               | Strong ease-out, snappy   | Modern UI, responsive    |
+| `spring({ fps, frame, config: { damping: 10 } })` | Physics-based bounce      | Organic, natural motion  |
 
 **Rule:** Default to `Easing.out(Easing.quad)` unless mood demands otherwise.
 
@@ -85,8 +91,12 @@ Natural motion follows curved paths, not straight lines.
 
 ```tsx
 // Arc motion: combine x and y with different easing
-const x = interpolate(frame, [0, 30], [0, 200], { easing: Easing.inOut(Easing.quad) });
-const y = interpolate(frame, [0, 30], [0, -50], { easing: Easing.out(Easing.quad) });
+const x = interpolate(frame, [0, 30], [0, 200], {
+  easing: Easing.inOut(Easing.quad),
+});
+const y = interpolate(frame, [0, 30], [0, -50], {
+  easing: Easing.out(Easing.quad),
+});
 // Result: arc trajectory
 ```
 
@@ -103,15 +113,16 @@ Keep secondary at 20-30% intensity of primary. Don't steal focus.
 
 **Frame count reference (at 30fps):**
 
-| Duration | Feel | Use Case |
-|----------|------|----------|
-| 5-8 frames | Instant, snappy | Micro-interactions |
-| 10-15 frames | Quick, efficient | UI entrances |
-| 20-30 frames | Smooth, comfortable | Standard reveals |
-| 45-60 frames | Dramatic, deliberate | Title cards, emphasis |
-| 90+ frames | Cinematic, slow | Backgrounds, atmosphere |
+| Duration     | Feel                 | Use Case                |
+| ------------ | -------------------- | ----------------------- |
+| 5-8 frames   | Instant, snappy      | Micro-interactions      |
+| 10-15 frames | Quick, efficient     | UI entrances            |
+| 20-30 frames | Smooth, comfortable  | Standard reveals        |
+| 45-60 frames | Dramatic, deliberate | Title cards, emphasis   |
+| 90+ frames   | Cinematic, slow      | Backgrounds, atmosphere |
 
 **Pacing rules:**
+
 - Match script rhythm. Fast script = quick cuts, snappy easing.
 - Slow script = longer holds, gentle easing.
 - Vary timing. Don't make everything 30 frames.
@@ -181,6 +192,7 @@ const value = spring({
 ```
 
 **Spring vs Interpolate:**
+
 - Use `interpolate` for precise timing control (must hit frame 30 exactly)
 - Use `spring` for organic, physics-based feel (timing emergent)
 
@@ -197,16 +209,27 @@ items.map((i) => {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
-  return <div style={{ opacity }} key={i}>Item {i}</div>;
+  return (
+    <div style={{ opacity }} key={i}>
+      Item {i}
+    </div>
+  );
 });
 ```
 
 ### Entrance + Hold + Exit Pattern
 
 ```tsx
-const entrance = interpolate(frame, [0, 15], [0, 1], { extrapolateRight: "clamp" });
-const exit = interpolate(frame, [durationInFrames - 15, durationInFrames], [1, 0], {
-  extrapolateLeft: "clamp",
+const entrance = interpolate(frame, [0, 15], [0, 1], {
+  extrapolateRight: "clamp",
 });
+const exit = interpolate(
+  frame,
+  [durationInFrames - 15, durationInFrames],
+  [1, 0],
+  {
+    extrapolateLeft: "clamp",
+  },
+);
 const opacity = Math.min(entrance, exit);
 ```

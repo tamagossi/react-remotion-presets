@@ -21,8 +21,9 @@ npx remotion add @remotion/media
 Use `<Audio>` from `@remotion/media` to add audio to your composition.
 
 ```tsx
-import { Audio } from "@remotion/media";
 import { staticFile } from "remotion";
+
+import { Audio } from "@remotion/media";
 
 export const MyComposition = () => {
   return <Audio src={staticFile("audio.mp3")} />;
@@ -62,6 +63,7 @@ Wrap the audio in a `<Sequence>` to delay when it starts:
 
 ```tsx
 import { Sequence, staticFile } from "remotion";
+
 import { Audio } from "@remotion/media";
 
 const { fps } = useVideoConfig();

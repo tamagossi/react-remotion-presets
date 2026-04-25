@@ -20,7 +20,7 @@ npx remotion add mediabunny
 This function can be copy-pasted into any project.
 
 ```tsx
-import { Input, ALL_FORMATS, UrlSource } from "mediabunny";
+import { ALL_FORMATS, Input, UrlSource } from "mediabunny";
 
 export const canDecode = async (src: string) => {
   const input = new Input({
@@ -68,7 +68,7 @@ if (isDecodable) {
 For file uploads or drag-and-drop, use `BlobSource`:
 
 ```tsx
-import { Input, ALL_FORMATS, BlobSource } from "mediabunny";
+import { ALL_FORMATS, BlobSource, Input } from "mediabunny";
 
 export const canDecodeBlob = async (blob: Blob) => {
   const input = new Input({

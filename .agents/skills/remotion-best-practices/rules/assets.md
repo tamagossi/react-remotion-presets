@@ -38,8 +38,9 @@ import { Img, staticFile } from "remotion";
 **Videos:**
 
 ```tsx
-import { Video } from "@remotion/media";
 import { staticFile } from "remotion";
+
+import { Video } from "@remotion/media";
 
 <Video src={staticFile("clip.mp4")} />;
 ```
@@ -47,8 +48,9 @@ import { staticFile } from "remotion";
 **Audio:**
 
 ```tsx
-import { Audio } from "@remotion/media";
 import { staticFile } from "remotion";
+
+import { Audio } from "@remotion/media";
 
 <Audio src={staticFile("music.mp3")} />;
 ```

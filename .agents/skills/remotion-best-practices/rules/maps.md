@@ -51,9 +51,10 @@ REMOTION_MAPBOX_TOKEN==pk.your-mapbox-access-token
 Here is a basic example of a map in Remotion.
 
 ```tsx
-import { useEffect, useMemo, useRef, useState } from "react";
-import { AbsoluteFill, useDelayRender, useVideoConfig } from "remotion";
 import mapboxgl, { Map } from "mapbox-gl";
+import { useEffect, useMemo, useRef, useState } from "react";
+
+import { AbsoluteFill, useDelayRender, useVideoConfig } from "remotion";
 
 export const lineCoordinates = [
   [6.56158447265625, 46.059891147620725],
@@ -212,9 +213,14 @@ Unless I ask for it, do not jump between camera angles.
 
 ```tsx
 import * as turf from "@turf/turf";
-import { interpolate } from "remotion";
-import { Easing } from "remotion";
-import { useCurrentFrame, useVideoConfig, useDelayRender } from "remotion";
+
+import {
+  Easing,
+  interpolate,
+  useCurrentFrame,
+  useDelayRender,
+  useVideoConfig,
+} from "remotion";
 
 const animationDuration = 20;
 const cameraAltitude = 4000;

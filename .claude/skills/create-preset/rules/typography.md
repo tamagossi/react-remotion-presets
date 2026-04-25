@@ -8,6 +8,7 @@ Type hierarchy, sizing, and readability in motion graphics.
 **Title safe:** 10% margin from all edges. Text stays inside.
 
 For 1280x720:
+
 - Action safe: 64px margin
 - Title safe: 128px margin
 
@@ -19,15 +20,16 @@ Video viewing distance is greater than desktop. Text must be larger.
 
 **Reference scale (1280x720, viewed at 2-3 meters):**
 
-| Element | Size (px) | Weight | Use |
-|---------|-----------|--------|-----|
-| Hero title | 72-96 | Bold (700) | Main title, intro |
-| Section title | 48-64 | Semibold (600) | Chapter headers |
-| Body text | 32-40 | Regular (400) | Explanations, bullets |
-| Caption / meta | 24-28 | Regular (400) | Names, dates, sources |
-| Fine print | 18-20 | Regular (400) | Disclaimers, rarely used |
+| Element        | Size (px) | Weight         | Use                      |
+| -------------- | --------- | -------------- | ------------------------ |
+| Hero title     | 72-96     | Bold (700)     | Main title, intro        |
+| Section title  | 48-64     | Semibold (600) | Chapter headers          |
+| Body text      | 32-40     | Regular (400)  | Explanations, bullets    |
+| Caption / meta | 24-28     | Regular (400)  | Names, dates, sources    |
+| Fine print     | 18-20     | Regular (400)  | Disclaimers, rarely used |
 
 **Scaling for other resolutions:**
+
 - 1920x1080 (1080p): multiply by 1.5
 - 1080x1920 (vertical): same px sizes, narrower line lengths
 - 1080x1080 (square): same px sizes, centered
@@ -50,16 +52,17 @@ Video needs tighter line height than web. Motion demands compact blocks.
 
 **Categories and recommendations:**
 
-| Mood | Style | Examples |
-|------|-------|----------|
-| Corporate | Sans-serif, geometric | Inter, Helvetica, Roboto |
-| Tech | Monospace or modern sans | JetBrains Mono, SF Mono, Inter |
-| Luxury | Serif, high contrast | Playfair Display, Cormorant Garamond |
-| Playful | Rounded, informal | Nunito, Quicksand, Comic Neue |
-| Editorial | Serif, readable | Merriweather, Source Serif Pro |
-| Brutalist | Bold, blocky | Space Grotesk, Bebas Neue |
+| Mood      | Style                    | Examples                             |
+| --------- | ------------------------ | ------------------------------------ |
+| Corporate | Sans-serif, geometric    | Inter, Helvetica, Roboto             |
+| Tech      | Monospace or modern sans | JetBrains Mono, SF Mono, Inter       |
+| Luxury    | Serif, high contrast     | Playfair Display, Cormorant Garamond |
+| Playful   | Rounded, informal        | Nunito, Quicksand, Comic Neue        |
+| Editorial | Serif, readable          | Merriweather, Source Serif Pro       |
+| Brutalist | Bold, blocky             | Space Grotesk, Bebas Neue            |
 
 **Rules:**
+
 - Max 2 fonts per composition (1 for headlines, 1 for body)
 - Never mix two serifs or two similar sans-serifs
 - Monospace for code, data, timestamps only
@@ -69,6 +72,7 @@ Video needs tighter line height than web. Motion demands compact blocks.
 Moving text is harder to read than static text.
 
 **Rules:**
+
 - Minimum 15 frames hold after animation completes before next action
 - Don't animate body text character-by-character (too hard to read)
 - Word-by-word or line-by-line is acceptable for short phrases
@@ -80,6 +84,7 @@ Moving text is harder to read than static text.
 See `color-theory.md` for full contrast rules.
 
 Quick video typography rule:
+
 - Text shadow or subtle glow behind all text on complex backgrounds
 - `textShadow: "0 2px 8px rgba(0,0,0,0.6)"` for light text on variable bg
 - `textShadow: "0 1px 3px rgba(255,255,255,0.3)"` for dark text on light bg
@@ -87,11 +92,13 @@ Quick video typography rule:
 ## Text Container Rules
 
 **Max line length:**
+
 - Headlines: 2 lines max, 12 words per line max
 - Body: 3-4 lines max per screen, 8-10 words per line
 - Lists: 3-5 items visible at once
 
 **Alignment:**
+
 - Titles: center or left-aligned (never right-aligned for main title)
 - Body: left-aligned (easiest to read in motion)
 - Captions: center or left, consistent within composition
