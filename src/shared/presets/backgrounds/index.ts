@@ -1,12 +1,47 @@
 export {
+  AuroraFlowBackground,
+  type AuroraFlowBackgroundProps,
+} from "./AuroraFlowBackground";
+
+export {
+  CornerGlowBackground,
+  type CornerGlowBackgroundProps,
+} from "./CornerGlowBackground";
+
+export {
   DarkGradientBackground,
   type DarkGradientBackgroundProps,
 } from "./DarkGradientBackground";
 
 export {
+  DiagonalSpectrumBackground,
+  type DiagonalSpectrumBackgroundProps,
+} from "./DiagonalSpectrumBackground";
+
+export {
+  FlowWaveBackground,
+  type FlowWaveBackgroundProps,
+} from "./FlowWaveBackground";
+
+export {
+  GeometricGridBackground,
+  type GeometricGridBackgroundProps,
+} from "./GeometricGridBackground";
+
+export {
+  HaloVignetteBackground,
+  type HaloVignetteBackgroundProps,
+} from "./HaloVignetteBackground";
+
+export {
   LightGradientBackground,
   type LightGradientBackgroundProps,
 } from "./LightGradientBackground";
+
+export {
+  MonochromeDriftBackground,
+  type MonochromeDriftBackgroundProps,
+} from "./MonochromeDriftBackground";
 
 export {
   MorphingMeshBackground,
@@ -19,19 +54,9 @@ export {
 } from "./NeonPulseBackground";
 
 export {
-  MonochromeDriftBackground,
-  type MonochromeDriftBackgroundProps,
-} from "./MonochromeDriftBackground";
-
-export {
-  SunsetOrbitBackground,
-  type SunsetOrbitBackgroundProps,
-} from "./SunsetOrbitBackground";
-
-export {
-  GeometricGridBackground,
-  type GeometricGridBackgroundProps,
-} from "./GeometricGridBackground";
+  RadialSpotlightBackground,
+  type RadialSpotlightBackgroundProps,
+} from "./RadialSpotlightBackground";
 
 export {
   StarfieldBackground,
@@ -39,26 +64,21 @@ export {
 } from "./StarfieldBackground";
 
 export {
-  RadialSpotlightBackground,
-  type RadialSpotlightBackgroundProps,
-} from "./RadialSpotlightBackground";
+  SunsetOrbitBackground,
+  type SunsetOrbitBackgroundProps,
+} from "./SunsetOrbitBackground";
+
+export {
+  SweepArcBackground,
+  type SweepArcBackgroundProps,
+} from "./SweepArcBackground";
+
+export {
+  WarmDriftBackground,
+  type WarmDriftBackgroundProps,
+} from "./WarmDriftBackground";
 
 export {
   WaveCurveBackground,
   type WaveCurveBackgroundProps,
 } from "./WaveCurveBackground";
-
-export {
-  CornerGlowBackground,
-  type CornerGlowBackgroundProps,
-} from "./CornerGlowBackground";
-
-export {
-  DiagonalSpectrumBackground,
-  type DiagonalSpectrumBackgroundProps,
-} from "./DiagonalSpectrumBackground";
-
-export {
-  AuroraFlowBackground,
-  type AuroraFlowBackgroundProps,
-} from "./AuroraFlowBackground";

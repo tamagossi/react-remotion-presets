@@ -75,13 +75,13 @@ export const WaveCurveBackground: React.FC<WaveCurveBackgroundProps> = ({
       <AbsoluteFill style={{ pointerEvents: "none" }}>
         <svg
           height={height}
+          viewBox={`0 0 ${width} ${height}`}
+          width={width}
+          xmlns="http://www.w3.org/2000/svg"
           style={{
             filter: `blur(${waveBlur}px)`,
             opacity: waveOpacity,
           }}
-          viewBox={`0 0 ${width} ${height}`}
-          width={width}
-          xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
             <linearGradient id="wave-grad" x1="0" x2="1" y1="0" y2="1">

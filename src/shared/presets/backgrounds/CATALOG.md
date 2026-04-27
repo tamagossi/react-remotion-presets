@@ -26,6 +26,10 @@ AI selection guide for `src/shared/presets/backgrounds/`.
 | Cinematic, drama, intro scenes     | Moody, atmospheric   | Low-Medium  | Cool/Vibrant       | Luxury              | `CornerGlowBackground` (2 glows opposite corners)                        |
 | Tech, fintech, data, intro         | Clean, gradient-pure | Medium      | Cool/Vibrant       | Professional        | `DiagonalSpectrumBackground` (2-3 stop palette, subtle angle drift)      |
 | Music video, creative, dreamy      | Ethereal, fluid      | Medium      | Vibrant            | Casual-Luxury       | `AuroraFlowBackground` (4-corner palette, slow flow)                     |
+| Product reveal, hero focus        | Atmospheric, focused | Low-Medium  | Cool/Vibrant       | Luxury              | `HaloVignetteBackground` (2 edge blobs, dark center)                    |
+| Tech, cyberpunk, neon arc         | Sleek, futuristic    | Medium      | Cool               | Professional-Luxury | `SweepArcBackground` (single cyan arc, slow drift)                       |
+| Ocean, deep tech, data flow       | Immersive, layered   | Medium      | Cool               | Professional        | `FlowWaveBackground` (3 diagonal bands, teal drift)                       |
+| Warm, earthy, cozy                | Inviting, grounded   | Low-Medium  | Warm               | Casual              | `WarmDriftBackground` (amber Lissajous drift)                            |
 
 ## How to Use This Catalog
 
@@ -1043,6 +1047,336 @@ import { AuroraFlowBackground } from "./shared/presets/backgrounds";
 <AuroraFlowBackground colors={["#3b82f6", "#a855f7", "#ec4899", "#06b6d4"]}>
   <YourContent />
 </AuroraFlowBackground>;
+```
+
+---
+
+### FlowWaveBackground
+
+**ID**: `FlowWaveBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+
+Diagonal flowing wave bands on dark base. Multiple blurred rectangular strips with `linear-gradient` drift horizontally with phase-offset sine modulation per wave. Each band rotated at a slightly different angle creating layered depth. Teal/deep-blue color palette.
+
+**Visual Characteristics**
+
+- Style: Immersive, layered, deep
+- Motion: Horizontal drift + vertical sine modulation (frame-driven, no CSS animation)
+- Texture: Subtle static grain
+- Depth: Multiple overlapping blurred bands create deep flow
+
+**Metadata**
+
+```json
+{
+  "mood": ["immersive", "layered", "deep", "flowing", "tech"],
+  "theme": ["ocean", "data", "tech", "finance", "science"],
+  "energy": "medium",
+  "colorTemp": "cool",
+  "formality": "professional",
+  "complexity": "medium",
+  "readability": "high"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 18,
+  "baseColor": "#020617",
+  "easing": [0.45, 0, 0.55, 1],
+  "flowSpeed": 0.6,
+  "grainOpacity": 0.04,
+  "grainAmount": 0.3,
+  "waveBlur": 80,
+  "waveColors": ["#0e7490", "#1e3a8a", "#0891b2"],
+  "waveCount": 3,
+  "waveOpacity": 0.6,
+  "waveThickness": 0.35
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context           | Override Rationale                     | Props                                                                                                            |
+| ----------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `ocean-deep`      | Deeper blue palette, slower flow        | `{ waveColors: ["#0c4a6e", "#1e3a8a", "#164e63"], flowSpeed: 0.4, animationDuration: 25 }`                      |
+| `data-flow`       | Single-band subtle flow                 | `{ waveCount: 2, waveColors: ["#3b82f6", "#6366f1"], waveOpacity: 0.45, flowSpeed: 0.3 }`                      |
+| `neon-wave`       | Vibrant bands, fast flow                | `{ waveColors: ["#06b6d4", "#8b5cf6", "#ec4899"], waveOpacity: 0.8, flowSpeed: 1.2, waveBlur: 60 }`             |
+| `warm-flow`       | Warm tones instead of cool             | `{ waveColors: ["#d97706", "#dc2626", "#f59e0b"], baseColor: "#1a0a0a" }`                                       |
+
+**When to Use**
+
+- Tech, data science, ocean-themed content needing layered depth
+- Finance/fintech backgrounds requiring cool, immersive flow
+- Any script with deep, flowing, or layered visual metaphor
+
+**When NOT to Use**
+
+- Content needing bright, airy atmosphere
+- Scripts requiring static or minimal motion
+- Warm/earthy themes (use `WarmDriftBackground` instead)
+
+**Composition Example**
+
+```tsx
+import { FlowWaveBackground } from "./shared/presets/backgrounds";
+
+<FlowWaveBackground waveColors={["#0e7490", "#1e3a8a", "#0891b2"]} flowSpeed={0.6}>
+  <YourContent />
+</FlowWaveBackground>;
+```
+
+---
+
+### HaloVignetteBackground
+
+**ID**: `HaloVignetteBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+
+Edge-anchored soft blobs creating dark oval center (negative space). Blobs alternate left/right placement with slow circular drift and gentle size breathing. Heavy blur dissolves edges into atmospheric vignette. Magenta/violet palette from original video.
+
+**Visual Characteristics**
+
+- Style: Cinematic, atmospheric, vignette
+- Motion: Slow edge drift + size breathe (frame-driven, no CSS animation)
+- Texture: Subtle static grain
+- Depth: Strong center vignette from edge-only light
+
+**Metadata**
+
+```json
+{
+  "mood": ["cinematic", "atmospheric", "dramatic", "mysterious", "focused"],
+  "theme": ["product", "hero", "reveal", "cinematic", "premium"],
+  "energy": "low-to-medium",
+  "colorTemp": "cool-vibrant",
+  "formality": "luxury",
+  "complexity": "low",
+  "readability": "maximum"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 20,
+  "baseColor": "#0a0212",
+  "blobCount": 2,
+  "blobOpacity": 0.7,
+  "blobSize": 1.8,
+  "blurAmount": 200,
+  "breatheAmount": 0.15,
+  "colors": ["#c026d3", "#7c3aed"],
+  "driftAmount": 0.06,
+  "easing": [0.45, 0, 0.55, 1],
+  "grainOpacity": 0.04,
+  "grainAmount": 0.3
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context               | Override Rationale                         | Props                                                                                                         |
+| --------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| `product-hero`        | Magenta/violet from video, off-center    | `{ blobCount: 2, blobOpacity: 0.8, breatheAmount: 0.1 }`                                                     |
+| `cinematic-red-blue`  | Deep red vs blue edge blobs               | `{ colors: ["#dc2626", "#3b82f6"], baseColor: "#0a0a14" }`                                                    |
+| `gold-premium`        | Gold edge glow, dark center                | `{ colors: ["#d4af37", "#b8860b"], baseColor: "#0a0804", blobOpacity: 0.6 }`                                   |
+| `neon-focus`          | Brighter blobs, stronger vignette         | `{ colors: ["#22d3ee", "#a855f7"], blobOpacity: 0.9, breatheAmount: 0.2 }`                                    |
+
+**When to Use**
+
+- Product hero / reveal shots needing dark center for text
+- Cinematic intros with atmospheric vignette
+- Premium / luxury content requiring focus
+- Any scene where background must frame rather than distract
+
+**When NOT to Use**
+
+- Bright, cheerful scripts (dark center feels heavy)
+- Content needing even illumination across frame
+- Minimalist/clean aesthetic (vignette adds too much atmosphere)
+
+**Composition Example**
+
+```tsx
+import { HaloVignetteBackground } from "./shared/presets/backgrounds";
+
+<HaloVignetteBackground colors={["#c026d3", "#7c3aed"]} baseColor="#0a0212">
+  <YourContent />
+</HaloVignetteBackground>;
+```
+
+---
+
+### SweepArcBackground
+
+**ID**: `SweepArcBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+
+Single soft radial-gradient arc sweeping from bottom of frame on dark base. Arc position set via `arcPosition` (multiplier relative to frame center), creating visible curved band with gentle horizontal drift and size breathing. Cyan palette from original video.
+
+**Visual Characteristics**
+
+- Style: Sleek, futuristic, clean
+- Motion: Horizontal drift + subtle breathe (frame-driven, no CSS animation)
+- Texture: Subtle static grain
+- Depth: Single blurred arc creates directional flow
+
+**Metadata**
+
+```json
+{
+  "mood": ["sleek", "futuristic", "clean", "minimal", "tech"],
+  "theme": ["tech", "cyberpunk", "product", "intro", "reveal"],
+  "energy": "medium",
+  "colorTemp": "cool",
+  "formality": "professional-luxury",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 16,
+  "arcColor": "#06b6d4",
+  "arcOpacity": 0.75,
+  "arcPosition": 1.25,
+  "arcWidth": 1.4,
+  "baseColor": "#020617",
+  "blurAmount": 160,
+  "breatheAmount": 0.12,
+  "driftAmount": 0.04,
+  "easing": [0.45, 0, 0.55, 1],
+  "grainOpacity": 0.03,
+  "grainAmount": 0.3
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context            | Override Rationale                  | Props                                                                                                    |
+| ------------------ | ----------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `tech-neon`        | Bright neon arc, default palette   | `{ arcColor: "#22d3ee", arcOpacity: 0.9, blurAmount: 120 }`                                              |
+| `warm-arc`         | Warm amber sweep                    | `{ arcColor: "#f59e0b", baseColor: "#0a0400", driftAmount: 0.06 }`                                       |
+| `minimal-arc`      | Subtle, slower, less distraction    | `{ arcOpacity: 0.4, animationDuration: 25, breatheAmount: 0.06, driftAmount: 0.02 }`                    |
+| `dual-arc`         | Two arcs: top + bottom              | `{ arcPosition: 1.5, arcWidth: 1.8 }`                                                                   |
+
+**When to Use**
+
+- Tech/cyberpunk intros needing sleek sweep
+- Product reveals with directional light
+- Any scene wanting single luminous arc accent
+- Minimal compositions where one gradient element is enough
+
+**When NOT to Use**
+
+- Content needing full-frame atmospheric fills
+- Scripts with warm, earthy aesthetic
+- Multi-element compositions (arc can feel sparse)
+
+**Composition Example**
+
+```tsx
+import { SweepArcBackground } from "./shared/presets/backgrounds";
+
+<SweepArcBackground arcColor="#06b6d4" baseColor="#020617">
+  <YourContent />
+</SweepArcBackground>;
+```
+
+---
+
+### WarmDriftBackground
+
+**ID**: `WarmDriftBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+
+Organic warm-toned blobs drifting on dark warm base. Blobs follow Lissajous-like paths via `driftComplexity` frequency control, creating freeform non-elliptical motion. Amber/brown palette from original video. Gentle, cozy feel.
+
+**Visual Characteristics**
+
+- Style: Organic, warm, cozy, comfortable
+- Motion: Freeform Lissajous drift (frame-driven, no CSS animation)
+- Texture: Subtle static grain
+- Depth: Blurred blobs create soft warm glow layers
+
+**Metadata**
+
+```json
+{
+  "mood": ["warm", "cozy", "organic", "comfortable", "inviting"],
+  "theme": ["lifestyle", "wellness", "food", "nature", "storytelling"],
+  "energy": "low-to-medium",
+  "colorTemp": "warm",
+  "formality": "casual",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 30,
+  "baseColor": "#1a0a04",
+  "blobCount": 2,
+  "blobOpacity": 0.55,
+  "blobSize": 2.0,
+  "blurAmount": 180,
+  "colors": ["#d97706", "#b45309", "#92400e"],
+  "driftAmount": 0.5,
+  "driftComplexity": 1.2,
+  "easing": [0.45, 0, 0.55, 1],
+  "grainOpacity": 0.04,
+  "grainAmount": 0.3
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context            | Override Rationale                | Props                                                                                                         |
+| ------------------ | --------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `cozy-evening`     | Deep amber, slower drift          | `{ colors: ["#92400e", "#78350f"], animationDuration: 40, driftAmount: 0.35 }`                                 |
+| `autumn-warm`      | Richer warm palette               | `{ colors: ["#dc2626", "#ea580c", "#d97706"], blobOpacity: 0.6 }`                                              |
+| `soft-cream`       | Lighter, creamier tones           | `{ colors: ["#fbbf24", "#f59e0b", "#d97706"], baseColor: "#1c1108", blobOpacity: 0.5, blurAmount: 200 }`      |
+| `candle-glow`      | Single warm blob, minimal motion  | `{ blobCount: 1, colors: ["#f59e0b"], driftAmount: 0.2, driftComplexity: 0.8, animationDuration: 45 }`          |
+
+**When to Use**
+
+- Lifestyle, wellness, food content needing warmth
+- Emotional storytelling with cozy aesthetic
+- Any script with warm, earthy, inviting mood
+- Autumn/fall-themed videos
+
+**When NOT to Use**
+
+- Tech/corporate scripts needing cool precision
+- Content with dark/serious tone (warmth may feel out of place)
+- Fast-paced energetic content (drift is slow, organic)
+
+**Composition Example**
+
+```tsx
+import { WarmDriftBackground } from "./shared/presets/backgrounds";
+
+<WarmDriftBackground colors={["#d97706", "#b45309", "#92400e"]} baseColor="#1a0a04">
+  <YourContent />
+</WarmDriftBackground>;
 ```
 
 ---

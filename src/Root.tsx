@@ -7,23 +7,31 @@ import { Composition, Folder } from "remotion";
 import { MyComposition } from "./Composition";
 import {
 	DarkGradientBackgroundProps,
+	FlowWaveBackgroundProps,
+	GeometricGridBackgroundProps,
+	HaloVignetteBackgroundProps,
 	LightGradientBackgroundProps,
+	MonochromeDriftBackgroundProps,
 	MorphingMeshBackgroundProps,
 	NeonPulseBackgroundProps,
-	MonochromeDriftBackgroundProps,
-	SunsetOrbitBackgroundProps,
-	GeometricGridBackgroundProps,
 	StarfieldBackgroundProps,
+	SunsetOrbitBackgroundProps,
+	SweepArcBackgroundProps,
+	WarmDriftBackgroundProps,
 } from "./shared/presets/backgrounds";
 import { FPS } from "./shared/constatns/fps";
 import { BackgroundComposition } from "./shared/presets/backgrounds/compositions/BackgroundComposition";
+import { FlowWaveBackgroundComposition } from "./shared/presets/backgrounds/compositions/FlowWaveBackgroundComposition";
+import { GeometricGridBackgroundComposition } from "./shared/presets/backgrounds/compositions/GeometricGridBackgroundComposition";
+import { HaloVignetteBackgroundComposition } from "./shared/presets/backgrounds/compositions/HaloVignetteBackgroundComposition";
 import { LightGradientBackgroundComposition } from "./shared/presets/backgrounds/compositions/LightGradientBackgroundComposition";
+import { MonochromeDriftBackgroundComposition } from "./shared/presets/backgrounds/compositions/MonochromeDriftBackgroundComposition";
 import { MorphingMeshBackgroundComposition } from "./shared/presets/backgrounds/compositions/MorphingMeshBackgroundComposition";
 import { NeonPulseBackgroundComposition } from "./shared/presets/backgrounds/compositions/NeonPulseBackgroundComposition";
-import { MonochromeDriftBackgroundComposition } from "./shared/presets/backgrounds/compositions/MonochromeDriftBackgroundComposition";
-import { SunsetOrbitBackgroundComposition } from "./shared/presets/backgrounds/compositions/SunsetOrbitBackgroundComposition";
-import { GeometricGridBackgroundComposition } from "./shared/presets/backgrounds/compositions/GeometricGridBackgroundComposition";
 import { StarfieldBackgroundComposition } from "./shared/presets/backgrounds/compositions/StarfieldBackgroundComposition";
+import { SunsetOrbitBackgroundComposition } from "./shared/presets/backgrounds/compositions/SunsetOrbitBackgroundComposition";
+import { SweepArcBackgroundComposition } from "./shared/presets/backgrounds/compositions/SweepArcBackgroundComposition";
+import { WarmDriftBackgroundComposition } from "./shared/presets/backgrounds/compositions/WarmDriftBackgroundComposition";
 import {
 	LabelStackTitleProps,
 	StackedCenterTitleProps,
@@ -194,6 +202,29 @@ export const RemotionRoot: React.FC = () => {
 					}
 				/>
 				<Composition
+					component={FlowWaveBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="FlowWaveBackground"
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 18,
+							baseColor: "#020617",
+							easing: [0.45, 0, 0.55, 1],
+							flowSpeed: 0.6,
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							waveBlur: 80,
+							waveColors: ["#0e7490", "#1e3a8a", "#0891b2"],
+							waveCount: 3,
+							waveOpacity: 0.6,
+							waveThickness: 0.35,
+						} satisfies FlowWaveBackgroundProps
+					}
+				/>
+				<Composition
 					component={GeometricGridBackgroundComposition}
 					durationInFrames={20 * FPS}
 					fps={FPS}
@@ -214,6 +245,30 @@ export const RemotionRoot: React.FC = () => {
 					}
 				/>
 				<Composition
+					component={HaloVignetteBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="HaloVignetteBackground"
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 20,
+							baseColor: "#0a0212",
+							blobCount: 2,
+							blobOpacity: 0.7,
+							blobSize: 1.8,
+							blurAmount: 200,
+							breatheAmount: 0.15,
+							colors: ["#c026d3", "#7c3aed"],
+							driftAmount: 0.06,
+							easing: [0.45, 0, 0.55, 1],
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+						} satisfies HaloVignetteBackgroundProps
+					}
+				/>
+				<Composition
 					component={StarfieldBackgroundComposition}
 					durationInFrames={20 * FPS}
 					fps={FPS}
@@ -229,6 +284,54 @@ export const RemotionRoot: React.FC = () => {
 							starCount: 120,
 							starOpacity: 0.8,
 						} satisfies StarfieldBackgroundProps
+					}
+				/>
+				<Composition
+					component={SweepArcBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="SweepArcBackground"
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 16,
+							arcColor: "#06b6d4",
+							arcOpacity: 0.75,
+							arcPosition: 1.25,
+							arcWidth: 1.4,
+							baseColor: "#020617",
+							blurAmount: 160,
+							breatheAmount: 0.12,
+							driftAmount: 0.04,
+							easing: [0.45, 0, 0.55, 1],
+							grainAmount: 0.3,
+							grainOpacity: 0.03,
+						} satisfies SweepArcBackgroundProps
+					}
+				/>
+				<Composition
+					component={WarmDriftBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="WarmDriftBackground"
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 30,
+							baseColor: "#1a0a04",
+							blobCount: 2,
+							blobOpacity: 0.55,
+							blobSize: 2.0,
+							blurAmount: 180,
+							colors: ["#d97706", "#b45309", "#92400e"],
+							driftAmount: 0.5,
+							driftComplexity: 1.2,
+							easing: [0.45, 0, 0.55, 1],
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+						} satisfies WarmDriftBackgroundProps
 					}
 				/>
 			</Folder>

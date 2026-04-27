@@ -8,7 +8,7 @@ import {
   useVideoConfig,
 } from "remotion";
 
-export type CornerGlowCorner = "tl" | "tr" | "br" | "bl";
+export type CornerGlowCorner = "bl" | "br" | "tl" | "tr";
 
 export type CornerGlowBackgroundProps = {
   baseColor?: string;
@@ -31,14 +31,14 @@ const cornerAnchor = (
   height: number,
 ): { x: number; y: number; ax: number; ay: number } => {
   switch (corner) {
+    case "bl":
+      return { ax: -1, ay: 1, x: 0, y: height };
+    case "br":
+      return { ax: 1, ay: 1, x: width, y: height };
     case "tl":
       return { ax: -1, ay: -1, x: 0, y: 0 };
     case "tr":
       return { ax: 1, ay: -1, x: width, y: 0 };
-    case "br":
-      return { ax: 1, ay: 1, x: width, y: height };
-    case "bl":
-      return { ax: -1, ay: 1, x: 0, y: height };
   }
 };
 
@@ -77,7 +77,7 @@ export const CornerGlowBackground: React.FC<CornerGlowBackgroundProps> = ({
       <AbsoluteFill style={{ pointerEvents: "none" }}>
         {glowCorners.map((corner, i) => {
           const color = glowColors[i % glowColors.length];
-          const { x, y, ax, ay } = cornerAnchor(corner, width, height);
+          const { ax, ay, x, y } = cornerAnchor(corner, width, height);
           const phase = i * ((Math.PI * 2) / glowCorners.length);
           const angle = progress * Math.PI * 2 + phase;
           const dx = Math.cos(angle) * glowDrift * width;
