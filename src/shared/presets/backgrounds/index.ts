@@ -37,3 +37,28 @@ export {
   StarfieldBackground,
   type StarfieldBackgroundProps,
 } from "./StarfieldBackground";
+
+export {
+  RadialSpotlightBackground,
+  type RadialSpotlightBackgroundProps,
+} from "./RadialSpotlightBackground";
+
+export {
+  WaveCurveBackground,
+  type WaveCurveBackgroundProps,
+} from "./WaveCurveBackground";
+
+export {
+  CornerGlowBackground,
+  type CornerGlowBackgroundProps,
+} from "./CornerGlowBackground";
+
+export {
+  DiagonalSpectrumBackground,
+  type DiagonalSpectrumBackgroundProps,
+} from "./DiagonalSpectrumBackground";
+
+export {
+  AuroraFlowBackground,
+  type AuroraFlowBackgroundProps,
+} from "./AuroraFlowBackground";

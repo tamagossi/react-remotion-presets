@@ -21,6 +21,11 @@ AI selection guide for `src/shared/presets/backgrounds/`.
 | Emotional, travel, nature          | Warm, nostalgic      | Medium      | Warm               | Casual              | `SunsetOrbitBackground` (default palette, gentle orbit)                  |
 | Corporate, tech, data              | Structured, precise  | Medium      | Neutral            | Professional        | `GeometricGridBackground` (default palette, tighter gridDensity)         |
 | Space, science, cosmic             | Immersive, vast      | Medium      | Cool               | Casual-Luxury       | `StarfieldBackground` (default palette, more starCount)                  |
+| Spotlight, focus, product hero     | Calm, focused        | Low-Medium  | Any (color-driven) | Casual-Professional | `RadialSpotlightBackground` (single tint, gentle breathe)                |
+| Editorial, fashion, lifestyle      | Smooth, stylish      | Medium      | Any                | Casual-Luxury       | `WaveCurveBackground` (custom wave color + accent)                       |
+| Cinematic, drama, intro scenes     | Moody, atmospheric   | Low-Medium  | Cool/Vibrant       | Luxury              | `CornerGlowBackground` (2 glows opposite corners)                        |
+| Tech, fintech, data, intro         | Clean, gradient-pure | Medium      | Cool/Vibrant       | Professional        | `DiagonalSpectrumBackground` (2-3 stop palette, subtle angle drift)      |
+| Music video, creative, dreamy      | Ethereal, fluid      | Medium      | Vibrant            | Casual-Luxury       | `AuroraFlowBackground` (4-corner palette, slow flow)                     |
 
 ## How to Use This Catalog
 
@@ -655,6 +660,389 @@ import { StarfieldBackground } from "./shared/presets/backgrounds";
 <StarfieldBackground starCount={120} starColor="#ffffff">
   <YourContent />
 </StarfieldBackground>;
+```
+
+---
+
+### RadialSpotlightBackground
+
+**ID**: `RadialSpotlightBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Single soft radial spotlight on dark base. Center gently drifts in a slow loop while spotlight breathes (size pulse). Designed for hero / focus shots where one subject must read clearly. Frame-driven, no CSS animation.
+
+**Visual Characteristics**
+
+- Style: Minimal, focused, atmospheric
+- Motion: Slow drift + subtle breathe
+- Texture: Subtle static grain
+- Depth: Single blurred radial creates strong vignette
+
+**Metadata**
+
+```json
+{
+  "mood": ["focused", "calm", "intimate", "premium"],
+  "theme": ["product", "portrait", "spotlight", "intro", "tech"],
+  "energy": "low-to-medium",
+  "colorTemp": "any",
+  "formality": "casual-to-professional",
+  "complexity": "low",
+  "readability": "maximum"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "baseColor": "#0a1a0e",
+  "spotlightColor": "#1cc23a",
+  "spotlightSize": 1.3,
+  "spotlightOpacity": 0.7,
+  "spotlightX": 0.5,
+  "spotlightY": 0.5,
+  "driftAmount": 0.08,
+  "breatheAmount": 0.15,
+  "blurAmount": 120,
+  "animationDuration": 18,
+  "easing": [0.45, 0, 0.55, 1],
+  "grainOpacity": 0.04,
+  "grainAmount": 0.3
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context              | Override Rationale                  | Props                                                                                               |
+| -------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `product-hero`       | Off-center spotlight, warm tint     | `{ spotlightColor: "#fbbf24", spotlightX: 0.65, spotlightY: 0.45, breatheAmount: 0.08 }`            |
+| `tech-mono`          | Cool monochrome, subtle drift       | `{ spotlightColor: "#94a3b8", baseColor: "#0a0f18", driftAmount: 0.04, breatheAmount: 0.1 }`        |
+| `cinematic-deep`     | Slow breathe, large glow            | `{ spotlightSize: 1.6, animationDuration: 30, breatheAmount: 0.2, blurAmount: 160 }`                |
+
+**When to Use**
+
+- Hero shots, product reveals, intros where focus matters
+- Single subject framing
+- Any script needing visual gravity toward center
+
+**When NOT to Use**
+
+- Complex multi-element scenes
+- Energetic/busy content (too quiet)
+
+**Composition Example**
+
+```tsx
+import { RadialSpotlightBackground } from "./shared/presets/backgrounds";
+
+<RadialSpotlightBackground spotlightColor="#1cc23a">
+  <YourContent />
+</RadialSpotlightBackground>;
+```
+
+### WaveCurveBackground
+
+**ID**: `WaveCurveBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Two-tone gradient divided by a smooth animated sine-wave SVG path. Wave flows horizontally, curves softened by blur. Editorial feel — clean upper region for content, colored wave below as accent.
+
+**Visual Characteristics**
+
+- Style: Stylish, editorial, smooth
+- Motion: Horizontal sine flow
+- Texture: Subtle grain
+- Depth: Soft-edged 2-tone split
+
+**Metadata**
+
+```json
+{
+  "mood": ["smooth", "stylish", "editorial", "calm"],
+  "theme": ["fashion", "lifestyle", "editorial", "music", "portfolio"],
+  "energy": "medium",
+  "colorTemp": "any",
+  "formality": "casual-to-luxury",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "baseColor": "#1a0218",
+  "waveColor": "#c026d3",
+  "waveAccentColor": "#f0abfc",
+  "waveAmplitude": 0.18,
+  "waveFrequency": 1.2,
+  "waveOffsetY": 0.6,
+  "waveBlur": 30,
+  "waveOpacity": 1,
+  "flowSpeed": 1,
+  "animationDuration": 18,
+  "easing": [0.45, 0, 0.55, 1],
+  "grainOpacity": 0.04,
+  "grainAmount": 0.3
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context              | Override Rationale                  | Props                                                                                                           |
+| -------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `dark-elegant`       | Black base, single dark accent      | `{ baseColor: "#000000", waveColor: "#1f2937", waveAccentColor: "#374151", waveBlur: 50 }`                      |
+| `vibrant-fashion`    | Hot magenta wave on near-black      | `{ baseColor: "#0a0212", waveColor: "#ec4899", waveAccentColor: "#fb7185", flowSpeed: 1.3 }`                    |
+| `cool-tech`          | Cyan wave, low amplitude            | `{ baseColor: "#02061a", waveColor: "#0891b2", waveAccentColor: "#22d3ee", waveAmplitude: 0.1 }`                |
+
+**When to Use**
+
+- Editorial / fashion / portfolio intros
+- Lower-third backgrounds (set `waveOffsetY: 0.75`)
+- Any composition wanting a clean "upper canvas + colored bottom" split
+
+**When NOT to Use**
+
+- Centered subject shots (wave competes for attention)
+- Very text-dense scenes
+
+**Composition Example**
+
+```tsx
+import { WaveCurveBackground } from "./shared/presets/backgrounds";
+
+<WaveCurveBackground waveColor="#c026d3" waveAccentColor="#f0abfc">
+  <YourContent />
+</WaveCurveBackground>;
+```
+
+### CornerGlowBackground
+
+**ID**: `CornerGlowBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Dark base with up to 4 corner-anchored color glows, soft fall-off via blur. Gentle drift loop. Cinematic mood with directional light feel. Asymmetric by default.
+
+**Visual Characteristics**
+
+- Style: Cinematic, moody, directional
+- Motion: Subtle edge drift
+- Texture: Subtle grain
+- Depth: Strong center vignette from corner-only light
+
+**Metadata**
+
+```json
+{
+  "mood": ["moody", "cinematic", "atmospheric", "dramatic"],
+  "theme": ["film", "drama", "luxury", "tech-reveal"],
+  "energy": "low-to-medium",
+  "colorTemp": "cool-vibrant",
+  "formality": "luxury",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "baseColor": "#0a0a14",
+  "glowColors": ["#7c3aed", "#06b6d4"],
+  "glowCorners": ["br", "tr"],
+  "glowSize": 1.3,
+  "glowOpacity": 0.7,
+  "glowDrift": 0.05,
+  "blurAmount": 140,
+  "animationDuration": 22,
+  "easing": [0.45, 0, 0.55, 1],
+  "grainOpacity": 0.04,
+  "grainAmount": 0.3
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context              | Override Rationale                       | Props                                                                                                              |
+| -------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `red-drama`          | Crimson glow, navy opposite corner       | `{ glowColors: ["#dc2626", "#1e3a8a"], glowCorners: ["br", "tl"], glowSize: 1.5 }`                                 |
+| `single-side`        | One-sided glow only                      | `{ glowColors: ["#a855f7"], glowCorners: ["br"], glowSize: 1.6, glowOpacity: 0.8 }`                                |
+| `four-corner`        | Subtle 4-corner ambient                  | `{ glowColors: ["#6366f1", "#06b6d4", "#ec4899", "#22c55e"], glowCorners: ["tl","tr","br","bl"], glowOpacity: 0.4 }` |
+
+**When to Use**
+
+- Cinematic intros / outros
+- Luxury product reveals with directional lighting
+- Drama / film-style title cards
+
+**When NOT to Use**
+
+- Bright cheerful scripts
+- Content where edges hold key info (glow blooms inward)
+
+**Composition Example**
+
+```tsx
+import { CornerGlowBackground } from "./shared/presets/backgrounds";
+
+<CornerGlowBackground glowColors={["#7c3aed", "#06b6d4"]} glowCorners={["br", "tr"]}>
+  <YourContent />
+</CornerGlowBackground>;
+```
+
+### DiagonalSpectrumBackground
+
+**ID**: `DiagonalSpectrumBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Pure linear-gradient sweep across diagonal axis. Angle slowly rotates between `angleStart` and `angleEnd`. No blobs, no SVG — just clean gradient motion. Perfect for app/UI intros.
+
+**Visual Characteristics**
+
+- Style: Clean, modern, minimal
+- Motion: Gradient angle drift
+- Texture: Subtle grain
+- Depth: Flat — pure color blend
+
+**Metadata**
+
+```json
+{
+  "mood": ["clean", "modern", "premium", "calm"],
+  "theme": ["tech", "fintech", "saas", "data", "intro"],
+  "energy": "medium",
+  "colorTemp": "any",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "maximum"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "colors": ["#0072ff", "#00c6a7", "#0072ff"],
+  "baseColor": "#02061a",
+  "angleStart": 135,
+  "angleEnd": 200,
+  "spectrumOpacity": 1,
+  "animationDuration": 24,
+  "easing": [0.45, 0, 0.55, 1],
+  "grainOpacity": 0.04,
+  "grainAmount": 0.3
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context              | Override Rationale                     | Props                                                                                       |
+| -------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `fintech-clean`      | Two-stop blue, narrow angle range      | `{ colors: ["#1e3a8a", "#3b82f6"], angleStart: 160, angleEnd: 180 }`                        |
+| `vibrant-saas`       | Three-stop vibrant                     | `{ colors: ["#8b5cf6", "#ec4899", "#f59e0b"], angleStart: 120, angleEnd: 220 }`             |
+| `subtle-luxury`      | Dark muted spectrum                    | `{ colors: ["#1f2937", "#374151", "#1f2937"], spectrumOpacity: 0.9 }`                       |
+
+**When to Use**
+
+- App / SaaS / fintech intros
+- Title cards needing pure-gradient mood
+- Quick branded backdrops
+
+**When NOT to Use**
+
+- Scripts wanting organic motion (this is geometric)
+- Stories needing depth/atmosphere
+
+**Composition Example**
+
+```tsx
+import { DiagonalSpectrumBackground } from "./shared/presets/backgrounds";
+
+<DiagonalSpectrumBackground colors={["#0072ff", "#00c6a7", "#0072ff"]}>
+  <YourContent />
+</DiagonalSpectrumBackground>;
+```
+
+### AuroraFlowBackground
+
+**ID**: `AuroraFlowBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+4 large soft radial color zones anchored to canvas corners, very high blur, slow position breathing. `mixBlendMode: screen` produces aurora-like color blending. Ethereal, fluid mood.
+
+**Visual Characteristics**
+
+- Style: Ethereal, fluid, dreamy
+- Motion: Slow corner-anchored drift
+- Texture: Subtle grain
+- Depth: Heavy blur dissolves zones into base
+
+**Metadata**
+
+```json
+{
+  "mood": ["ethereal", "dreamy", "fluid", "vibrant"],
+  "theme": ["music", "creative", "fashion", "art", "wellness"],
+  "energy": "medium",
+  "colorTemp": "vibrant",
+  "formality": "casual-to-luxury",
+  "complexity": "medium",
+  "readability": "high"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "baseColor": "#0a0418",
+  "colors": ["#3b82f6", "#a855f7", "#ec4899", "#06b6d4"],
+  "zoneSize": 1.3,
+  "zoneOpacity": 0.65,
+  "flowAmount": 0.12,
+  "blurAmount": 180,
+  "animationDuration": 25,
+  "easing": [0.45, 0, 0.55, 1],
+  "grainOpacity": 0.04,
+  "grainAmount": 0.3
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context              | Override Rationale                     | Props                                                                                                       |
+| -------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `northern-lights`    | Green/teal/violet aurora               | `{ colors: ["#10b981", "#06b6d4", "#8b5cf6", "#22c55e"], baseColor: "#020617" }`                            |
+| `sunset-aurora`      | Warm 4-corner palette                  | `{ colors: ["#f59e0b", "#ec4899", "#ef4444", "#fbbf24"], baseColor: "#1a0a0a" }`                            |
+| `subtle-dreamy`      | Lower opacity, more blur               | `{ zoneOpacity: 0.45, blurAmount: 220, animationDuration: 35 }`                                             |
+
+**When to Use**
+
+- Music videos, creative reels
+- Dreamy / ethereal mood pieces
+- Art and fashion intros
+
+**When NOT to Use**
+
+- Corporate/precise content
+- Scripts needing flat clean backdrop
+
+**Composition Example**
+
+```tsx
+import { AuroraFlowBackground } from "./shared/presets/backgrounds";
+
+<AuroraFlowBackground colors={["#3b82f6", "#a855f7", "#ec4899", "#06b6d4"]}>
+  <YourContent />
+</AuroraFlowBackground>;
 ```
 
 ---

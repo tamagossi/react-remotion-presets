@@ -14,6 +14,11 @@ import {
 	SunsetOrbitBackgroundProps,
 	GeometricGridBackgroundProps,
 	StarfieldBackgroundProps,
+	RadialSpotlightBackgroundProps,
+	WaveCurveBackgroundProps,
+	CornerGlowBackgroundProps,
+	DiagonalSpectrumBackgroundProps,
+	AuroraFlowBackgroundProps,
 } from "./shared/presets/backgrounds";
 import { FPS } from "./shared/constatns/fps";
 import { BackgroundComposition } from "./shared/presets/backgrounds/compositions/BackgroundComposition";
@@ -24,6 +29,11 @@ import { MonochromeDriftBackgroundComposition } from "./shared/presets/backgroun
 import { SunsetOrbitBackgroundComposition } from "./shared/presets/backgrounds/compositions/SunsetOrbitBackgroundComposition";
 import { GeometricGridBackgroundComposition } from "./shared/presets/backgrounds/compositions/GeometricGridBackgroundComposition";
 import { StarfieldBackgroundComposition } from "./shared/presets/backgrounds/compositions/StarfieldBackgroundComposition";
+import { RadialSpotlightBackgroundComposition } from "./shared/presets/backgrounds/compositions/RadialSpotlightBackgroundComposition";
+import { WaveCurveBackgroundComposition } from "./shared/presets/backgrounds/compositions/WaveCurveBackgroundComposition";
+import { CornerGlowBackgroundComposition } from "./shared/presets/backgrounds/compositions/CornerGlowBackgroundComposition";
+import { DiagonalSpectrumBackgroundComposition } from "./shared/presets/backgrounds/compositions/DiagonalSpectrumBackgroundComposition";
+import { AuroraFlowBackgroundComposition } from "./shared/presets/backgrounds/compositions/AuroraFlowBackgroundComposition";
 import {
 	LabelStackTitleProps,
 	StackedCenterTitleProps,
@@ -229,6 +239,122 @@ export const RemotionRoot: React.FC = () => {
 							starCount: 120,
 							starOpacity: 0.8,
 						} satisfies StarfieldBackgroundProps
+					}
+				/>
+				<Composition
+					component={RadialSpotlightBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="RadialSpotlightBackground"
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 18,
+							baseColor: "#0a1a0e",
+							blurAmount: 120,
+							breatheAmount: 0.15,
+							driftAmount: 0.08,
+							easing: [0.45, 0, 0.55, 1],
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							spotlightColor: "#1cc23a",
+							spotlightOpacity: 0.7,
+							spotlightSize: 1.3,
+							spotlightX: 0.5,
+							spotlightY: 0.5,
+						} satisfies RadialSpotlightBackgroundProps
+					}
+				/>
+				<Composition
+					component={WaveCurveBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="WaveCurveBackground"
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 18,
+							baseColor: "#1a0218",
+							easing: [0.45, 0, 0.55, 1],
+							flowSpeed: 1,
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							waveAccentColor: "#f0abfc",
+							waveAmplitude: 0.18,
+							waveBlur: 30,
+							waveColor: "#c026d3",
+							waveFrequency: 1.2,
+							waveOffsetY: 0.6,
+							waveOpacity: 1,
+						} satisfies WaveCurveBackgroundProps
+					}
+				/>
+				<Composition
+					component={CornerGlowBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="CornerGlowBackground"
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 22,
+							baseColor: "#0a0a14",
+							blurAmount: 140,
+							easing: [0.45, 0, 0.55, 1],
+							glowColors: ["#7c3aed", "#06b6d4"],
+							glowCorners: ["br", "tr"],
+							glowDrift: 0.05,
+							glowOpacity: 0.7,
+							glowSize: 1.3,
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+						} satisfies CornerGlowBackgroundProps
+					}
+				/>
+				<Composition
+					component={DiagonalSpectrumBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="DiagonalSpectrumBackground"
+					width={1280}
+					defaultProps={
+						{
+							angleEnd: 200,
+							angleStart: 135,
+							animationDuration: 24,
+							baseColor: "#02061a",
+							colors: ["#0072ff", "#00c6a7", "#0072ff"],
+							easing: [0.45, 0, 0.55, 1],
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							spectrumOpacity: 1,
+						} satisfies DiagonalSpectrumBackgroundProps
+					}
+				/>
+				<Composition
+					component={AuroraFlowBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="AuroraFlowBackground"
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 25,
+							baseColor: "#0a0418",
+							blurAmount: 180,
+							colors: ["#3b82f6", "#a855f7", "#ec4899", "#06b6d4"],
+							easing: [0.45, 0, 0.55, 1],
+							flowAmount: 0.12,
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							zoneOpacity: 0.65,
+							zoneSize: 1.3,
+						} satisfies AuroraFlowBackgroundProps
 					}
 				/>
 			</Folder>
