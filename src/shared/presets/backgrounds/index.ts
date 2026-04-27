@@ -1,7 +1,22 @@
 export {
+  AtmosphericFogBackground,
+  type AtmosphericFogBackgroundProps,
+} from "./AtmosphericFogBackground";
+
+export {
   AuroraFlowBackground,
   type AuroraFlowBackgroundProps,
 } from "./AuroraFlowBackground";
+
+export {
+  BokehLightsBackground,
+  type BokehLightsBackgroundProps,
+} from "./BokehLightsBackground";
+
+export {
+  CinematicVignetteOverlay,
+  type CinematicVignetteOverlayProps,
+} from "./CinematicVignetteOverlay";
 
 export {
   CornerGlowBackground,
@@ -12,6 +27,11 @@ export {
   DarkGradientBackground,
   type DarkGradientBackgroundProps,
 } from "./DarkGradientBackground";
+
+export {
+  DepthFogBackground,
+  type DepthFogBackgroundProps,
+} from "./DepthFogBackground";
 
 export {
   DiagonalSpectrumBackground,
@@ -52,6 +72,11 @@ export {
   NeonPulseBackground,
   type NeonPulseBackgroundProps,
 } from "./NeonPulseBackground";
+
+export {
+  PaperTextureBackground,
+  type PaperTextureBackgroundProps,
+} from "./PaperTextureBackground";
 
 export {
   RadialSpotlightBackground,

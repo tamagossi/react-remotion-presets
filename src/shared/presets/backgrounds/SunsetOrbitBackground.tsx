@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 
 import {
   AbsoluteFill,
@@ -8,32 +8,37 @@ import {
   useVideoConfig,
 } from "remotion";
 
+import { GrainOverlay } from "../../components/GrainOverlay";
+import { VignetteOverlay } from "../../components/VignetteOverlay";
+
 export type SunsetOrbitBackgroundProps = {
-  colors?: string[];
+  animationDuration?: number;
   baseColor?: string;
   blobCount?: number;
-  blobSize?: number;
   blobOpacity?: number;
-  animationDuration?: number;
+  blobSize?: number;
   blurAmount?: number;
-  easing?: [number, number, number, number];
-  grainOpacity?: number;
-  grainAmount?: number;
   children?: React.ReactNode;
+  colors?: string[];
+  easing?: [number, number, number, number];
+  grainAmount?: number;
+  grainOpacity?: number;
+  vignetteStrength?: number;
 };
 
 export const SunsetOrbitBackground: React.FC<SunsetOrbitBackgroundProps> = ({
   animationDuration = 25,
-  baseColor = "#1a0a0a",
+  baseColor = "#1a0505",
   blobCount = 3,
   blobOpacity = 0.4,
   blobSize = 1.5,
   blurAmount = 150,
   children,
-  colors = ["#ff512f", "#dd2476", "#ff9966", "#f09819"],
+  colors = ["#dc2626", "#ea580c", "#f97316", "#fbbf24"],
   easing = [0.37, 0, 0.63, 1],
   grainAmount = 0.3,
   grainOpacity = 0.03,
+  vignetteStrength = 0.35,
 }) => {
   const frame = useCurrentFrame();
   const { fps, height, width } = useVideoConfig();
@@ -66,11 +71,6 @@ export const SunsetOrbitBackground: React.FC<SunsetOrbitBackgroundProps> = ({
     blobs.push({ color, size, x, y });
   }
 
-  const grainPattern = useMemo(() => {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>`;
-    return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
-  }, []);
-
   return (
     <AbsoluteFill style={{ background: baseColor, overflow: "hidden" }}>
       <AbsoluteFill style={{ mixBlendMode: "screen", pointerEvents: "none" }}>
@@ -92,15 +92,8 @@ export const SunsetOrbitBackground: React.FC<SunsetOrbitBackgroundProps> = ({
         ))}
       </AbsoluteFill>
 
-      <AbsoluteFill
-        style={{
-          backgroundImage: grainPattern,
-          backgroundRepeat: "repeat",
-          backgroundSize: "128px 128px",
-          opacity: grainOpacity * grainAmount,
-          pointerEvents: "none",
-        }}
-      />
+      <GrainOverlay amount={grainAmount} opacity={grainOpacity} />
+      <VignetteOverlay strength={vignetteStrength} />
 
       <AbsoluteFill style={{ zIndex: 10 }}>{children}</AbsoluteFill>
     </AbsoluteFill>

@@ -8,16 +8,21 @@ import {
   useVideoConfig,
 } from "remotion";
 
+import { VignetteOverlay } from "../../components/VignetteOverlay";
+
 export type GeometricGridBackgroundProps = {
-  lineColor?: string;
+  animationDuration?: number;
   baseColor?: string;
+  children?: React.ReactNode;
+  easing?: [number, number, number, number];
+  fadeToHorizon?: boolean;
+  glowPulse?: boolean;
+  gridDensity?: number;
+  lineColor?: string;
   lineOpacity?: number;
   lineWidth?: number;
-  gridDensity?: number;
   perspective?: number;
-  animationDuration?: number;
-  easing?: [number, number, number, number];
-  children?: React.ReactNode;
+  vignetteStrength?: number;
 };
 
 export const GeometricGridBackground: React.FC<
@@ -27,11 +32,14 @@ export const GeometricGridBackground: React.FC<
   baseColor = "#060d18",
   children,
   easing = [0.45, 0, 0.55, 1],
+  fadeToHorizon = true,
+  glowPulse = true,
   gridDensity = 12,
   lineColor = "#4a7fcf",
   lineOpacity = 0.6,
   lineWidth = 1,
   perspective = 600,
+  vignetteStrength = 0.25,
 }) => {
   const frame = useCurrentFrame();
   const { fps, height, width } = useVideoConfig();
@@ -78,6 +86,10 @@ export const GeometricGridBackground: React.FC<
     );
   }
 
+  const pulse = glowPulse
+    ? 1 + Math.sin(progress * Math.PI * 4) * 0.15
+    : 1;
+
   return (
     <AbsoluteFill
       style={{
@@ -107,9 +119,21 @@ export const GeometricGridBackground: React.FC<
         style={{
           background: `radial-gradient(ellipse at 50% 50%, ${lineColor}33 0%, transparent 70%)`,
           mixBlendMode: "screen",
+          opacity: pulse,
           pointerEvents: "none",
         }}
       />
+
+      {fadeToHorizon && (
+        <AbsoluteFill
+          style={{
+            background: `linear-gradient(to bottom, transparent 0%, ${baseColor} 100%)`,
+            pointerEvents: "none",
+          }}
+        />
+      )}
+
+      <VignetteOverlay strength={vignetteStrength} />
 
       <AbsoluteFill style={{ zIndex: 10 }}>{children}</AbsoluteFill>
     </AbsoluteFill>

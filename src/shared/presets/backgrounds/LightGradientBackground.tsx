@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 
 import {
   AbsoluteFill,
@@ -8,34 +8,39 @@ import {
   useVideoConfig,
 } from "remotion";
 
+import { GrainOverlay } from "../../components/GrainOverlay";
+import { VignetteOverlay } from "../../components/VignetteOverlay";
+
 export type LightGradientBackgroundProps = {
-  colors?: string[];
+  animationDuration?: number;
   baseColor?: string;
   blobCount?: number;
-  blobSize?: number;
   blobOpacity?: number;
-  animationDuration?: number;
+  blobSize?: number;
   blurAmount?: number;
-  easing?: [number, number, number, number];
-  grainOpacity?: number;
-  grainAmount?: number;
   children?: React.ReactNode;
+  colors?: string[];
+  easing?: [number, number, number, number];
+  grainAmount?: number;
+  grainOpacity?: number;
+  vignetteStrength?: number;
 };
 
 export const LightGradientBackground: React.FC<
   LightGradientBackgroundProps
 > = ({
   animationDuration = 20,
-  baseColor = "#f5f7ff",
+  baseColor = "#f8fafc",
   blobCount = 3,
-  blobOpacity = 0.7,
+  blobOpacity = 0.6,
   blobSize = 1.4,
   blurAmount = 160,
   children,
-  colors = ["#ff7eb3", "#5b9cfc", "#4facfe"],
+  colors = ["#f1f5f9", "#e2e8f0", "#cbd5e1"],
   easing = [0.45, 0, 0.55, 1],
   grainAmount = 0.3,
   grainOpacity = 0.03,
+  vignetteStrength = 0.15,
 }) => {
   const frame = useCurrentFrame();
   const { fps, height, width } = useVideoConfig();
@@ -62,11 +67,6 @@ export const LightGradientBackground: React.FC<
     blobs.push({ color, size, x, y });
   }
 
-  const grainPattern = useMemo(() => {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>`;
-    return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
-  }, []);
-
   return (
     <AbsoluteFill style={{ background: baseColor, overflow: "hidden" }}>
       <AbsoluteFill style={{ mixBlendMode: "normal", pointerEvents: "none" }}>
@@ -88,15 +88,8 @@ export const LightGradientBackground: React.FC<
         ))}
       </AbsoluteFill>
 
-      <AbsoluteFill
-        style={{
-          backgroundImage: grainPattern,
-          backgroundRepeat: "repeat",
-          backgroundSize: "128px 128px",
-          opacity: grainOpacity * grainAmount,
-          pointerEvents: "none",
-        }}
-      />
+      <GrainOverlay amount={grainAmount} opacity={grainOpacity} />
+      <VignetteOverlay strength={vignetteStrength} />
 
       <AbsoluteFill style={{ zIndex: 10 }}>{children}</AbsoluteFill>
     </AbsoluteFill>

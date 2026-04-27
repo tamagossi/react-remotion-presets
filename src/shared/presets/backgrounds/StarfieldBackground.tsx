@@ -8,14 +8,20 @@ import {
   useVideoConfig,
 } from "remotion";
 
+import { GrainOverlay } from "../../components/GrainOverlay";
+import { VignetteOverlay } from "../../components/VignetteOverlay";
+
 export type StarfieldBackgroundProps = {
-  starColor?: string;
+  animationDuration?: number;
   baseColor?: string;
+  children?: React.ReactNode;
+  easing?: [number, number, number, number];
+  nebulaColor?: string;
+  nebulaOpacity?: number;
+  starColor?: string;
   starCount?: number;
   starOpacity?: number;
-  animationDuration?: number;
-  easing?: [number, number, number, number];
-  children?: React.ReactNode;
+  vignetteStrength?: number;
 };
 
 interface Star {
@@ -32,9 +38,12 @@ export const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
   baseColor = "#020408",
   children,
   easing = [0.45, 0, 0.55, 1],
+  nebulaColor = "#1e3a8a",
+  nebulaOpacity = 0.15,
   starColor = "#ffffff",
   starCount = 120,
   starOpacity = 0.8,
+  vignetteStrength = 0.35,
 }) => {
   const frame = useCurrentFrame();
   const { fps, height, width } = useVideoConfig();
@@ -88,6 +97,20 @@ export const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
           );
         })}
       </AbsoluteFill>
+
+      {nebulaOpacity > 0 && (
+        <AbsoluteFill
+          style={{
+            background: `radial-gradient(ellipse at 50% 50%, ${nebulaColor} 0%, transparent 70%)`,
+            mixBlendMode: "screen",
+            opacity: nebulaOpacity,
+            pointerEvents: "none",
+          }}
+        />
+      )}
+
+      <GrainOverlay opacity={0.02} amount={0.3} />
+      <VignetteOverlay strength={vignetteStrength} />
 
       <AbsoluteFill style={{ zIndex: 10 }}>{children}</AbsoluteFill>
     </AbsoluteFill>

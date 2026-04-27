@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 
 import {
   AbsoluteFill,
@@ -8,31 +8,38 @@ import {
   useVideoConfig,
 } from "remotion";
 
+import { GrainOverlay } from "../../components/GrainOverlay";
+import { VignetteOverlay } from "../../components/VignetteOverlay";
+
 export type WaveCurveBackgroundProps = {
+  animationDuration?: number;
   baseColor?: string;
-  waveColor?: string;
+  children?: React.ReactNode;
+  easing?: [number, number, number, number];
+  flowSpeed?: number;
+  grainAmount?: number;
+  grainOpacity?: number;
+  reflectedWave?: boolean;
+  vignetteStrength?: number;
   waveAccentColor?: string;
   waveAmplitude?: number;
+  waveBlur?: number;
+  waveColor?: string;
   waveFrequency?: number;
   waveOffsetY?: number;
-  waveBlur?: number;
   waveOpacity?: number;
-  flowSpeed?: number;
-  animationDuration?: number;
-  easing?: [number, number, number, number];
-  grainOpacity?: number;
-  grainAmount?: number;
-  children?: React.ReactNode;
 };
 
 export const WaveCurveBackground: React.FC<WaveCurveBackgroundProps> = ({
   animationDuration = 18,
-  baseColor = "#1a0218",
+  baseColor = "#0a0212",
   children,
   easing = [0.45, 0, 0.55, 1],
   flowSpeed = 1,
   grainAmount = 0.3,
   grainOpacity = 0.04,
+  reflectedWave = false,
+  vignetteStrength = 0.3,
   waveAccentColor = "#f0abfc",
   waveAmplitude = 0.18,
   waveBlur = 30,
@@ -54,34 +61,39 @@ export const WaveCurveBackground: React.FC<WaveCurveBackgroundProps> = ({
   const amp = height * waveAmplitude;
   const baseY = height * waveOffsetY;
 
-  const segments = 40;
-  const points: string[] = [];
-  for (let i = 0; i <= segments; i++) {
-    const t = i / segments;
-    const x = t * width;
-    const y =
-      baseY + Math.sin(t * Math.PI * 2 * waveFrequency + phase) * amp;
-    points.push(`${x.toFixed(2)},${y.toFixed(2)}`);
-  }
-  const path = `M -10,${height + 10} L -10,${points[0].split(",")[1]} L ${points.join(" L ")} L ${width + 10},${height + 10} Z`;
+  const buildPath = (flip = false) => {
+    const segments = 40;
+    const points: string[] = [];
+    for (let i = 0; i <= segments; i++) {
+      const t = i / segments;
+      const x = t * width;
+      const y =
+        baseY +
+        (flip ? -1 : 1) *
+          Math.sin(t * Math.PI * 2 * waveFrequency + phase) *
+          amp;
+      points.push(`${x.toFixed(2)},${y.toFixed(2)}`);
+    }
+    const firstY = points[0].split(",")[1];
+    const lastY = points[points.length - 1].split(",")[1];
+    if (flip) {
+      return `M -10,-10 L -10,${firstY} L ${points.join(" L ")} L ${width + 10},${lastY} L ${width + 10},-10 Z`;
+    }
+    return `M -10,${height + 10} L -10,${firstY} L ${points.join(" L ")} L ${width + 10},${lastY} L ${width + 10},${height + 10} Z`;
+  };
 
-  const grainPattern = useMemo(() => {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>`;
-    return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
-  }, []);
+  const path = buildPath(false);
+  const reflectPath = reflectedWave ? buildPath(true) : null;
 
   return (
     <AbsoluteFill style={{ background: baseColor, overflow: "hidden" }}>
       <AbsoluteFill style={{ pointerEvents: "none" }}>
         <svg
           height={height}
+          style={{ filter: `blur(${waveBlur}px)`, opacity: waveOpacity }}
           viewBox={`0 0 ${width} ${height}`}
           width={width}
           xmlns="http://www.w3.org/2000/svg"
-          style={{
-            filter: `blur(${waveBlur}px)`,
-            opacity: waveOpacity,
-          }}
         >
           <defs>
             <linearGradient id="wave-grad" x1="0" x2="1" y1="0" y2="1">
@@ -90,18 +102,12 @@ export const WaveCurveBackground: React.FC<WaveCurveBackgroundProps> = ({
             </linearGradient>
           </defs>
           <path d={path} fill="url(#wave-grad)" />
+          {reflectPath && <path d={reflectPath} fill="url(#wave-grad)" opacity={0.4} />}
         </svg>
       </AbsoluteFill>
 
-      <AbsoluteFill
-        style={{
-          backgroundImage: grainPattern,
-          backgroundRepeat: "repeat",
-          backgroundSize: "128px 128px",
-          opacity: grainOpacity * grainAmount,
-          pointerEvents: "none",
-        }}
-      />
+      <GrainOverlay amount={grainAmount} opacity={grainOpacity} />
+      <VignetteOverlay strength={vignetteStrength} />
 
       <AbsoluteFill style={{ zIndex: 10 }}>{children}</AbsoluteFill>
     </AbsoluteFill>

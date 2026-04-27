@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 
 import {
   AbsoluteFill,
@@ -7,6 +7,9 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
+
+import { GrainOverlay } from "../../components/GrainOverlay";
+import { VignetteOverlay } from "../../components/VignetteOverlay";
 
 export type HaloVignetteBackgroundProps = {
   animationDuration?: number;
@@ -22,6 +25,7 @@ export type HaloVignetteBackgroundProps = {
   easing?: [number, number, number, number];
   grainAmount?: number;
   grainOpacity?: number;
+  vignetteStrength?: number;
 };
 
 export const HaloVignetteBackground: React.FC<
@@ -40,6 +44,7 @@ export const HaloVignetteBackground: React.FC<
   easing = [0.45, 0, 0.55, 1],
   grainAmount = 0.3,
   grainOpacity = 0.04,
+  vignetteStrength = 0.5,
 }) => {
   const frame = useCurrentFrame();
   const { fps, height, width } = useVideoConfig();
@@ -71,11 +76,6 @@ export const HaloVignetteBackground: React.FC<
     blobs.push({ color, size: size * breathe, x, y });
   }
 
-  const grainPattern = useMemo(() => {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>`;
-    return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
-  }, []);
-
   return (
     <AbsoluteFill style={{ background: baseColor, overflow: "hidden" }}>
       <AbsoluteFill style={{ pointerEvents: "none" }}>
@@ -97,15 +97,8 @@ export const HaloVignetteBackground: React.FC<
         ))}
       </AbsoluteFill>
 
-      <AbsoluteFill
-        style={{
-          backgroundImage: grainPattern,
-          backgroundRepeat: "repeat",
-          backgroundSize: "128px 128px",
-          opacity: grainOpacity * grainAmount,
-          pointerEvents: "none",
-        }}
-      />
+      <GrainOverlay amount={grainAmount} opacity={grainOpacity} />
+      <VignetteOverlay strength={vignetteStrength} />
 
       <AbsoluteFill style={{ zIndex: 10 }}>{children}</AbsoluteFill>
     </AbsoluteFill>

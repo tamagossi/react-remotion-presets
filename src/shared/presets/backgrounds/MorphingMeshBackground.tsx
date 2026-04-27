@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 
 import {
   AbsoluteFill,
@@ -8,21 +8,25 @@ import {
   useVideoConfig,
 } from "remotion";
 
+import { GrainOverlay } from "../../components/GrainOverlay";
+import { VignetteOverlay } from "../../components/VignetteOverlay";
+
 export type MorphingMeshBackgroundProps = {
-  colors?: string[];
+  animationDuration?: number;
   baseColor?: string;
   blobCount?: number;
-  blobSize?: number;
   blobOpacity?: number;
-  animationDuration?: number;
+  blobSize?: number;
   blobStagger?: number;
-  morphStiffness?: number;
-  driftAmount?: number;
   blurAmount?: number;
-  easing?: [number, number, number, number];
-  grainOpacity?: number;
-  grainAmount?: number;
   children?: React.ReactNode;
+  colors?: string[];
+  driftAmount?: number;
+  easing?: [number, number, number, number];
+  grainAmount?: number;
+  grainOpacity?: number;
+  morphStiffness?: number;
+  vignetteStrength?: number;
 };
 
 function hexToRgb(hex: string): [number, number, number] {
@@ -50,12 +54,13 @@ export const MorphingMeshBackground: React.FC<MorphingMeshBackgroundProps> = ({
   blobStagger = 0.8,
   blurAmount = 120,
   children,
-  colors = ["#4a00e0", "#8e2de2", "#da22ff", "#1fddff", "#ff006e"],
+  colors = ["#6366f1", "#8b5cf6", "#d946ef", "#06b6d4", "#f472b6"],
   driftAmount = 0.6,
   easing = [0.45, 0, 0.55, 1],
   grainAmount = 0.3,
   grainOpacity = 0.04,
   morphStiffness = 1.0,
+  vignetteStrength = 0.3,
 }) => {
   const frame = useCurrentFrame();
   const { fps, height, width } = useVideoConfig();
@@ -96,11 +101,6 @@ export const MorphingMeshBackground: React.FC<MorphingMeshBackgroundProps> = ({
     blobs.push({ color, size, x, y });
   }
 
-  const grainPattern = useMemo(() => {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>`;
-    return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
-  }, []);
-
   return (
     <AbsoluteFill style={{ background: baseColor, overflow: "hidden" }}>
       <AbsoluteFill
@@ -124,15 +124,8 @@ export const MorphingMeshBackground: React.FC<MorphingMeshBackgroundProps> = ({
         ))}
       </AbsoluteFill>
 
-      <AbsoluteFill
-        style={{
-          backgroundImage: grainPattern,
-          backgroundRepeat: "repeat",
-          backgroundSize: "128px 128px",
-          opacity: grainOpacity * grainAmount,
-          pointerEvents: "none",
-        }}
-      />
+      <GrainOverlay amount={grainAmount} opacity={grainOpacity} />
+      <VignetteOverlay strength={vignetteStrength} />
 
       <AbsoluteFill style={{ zIndex: 10 }}>{children}</AbsoluteFill>
     </AbsoluteFill>

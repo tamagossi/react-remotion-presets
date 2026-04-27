@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 
 import {
   AbsoluteFill,
@@ -8,18 +8,22 @@ import {
   useVideoConfig,
 } from "remotion";
 
+import { GrainOverlay } from "../../components/GrainOverlay";
+import { VignetteOverlay } from "../../components/VignetteOverlay";
+
 export type DiagonalSpectrumBackgroundProps = {
-  colors?: string[];
-  baseColor?: string;
-  angleStart?: number;
   angleEnd?: number;
-  stopOffsets?: number[];
-  spectrumOpacity?: number;
+  angleStart?: number;
   animationDuration?: number;
-  easing?: [number, number, number, number];
-  grainOpacity?: number;
-  grainAmount?: number;
+  baseColor?: string;
   children?: React.ReactNode;
+  colors?: string[];
+  easing?: [number, number, number, number];
+  grainAmount?: number;
+  grainOpacity?: number;
+  spectrumOpacity?: number;
+  stopOffsets?: number[];
+  vignetteStrength?: number;
 };
 
 export const DiagonalSpectrumBackground: React.FC<
@@ -36,6 +40,7 @@ export const DiagonalSpectrumBackground: React.FC<
   grainOpacity = 0.04,
   spectrumOpacity = 1,
   stopOffsets,
+  vignetteStrength = 0.2,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -61,11 +66,6 @@ export const DiagonalSpectrumBackground: React.FC<
 
   const gradient = `linear-gradient(${angle.toFixed(2)}deg, ${stops})`;
 
-  const grainPattern = useMemo(() => {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>`;
-    return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
-  }, []);
-
   return (
     <AbsoluteFill style={{ background: baseColor, overflow: "hidden" }}>
       <AbsoluteFill
@@ -76,15 +76,8 @@ export const DiagonalSpectrumBackground: React.FC<
         }}
       />
 
-      <AbsoluteFill
-        style={{
-          backgroundImage: grainPattern,
-          backgroundRepeat: "repeat",
-          backgroundSize: "128px 128px",
-          opacity: grainOpacity * grainAmount,
-          pointerEvents: "none",
-        }}
-      />
+      <GrainOverlay amount={grainAmount} opacity={grainOpacity} />
+      <VignetteOverlay strength={vignetteStrength} />
 
       <AbsoluteFill style={{ zIndex: 10 }}>{children}</AbsoluteFill>
     </AbsoluteFill>

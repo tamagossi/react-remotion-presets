@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 
 import {
   AbsoluteFill,
@@ -8,28 +8,32 @@ import {
   useVideoConfig,
 } from "remotion";
 
+import { GrainOverlay } from "../../components/GrainOverlay";
+import { VignetteOverlay } from "../../components/VignetteOverlay";
+
 export type CornerGlowCorner = "bl" | "br" | "tl" | "tr";
 
 export type CornerGlowBackgroundProps = {
+  animationDuration?: number;
   baseColor?: string;
+  blurAmount?: number;
+  children?: React.ReactNode;
+  easing?: [number, number, number, number];
   glowColors?: string[];
   glowCorners?: CornerGlowCorner[];
-  glowSize?: number;
-  glowOpacity?: number;
   glowDrift?: number;
-  blurAmount?: number;
-  animationDuration?: number;
-  easing?: [number, number, number, number];
-  grainOpacity?: number;
+  glowOpacity?: number;
+  glowSize?: number;
   grainAmount?: number;
-  children?: React.ReactNode;
+  grainOpacity?: number;
+  vignetteStrength?: number;
 };
 
 const cornerAnchor = (
   corner: CornerGlowCorner,
   width: number,
   height: number,
-): { x: number; y: number; ax: number; ay: number } => {
+): { ax: number; ay: number; x: number; y: number } => {
   switch (corner) {
     case "bl":
       return { ax: -1, ay: 1, x: 0, y: height };
@@ -55,6 +59,7 @@ export const CornerGlowBackground: React.FC<CornerGlowBackgroundProps> = ({
   glowSize = 1.3,
   grainAmount = 0.3,
   grainOpacity = 0.04,
+  vignetteStrength = 0.4,
 }) => {
   const frame = useCurrentFrame();
   const { fps, height, width } = useVideoConfig();
@@ -66,11 +71,6 @@ export const CornerGlowBackground: React.FC<CornerGlowBackgroundProps> = ({
   });
 
   const size = Math.min(width, height) * glowSize;
-
-  const grainPattern = useMemo(() => {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>`;
-    return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
-  }, []);
 
   return (
     <AbsoluteFill style={{ background: baseColor, overflow: "hidden" }}>
@@ -103,15 +103,8 @@ export const CornerGlowBackground: React.FC<CornerGlowBackgroundProps> = ({
         })}
       </AbsoluteFill>
 
-      <AbsoluteFill
-        style={{
-          backgroundImage: grainPattern,
-          backgroundRepeat: "repeat",
-          backgroundSize: "128px 128px",
-          opacity: grainOpacity * grainAmount,
-          pointerEvents: "none",
-        }}
-      />
+      <GrainOverlay amount={grainAmount} opacity={grainOpacity} />
+      <VignetteOverlay strength={vignetteStrength} />
 
       <AbsoluteFill style={{ zIndex: 10 }}>{children}</AbsoluteFill>
     </AbsoluteFill>

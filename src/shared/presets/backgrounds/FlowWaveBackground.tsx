@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 
 import {
   AbsoluteFill,
@@ -8,6 +8,9 @@ import {
   useVideoConfig,
 } from "remotion";
 
+import { GrainOverlay } from "../../components/GrainOverlay";
+import { VignetteOverlay } from "../../components/VignetteOverlay";
+
 export type FlowWaveBackgroundProps = {
   animationDuration?: number;
   baseColor?: string;
@@ -16,6 +19,7 @@ export type FlowWaveBackgroundProps = {
   flowSpeed?: number;
   grainAmount?: number;
   grainOpacity?: number;
+  vignetteStrength?: number;
   waveBlur?: number;
   waveColors?: string[];
   waveCount?: number;
@@ -31,6 +35,7 @@ export const FlowWaveBackground: React.FC<FlowWaveBackgroundProps> = ({
   flowSpeed = 0.6,
   grainAmount = 0.3,
   grainOpacity = 0.04,
+  vignetteStrength = 0.3,
   waveBlur = 80,
   waveColors = ["#0e7490", "#1e3a8a", "#0891b2"],
   waveCount = 3,
@@ -64,11 +69,6 @@ export const FlowWaveBackground: React.FC<FlowWaveBackgroundProps> = ({
     waves.push({ baseX, baseY, color, driftY, rotation, thickness });
   }
 
-  const grainPattern = useMemo(() => {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>`;
-    return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
-  }, []);
-
   return (
     <AbsoluteFill style={{ background: baseColor, overflow: "hidden" }}>
       <AbsoluteFill style={{ pointerEvents: "none" }}>
@@ -91,15 +91,8 @@ export const FlowWaveBackground: React.FC<FlowWaveBackgroundProps> = ({
         ))}
       </AbsoluteFill>
 
-      <AbsoluteFill
-        style={{
-          backgroundImage: grainPattern,
-          backgroundRepeat: "repeat",
-          backgroundSize: "128px 128px",
-          opacity: grainOpacity * grainAmount,
-          pointerEvents: "none",
-        }}
-      />
+      <GrainOverlay amount={grainAmount} opacity={grainOpacity} />
+      <VignetteOverlay strength={vignetteStrength} />
 
       <AbsoluteFill style={{ zIndex: 10 }}>{children}</AbsoluteFill>
     </AbsoluteFill>

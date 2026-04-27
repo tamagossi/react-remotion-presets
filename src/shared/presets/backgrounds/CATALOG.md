@@ -30,6 +30,11 @@ AI selection guide for `src/shared/presets/backgrounds/`.
 | Tech, cyberpunk, neon arc         | Sleek, futuristic    | Medium      | Cool               | Professional-Luxury | `SweepArcBackground` (single cyan arc, slow drift)                       |
 | Ocean, deep tech, data flow       | Immersive, layered   | Medium      | Cool               | Professional        | `FlowWaveBackground` (3 diagonal bands, teal drift)                       |
 | Warm, earthy, cozy                | Inviting, grounded   | Low-Medium  | Warm               | Casual              | `WarmDriftBackground` (amber Lissajous drift)                            |
+| City night, romantic, Christmas   | Dreamy, nostalgic    | Low-Medium  | Warm/Cool          | Casual-Luxury       | `BokehLightsBackground` (hexShape false, gentle drift)                   |
+| Mystery, horror, dream sequences  | Eerie, ethereal      | Low         | Cool/Neutral       | Luxury              | `AtmosphericFogBackground` (4 bands, slow drift, high vignette)          |
+| Documentary, history, memoir      | Authentic, textured  | Low         | Warm/Neutral       | Professional        | `PaperTextureBackground` (default off-white, subtle edge bleed)          |
+| Cinematic storytelling, film intro| Dramatic, immersive  | Low-Medium  | Any                | Luxury              | `CinematicVignetteOverlay` (wrap any bg, add grain + light leak)         |
+| Portrait, interview, depth focus  | Intimate, layered    | Low-Medium  | Any                | Professional-Luxury | `DepthFogBackground` (3 layers, slow focus shift)                        |
 
 ## How to Use This Catalog
 
@@ -1377,6 +1382,391 @@ import { WarmDriftBackground } from "./shared/presets/backgrounds";
 <WarmDriftBackground colors={["#d97706", "#b45309", "#92400e"]} baseColor="#1a0a04">
   <YourContent />
 </WarmDriftBackground>;
+```
+
+---
+
+## Presets (Continued)
+
+### BokehLightsBackground
+
+**ID**: `BokehLightsBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Out-of-focus hexagonal or circular light discs drifting at different depths on dark base. Simulates city night bokeh with soft color orbs. Depth-based blur and opacity create realistic parallax. Optional hex clip-path for camera-lens aperture feel.
+
+**Visual Characteristics**
+
+- Style: Dreamy, cinematic, nostalgic
+- Motion: Parallax drift per light depth (frame-driven, no CSS animation)
+- Texture: Subtle animated grain
+- Depth: Multiple depth layers with varying blur and speed
+
+**Metadata**
+
+```json
+{
+  "mood": ["dreamy", "nostalgic", "romantic", "cinematic"],
+  "theme": ["city", "night", "christmas", "romantic", "lifestyle"],
+  "energy": "low-to-medium",
+  "colorTemp": "warm-to-cool",
+  "formality": "casual-to-luxury",
+  "complexity": "medium",
+  "readability": "high"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 25,
+  "baseColor": "#0a0a14",
+  "blurAmount": 60,
+  "bokehColors": ["#f472b6", "#a78bfa", "#60a5fa", "#fbbf24", "#34d399"],
+  "bokehCount": 18,
+  "bokehOpacity": 0.55,
+  "driftAmount": 0.4,
+  "easing": [0.45, 0, 0.55, 1],
+  "grainOpacity": 0.03,
+  "grainAmount": 0.3,
+  "hexShape": false,
+  "lightSize": 1.0,
+  "vignetteStrength": 0.4
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context            | Override Rationale                  | Props                                                                           |
+| ------------------ | ----------------------------------- | ------------------------------------------------------------------------------- |
+| `city-night`       | Cooler palette, larger lights       | `{ bokehColors: ["#60a5fa", "#a78bfa", "#c084fc"], lightSize: 1.3 }`            |
+| `christmas-warm`   | Warm gold/red/green, hex shapes     | `{ bokehColors: ["#fbbf24", "#ef4444", "#22c55e"], hexShape: true }`            |
+| `romantic-soft`    | Fewer lights, slower drift          | `{ bokehCount: 10, driftAmount: 0.25, animationDuration: 40 }`                  |
+
+**When to Use**
+
+- City night intros, romantic sequences
+- Christmas or festive content needing soft light orbs
+- Any script wanting dreamy, out-of-focus background aesthetic
+
+**When NOT to Use**
+
+- Corporate/formal scripts needing precision
+- Content with very small text (large bokeh may distract)
+
+**Composition Example**
+
+```tsx
+import { BokehLightsBackground } from "./shared/presets/backgrounds";
+
+<BokehLightsBackground bokehColors={["#f472b6", "#a78bfa", "#60a5fa"]} hexShape={false}>
+  <YourContent />
+</BokehLightsBackground>;
+```
+
+### AtmosphericFogBackground
+
+**ID**: `AtmosphericFogBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Horizontal soft fog bands drifting at multiple vertical positions with parallax speeds. Each band has independent sine drift and breathe. Heavy blur dissolves edges into atmospheric layers. Perfect for mystery, horror, or dream sequences.
+
+**Visual Characteristics**
+
+- Style: Atmospheric, eerie, ethereal
+- Motion: Horizontal drift + vertical breathe per band (frame-driven)
+- Texture: Subtle animated grain
+- Depth: Overlapping blurred bands create layered depth
+
+**Metadata**
+
+```json
+{
+  "mood": ["eerie", "ethereal", "mysterious", "dreamy"],
+  "theme": ["mystery", "horror", "dream", "fog", "atmosphere"],
+  "energy": "low",
+  "colorTemp": "cool-to-neutral",
+  "formality": "luxury",
+  "complexity": "medium",
+  "readability": "high"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 30,
+  "baseColor": "#0a0a12",
+  "bandBlur": 100,
+  "bandCount": 4,
+  "bandOpacity": 0.35,
+  "easing": [0.45, 0, 0.55, 1],
+  "fogColors": ["#334155", "#475569", "#64748b", "#94a3b8"],
+  "grainOpacity": 0.04,
+  "grainAmount": 0.3,
+  "vignetteStrength": 0.45
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context           | Override Rationale                     | Props                                                                           |
+| ----------------- | -------------------------------------- | ------------------------------------------------------------------------------- |
+| `horror-dark`     | Darker palette, stronger vignette      | `{ fogColors: ["#1e293b", "#0f172a"], vignetteStrength: 0.6, bandOpacity: 0.5 }` |
+| `dream-ethereal`  | Lighter, more bands, slower drift      | `{ fogColors: ["#cbd5e1", "#e2e8f0"], bandCount: 6, animationDuration: 45 }`     |
+| `mystery-noir`    | Monochrome fog, high contrast          | `{ fogColors: ["#374151", "#6b7280"], baseColor: "#020617" }`                    |
+
+**When to Use**
+
+- Mystery, horror, or thriller intros
+- Dream sequences needing atmospheric depth
+- Any script wanting fog/mist visual metaphor
+
+**When NOT to Use**
+
+- Bright, cheerful scripts (fog feels heavy)
+- Content needing sharp, clean backgrounds
+
+**Composition Example**
+
+```tsx
+import { AtmosphericFogBackground } from "./shared/presets/backgrounds";
+
+<AtmosphericFogBackground fogColors={["#334155", "#475569", "#64748b"]}>
+  <YourContent />
+</AtmosphericFogBackground>;
+```
+
+### DepthFogBackground
+
+**ID**: `DepthFogBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Multi-layer blurred blobs with simulated depth-of-field. Blobs are organized into depth layers, each with different blur and opacity based on distance from a focus layer. Focus layer can shift over time creating a cinematic focus pull effect. Frame-driven, no CSS animation.
+
+**Visual Characteristics**
+
+- Style: Cinematic, layered, immersive
+- Motion: Layered drift with focus shift (frame-driven)
+- Texture: Subtle animated grain
+- Depth: Simulated depth-of-field via blur variance per layer
+
+**Metadata**
+
+```json
+{
+  "mood": ["intimate", "layered", "cinematic", "focused"],
+  "theme": ["portrait", "interview", "cinematic", "product", "depth"],
+  "energy": "low-to-medium",
+  "colorTemp": "any",
+  "formality": "professional-to-luxury",
+  "complexity": "medium",
+  "readability": "high"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 30,
+  "baseColor": "#0a0a14",
+  "blobCount": 6,
+  "blobOpacity": 0.45,
+  "blobSize": 1.6,
+  "blurAmount": 120,
+  "colors": ["#1e293b", "#334155", "#475569", "#64748b"],
+  "depthLayers": 3,
+  "easing": [0.45, 0, 0.55, 1],
+  "focusLayer": 1,
+  "focusShiftSpeed": 0.3,
+  "grainOpacity": 0.04,
+  "grainAmount": 0.3,
+  "vignetteStrength": 0.35
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context            | Override Rationale                     | Props                                                                           |
+| ------------------ | -------------------------------------- | ------------------------------------------------------------------------------- |
+| `portrait-intimate`| Shallow depth, warm tint               | `{ colors: ["#78350f", "#92400e", "#b45309"], depthLayers: 2, blurAmount: 160 }` |
+| `product-focus`    | Cool precision, sharp center           | `{ colors: ["#0f172a", "#1e293b", "#334155"], focusShiftSpeed: 0.1 }`            |
+| `cinematic-pull`   | Dramatic focus shift                   | `{ focusShiftSpeed: 0.8, animationDuration: 20 }`                               |
+
+**When to Use**
+
+- Portrait or interview backgrounds needing cinematic depth
+- Product reveals with focus pull effect
+- Any script wanting depth-of-field simulation
+
+**When NOT to Use**
+
+- Flat, minimal aesthetic (depth layers add complexity)
+- Content where all elements must be equally sharp
+
+**Composition Example**
+
+```tsx
+import { DepthFogBackground } from "./shared/presets/backgrounds";
+
+<DepthFogBackground colors={["#1e293b", "#334155", "#475569"]} depthLayers={3}>
+  <YourContent />
+</DepthFogBackground>;
+```
+
+### PaperTextureBackground
+
+**ID**: `PaperTextureBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Warm off-white base with SVG paper fiber texture and ink-bleed vignette edges. Subtle breathing animation on texture opacity. Designed for documentary, history, or memoir content where an authentic, tactile feel matters. Static grain for print-like texture.
+
+**Visual Characteristics**
+
+- Style: Authentic, tactile, editorial
+- Motion: Ultra-subtle texture breathe (frame-driven)
+- Texture: Paper fiber SVG pattern + static grain
+- Depth: Ink-bleed radial vignette
+
+**Metadata**
+
+```json
+{
+  "mood": ["authentic", "textured", "editorial", "warm"],
+  "theme": ["documentary", "history", "memoir", "print", "editorial"],
+  "energy": "low",
+  "colorTemp": "warm-to-neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "maximum"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 40,
+  "baseColor": "#f5f0e8",
+  "easing": [0.45, 0, 0.55, 1],
+  "edgeBleedColor": "#c4b49a",
+  "edgeBleedStrength": 0.25,
+  "grainOpacity": 0.04,
+  "grainAmount": 0.3,
+  "vignetteStrength": 0.15
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context            | Override Rationale                     | Props                                                                           |
+| ------------------ | -------------------------------------- | ------------------------------------------------------------------------------- |
+| `history-aged`     | Darker paper, stronger bleed           | `{ baseColor: "#e8dcc8", edgeBleedColor: "#a89878", edgeBleedStrength: 0.4 }`   |
+| `documentary-clean`| Minimal bleed, lighter base            | `{ baseColor: "#faf8f5", edgeBleedStrength: 0.1, vignetteStrength: 0.05 }`      |
+| `editorial-modern` | Cool grey tint                         | `{ baseColor: "#f1f5f9", edgeBleedColor: "#94a3b8" }`                            |
+
+**When to Use**
+
+- Documentary, history, memoir content
+- Editorial or print-themed videos
+- Any script needing tactile, authentic background feel
+
+**When NOT to Use**
+
+- Tech/futuristic scripts (paper feels anachronistic)
+- High-energy content (too calm and static)
+
+**Composition Example**
+
+```tsx
+import { PaperTextureBackground } from "./shared/presets/backgrounds";
+
+<PaperTextureBackground baseColor="#f5f0e8" edgeBleedColor="#c4b49a">
+  <YourContent />
+</PaperTextureBackground>;
+```
+
+### CinematicVignetteOverlay
+
+**ID**: `CinematicVignetteOverlay`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Reusable wrapper component that adds cinematic grain, vignette, and optional light leak on top of ANY background or content. Not a full background itself — use it to upgrade existing presets. Perfect for giving a "film look" to any composition.
+
+**Visual Characteristics**
+
+- Style: Cinematic, film-like, premium
+- Motion: Animated grain (optional)
+- Texture: Film grain + vignette + light leak
+- Depth: Vignette draws eye to center
+
+**Metadata**
+
+```json
+{
+  "mood": ["cinematic", "dramatic", "premium", "film-like"],
+  "theme": ["film", "intro", "outro", "storytelling", "cinematic"],
+  "energy": "low-to-medium",
+  "colorTemp": "any",
+  "formality": "luxury",
+  "complexity": "low",
+  "readability": "maximum"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "grainAmount": 0.3,
+  "grainAnimated": true,
+  "grainOpacity": 0.04,
+  "grainSpeed": 0.5,
+  "lightLeakColor": "#ff6b35",
+  "lightLeakOpacity": 0.08,
+  "vignetteColor": "#000000",
+  "vignetteShape": "oval",
+  "vignetteStrength": 0.4
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context            | Override Rationale                     | Props                                                                           |
+| ------------------ | -------------------------------------- | ------------------------------------------------------------------------------- |
+| `film-noir`        | Strong vignette, no light leak         | `{ vignetteStrength: 0.7, lightLeakOpacity: 0 }`                                |
+| `vintage-8mm`      | Heavy grain, warm leak                 | `{ grainOpacity: 0.08, lightLeakColor: "#fbbf24", lightLeakOpacity: 0.15 }`     |
+| `subtle-cinematic` | Minimal grain, gentle vignette         | `{ grainOpacity: 0.02, vignetteStrength: 0.25 }`                                |
+
+**When to Use**
+
+- Wrap any background to add cinematic film look
+- Intros/outros needing premium finish
+- Any composition where eye-draw to center matters
+
+**When NOT to Use**
+
+- When the underlying preset already has strong vignette (may double-darken edges)
+- Bright, flat aesthetic scripts
+
+**Composition Example**
+
+```tsx
+import { CinematicVignetteOverlay, DarkGradientBackground } from "./shared/presets/backgrounds";
+
+<DarkGradientBackground colors={["#0f172a", "#1e293b", "#334155"]} vignetteStrength={0}>
+  <CinematicVignetteOverlay vignetteStrength={0.5} lightLeakOpacity={0.1}>
+    <YourContent />
+  </CinematicVignetteOverlay>
+</DarkGradientBackground>;
 ```
 
 ---

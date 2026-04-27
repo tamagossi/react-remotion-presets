@@ -24,6 +24,18 @@ AI selection guide for `src/shared/presets/titles/`.
 | Minimal intro, understated elegance | Subtle, calm | Low | Neutral | Luxury | `MinimalDuoTitle` (small label + big title) |
 | Event promo, conference, webinar | Energetic, organized | Medium-High | Neutral | Professional | `StackedTrioCenterTitle` (3-line center stack) |
 | Modern outro, call-to-action | Clean, direct | Medium | Neutral | Professional | `ModernRightTitle` (big + small right-aligned) |
+| Premium boxed card reveal | Clean, premium | Medium | Neutral | Professional | `CardFillTitle` (white card with text) |
+| Product/gaming title with underline | Bold, product | Medium-High | Neutral | Professional | `ControllersUnderlineTitle` (center + underline) |
+| Luxury nested frame aesthetic | Premium, luxury | Medium | Neutral | Luxury | `DoubleFrameTitle` (outer + inner frame) |
+| Label + headline + underline bars | Bold, hierarchical | Medium-High | Warm | Professional | `ExclusiveLabelTitle` (label + bars) |
+| Dramatic statement with initial | Dramatic, bold | High | Warm | Professional | `GiantInitialTitle` (giant letter + line) |
+| Numbered sequence/chapter | Structured, ordinal | Medium | Neutral | Professional | `NumberFrameTitle` (number in frame) |
+| Dynamic offset tilted frames | Dynamic, modern | Medium-High | Neutral | Professional | `OffsetFramesTitle` (dual tilted frames) |
+| Clean outlined box layout | Clean, boxed | Medium | Neutral | Professional | `OutlineBoxTitle` (single outline) |
+| Classic overline + underline | Classic, editorial | Medium | Neutral | Professional | `OverlineUnderlineTitle` (overline + underline) |
+| Split highlight with box anchor | Dynamic, anchored | Medium-High | Warm | Professional | `SplitHighlightTitle` (box + text + divider) |
+| Statement with strikethrough + badge | Bold, emphasized | High | Neutral | Professional | `StrikethroughBadgeTitle` (strike + badge) |
+| Editorial with vertical accent | Bold, editorial | Medium-High | Warm | Professional | `VerticalAccentTitle` (vertical bar + stack) |
 
 ## How to Use This Catalog
 
@@ -673,6 +685,715 @@ import { ModernRightTitle } from "./shared/presets/titles";
 
 <ModernRightTitle lines={["THANKS", "FOR WATCHING"]} />
 ```
+
+---
+
+### CardFillTitle
+
+**ID**: `CardFillTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+White filled rectangle card containing centered title text. Elegant and contained. Perfect for clean, structured title reveals with a premium boxed feel.
+
+**Visual Characteristics**
+- Style: Boxed, clean, contained
+- Motion: Card scales in + text staggers in
+- Texture: None (text only)
+- Depth: Flat with subtle box shadow
+
+**Metadata**
+```json
+{
+  "mood": ["clean", "premium", "structured"],
+  "theme": ["presentation", "promo", "card"],
+  "energy": "medium",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["CARD FILL"],
+  "cardColor": "#ffffff",
+  "cardPadding": 48,
+  "cardWidth": 700,
+  "textColor": "#171717",
+  "textFontSize": 72,
+  "subtitle": "Premium Collection",
+  "animationDuration": 45
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `presentation-card` | Dark card for contrast | `{ cardColor: "#1a1a1a", textColor: "#ffffff" }` |
+| `promo-wide` | Wider card for more text | `{ cardWidth: 900 }` |
+
+**When to Use**
+- Presentation title cards
+- Product promo cards
+- Clean boxed title layouts
+
+**When NOT to Use**
+- Full-bleed backgrounds
+- Minimal text-only needs
+
+---
+
+### ControllersUnderlineTitle
+
+**ID**: `ControllersUnderlineTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Centered headline with animated underline bar and subtitle below. Classic gaming/product reveal style with emphasis on the main title.
+
+**Visual Characteristics**
+- Style: Centered, product-focused, bold
+- Motion: Text in first, then underline expands, then subtitle
+- Texture: None (text only)
+- Depth: Flat
+
+**Metadata**
+```json
+{
+  "mood": ["bold", "gaming", "product"],
+  "theme": ["gaming", "product-reveal", "tech"],
+  "energy": "medium-to-high",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["CONTROLLERS"],
+  "subtitle": "Premium Gaming Gear",
+  "accentColor": "#dc2626",
+  "accentThickness": 3,
+  "textColor": "#ffffff",
+  "textFontSize": 96,
+  "animationDuration": 45
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `product-reveal` | Red accent for brand | `{ accentColor: "#ff0000" }` |
+| `tech-title` | Blue accent | `{ accentColor: "#0066ff" }` |
+
+**When to Use**
+- Product reveal videos
+- Gaming content titles
+- Tech product launches
+
+**When NOT to Use**
+- Minimal/editorial needs
+- Multi-line stacked titles
+
+---
+
+### DoubleFrameTitle
+
+**ID**: `DoubleFrameTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Nested double frame (outer colored border, inner white border) containing centered title and optional subtitle. Premium boxed aesthetic with layered depth.
+
+**Visual Characteristics**
+- Style: Boxed, layered, premium
+- Motion: Outer frame in, inner frame in, text staggers
+- Texture: None (text only)
+- Depth: Layered (two frames)
+
+**Metadata**
+```json
+{
+  "mood": ["premium", "luxury", "structured"],
+  "theme": ["brand-reveal", "premium", "luxury"],
+  "energy": "medium",
+  "colorTemp": "neutral",
+  "formality": "luxury",
+  "complexity": "medium",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["DOUBLE FRAME"],
+  "outerBorderColor": "#dc2626",
+  "innerBorderColor": "#ffffff",
+  "borderThickness": 2,
+  "boxWidth": 600,
+  "boxPadding": 48,
+  "subtitle": "PREMIUM",
+  "textColor": "#ffffff",
+  "animationDuration": 45
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `luxury-brand` | Gold outer frame | `{ outerBorderColor: "#d4af37" }` |
+| `tech-box` | Blue outer frame | `{ outerBorderColor: "#0066ff" }` |
+
+**When to Use**
+- Luxury brand reveals
+- Premium product titles
+- High-end marketing cards
+
+**When NOT to Use**
+- Casual content
+- Minimal needs
+
+---
+
+### ExclusiveLabelTitle
+
+**ID**: `ExclusiveLabelTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Small label above large headline with accent bars below each text line. Left-aligned, creates strong hierarchy with multiple visual accents.
+
+**Visual Characteristics**
+- Style: Hierarchical, bold, editorial
+- Motion: Label slides in, then headline with underline bars
+- Texture: None (text only)
+- Depth: Flat
+
+**Metadata**
+```json
+{
+  "mood": ["bold", "confident", "exclusive"],
+  "theme": ["brand", "exclusive", "editorial"],
+  "energy": "medium-to-high",
+  "colorTemp": "warm",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["DYNAMIC", "TITLES"],
+  "label": "EXCLUSIVE",
+  "accentColor": "#dc2626",
+  "accentThickness": 2,
+  "accentWidth": 120,
+  "labelFontSize": 24,
+  "textFontSize": 96,
+  "animationDuration": 45
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `brand-reveal` | Wider accent bars | `{ accentWidth: 200 }` |
+| `editorial` | Thinner accent | `{ accentThickness: 1 }` |
+
+**When to Use**
+- Brand reveal titles
+- Exclusive/limited content
+- Editorial layouts
+
+**When NOT to Use**
+- Minimal needs
+- Center-aligned content
+
+---
+
+### GiantInitialTitle
+
+**ID**: `GiantInitialTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Giant colored initial letter followed by vertical divider line and stacked text. Dramatic typographic statement with strong visual anchor.
+
+**Visual Characteristics**
+- Style: Dramatic, typographic, statement
+- Motion: Giant initial scales in, line expands, text fades in
+- Texture: None (text only)
+- Depth: Flat
+
+**Metadata**
+```json
+{
+  "mood": ["dramatic", "bold", "statement"],
+  "theme": ["brand", "statement", "intro"],
+  "energy": "high",
+  "colorTemp": "warm",
+  "formality": "professional",
+  "complexity": "medium",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["GIANT INITIAL"],
+  "initial": "G",
+  "initialColor": "#dc2626",
+  "initialFontSize": 180,
+  "lineColor": "#ffffff",
+  "lineThickness": 2,
+  "lineHeight": 200,
+  "textFontSize": 48,
+  "animationDuration": 45
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `brand-init` | Larger initial | `{ initialFontSize: 220 }` |
+| `statement` | Bold color | `{ initialColor: "#ff0000" }` |
+
+**When to Use**
+- Brand name reveals
+- Statement titles
+- Dramatic intros
+
+**When NOT to Use**
+- Subtle/minimal needs
+- Multi-word initials
+
+---
+
+### NumberFrameTitle
+
+**ID**: `NumberFrameTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Number displayed inside a rotating outlined square frame, positioned left of headline text. Structured, numbered sequence feel.
+
+**Visual Characteristics**
+- Style: Structured, numbered, framed
+- Motion: Frame rotates/scales in, text slides in
+- Texture: None (text only)
+- Depth: Flat with frame
+
+**Metadata**
+```json
+{
+  "mood": ["structured", "numbered", "ordinal"],
+  "theme": ["序列", "numbered", "chapter"],
+  "energy": "medium",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["FRAME TITLE"],
+  "number": "01",
+  "numberColor": "#dc2626",
+  "frameColor": "#dc2626",
+  "frameSize": 100,
+  "frameThickness": 2,
+  "textFontSize": 72,
+  "animationDuration": 45
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `chapter-num` | Sequential numbers | `{ number: "01", number: "02", etc. }` |
+| `step-num` | Step indicator | `{ frameColor: "#0066ff" }` |
+
+**When to Use**
+- Chapter titles
+- Numbered sequences
+- Step-by-step content
+
+**When NOT to Use**
+- Non-numbered content
+- Centered layouts
+
+---
+
+### OffsetFramesTitle
+
+**ID**: `OffsetFramesTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Two offset tilted rectangular frames (colored outer, white inner) containing centered title text. Dynamic layered layout with subtle rotation.
+
+**Visual Characteristics**
+- Style: Dynamic, layered, modern
+- Motion: Outer frame tilts in, inner frame counter-rotates, text staggers
+- Texture: None (text only)
+- Depth: Layered offset frames
+
+**Metadata**
+```json
+{
+  "mood": ["dynamic", "modern", "layered"],
+  "theme": ["modern", "trendy", "design"],
+  "energy": "medium-to-high",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "medium",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["OFFSET FRAMES"],
+  "frame1Color": "#dc2626",
+  "frame2Color": "#ffffff",
+  "frameWidth": 450,
+  "frameHeight": 140,
+  "frameOffset": 16,
+  "frameThickness": 2,
+  "subtitle": "DYNAMIC LAYOUT",
+  "textFontSize": 56,
+  "animationDuration": 45
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `modern-brand` | More offset | `{ frameOffset: 24 }` |
+| `trendy` | Blue accent | `{ frame1Color: "#0066ff" }` |
+
+**When to Use**
+- Modern brand titles
+- Trendy design content
+- Dynamic layouts
+
+**When NOT to Use**
+- Minimal/clean needs
+- Formal content
+
+---
+
+### OutlineBoxTitle
+
+**ID**: `OutlineBoxTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Single outlined rectangular border containing centered title and optional subtitle. Clean boxed look with colored border emphasis.
+
+**Visual Characteristics**
+- Style: Boxed, clean, outlined
+- Motion: Box scales in, text staggers in
+- Texture: None (text only)
+- Depth: Flat with border
+
+**Metadata**
+```json
+{
+  "mood": ["clean", "boxed", "structured"],
+  "theme": ["presentation", "boxed", "outlined"],
+  "energy": "medium",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["OUTLINE BOX"],
+  "boxBorderColor": "#dc2626",
+  "boxBorderThickness": 3,
+  "boxPadding": 48,
+  "boxWidth": 600,
+  "subtitle": "Premium Design",
+  "textColor": "#ffffff",
+  "textFontSize": 72,
+  "animationDuration": 45
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `presentation` | Thinner border | `{ boxBorderThickness: 2 }` |
+| `promo-bold` | Thicker border | `{ boxBorderThickness: 4 }` |
+
+**When to Use**
+- Presentation title cards
+- Boxed content titles
+- Outlined designs
+
+**When NOT to Use**
+- Full-bleed backgrounds
+- Minimal text-only
+
+---
+
+### OverlineUnderlineTitle
+
+**ID**: `OverlineUnderlineTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Small overline text above large headline with underline bar below. Classic title card with both top and bottom accent elements.
+
+**Visual Characteristics**
+- Style: Classic, structured, editorial
+- Motion: Overline in, headline in with underline expanding
+- Texture: None (text only)
+- Depth: Flat
+
+**Metadata**
+```json
+{
+  "mood": ["classic", "structured", "editorial"],
+  "theme": ["classic", "title-card", "editorial"],
+  "energy": "medium",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["OVERLINE"],
+  "overline": "EST. 2024",
+  "accentColor": "#dc2626",
+  "accentThickness": 3,
+  "overlineFontSize": 24,
+  "textFontSize": 96,
+  "animationDuration": 45
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `classic-title` | Traditional look | `{ overline: "EST. 2024" }` |
+| `brand-sub` | Custom overline | `{ overline: "YOUR BRAND" }` |
+
+**When to Use**
+- Classic title cards
+- Editorial content
+- Brand establishment titles
+
+**When NOT to Use**
+- Minimal needs
+- Non-structured layouts
+
+---
+
+### SplitHighlightTitle
+
+**ID**: `SplitHighlightTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Colored highlight box on left side with headline text and divider line beside it. Dynamic split layout with strong visual anchor.
+
+**Visual Characteristics**
+- Style: Split, dynamic, anchored
+- Motion: Box in, text in, divider line fades
+- Texture: None (text only)
+- Depth: Flat
+
+**Metadata**
+```json
+{
+  "mood": ["dynamic", "bold", "anchored"],
+  "theme": ["highlight", "feature", "spotlight"],
+  "energy": "medium-to-high",
+  "colorTemp": "warm",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["HIGHLIGHT"],
+  "boxColor": "#dc2626",
+  "boxWidth": 100,
+  "boxHeight": 160,
+  "subtitle": "FEATURED",
+  "textFontSize": 72,
+  "animationDuration": 45
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `feature-highlight` | Larger box | `{ boxWidth: 140, boxHeight: 200 }` |
+| `spotlight` | Taller box | `{ boxHeight: 200 }` |
+
+**When to Use**
+- Feature highlights
+- Spotlight content
+- Dynamic side-by-side
+
+**When NOT to Use**
+- Centered layouts
+- Minimal needs
+
+---
+
+### StrikethroughBadgeTitle
+
+**ID**: `StrikethroughBadgeTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Headline with animated horizontal strikethrough line through center, plus badge element below. Statement style with emphasis and label.
+
+**Visual Characteristics**
+- Style: Statement, bold, emphasized
+- Motion: Text in, strikethrough sweeps across, badge pops in
+- Texture: None (text only)
+- Depth: Flat
+
+**Metadata**
+```json
+{
+  "mood": ["bold", "statement", "emphasized"],
+  "theme": ["statement", "new", "featured"],
+  "energy": "high",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["STRIKETHROUGH"],
+  "badge": "NEW",
+  "badgeColor": "#dc2626",
+  "lineColor": "#ffffff",
+  "lineThickness": 2,
+  "textFontSize": 72,
+  "badgeFontSize": 20,
+  "animationDuration": 45
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `new-badge` | Classic "NEW" | `{ badge: "NEW" }` |
+| `featured` | "FEATURED" badge | `{ badge: "FEATURED", badgeColor: "#0066ff" }` |
+
+**When to Use**
+- New product titles
+- Featured content
+- Statement emphasis
+
+**When NOT to Use**
+- Subtle/minimal needs
+- Non-emphasized content
+
+---
+
+### VerticalAccentTitle
+
+**ID**: `VerticalAccentTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Vertical accent bar on left side with small uppercase text above and huge headline below. Strong editorial hierarchy with vertical line element.
+
+**Visual Characteristics**
+- Style: Editorial, hierarchical, bold
+- Motion: Vertical bar grows, small text in, huge text in
+- Texture: None (text only)
+- Depth: Flat
+
+**Metadata**
+```json
+{
+  "mood": ["bold", "editorial", "hierarchical"],
+  "theme": ["editorial", "brand", "statement"],
+  "energy": "medium-to-high",
+  "colorTemp": "warm",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["VERTICAL", "ACCENT"],
+  "accentColor": "#dc2626",
+  "accentThickness": 3,
+  "accentHeight": 180,
+  "smallTextFontSize": 28,
+  "textFontSize": 108,
+  "animationDuration": 45
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `brand-bold` | Taller accent | `{ accentHeight: 220 }` |
+| `editorial` | Thinner accent | `{ accentThickness: 2 }` |
+
+**When to Use**
+- Brand titles
+- Editorial content
+- Bold statement layouts
+
+**When NOT to Use**
+- Centered layouts
+- Minimal needs
 
 ---
 
