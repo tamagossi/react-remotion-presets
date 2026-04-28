@@ -1,0 +1,1 @@
+export {TitleAnimationSchema as BoldRightTitleSchema} from "./TitleAnimationSchema";

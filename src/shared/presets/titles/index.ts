@@ -67,3 +67,27 @@ export {
   VerticalAccentTitle,
   type VerticalAccentTitleProps,
 } from "./VerticalAccentTitle";
+
+export {
+  BoldRightTitleSchema,
+  CardFillTitleSchema,
+  ControllersUnderlineTitleSchema,
+  DoubleFrameTitleSchema,
+  ExclusiveLabelTitleSchema,
+  GiantInitialTitleSchema,
+  HeroSubtitleTitleSchema,
+  LabelStackTitleSchema,
+  MinimalDuoTitleSchema,
+  MinimalStyleTitleSchema,
+  ModernRightTitleSchema,
+  NumberFrameTitleSchema,
+  OffsetFramesTitleSchema,
+  OutlineBoxTitleSchema,
+  OverlineUnderlineTitleSchema,
+  SplitHighlightTitleSchema,
+  StackedCenterTitleSchema,
+  StackedRightTitleSchema,
+  StackedTrioCenterTitleSchema,
+  StrikethroughBadgeTitleSchema,
+  VerticalAccentTitleSchema,
+} from "./schemas";

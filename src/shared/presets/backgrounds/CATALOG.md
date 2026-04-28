@@ -1769,6 +1769,336 @@ import { CinematicVignetteOverlay, DarkGradientBackground } from "./shared/prese
 </DarkGradientBackground>;
 ```
 
+### PlexusNetworkBackground
+
+**ID**: `PlexusNetworkBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Dense field of nodes on a grid with dynamic proximity-based connections. Nodes subtly drift via sine wave offsets. Some clusters "crystallize" into rectangular wireframe shapes that emerge, hold, and dissolve over the animation cycle. Very tech, AI, data feel.
+
+**Visual Characteristics**
+
+- Style: Tech, data, network, connectivity
+- Motion: Grid drift + emergent rectangle formation (frame-driven)
+- Texture: Subtle grain
+- Depth: Connection lines create layered mesh
+
+**Metadata**
+
+```json
+{
+  "mood": ["tech", "data", "connected", "structured"],
+  "theme": ["AI", "network", "data", "connectivity"],
+  "energy": "medium",
+  "colorTemp": "cool",
+  "formality": "professional",
+  "complexity": "medium",
+  "readability": "high"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 25,
+  "baseColor": "#050505",
+  "connectionDistance": 120,
+  "connectionOpacity": 0.3,
+  "driftAmount": 0.03,
+  "easing": [0.45, 0, 0.55, 1],
+  "emergentShapes": true,
+  "grainAmount": 0.3,
+  "grainOpacity": 0.04,
+  "gridDensity": 16,
+  "lineColor": "#64748b",
+  "lineWidth": 0.5,
+  "nodeColor": "#ffffff",
+  "nodeSize": 2,
+  "pulseIntensity": 0.5,
+  "shapeOpacity": 0.4,
+  "vignetteStrength": 0.3
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+| ------- | ------------------ | ----- |
+| `tech-AI` | Colder palette, sharper lines | `{ lineColor: "#38bdf8", nodeColor: "#a5f3fc", connectionOpacity: 0.4 }` |
+| `data-dashboard` | Denser grid, more connections | `{ gridDensity: 20, connectionDistance: 80, lineWidth: 0.3 }` |
+| `minimal-connect` | No shapes, fewer nodes | `{ emergentShapes: false, gridDensity: 10, pulseIntensity: 0.2 }` |
+
+**When to Use**
+
+- Tech, AI, data visualization content
+- Network/connectivity themed storytelling
+- Any script needing structured yet dynamic background
+
+**When NOT to Use**
+
+- Warm, organic scripts (too tech/cold)
+- Content needing minimal distraction
+
+**Composition Example**
+
+```tsx
+import { PlexusNetworkBackground } from "./shared/presets/backgrounds";
+
+<PlexusNetworkBackground emergentShapes={true} gridDensity={16}>
+  <YourContent />
+</PlexusNetworkBackground>;
+```
+
+### NodeScatterBackground
+
+**ID**: `NodeScatterBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Randomly scattered nodes drifting independently across canvas. Connections flicker on and off as nodes move within threshold distance of each other. Pure decentralized chaos — nodes never settle into a grid.
+
+**Visual Characteristics**
+
+- Style: Chaotic, decentralized, scattered
+- Motion: Independent drift + proximity connections (frame-driven)
+- Texture: Subtle grain
+- Depth: Flickering connections create transient depth
+
+**Metadata**
+
+```json
+{
+  "mood": ["chaotic", "decentralized", "scattered", "disruptive"],
+  "theme": ["crypto", "decentralization", "chaos", "network"],
+  "energy": "medium-to-high",
+  "colorTemp": "cool",
+  "formality": "casual",
+  "complexity": "medium",
+  "readability": "high"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 30,
+  "baseColor": "#06060a",
+  "connectionOpacity": 0.25,
+  "connectionThreshold": 100,
+  "driftSpeed": 0.4,
+  "easing": [0.45, 0, 0.55, 1],
+  "grainAmount": 0.3,
+  "grainOpacity": 0.04,
+  "lineColor": "#475569",
+  "lineWidth": 0.5,
+  "nodeColor": "#e2e8f0",
+  "nodeCount": 80,
+  "nodeSize": 2.5,
+  "pulseIntensity": 0.3,
+  "scatterSeed": 42,
+  "vignetteStrength": 0.35
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+| ------- | ------------------ | ----- |
+| `crypto-web3` | More nodes, faster drift | `{ nodeCount: 120, driftSpeed: 0.6, connectionThreshold: 130 }` |
+| `disruption` | High contrast, bold | `{ nodeColor: "#f472b6", lineColor: "#a78bfa", connectionOpacity: 0.4 }` |
+| `calm-scatter` | Fewer nodes, slower | `{ nodeCount: 40, driftSpeed: 0.2, pulseIntensity: 0.15 }` |
+
+**When to Use**
+
+- Crypto, Web3, decentralization themes
+- Disruption, chaos, innovation storytelling
+- Any script needing unstructured, organic motion
+
+**When NOT to Use**
+
+- Corporate/formal scripts needing order
+- Content with very small text (motion may distract)
+
+**Composition Example**
+
+```tsx
+import { NodeScatterBackground } from "./shared/presets/backgrounds";
+
+<NodeScatterBackground nodeCount={80} scatterSeed={42}>
+  <YourContent />
+</NodeScatterBackground>;
+```
+
+### GeometricTessellationBackground
+
+**ID**: `GeometricTessellationBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Tiling geometric patterns with 6 sub-variants via `patternType` prop. Clean, hypnotic, design-forward. Patterns slowly scale and rotate, creating a meditative geometric motion. Deep teal default palette.
+
+**Visual Characteristics**
+
+- Style: Geometric, hypnotic, tessellated
+- Motion: Slow rotation + scale pulse + parallax drift (frame-driven)
+- Texture: Subtle grain
+- Depth: Parallax layer offset creates depth
+
+**Metadata**
+
+```json
+{
+  "mood": ["hypnotic", "meditative", "clean", "geometric"],
+  "theme": ["design", "art", "culture", "pattern"],
+  "energy": "low-to-medium",
+  "colorTemp": "cool",
+  "formality": "casual-to-luxury",
+  "complexity": "medium",
+  "readability": "high"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "accentColor": "#cffafe",
+  "animationDuration": 30,
+  "bandCount": 8,
+  "baseColor": "#0c4a6e",
+  "chevronDepth": 5,
+  "dotDensity": 12,
+  "driftSpeed": 0.2,
+  "easing": [0.45, 0, 0.55, 1],
+  "grainAmount": 0.3,
+  "grainOpacity": 0.04,
+  "layerOffset": 0.3,
+  "lineColor": "#7dd3fc",
+  "lineOpacity": 0.45,
+  "lineThickness": 1.5,
+  "nestingDepth": 4,
+  "patternType": "diamondCross",
+  "rotationSpeed": 15,
+  "scalePulse": 0.05,
+  "tileSize": 80
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+| ------- | ------------------ | ----- |
+| `meditation-luxury` | Diamond cross, slow, gold | `{ patternType: "diamondCross", lineColor: "#d4af37", baseColor: "#1a1a2e", rotationSpeed: 8 }` |
+| `tech-isometric` | Hex cube pattern | `{ patternType: "hexCube", lineColor: "#22d3ee", baseColor: "#0a0a1a" }` |
+| `energy-rhythm` | Chevron, faster | `{ patternType: "chevron", rotationSpeed: 25, scalePulse: 0.08 }` |
+| `artisan-craft` | L-weave pattern | `{ patternType: "lWeave", lineColor: "#fbbf24", baseColor: "#1c1108" }` |
+| `decorative-playful` | Chevron dots | `{ patternType: "chevronDot", accentColor: "#f472b6", lineColor: "#a78bfa" }` |
+| `corporate-clean` | Diamond grid, minimal | `{ patternType: "diamondGrid", lineOpacity: 0.25, rotationSpeed: 5 }` |
+
+**When to Use**
+
+- Design, art, culture content
+- Meditation, wellness with visual interest
+- Any script needing hypnotic geometric patterns
+
+**When NOT to Use**
+
+- Corporate/formal scripts needing minimal distraction
+- Content with very dense text (pattern may compete)
+
+**Composition Example**
+
+```tsx
+import { GeometricTessellationBackground } from "./shared/presets/backgrounds";
+
+<GeometricTessellationBackground patternType="hexCube" tileSize={60}>
+  <YourContent />
+</GeometricTessellationBackground>;
+```
+
+### ArchitecturalWireframeBackground
+
+**ID**: `ArchitecturalWireframeBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+3D architectural wireframe with lines converging toward vanishing points. Creates vast interior space — like standing inside a blueprint or digital cathedral. Slow vanishing-point drift adds subtle dynamism.
+
+**Visual Characteristics**
+
+- Style: Architectural, blueprint, spacious
+- Motion: Slow vanishing point drift (frame-driven)
+- Texture: Subtle grain
+- Depth: Strong perspective convergence
+
+**Metadata**
+
+```json
+{
+  "mood": ["spacious", "architectural", "blueprint", "futuristic"],
+  "theme": ["architecture", "planning", "design", "space"],
+  "energy": "low",
+  "colorTemp": "cool",
+  "formality": "professional-to-luxury",
+  "complexity": "low",
+  "readability": "maximum"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 30,
+  "baseColor": "#020617",
+  "driftSpeed": 0.15,
+  "easing": [0.45, 0, 0.55, 1],
+  "fadeToCenter": true,
+  "grainAmount": 0.3,
+  "grainOpacity": 0.04,
+  "gridDensity": 10,
+  "lineColor": "#38bdf8",
+  "lineOpacity": 0.35,
+  "lineThickness": 0.8,
+  "perspectiveStrength": 0.7,
+  "vanishingPointX": 0.5,
+  "vanishingPointY": 0.5,
+  "vignetteStrength": 0.4
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+| ------- | ------------------ | ----- |
+| `blueprint-cad` | Cyan lines, strong fade | `{ lineColor: "#06b6d4", lineOpacity: 0.5, perspectiveStrength: 0.9 }` |
+| `luxury-space` | Gold lines, dark base | `{ lineColor: "#d4af37", baseColor: "#0a0a0a", gridDensity: 14 }` |
+| `minimal-drift` | Subtle drift, fewer lines | `{ driftSpeed: 0.08, gridDensity: 6, lineOpacity: 0.2 }` |
+
+**When to Use**
+
+- Architecture, planning, design content
+- Futuristic, blueprint-themed storytelling
+- Any script needing vast spatial depth
+
+**When NOT to Use**
+
+- Warm, organic scripts (too geometric/sterile)
+- Content needing colorful, vibrant backgrounds
+
+**Composition Example**
+
+```tsx
+import { ArchitecturalWireframeBackground } from "./shared/presets/backgrounds";
+
+<ArchitecturalWireframeBackground perspectiveStrength={0.7} fadeToCenter={true}>
+  <YourContent />
+</ArchitecturalWireframeBackground>;
+```
+
 ---
 
 ## Selection Algorithm for AI Agents

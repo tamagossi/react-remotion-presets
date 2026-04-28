@@ -1,0 +1,1 @@
+export {TitleAnimationSchema as MinimalStyleTitleSchema} from "./TitleAnimationSchema";

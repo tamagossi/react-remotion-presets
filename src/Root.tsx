@@ -6,86 +6,159 @@ import { Composition, Folder } from "remotion";
 
 import { MyComposition } from "./Composition";
 import {
+	ArchitecturalWireframeBackgroundProps,
 	AtmosphericFogBackgroundProps,
+	AuroraFlowBackgroundProps,
 	BokehLightsBackgroundProps,
 	CinematicVignetteOverlayProps,
+	CornerGlowBackgroundProps,
 	DarkGradientBackgroundProps,
 	DepthFogBackgroundProps,
+	DiagonalSpectrumBackgroundProps,
 	FlowWaveBackgroundProps,
 	GeometricGridBackgroundProps,
+	GeometricTessellationBackgroundProps,
 	HaloVignetteBackgroundProps,
 	LightGradientBackgroundProps,
 	MonochromeDriftBackgroundProps,
 	MorphingMeshBackgroundProps,
 	NeonPulseBackgroundProps,
+	NodeScatterBackgroundProps,
 	PaperTextureBackgroundProps,
+	PlexusNetworkBackgroundProps,
+	RadialSpotlightBackgroundProps,
 	StarfieldBackgroundProps,
 	SunsetOrbitBackgroundProps,
 	SweepArcBackgroundProps,
 	WarmDriftBackgroundProps,
+	WaveCurveBackgroundProps,
+} from "./shared/presets/backgrounds";
+import {
+	ArchitecturalWireframeBackgroundComposition,
+	AtmosphericFogBackgroundComposition,
+	AuroraFlowBackgroundComposition,
+	BackgroundComposition,
+	BokehLightsBackgroundComposition,
+	CinematicVignetteOverlayComposition,
+	CornerGlowBackgroundComposition,
+	DepthFogBackgroundComposition,
+	DiagonalSpectrumBackgroundComposition,
+	FlowWaveBackgroundComposition,
+	GeometricGridBackgroundComposition,
+	GeometricTessellationBackgroundComposition,
+	HaloVignetteBackgroundComposition,
+	LightGradientBackgroundComposition,
+	MonochromeDriftBackgroundComposition,
+	MorphingMeshBackgroundComposition,
+	NeonPulseBackgroundComposition,
+	NodeScatterBackgroundComposition,
+	PaperTextureBackgroundComposition,
+	PlexusNetworkBackgroundComposition,
+	RadialSpotlightBackgroundComposition,
+	StarfieldBackgroundComposition,
+	SunsetOrbitBackgroundComposition,
+	SweepArcBackgroundComposition,
+	WarmDriftBackgroundComposition,
+	WaveCurveBackgroundComposition,
+} from "./shared/presets/backgrounds/compositions";
+import {
+	ArchitecturalWireframeBackgroundSchema,
+	AtmosphericFogBackgroundSchema,
+	AuroraFlowBackgroundSchema,
+	BokehLightsBackgroundSchema,
+	CinematicVignetteOverlaySchema,
+	CornerGlowBackgroundSchema,
+	DarkGradientBackgroundSchema,
+	DepthFogBackgroundSchema,
+	DiagonalSpectrumBackgroundSchema,
+	FlowWaveBackgroundSchema,
+	GeometricGridBackgroundSchema,
+	GeometricTessellationBackgroundSchema,
+	HaloVignetteBackgroundSchema,
+	LightGradientBackgroundSchema,
+	MonochromeDriftBackgroundSchema,
+	MorphingMeshBackgroundSchema,
+	NeonPulseBackgroundSchema,
+	NodeScatterBackgroundSchema,
+	PaperTextureBackgroundSchema,
+	PlexusNetworkBackgroundSchema,
+	RadialSpotlightBackgroundSchema,
+	StarfieldBackgroundSchema,
+	SunsetOrbitBackgroundSchema,
+	SweepArcBackgroundSchema,
+	WarmDriftBackgroundSchema,
+	WaveCurveBackgroundSchema,
 } from "./shared/presets/backgrounds";
 import { FPS } from "./shared/constatns/fps";
-import { AtmosphericFogBackgroundComposition } from "./shared/presets/backgrounds/compositions/AtmosphericFogBackgroundComposition";
-import { BackgroundComposition } from "./shared/presets/backgrounds/compositions/BackgroundComposition";
-import { BokehLightsBackgroundComposition } from "./shared/presets/backgrounds/compositions/BokehLightsBackgroundComposition";
-import { CinematicVignetteOverlayComposition } from "./shared/presets/backgrounds/compositions/CinematicVignetteOverlayComposition";
-import { DepthFogBackgroundComposition } from "./shared/presets/backgrounds/compositions/DepthFogBackgroundComposition";
-import { FlowWaveBackgroundComposition } from "./shared/presets/backgrounds/compositions/FlowWaveBackgroundComposition";
-import { GeometricGridBackgroundComposition } from "./shared/presets/backgrounds/compositions/GeometricGridBackgroundComposition";
-import { HaloVignetteBackgroundComposition } from "./shared/presets/backgrounds/compositions/HaloVignetteBackgroundComposition";
-import { LightGradientBackgroundComposition } from "./shared/presets/backgrounds/compositions/LightGradientBackgroundComposition";
-import { MonochromeDriftBackgroundComposition } from "./shared/presets/backgrounds/compositions/MonochromeDriftBackgroundComposition";
-import { MorphingMeshBackgroundComposition } from "./shared/presets/backgrounds/compositions/MorphingMeshBackgroundComposition";
-import { NeonPulseBackgroundComposition } from "./shared/presets/backgrounds/compositions/NeonPulseBackgroundComposition";
-import { PaperTextureBackgroundComposition } from "./shared/presets/backgrounds/compositions/PaperTextureBackgroundComposition";
-import { StarfieldBackgroundComposition } from "./shared/presets/backgrounds/compositions/StarfieldBackgroundComposition";
-import { SunsetOrbitBackgroundComposition } from "./shared/presets/backgrounds/compositions/SunsetOrbitBackgroundComposition";
-import { SweepArcBackgroundComposition } from "./shared/presets/backgrounds/compositions/SweepArcBackgroundComposition";
-import { WarmDriftBackgroundComposition } from "./shared/presets/backgrounds/compositions/WarmDriftBackgroundComposition";
 import {
 	CardFillTitleProps,
 	ControllersUnderlineTitleProps,
 	DoubleFrameTitleProps,
 	ExclusiveLabelTitleProps,
 	GiantInitialTitleProps,
+	HeroSubtitleTitleProps,
 	LabelStackTitleProps,
+	MinimalDuoTitleProps,
+	MinimalStyleTitleProps,
+	ModernRightTitleProps,
 	NumberFrameTitleProps,
 	OffsetFramesTitleProps,
 	OutlineBoxTitleProps,
 	OverlineUnderlineTitleProps,
 	SplitHighlightTitleProps,
 	StackedCenterTitleProps,
-	BoldRightTitleProps,
-	MinimalStyleTitleProps,
-	HeroSubtitleTitleProps,
 	StackedRightTitleProps,
-	MinimalDuoTitleProps,
 	StackedTrioCenterTitleProps,
-	ModernRightTitleProps,
 	StrikethroughBadgeTitleProps,
 	VerticalAccentTitleProps,
+	BoldRightTitleProps,
 } from "./shared/presets/titles";
-import { CardFillTitleComposition } from "./shared/presets/titles/compositions/CardFillTitleComposition";
-import { ControllersUnderlineTitleComposition } from "./shared/presets/titles/compositions/ControllersUnderlineTitleComposition";
-import { DoubleFrameTitleComposition } from "./shared/presets/titles/compositions/DoubleFrameTitleComposition";
-import { ExclusiveLabelTitleComposition } from "./shared/presets/titles/compositions/ExclusiveLabelTitleComposition";
-import { GiantInitialTitleComposition } from "./shared/presets/titles/compositions/GiantInitialTitleComposition";
-import { LabelStackTitleComposition } from "./shared/presets/titles/compositions/LabelStackTitleComposition";
-import { NumberFrameTitleComposition } from "./shared/presets/titles/compositions/NumberFrameTitleComposition";
-import { OffsetFramesTitleComposition } from "./shared/presets/titles/compositions/OffsetFramesTitleComposition";
-import { OutlineBoxTitleComposition } from "./shared/presets/titles/compositions/OutlineBoxTitleComposition";
-import { OverlineUnderlineTitleComposition } from "./shared/presets/titles/compositions/OverlineUnderlineTitleComposition";
-import { SplitHighlightTitleComposition } from "./shared/presets/titles/compositions/SplitHighlightTitleComposition";
-import { StackedCenterTitleComposition } from "./shared/presets/titles/compositions/StackedCenterTitleComposition";
-import { BoldRightTitleComposition } from "./shared/presets/titles/compositions/BoldRightTitleComposition";
-import { MinimalStyleTitleComposition } from "./shared/presets/titles/compositions/MinimalStyleTitleComposition";
-import { HeroSubtitleTitleComposition } from "./shared/presets/titles/compositions/HeroSubtitleTitleComposition";
-import { StackedRightTitleComposition } from "./shared/presets/titles/compositions/StackedRightTitleComposition";
-import { MinimalDuoTitleComposition } from "./shared/presets/titles/compositions/MinimalDuoTitleComposition";
-import { StackedTrioCenterTitleComposition } from "./shared/presets/titles/compositions/StackedTrioCenterTitleComposition";
-import { ModernRightTitleComposition } from "./shared/presets/titles/compositions/ModernRightTitleComposition";
-import { StrikethroughBadgeTitleComposition } from "./shared/presets/titles/compositions/StrikethroughBadgeTitleComposition";
-import { VerticalAccentTitleComposition } from "./shared/presets/titles/compositions/VerticalAccentTitleComposition";
+import {
+	BoldRightTitleComposition,
+	CardFillTitleComposition,
+	ControllersUnderlineTitleComposition,
+	DoubleFrameTitleComposition,
+	ExclusiveLabelTitleComposition,
+	GiantInitialTitleComposition,
+	HeroSubtitleTitleComposition,
+	LabelStackTitleComposition,
+	MinimalDuoTitleComposition,
+	MinimalStyleTitleComposition,
+	ModernRightTitleComposition,
+	NumberFrameTitleComposition,
+	OffsetFramesTitleComposition,
+	OutlineBoxTitleComposition,
+	OverlineUnderlineTitleComposition,
+	SplitHighlightTitleComposition,
+	StackedCenterTitleComposition,
+	StackedRightTitleComposition,
+	StackedTrioCenterTitleComposition,
+	StrikethroughBadgeTitleComposition,
+	VerticalAccentTitleComposition,
+} from "./shared/presets/titles/compositions";
+import {
+	BoldRightTitleSchema,
+	CardFillTitleSchema,
+	ControllersUnderlineTitleSchema,
+	DoubleFrameTitleSchema,
+	ExclusiveLabelTitleSchema,
+	GiantInitialTitleSchema,
+	HeroSubtitleTitleSchema,
+	LabelStackTitleSchema,
+	MinimalDuoTitleSchema,
+	MinimalStyleTitleSchema,
+	ModernRightTitleSchema,
+	NumberFrameTitleSchema,
+	OffsetFramesTitleSchema,
+	OutlineBoxTitleSchema,
+	OverlineUnderlineTitleSchema,
+	SplitHighlightTitleSchema,
+	StackedCenterTitleSchema,
+	StackedRightTitleSchema,
+	StackedTrioCenterTitleSchema,
+	StrikethroughBadgeTitleSchema,
+	VerticalAccentTitleSchema,
+} from "./shared/presets/titles";
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -98,14 +171,89 @@ export const RemotionRoot: React.FC = () => {
 				id="MyComp"
 				width={1280}
 			/>
-			
 			<Folder name="backgrounds">
+				<Composition
+					component={ArchitecturalWireframeBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="ArchitecturalWireframeBackground"
+					schema={ArchitecturalWireframeBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 30,
+							baseColor: "#020617",
+							driftSpeed: 0.15,
+							easing: [0.45, 0, 0.55, 1],
+							fadeToCenter: true,
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							gridDensity: 10,
+							lineColor: "#38bdf8",
+							lineOpacity: 0.35,
+							lineThickness: 0.8,
+							perspectiveStrength: 0.7,
+							vanishingPointX: 0.5,
+							vanishingPointY: 0.5,
+							vignetteStrength: 0.4,
+						} satisfies ArchitecturalWireframeBackgroundProps
+					}
+				/>
+				<Composition
+					component={AtmosphericFogBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="AtmosphericFogBackground"
+					schema={AtmosphericFogBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 30,
+							bandBlur: 100,
+							bandCount: 4,
+							bandOpacity: 0.35,
+							baseColor: "#0a0a12",
+							easing: [0.45, 0, 0.55, 1],
+							fogColors: ["#334155", "#475569", "#64748b", "#94a3b8"],
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							vignetteStrength: 0.45,
+						} satisfies AtmosphericFogBackgroundProps
+					}
+				/>
+				<Composition
+					component={AuroraFlowBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="AuroraFlowBackground"
+					schema={AuroraFlowBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 25,
+							baseColor: "#0a0418",
+							blurAmount: 180,
+							colors: ["#3b82f6", "#a855f7", "#ec4899", "#06b6d4"],
+							easing: [0.45, 0, 0.55, 1],
+							flowAmount: 0.12,
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							vignetteStrength: 0.3,
+							zoneOpacity: 0.65,
+							zoneSize: 1.3,
+						} satisfies AuroraFlowBackgroundProps
+					}
+				/>
 				<Composition
 					component={BackgroundComposition}
 					durationInFrames={20 * FPS}
 					fps={FPS}
 					height={720}
 					id="BackgroundComposition"
+					schema={DarkGradientBackgroundSchema}
 					width={1280}
 					defaultProps={
 						{
@@ -124,11 +272,242 @@ export const RemotionRoot: React.FC = () => {
 					}
 				/>
 				<Composition
+					component={BokehLightsBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="BokehLightsBackground"
+					schema={BokehLightsBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 25,
+							baseColor: "#0a0a14",
+							blurAmount: 60,
+							bokehColors: ["#f472b6", "#a78bfa", "#60a5fa", "#fbbf24", "#34d399"],
+							bokehCount: 18,
+							bokehOpacity: 0.55,
+							driftAmount: 0.4,
+							easing: [0.45, 0, 0.55, 1],
+							grainAmount: 0.3,
+							grainOpacity: 0.03,
+							hexShape: false,
+							lightSize: 1.0,
+							vignetteStrength: 0.4,
+						} satisfies BokehLightsBackgroundProps
+					}
+				/>
+				<Composition
+					component={CinematicVignetteOverlayComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="CinematicVignetteOverlay"
+					schema={CinematicVignetteOverlaySchema}
+					width={1280}
+					defaultProps={
+						{
+							grainAmount: 0.3,
+							grainAnimated: true,
+							grainOpacity: 0.04,
+							grainSpeed: 0.5,
+							lightLeakColor: "#ff6b35",
+							lightLeakOpacity: 0.08,
+							vignetteColor: "#000000",
+							vignetteShape: "oval",
+							vignetteStrength: 0.4,
+						} satisfies CinematicVignetteOverlayProps
+					}
+				/>
+				<Composition
+					component={CornerGlowBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="CornerGlowBackground"
+					schema={CornerGlowBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 22,
+							baseColor: "#0a0a14",
+							blurAmount: 140,
+							easing: [0.45, 0, 0.55, 1],
+							glowColors: ["#7c3aed", "#06b6d4"],
+							glowCorners: ["br", "tr"],
+							glowDrift: 0.05,
+							glowOpacity: 0.7,
+							glowSize: 1.3,
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							vignetteStrength: 0.4,
+						} satisfies CornerGlowBackgroundProps
+					}
+				/>
+				<Composition
+					component={DepthFogBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="DepthFogBackground"
+					schema={DepthFogBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 30,
+							baseColor: "#0a0a14",
+							blobCount: 6,
+							blobOpacity: 0.45,
+							blobSize: 1.6,
+							blurAmount: 120,
+							colors: ["#1e293b", "#334155", "#475569", "#64748b"],
+							depthLayers: 3,
+							easing: [0.45, 0, 0.55, 1],
+							focusLayer: 1,
+							focusShiftSpeed: 0.3,
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							vignetteStrength: 0.35,
+						} satisfies DepthFogBackgroundProps
+					}
+				/>
+				<Composition
+					component={DiagonalSpectrumBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="DiagonalSpectrumBackground"
+					schema={DiagonalSpectrumBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							angleEnd: 200,
+							angleStart: 135,
+							animationDuration: 24,
+							baseColor: "#02061a",
+							colors: ["#0072ff", "#00c6a7", "#0072ff"],
+							easing: [0.45, 0, 0.55, 1],
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							spectrumOpacity: 1,
+							vignetteStrength: 0.2,
+						} satisfies DiagonalSpectrumBackgroundProps
+					}
+				/>
+				<Composition
+					component={FlowWaveBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="FlowWaveBackground"
+					schema={FlowWaveBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 18,
+							baseColor: "#020617",
+							easing: [0.45, 0, 0.55, 1],
+							flowSpeed: 0.6,
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							vignetteStrength: 0.3,
+							waveBlur: 80,
+							waveColors: ["#0e7490", "#1e3a8a", "#0891b2"],
+							waveCount: 3,
+							waveOpacity: 0.6,
+							waveThickness: 0.35,
+						} satisfies FlowWaveBackgroundProps
+					}
+				/>
+				<Composition
+					component={GeometricGridBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="GeometricGridBackground"
+					schema={GeometricGridBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 20,
+							baseColor: "#060d18",
+							easing: [0.45, 0, 0.55, 1],
+							fadeToHorizon: true,
+							glowPulse: true,
+							gridDensity: 12,
+							lineColor: "#4a7fcf",
+							lineOpacity: 0.6,
+							lineWidth: 1,
+							perspective: 600,
+							vignetteStrength: 0.25,
+						} satisfies GeometricGridBackgroundProps
+					}
+				/>
+				<Composition
+					component={GeometricTessellationBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="GeometricTessellationBackground"
+					schema={GeometricTessellationBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							accentColor: "#cffafe",
+							animationDuration: 30,
+							bandCount: 8,
+							baseColor: "#0c4a6e",
+							chevronDepth: 5,
+							dotDensity: 12,
+							driftSpeed: 0.2,
+							easing: [0.45, 0, 0.55, 1],
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							layerOffset: 0.3,
+							lineColor: "#7dd3fc",
+							lineOpacity: 0.45,
+							lineThickness: 1.5,
+							nestingDepth: 4,
+							patternType: "diamondCross",
+							rotationSpeed: 15,
+							scalePulse: 0.05,
+							tileSize: 80,
+						} satisfies GeometricTessellationBackgroundProps
+					}
+				/>
+				<Composition
+					component={HaloVignetteBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="HaloVignetteBackground"
+					schema={HaloVignetteBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 20,
+							baseColor: "#0a0212",
+							blobCount: 2,
+							blobOpacity: 0.7,
+							blobSize: 1.8,
+							blurAmount: 200,
+							breatheAmount: 0.15,
+							colors: ["#c026d3", "#7c3aed"],
+							driftAmount: 0.06,
+							easing: [0.45, 0, 0.55, 1],
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							vignetteStrength: 0.5,
+						} satisfies HaloVignetteBackgroundProps
+					}
+				/>
+				<Composition
 					component={LightGradientBackgroundComposition}
 					durationInFrames={20 * FPS}
 					fps={FPS}
 					height={720}
 					id="LightGradientBackground"
+					schema={LightGradientBackgroundSchema}
 					width={1280}
 					defaultProps={
 						{
@@ -147,11 +526,35 @@ export const RemotionRoot: React.FC = () => {
 					}
 				/>
 				<Composition
+					component={MonochromeDriftBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="MonochromeDriftBackground"
+					schema={MonochromeDriftBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 45,
+							baseColor: "#1a1a1a",
+							blobOpacity: 0.2,
+							blobSize: 1.8,
+							blurAmount: 200,
+							colors: ["#e0e0e0", "#b0b0b0"],
+							easing: [0.25, 0.1, 0.25, 1],
+							grainAmount: 0.3,
+							grainOpacity: 0.02,
+							vignetteStrength: 0.25,
+						} satisfies MonochromeDriftBackgroundProps
+					}
+				/>
+				<Composition
 					component={MorphingMeshBackgroundComposition}
 					durationInFrames={20 * FPS}
 					fps={FPS}
 					height={720}
 					id="MorphingMeshBackground"
+					schema={MorphingMeshBackgroundSchema}
 					width={1280}
 					defaultProps={
 						{
@@ -178,6 +581,7 @@ export const RemotionRoot: React.FC = () => {
 					fps={FPS}
 					height={720}
 					id="NeonPulseBackground"
+					schema={NeonPulseBackgroundSchema}
 					width={1280}
 					defaultProps={
 						{
@@ -197,25 +601,132 @@ export const RemotionRoot: React.FC = () => {
 					}
 				/>
 				<Composition
-					component={MonochromeDriftBackgroundComposition}
+					component={NodeScatterBackgroundComposition}
 					durationInFrames={20 * FPS}
 					fps={FPS}
 					height={720}
-					id="MonochromeDriftBackground"
+					id="NodeScatterBackground"
+					schema={NodeScatterBackgroundSchema}
 					width={1280}
 					defaultProps={
 						{
-							animationDuration: 45,
-							baseColor: "#1a1a1a",
-							blobOpacity: 0.2,
-							blobSize: 1.8,
-							blurAmount: 200,
-							colors: ["#e0e0e0", "#b0b0b0"],
-							easing: [0.25, 0.1, 0.25, 1],
+							animationDuration: 30,
+							baseColor: "#06060a",
+							connectionOpacity: 0.25,
+							connectionThreshold: 100,
+							driftSpeed: 0.4,
+							easing: [0.45, 0, 0.55, 1],
 							grainAmount: 0.3,
-							grainOpacity: 0.02,
-							vignetteStrength: 0.25,
-						} satisfies MonochromeDriftBackgroundProps
+							grainOpacity: 0.04,
+							lineColor: "#475569",
+							lineWidth: 0.5,
+							nodeColor: "#e2e8f0",
+							nodeCount: 80,
+							nodeSize: 2.5,
+							pulseIntensity: 0.3,
+							scatterSeed: 42,
+							vignetteStrength: 0.35,
+						} satisfies NodeScatterBackgroundProps
+					}
+				/>
+				<Composition
+					component={PaperTextureBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="PaperTextureBackground"
+					schema={PaperTextureBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 40,
+							baseColor: "#f5f0e8",
+							easing: [0.45, 0, 0.55, 1],
+							edgeBleedColor: "#c4b49a",
+							edgeBleedStrength: 0.25,
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							vignetteStrength: 0.15,
+						} satisfies PaperTextureBackgroundProps
+					}
+				/>
+				<Composition
+					component={PlexusNetworkBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="PlexusNetworkBackground"
+					schema={PlexusNetworkBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 25,
+							baseColor: "#050505",
+							connectionDistance: 120,
+							connectionOpacity: 0.3,
+							driftAmount: 0.03,
+							easing: [0.45, 0, 0.55, 1],
+							emergentShapes: true,
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							gridDensity: 16,
+							lineColor: "#64748b",
+							lineWidth: 0.5,
+							nodeColor: "#ffffff",
+							nodeSize: 2,
+							pulseIntensity: 0.5,
+							shapeOpacity: 0.4,
+							vignetteStrength: 0.3,
+						} satisfies PlexusNetworkBackgroundProps
+					}
+				/>
+				<Composition
+					component={RadialSpotlightBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="RadialSpotlightBackground"
+					schema={RadialSpotlightBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 18,
+							baseColor: "#0a1a0e",
+							blurAmount: 120,
+							breatheAmount: 0.15,
+							driftAmount: 0.08,
+							easing: [0.45, 0, 0.55, 1],
+							grainAmount: 0.3,
+							grainOpacity: 0.04,
+							spotlightColor: "#1cc23a",
+							spotlightOpacity: 0.7,
+							spotlightSize: 1.3,
+							spotlightX: 0.5,
+							spotlightY: 0.5,
+							vignetteStrength: 0.45,
+						} satisfies RadialSpotlightBackgroundProps
+					}
+				/>
+				<Composition
+					component={StarfieldBackgroundComposition}
+					durationInFrames={20 * FPS}
+					fps={FPS}
+					height={720}
+					id="StarfieldBackground"
+					schema={StarfieldBackgroundSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 30,
+							baseColor: "#020408",
+							easing: [0.45, 0, 0.55, 1],
+							nebulaColor: "#1e3a8a",
+							nebulaOpacity: 0.15,
+							starColor: "#ffffff",
+							starCount: 120,
+							starOpacity: 0.8,
+							vignetteStrength: 0.35,
+						} satisfies StarfieldBackgroundProps
 					}
 				/>
 				<Composition
@@ -224,6 +735,7 @@ export const RemotionRoot: React.FC = () => {
 					fps={FPS}
 					height={720}
 					id="SunsetOrbitBackground"
+					schema={SunsetOrbitBackgroundSchema}
 					width={1280}
 					defaultProps={
 						{
@@ -242,104 +754,12 @@ export const RemotionRoot: React.FC = () => {
 					}
 				/>
 				<Composition
-					component={FlowWaveBackgroundComposition}
-					durationInFrames={20 * FPS}
-					fps={FPS}
-					height={720}
-					id="FlowWaveBackground"
-					width={1280}
-					defaultProps={
-						{
-							animationDuration: 18,
-							baseColor: "#020617",
-							easing: [0.45, 0, 0.55, 1],
-							flowSpeed: 0.6,
-							grainAmount: 0.3,
-							grainOpacity: 0.04,
-							vignetteStrength: 0.3,
-							waveBlur: 80,
-							waveColors: ["#0e7490", "#1e3a8a", "#0891b2"],
-							waveCount: 3,
-							waveOpacity: 0.6,
-							waveThickness: 0.35,
-						} satisfies FlowWaveBackgroundProps
-					}
-				/>
-				<Composition
-					component={GeometricGridBackgroundComposition}
-					durationInFrames={20 * FPS}
-					fps={FPS}
-					height={720}
-					id="GeometricGridBackground"
-					width={1280}
-					defaultProps={
-						{
-							animationDuration: 20,
-							baseColor: "#060d18",
-							easing: [0.45, 0, 0.55, 1],
-							fadeToHorizon: true,
-							glowPulse: true,
-							gridDensity: 12,
-							lineColor: "#4a7fcf",
-							lineOpacity: 0.6,
-							lineWidth: 1,
-							perspective: 600,
-							vignetteStrength: 0.25,
-						} satisfies GeometricGridBackgroundProps
-					}
-				/>
-				<Composition
-					component={HaloVignetteBackgroundComposition}
-					durationInFrames={20 * FPS}
-					fps={FPS}
-					height={720}
-					id="HaloVignetteBackground"
-					width={1280}
-					defaultProps={
-						{
-							animationDuration: 20,
-							baseColor: "#0a0212",
-							blobCount: 2,
-							blobOpacity: 0.7,
-							blobSize: 1.8,
-							blurAmount: 200,
-							breatheAmount: 0.15,
-							colors: ["#c026d3", "#7c3aed"],
-							driftAmount: 0.06,
-							easing: [0.45, 0, 0.55, 1],
-							grainAmount: 0.3,
-							grainOpacity: 0.04,
-							vignetteStrength: 0.5,
-						} satisfies HaloVignetteBackgroundProps
-					}
-				/>
-				<Composition
-					component={StarfieldBackgroundComposition}
-					durationInFrames={20 * FPS}
-					fps={FPS}
-					height={720}
-					id="StarfieldBackground"
-					width={1280}
-					defaultProps={
-						{
-							animationDuration: 30,
-							baseColor: "#020408",
-							easing: [0.45, 0, 0.55, 1],
-							nebulaColor: "#1e3a8a",
-							nebulaOpacity: 0.15,
-							starColor: "#ffffff",
-							starCount: 120,
-							starOpacity: 0.8,
-							vignetteStrength: 0.35,
-						} satisfies StarfieldBackgroundProps
-					}
-				/>
-				<Composition
 					component={SweepArcBackgroundComposition}
 					durationInFrames={20 * FPS}
 					fps={FPS}
 					height={720}
 					id="SweepArcBackground"
+					schema={SweepArcBackgroundSchema}
 					width={1280}
 					defaultProps={
 						{
@@ -365,6 +785,7 @@ export const RemotionRoot: React.FC = () => {
 					fps={FPS}
 					height={720}
 					id="WarmDriftBackground"
+					schema={WarmDriftBackgroundSchema}
 					width={1280}
 					defaultProps={
 						{
@@ -385,176 +806,42 @@ export const RemotionRoot: React.FC = () => {
 					}
 				/>
 				<Composition
-					component={AtmosphericFogBackgroundComposition}
+					component={WaveCurveBackgroundComposition}
 					durationInFrames={20 * FPS}
 					fps={FPS}
 					height={720}
-					id="AtmosphericFogBackground"
+					id="WaveCurveBackground"
+					schema={WaveCurveBackgroundSchema}
 					width={1280}
 					defaultProps={
 						{
-							animationDuration: 30,
-							baseColor: "#0a0a12",
-							bandBlur: 100,
-							bandCount: 4,
-							bandOpacity: 0.35,
+							animationDuration: 18,
+							baseColor: "#0a0212",
 							easing: [0.45, 0, 0.55, 1],
-							fogColors: ["#334155", "#475569", "#64748b", "#94a3b8"],
+							flowSpeed: 1,
 							grainAmount: 0.3,
 							grainOpacity: 0.04,
-							vignetteStrength: 0.45,
-						} satisfies AtmosphericFogBackgroundProps
-					}
-				/>
-				<Composition
-					component={BokehLightsBackgroundComposition}
-					durationInFrames={20 * FPS}
-					fps={FPS}
-					height={720}
-					id="BokehLightsBackground"
-					width={1280}
-					defaultProps={
-						{
-							animationDuration: 25,
-							baseColor: "#0a0a14",
-							blurAmount: 60,
-							bokehColors: ["#f472b6", "#a78bfa", "#60a5fa", "#fbbf24", "#34d399"],
-							bokehCount: 18,
-							bokehOpacity: 0.55,
-							driftAmount: 0.4,
-							easing: [0.45, 0, 0.55, 1],
-							grainAmount: 0.3,
-							grainOpacity: 0.03,
-							hexShape: false,
-							lightSize: 1.0,
-							vignetteStrength: 0.4,
-						} satisfies BokehLightsBackgroundProps
-					}
-				/>
-				<Composition
-					component={DepthFogBackgroundComposition}
-					durationInFrames={20 * FPS}
-					fps={FPS}
-					height={720}
-					id="DepthFogBackground"
-					width={1280}
-					defaultProps={
-						{
-							animationDuration: 30,
-							baseColor: "#0a0a14",
-							blobCount: 6,
-							blobOpacity: 0.45,
-							blobSize: 1.6,
-							blurAmount: 120,
-							colors: ["#1e293b", "#334155", "#475569", "#64748b"],
-							depthLayers: 3,
-							easing: [0.45, 0, 0.55, 1],
-							focusLayer: 1,
-							focusShiftSpeed: 0.3,
-							grainAmount: 0.3,
-							grainOpacity: 0.04,
-							vignetteStrength: 0.35,
-						} satisfies DepthFogBackgroundProps
-					}
-				/>
-				<Composition
-					component={PaperTextureBackgroundComposition}
-					durationInFrames={20 * FPS}
-					fps={FPS}
-					height={720}
-					id="PaperTextureBackground"
-					width={1280}
-					defaultProps={
-						{
-							animationDuration: 40,
-							baseColor: "#f5f0e8",
-							easing: [0.45, 0, 0.55, 1],
-							edgeBleedColor: "#c4b49a",
-							edgeBleedStrength: 0.25,
-							grainAmount: 0.3,
-							grainOpacity: 0.04,
-							vignetteStrength: 0.15,
-						} satisfies PaperTextureBackgroundProps
-					}
-				/>
-				<Composition
-					component={CinematicVignetteOverlayComposition}
-					durationInFrames={20 * FPS}
-					fps={FPS}
-					height={720}
-					id="CinematicVignetteOverlay"
-					width={1280}
-					defaultProps={
-						{
-							grainAmount: 0.3,
-							grainAnimated: true,
-							grainOpacity: 0.04,
-							grainSpeed: 0.5,
-							lightLeakColor: "#ff6b35",
-							lightLeakOpacity: 0.08,
-							vignetteColor: "#000000",
-							vignetteShape: "oval",
-							vignetteStrength: 0.4,
-						} satisfies CinematicVignetteOverlayProps
+							reflectedWave: false,
+							vignetteStrength: 0.3,
+							waveAccentColor: "#f0abfc",
+							waveAmplitude: 0.18,
+							waveBlur: 30,
+							waveColor: "#c026d3",
+							waveFrequency: 1.2,
+							waveOffsetY: 0.6,
+							waveOpacity: 1,
+						} satisfies WaveCurveBackgroundProps
 					}
 				/>
 			</Folder>
-
 			<Folder name="titles">
 				<Composition
-					component={LabelStackTitleComposition}
-					durationInFrames={1  * FPS}
-					fps={FPS}
-					height={720}
-					id="LabelStackTitle"
-					width={1280}
-					defaultProps={
-						{
-							align: "left",
-							animationDuration: 45,
-							color: "#ffffff",
-							easing: [0.16, 1, 0.3, 1],
-							entranceDirection: "up",
-							fontSize: [36, 96],
-							fontWeight: [400, 700],
-							gap: 8,
-							letterSpacing: [0.15, 0.02],
-							lines: ["TITLES KIT", "DYNAMIC"],
-							staggerDelay: 12,
-							startFrame: 0,
-						} satisfies LabelStackTitleProps
-					}
-				/>
-				<Composition
-					component={StackedCenterTitleComposition}
-					durationInFrames={1  * FPS}
-					fps={FPS}
-					height={720}
-					id="StackedCenterTitle"
-					width={1280}
-					defaultProps={
-						{
-							align: "center",
-							animationDuration: 45,
-							color: "#ffffff",
-							easing: [0.16, 1, 0.3, 1],
-							entranceDirection: "up",
-							fontSize: [72, 96, 72],
-							fontWeight: 700,
-							gap: 12,
-							letterSpacing: 0.02,
-							lines: ["CREATIVE", "DESIGN", "STUDIO"],
-							staggerDelay: 12,
-							startFrame: 0,
-						} satisfies StackedCenterTitleProps
-					}
-				/>
-				<Composition
 					component={BoldRightTitleComposition}
-					durationInFrames={1  * FPS}
+					durationInFrames={1 * FPS}
 					fps={FPS}
 					height={720}
 					id="BoldRightTitle"
+					schema={BoldRightTitleSchema}
 					width={1280}
 					defaultProps={
 						{
@@ -574,35 +861,110 @@ export const RemotionRoot: React.FC = () => {
 					}
 				/>
 				<Composition
-					component={MinimalStyleTitleComposition}
-					durationInFrames={1  * FPS}
+					component={CardFillTitleComposition}
+					durationInFrames={1 * FPS}
 					fps={FPS}
 					height={720}
-					id="MinimalStyleTitle"
+					id="CardFillTitle"
+					schema={CardFillTitleSchema}
 					width={1280}
 					defaultProps={
 						{
-							align: "left",
 							animationDuration: 45,
-							color: "#ffffff",
+							cardColor: "#ffffff",
+							cardPadding: 48,
+							cardWidth: 700,
 							easing: [0.16, 1, 0.3, 1],
-							entranceDirection: "up",
-							fontSize: [28, 96, 28],
-							fontWeight: [400, 700, 400],
-							gap: 8,
-							letterSpacing: [0.15, 0.02, 0.15],
-							lines: ["MINIMAL", "STYLE", "CONCEPT"],
-							staggerDelay: 12,
-							startFrame: 0,
-						} satisfies MinimalStyleTitleProps
+							lines: ["CARD FILL"],
+							subtitle: "Premium Collection",
+						} satisfies CardFillTitleProps
+					}
+				/>
+				<Composition
+					component={ControllersUnderlineTitleComposition}
+					durationInFrames={1 * FPS}
+					fps={FPS}
+					height={720}
+					id="ControllersUnderlineTitle"
+					schema={ControllersUnderlineTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+							accentColor: "#dc2626",
+							accentThickness: 3,
+							animationDuration: 45,
+							easing: [0.16, 1, 0.3, 1],
+							lines: ["CONTROLLERS"],
+							subtitle: "Premium Gaming Gear",
+						} satisfies ControllersUnderlineTitleProps
+					}
+				/>
+				<Composition
+					component={DoubleFrameTitleComposition}
+					durationInFrames={1 * FPS}
+					fps={FPS}
+					height={720}
+					id="DoubleFrameTitle"
+					schema={DoubleFrameTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 45,
+							borderThickness: 2,
+							boxPadding: 48,
+							boxWidth: 600,
+							easing: [0.16, 1, 0.3, 1],
+							lines: ["DOUBLE FRAME"],
+							subtitle: "PREMIUM",
+						} satisfies DoubleFrameTitleProps
+					}
+				/>
+				<Composition
+					component={ExclusiveLabelTitleComposition}
+					durationInFrames={1 * FPS}
+					fps={FPS}
+					height={720}
+					id="ExclusiveLabelTitle"
+					schema={ExclusiveLabelTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+							accentColor: "#dc2626",
+							accentThickness: 2,
+							accentWidth: 120,
+							animationDuration: 45,
+							easing: [0.16, 1, 0.3, 1],
+							label: "EXCLUSIVE",
+							lines: ["DYNAMIC TITLES"],
+						} satisfies ExclusiveLabelTitleProps
+					}
+				/>
+				<Composition
+					component={GiantInitialTitleComposition}
+					durationInFrames={1 * FPS}
+					fps={FPS}
+					height={720}
+					id="GiantInitialTitle"
+					schema={GiantInitialTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 45,
+							easing: [0.16, 1, 0.3, 1],
+							initial: "G",
+							initialColor: "#dc2626",
+							initialFontSize: 180,
+							lines: ["GIANT INITIAL"],
+						} satisfies GiantInitialTitleProps
 					}
 				/>
 				<Composition
 					component={HeroSubtitleTitleComposition}
-					durationInFrames={1  * FPS}
+					durationInFrames={1 * FPS}
 					fps={FPS}
 					height={720}
 					id="HeroSubtitleTitle"
+					schema={HeroSubtitleTitleSchema}
 					width={1280}
 					defaultProps={
 						{
@@ -622,35 +984,37 @@ export const RemotionRoot: React.FC = () => {
 					}
 				/>
 				<Composition
-					component={StackedRightTitleComposition}
-					durationInFrames={1  * FPS}
+					component={LabelStackTitleComposition}
+					durationInFrames={1 * FPS}
 					fps={FPS}
 					height={720}
-					id="StackedRightTitle"
+					id="LabelStackTitle"
+					schema={LabelStackTitleSchema}
 					width={1280}
 					defaultProps={
 						{
-							align: "right",
+							align: "left",
 							animationDuration: 45,
 							color: "#ffffff",
 							easing: [0.16, 1, 0.3, 1],
 							entranceDirection: "up",
-							fontSize: [72, 96, 72],
-							fontWeight: 700,
-							gap: 12,
-							letterSpacing: 0.02,
-							lines: ["CREATIVE", "TYPOGRAPHY", "PACK"],
+							fontSize: [36, 96],
+							fontWeight: [400, 700],
+							gap: 8,
+							letterSpacing: [0.15, 0.02],
+							lines: ["TITLES KIT", "DYNAMIC"],
 							staggerDelay: 12,
 							startFrame: 0,
-						} satisfies StackedRightTitleProps
+						} satisfies LabelStackTitleProps
 					}
 				/>
 				<Composition
 					component={MinimalDuoTitleComposition}
-					durationInFrames={1  * FPS}
+					durationInFrames={1 * FPS}
 					fps={FPS}
 					height={720}
 					id="MinimalDuoTitle"
+					schema={MinimalDuoTitleSchema}
 					width={1280}
 					defaultProps={
 						{
@@ -670,35 +1034,37 @@ export const RemotionRoot: React.FC = () => {
 					}
 				/>
 				<Composition
-					component={StackedTrioCenterTitleComposition}
-					durationInFrames={1  * FPS}
+					component={MinimalStyleTitleComposition}
+					durationInFrames={1 * FPS}
 					fps={FPS}
 					height={720}
-					id="StackedTrioCenterTitle"
+					id="MinimalStyleTitle"
+					schema={MinimalStyleTitleSchema}
 					width={1280}
 					defaultProps={
 						{
-							align: "center",
+							align: "left",
 							animationDuration: 45,
 							color: "#ffffff",
 							easing: [0.16, 1, 0.3, 1],
 							entranceDirection: "up",
-							fontSize: [72, 96, 72],
-							fontWeight: 700,
-							gap: 12,
-							letterSpacing: 0.02,
-							lines: ["DIGITAL", "MARKETING", "WEEK"],
+							fontSize: [28, 96, 28],
+							fontWeight: [400, 700, 400],
+							gap: 8,
+							letterSpacing: [0.15, 0.02, 0.15],
+							lines: ["MINIMAL", "STYLE", "CONCEPT"],
 							staggerDelay: 12,
 							startFrame: 0,
-						} satisfies StackedTrioCenterTitleProps
+						} satisfies MinimalStyleTitleProps
 					}
 				/>
 				<Composition
 					component={ModernRightTitleComposition}
-					durationInFrames={1  * FPS}
+					durationInFrames={1 * FPS}
 					fps={FPS}
 					height={720}
 					id="ModernRightTitle"
+					schema={ModernRightTitleSchema}
 					width={1280}
 					defaultProps={
 						{
@@ -718,131 +1084,44 @@ export const RemotionRoot: React.FC = () => {
 					}
 				/>
 				<Composition
-					component={ExclusiveLabelTitleComposition}
+					component={NumberFrameTitleComposition}
 					durationInFrames={1 * FPS}
 					fps={FPS}
 					height={720}
-					id="ExclusiveLabelTitle"
+					id="NumberFrameTitle"
+					schema={NumberFrameTitleSchema}
 					width={1280}
 					defaultProps={
 						{
-							accentColor: "#dc2626",
-							accentThickness: 2,
-							accentWidth: 120,
 							animationDuration: 45,
 							easing: [0.16, 1, 0.3, 1],
-							label: "EXCLUSIVE",
-							lines: ["DYNAMIC TITLES"],
-						} satisfies ExclusiveLabelTitleProps
+							frameColor: "#dc2626",
+							frameSize: 100,
+							lines: ["FRAME TITLE"],
+							number: "01",
+						} satisfies NumberFrameTitleProps
 					}
 				/>
 				<Composition
-					component={ControllersUnderlineTitleComposition}
+					component={OffsetFramesTitleComposition}
 					durationInFrames={1 * FPS}
 					fps={FPS}
 					height={720}
-					id="ControllersUnderlineTitle"
-					width={1280}
-					defaultProps={
-						{
-							accentColor: "#dc2626",
-							accentThickness: 3,
-							animationDuration: 45,
-							easing: [0.16, 1, 0.3, 1],
-							lines: ["CONTROLLERS"],
-							subtitle: "Premium Gaming Gear",
-						} satisfies ControllersUnderlineTitleProps
-					}
-				/>
-				<Composition
-					component={CardFillTitleComposition}
-					durationInFrames={1 * FPS}
-					fps={FPS}
-					height={720}
-					id="CardFillTitle"
+					id="OffsetFramesTitle"
+					schema={OffsetFramesTitleSchema}
 					width={1280}
 					defaultProps={
 						{
 							animationDuration: 45,
-							cardColor: "#ffffff",
-							cardPadding: 48,
-							cardWidth: 700,
 							easing: [0.16, 1, 0.3, 1],
-							lines: ["CARD FILL"],
-							subtitle: "Premium Collection",
-						} satisfies CardFillTitleProps
-					}
-				/>
-				<Composition
-					component={VerticalAccentTitleComposition}
-					durationInFrames={1 * FPS}
-					fps={FPS}
-					height={720}
-					id="VerticalAccentTitle"
-					width={1280}
-					defaultProps={
-						{
-							accentColor: "#dc2626",
-							accentHeight: 180,
-							accentThickness: 3,
-							animationDuration: 45,
-							easing: [0.16, 1, 0.3, 1],
-							lines: ["VERTICAL", "ACCENT"],
-						} satisfies VerticalAccentTitleProps
-					}
-				/>
-				<Composition
-					component={SplitHighlightTitleComposition}
-					durationInFrames={1 * FPS}
-					fps={FPS}
-					height={720}
-					id="SplitHighlightTitle"
-					width={1280}
-					defaultProps={
-						{
-							animationDuration: 45,
-							boxColor: "#dc2626",
-							boxHeight: 160,
-							boxWidth: 100,
-							easing: [0.16, 1, 0.3, 1],
-							lines: ["HIGHLIGHT"],
-							subtitle: "FEATURED",
-						} satisfies SplitHighlightTitleProps
-					}
-				/>
-				<Composition
-					component={OverlineUnderlineTitleComposition}
-					durationInFrames={1 * FPS}
-					fps={FPS}
-					height={720}
-					id="OverlineUnderlineTitle"
-					width={1280}
-					defaultProps={
-						{
-							accentColor: "#dc2626",
-							accentThickness: 3,
-							animationDuration: 45,
-							easing: [0.16, 1, 0.3, 1],
-							lines: ["OVERLINE"],
-							overline: "EST. 2024",
-						} satisfies OverlineUnderlineTitleProps
-					}
-				/>
-				<Composition
-					component={StrikethroughBadgeTitleComposition}
-					durationInFrames={1 * FPS}
-					fps={FPS}
-					height={720}
-					id="StrikethroughBadgeTitle"
-					width={1280}
-					defaultProps={
-						{
-							animationDuration: 45,
-							badge: "NEW",
-							badgeColor: "#dc2626",
-							easing: [0.16, 1, 0.3, 1],
-							lines: ["STRIKETHROUGH"],
-						} satisfies StrikethroughBadgeTitleProps
+							frame1Color: "#dc2626",
+							frame2Color: "#ffffff",
+							frameHeight: 140,
+							frameOffset: 16,
+							frameWidth: 450,
+							lines: ["OFFSET FRAMES"],
+							subtitle: "DYNAMIC LAYOUT",
+						} satisfies OffsetFramesTitleProps
 					}
 				/>
 				<Composition
@@ -851,6 +1130,7 @@ export const RemotionRoot: React.FC = () => {
 					fps={FPS}
 					height={720}
 					id="OutlineBoxTitle"
+					schema={OutlineBoxTitleSchema}
 					width={1280}
 					defaultProps={
 						{
@@ -866,79 +1146,154 @@ export const RemotionRoot: React.FC = () => {
 					}
 				/>
 				<Composition
-					component={NumberFrameTitleComposition}
+					component={OverlineUnderlineTitleComposition}
 					durationInFrames={1 * FPS}
 					fps={FPS}
 					height={720}
-					id="NumberFrameTitle"
+					id="OverlineUnderlineTitle"
+					schema={OverlineUnderlineTitleSchema}
 					width={1280}
 					defaultProps={
 						{
+							accentColor: "#dc2626",
+							accentThickness: 3,
 							animationDuration: 45,
 							easing: [0.16, 1, 0.3, 1],
-							frameColor: "#dc2626",
-							frameSize: 100,
-							lines: ["FRAME TITLE"],
-							number: "01",
-						} satisfies NumberFrameTitleProps
+							lines: ["OVERLINE"],
+							overline: "EST. 2024",
+						} satisfies OverlineUnderlineTitleProps
 					}
 				/>
 				<Composition
-					component={DoubleFrameTitleComposition}
+					component={SplitHighlightTitleComposition}
 					durationInFrames={1 * FPS}
 					fps={FPS}
 					height={720}
-					id="DoubleFrameTitle"
+					id="SplitHighlightTitle"
+					schema={SplitHighlightTitleSchema}
 					width={1280}
 					defaultProps={
 						{
 							animationDuration: 45,
-							borderThickness: 2,
-							boxPadding: 48,
-							boxWidth: 600,
+							boxColor: "#dc2626",
+							boxHeight: 160,
+							boxWidth: 100,
 							easing: [0.16, 1, 0.3, 1],
-							lines: ["DOUBLE FRAME"],
-							subtitle: "PREMIUM",
-						} satisfies DoubleFrameTitleProps
+							lines: ["HIGHLIGHT"],
+							subtitle: "FEATURED",
+						} satisfies SplitHighlightTitleProps
 					}
 				/>
 				<Composition
-					component={GiantInitialTitleComposition}
+					component={StackedCenterTitleComposition}
 					durationInFrames={1 * FPS}
 					fps={FPS}
 					height={720}
-					id="GiantInitialTitle"
+					id="StackedCenterTitle"
+					schema={StackedCenterTitleSchema}
 					width={1280}
 					defaultProps={
 						{
+							align: "center",
 							animationDuration: 45,
+							color: "#ffffff",
 							easing: [0.16, 1, 0.3, 1],
-							initial: "G",
-							initialColor: "#dc2626",
-							initialFontSize: 180,
-							lines: ["GIANT INITIAL"],
-						} satisfies GiantInitialTitleProps
+							entranceDirection: "up",
+							fontSize: [72, 96, 72],
+							fontWeight: 700,
+							gap: 12,
+							letterSpacing: 0.02,
+							lines: ["CREATIVE", "DESIGN", "STUDIO"],
+							staggerDelay: 12,
+							startFrame: 0,
+						} satisfies StackedCenterTitleProps
 					}
 				/>
 				<Composition
-					component={OffsetFramesTitleComposition}
+					component={StackedRightTitleComposition}
 					durationInFrames={1 * FPS}
 					fps={FPS}
 					height={720}
-					id="OffsetFramesTitle"
+					id="StackedRightTitle"
+					schema={StackedRightTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+							align: "right",
+							animationDuration: 45,
+							color: "#ffffff",
+							easing: [0.16, 1, 0.3, 1],
+							entranceDirection: "up",
+							fontSize: [72, 96, 72],
+							fontWeight: 700,
+							gap: 12,
+							letterSpacing: 0.02,
+							lines: ["CREATIVE", "TYPOGRAPHY", "PACK"],
+							staggerDelay: 12,
+							startFrame: 0,
+						} satisfies StackedRightTitleProps
+					}
+				/>
+				<Composition
+					component={StackedTrioCenterTitleComposition}
+					durationInFrames={1 * FPS}
+					fps={FPS}
+					height={720}
+					id="StackedTrioCenterTitle"
+					schema={StackedTrioCenterTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+							align: "center",
+							animationDuration: 45,
+							color: "#ffffff",
+							easing: [0.16, 1, 0.3, 1],
+							entranceDirection: "up",
+							fontSize: [72, 96, 72],
+							fontWeight: 700,
+							gap: 12,
+							letterSpacing: 0.02,
+							lines: ["DIGITAL", "MARKETING", "WEEK"],
+							staggerDelay: 12,
+							startFrame: 0,
+						} satisfies StackedTrioCenterTitleProps
+					}
+				/>
+				<Composition
+					component={StrikethroughBadgeTitleComposition}
+					durationInFrames={1 * FPS}
+					fps={FPS}
+					height={720}
+					id="StrikethroughBadgeTitle"
+					schema={StrikethroughBadgeTitleSchema}
 					width={1280}
 					defaultProps={
 						{
 							animationDuration: 45,
+							badge: "NEW",
+							badgeColor: "#dc2626",
 							easing: [0.16, 1, 0.3, 1],
-							frame1Color: "#dc2626",
-							frame2Color: "#ffffff",
-							frameHeight: 140,
-							frameOffset: 16,
-							frameWidth: 450,
-							lines: ["OFFSET FRAMES"],
-							subtitle: "DYNAMIC LAYOUT",
-						} satisfies OffsetFramesTitleProps
+							lines: ["STRIKETHROUGH"],
+						} satisfies StrikethroughBadgeTitleProps
+					}
+				/>
+				<Composition
+					component={VerticalAccentTitleComposition}
+					durationInFrames={1 * FPS}
+					fps={FPS}
+					height={720}
+					id="VerticalAccentTitle"
+					schema={VerticalAccentTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+							accentColor: "#dc2626",
+							accentHeight: 180,
+							accentThickness: 3,
+							animationDuration: 45,
+							easing: [0.16, 1, 0.3, 1],
+							lines: ["VERTICAL", "ACCENT"],
+						} satisfies VerticalAccentTitleProps
 					}
 				/>
 			</Folder>

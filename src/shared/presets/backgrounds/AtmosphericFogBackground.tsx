@@ -29,10 +29,10 @@ export const AtmosphericFogBackground: React.FC<
   AtmosphericFogBackgroundProps
 > = ({
   animationDuration = 30,
-  baseColor = "#0a0a12",
   bandBlur = 100,
   bandCount = 4,
   bandOpacity = 0.35,
+  baseColor = "#0a0a12",
   children,
   easing = [0.45, 0, 0.55, 1],
   fogColors = ["#334155", "#475569", "#64748b", "#94a3b8"],

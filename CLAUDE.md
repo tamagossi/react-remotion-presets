@@ -45,9 +45,15 @@ ESLint uses `@remotion/eslint-config-flat` plus plugins for Tailwind, perfection
 - **Function names must NOT start with `handle`** (`no-restricted-syntax`). Use descriptive action verbs instead (e.g., `downloadPayslip`).
 - `@typescript-eslint/no-explicit-any` is warn; `no-unsafe-assignment` is off.
 
+## Design Philosophy
+
+Every preset must be **stunning by default** — professional, cinematic, elegant, astonishing, a pleasure to the eye. Think Netflix title sequence, Apple keynote, AAA game trailer. If it looks "fine," it's not done.
+
 ## Creating New Presets
 
 A detailed local skill governs preset creation. See `.opencode/skills/create-preset/SKILL.md` (or `.claude/skills/create-preset/SKILL.md`). When asked to create a preset, animation, background, or text effect, load that skill and follow its 5-step workflow (intake → expand → design → build → verify). It covers prop interface design, frame-driven animation rules (no CSS keyframes), color theory, typography, and exact file placement.
+
+When a user provides a video/GIF reference, the skill analyzes its animation choreography (entry, exit, event-triggered actions) with frame-level precision and reproduces it as a parameterized preset.
 
 ## Remotion Best Practices
 

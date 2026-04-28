@@ -4,6 +4,11 @@ export {
 } from "./AtmosphericFogBackground";
 
 export {
+  ArchitecturalWireframeBackground,
+  type ArchitecturalWireframeBackgroundProps,
+} from "./ArchitecturalWireframeBackground";
+
+export {
   AuroraFlowBackground,
   type AuroraFlowBackgroundProps,
 } from "./AuroraFlowBackground";
@@ -49,6 +54,11 @@ export {
 } from "./GeometricGridBackground";
 
 export {
+  GeometricTessellationBackground,
+  type GeometricTessellationBackgroundProps,
+} from "./GeometricTessellationBackground";
+
+export {
   HaloVignetteBackground,
   type HaloVignetteBackgroundProps,
 } from "./HaloVignetteBackground";
@@ -74,9 +84,19 @@ export {
 } from "./NeonPulseBackground";
 
 export {
+  NodeScatterBackground,
+  type NodeScatterBackgroundProps,
+} from "./NodeScatterBackground";
+
+export {
   PaperTextureBackground,
   type PaperTextureBackgroundProps,
 } from "./PaperTextureBackground";
+
+export {
+  PlexusNetworkBackground,
+  type PlexusNetworkBackgroundProps,
+} from "./PlexusNetworkBackground";
 
 export {
   RadialSpotlightBackground,
@@ -107,3 +127,32 @@ export {
   WaveCurveBackground,
   type WaveCurveBackgroundProps,
 } from "./WaveCurveBackground";
+
+export {
+  ArchitecturalWireframeBackgroundSchema,
+  AtmosphericFogBackgroundSchema,
+  AuroraFlowBackgroundSchema,
+  BokehLightsBackgroundSchema,
+  CinematicVignetteOverlaySchema,
+  CornerGlowBackgroundSchema,
+  DarkGradientBackgroundSchema,
+  DepthFogBackgroundSchema,
+  DiagonalSpectrumBackgroundSchema,
+  FlowWaveBackgroundSchema,
+  GeometricGridBackgroundSchema,
+  GeometricTessellationBackgroundSchema,
+  HaloVignetteBackgroundSchema,
+  LightGradientBackgroundSchema,
+  MonochromeDriftBackgroundSchema,
+  MorphingMeshBackgroundSchema,
+  NeonPulseBackgroundSchema,
+  NodeScatterBackgroundSchema,
+  PaperTextureBackgroundSchema,
+  PlexusNetworkBackgroundSchema,
+  RadialSpotlightBackgroundSchema,
+  StarfieldBackgroundSchema,
+  SunsetOrbitBackgroundSchema,
+  SweepArcBackgroundSchema,
+  WarmDriftBackgroundSchema,
+  WaveCurveBackgroundSchema,
+} from "./schemas";
