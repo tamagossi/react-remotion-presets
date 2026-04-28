@@ -19,22 +19,24 @@ export type NumberFrameTitleProps = {
   textFontWeight?: number;
   textLetterSpacing?: number;
   startFrame?: number;
-  showExitAnimation?: boolean;
+  exitDuration?: number;
+  holdDuration?: number;
 };
 
 export const NumberFrameTitle: React.FC<NumberFrameTitleProps> = ({
   animationDirection: _animationDirection = "left",
   animationDuration = 45,
   easing = [0.34, 1.56, 0.64, 1],
+  exitDuration = 0,
   fontFamily = "Oswald",
   frameColor = "#c9a96e",
   frameSize = 90,
   frameThickness = 2,
+  holdDuration = 0,
   lines = ["FRAME TITLE"],
   number = "01",
   numberColor = "#c9a96e",
   secondaryFontFamily: _secondaryFontFamily = "Montserrat",
-  showExitAnimation = false,
   startFrame = 0,
   textColor = "#ffffff",
   textFontSize = 64,
@@ -59,13 +61,14 @@ export const NumberFrameTitle: React.FC<NumberFrameTitleProps> = ({
     extrapolateRight: "clamp",
   });
 
-  const exitT = showExitAnimation
-    ? interpolate(
-        frame,
-        [frame - 30, frame - 15],
-        [0, 1],
-        { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-      )
+  const entryEnd = startFrame + animationDuration;
+  const exitStart = entryEnd + holdDuration;
+  const exitT = exitDuration > 0
+    ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
+        easing: Easing.bezier(...easing),
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      })
     : 1;
 
   const rotate = frameT * 1.5 - 0.75;

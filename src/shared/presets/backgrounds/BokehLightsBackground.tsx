@@ -98,9 +98,6 @@ export const BokehLightsBackground: React.FC<
               style={{
                 background: `radial-gradient(circle, ${light.color} 0%, transparent 70%)`,
                 borderRadius: hexShape ? "0%" : "50%",
-                clipPath: hexShape
-                  ? "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
-                  : undefined,
                 filter: `blur(${blur}px)`,
                 height: sx,
                 left: light.x + dx - sx / 2,
@@ -108,6 +105,9 @@ export const BokehLightsBackground: React.FC<
                 position: "absolute",
                 top: light.y + dy - sx / 2,
                 width: sx,
+                clipPath: hexShape
+                  ? "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
+                  : undefined,
               }}
             />
           );

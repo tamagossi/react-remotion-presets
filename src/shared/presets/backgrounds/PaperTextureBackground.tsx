@@ -73,7 +73,7 @@ export const PaperTextureBackground: React.FC<
         }}
       />
 
-      <GrainOverlay amount={grainAmount} opacity={grainOpacity} animated={false} />
+      <GrainOverlay amount={grainAmount} animated={false} opacity={grainOpacity} />
 
       <AbsoluteFill
         style={{

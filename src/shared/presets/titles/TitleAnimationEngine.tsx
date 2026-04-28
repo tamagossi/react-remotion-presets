@@ -6,6 +6,19 @@ export type AnimationDirection = "down" | "left" | "right" | "up";
 
 export type LineAccent = "both" | "left" | "none" | "right";
 
+function getOppositeDirection(dir: AnimationDirection): AnimationDirection {
+  switch (dir) {
+    case "down":
+      return "up";
+    case "left":
+      return "right";
+    case "right":
+      return "left";
+    case "up":
+      return "down";
+  }
+}
+
 export type TitleAnimationOptions = {
   frame: number;
   index: number;
@@ -16,6 +29,9 @@ export type TitleAnimationOptions = {
   direction: AnimationDirection;
   opacityStart?: number;
   translateDistance?: number;
+  holdDuration?: number;
+  exitDuration?: number;
+  exitDirection?: AnimationDirection;
 };
 
 export function getLineAnimationStyle(
@@ -25,7 +41,10 @@ export function getLineAnimationStyle(
     animationDuration,
     direction,
     easing,
+    exitDirection,
+    exitDuration = 0,
     frame,
+    holdDuration = 0,
     index,
     opacityStart = 0,
     staggerDelay,
@@ -34,41 +53,70 @@ export function getLineAnimationStyle(
   } = options;
 
   const lineStart = startFrame + index * staggerDelay;
-  const lineEnd = lineStart + animationDuration;
+  const entryEnd = lineStart + animationDuration;
+  const exitStart = entryEnd + holdDuration;
+  const exitEnd = exitStart + exitDuration;
 
-  const t = interpolate(frame, [lineStart, lineEnd], [0, 1], {
+  const entryT = interpolate(frame, [lineStart, entryEnd], [0, 1], {
     easing: Easing.bezier(...easing),
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
-  const opacity = interpolate(
-    frame,
-    [lineStart, lineStart + animationDuration * 0.4],
-    [opacityStart, 1],
-    {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    },
-  );
-
+  let opacity = 1;
   let x = 0;
   let y = 0;
 
-  const dist = (1 - t) * translateDistance;
-  switch (direction) {
-    case "down":
-      y = -dist;
-      break;
-    case "left":
-      x = dist;
-      break;
-    case "right":
-      x = -dist;
-      break;
-    case "up":
-      y = dist;
-      break;
+  if (exitDuration > 0 && frame >= exitStart) {
+    const exitT = interpolate(frame, [exitStart, exitEnd], [1, 0], {
+      easing: Easing.bezier(...easing),
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    });
+    opacity = exitT;
+    const dist = (1 - exitT) * translateDistance;
+    const activeDirection = getOppositeDirection(
+      exitDirection ?? getOppositeDirection(direction),
+    );
+    switch (activeDirection) {
+      case "down":
+        y = -dist;
+        break;
+      case "left":
+        x = dist;
+        break;
+      case "right":
+        x = -dist;
+        break;
+      case "up":
+        y = dist;
+        break;
+    }
+  } else if (frame < entryEnd) {
+    opacity = interpolate(
+      frame,
+      [lineStart, lineStart + animationDuration * 0.4],
+      [opacityStart, 1],
+      {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      },
+    );
+    const dist = (1 - entryT) * translateDistance;
+    switch (direction) {
+      case "down":
+        y = -dist;
+        break;
+      case "left":
+        x = dist;
+        break;
+      case "right":
+        x = -dist;
+        break;
+      case "up":
+        y = dist;
+        break;
+    }
   }
 
   return {
@@ -131,6 +179,9 @@ export type AnimatedTitleProps = {
   chromaticAberration?: boolean;
   chromaticOffset?: number;
   children?: React.ReactNode;
+  holdDuration?: number;
+  exitDuration?: number;
+  exitDirection?: AnimationDirection;
 };
 
 function resolvePerLine<T>(
@@ -164,10 +215,13 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({
   color = "#ffffff",
   easing = [0.16, 1, 0.3, 1],
   entranceDirection = "up",
+  exitDirection,
+  exitDuration = 0,
   fontFamily = "Anton",
   fontSize = 72,
   fontWeight = 400,
   gap = 16,
+  holdDuration = 0,
   letterSpacing = 0.02,
   lineHeight = 1.1,
   lines,
@@ -179,6 +233,8 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({
   yOffset = 0,
 }) => {
   const frame = useCurrentFrame();
+
+  const hasExit = exitDuration > 0;
 
   return (
     <div
@@ -200,7 +256,10 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({
           animationDuration,
           direction: entranceDirection,
           easing,
+          exitDirection,
+          exitDuration,
           frame,
+          holdDuration,
           index: i,
           opacityStart,
           staggerDelay,
@@ -208,6 +267,12 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({
         });
 
         const lineStart = startFrame + i * staggerDelay;
+        const entryEnd = lineStart + animationDuration;
+        const lineExitStart = entryEnd + holdDuration;
+
+        const isExiting =
+          hasExit && frame >= lineExitStart + i * staggerDelay;
+
         const aberration = chromaticAberration
           ? getChromaticAberration(
               frame,
@@ -218,7 +283,7 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({
           : { ghostOpacity: 0, offset: 0 };
 
         const accentMode = resolvePerLine<LineAccent>(accent, i, "none");
-        const accentT = interpolate(
+        const accentEntryT = interpolate(
           frame,
           [lineStart, lineStart + animationDuration],
           [0, 1],
@@ -228,7 +293,26 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({
             extrapolateRight: "clamp",
           },
         );
-        const accentWidth = accentT * accentLength;
+
+        let accentWidth: number;
+        if (hasExit) {
+          const lineExitEnd =
+            lineExitStart + i * staggerDelay + exitDuration;
+          const accentExitT = interpolate(
+            frame,
+            [lineExitStart + i * staggerDelay, lineExitEnd],
+            [1, 0],
+            {
+              easing: Easing.bezier(...easing),
+              extrapolateLeft: "clamp",
+              extrapolateRight: "clamp",
+            },
+          );
+          accentWidth =
+            (isExiting ? accentExitT : accentEntryT) * accentLength;
+        } else {
+          accentWidth = accentEntryT * accentLength;
+        }
 
         const baseColor = resolvePerLine(color, i, "#ffffff");
         const resolvedFontSize = resolvePerLine(fontSize, i, 72);

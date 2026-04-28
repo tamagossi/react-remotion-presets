@@ -20,14 +20,17 @@ export type GiantInitialTitleProps = {
   textFontWeight?: number;
   textLetterSpacing?: number;
   startFrame?: number;
-  showExitAnimation?: boolean;
+  exitDuration?: number;
+  holdDuration?: number;
 };
 
 export const GiantInitialTitle: React.FC<GiantInitialTitleProps> = ({
   animationDirection: _animationDirection = "right",
   animationDuration = 45,
   easing = [0.34, 1.56, 0.64, 1],
+  exitDuration = 0,
   fontFamily = "Oswald",
+  holdDuration = 0,
   initial = "G",
   initialColor = "#c9a96e",
   initialFontSize = 180,
@@ -36,7 +39,6 @@ export const GiantInitialTitle: React.FC<GiantInitialTitleProps> = ({
   lineThickness = 2,
   lineWidth = 180,
   secondaryFontFamily: _secondaryFontFamily = "Montserrat",
-  showExitAnimation = false,
   startFrame = 0,
   textColor = "#ffffff",
   textFontSize = 42,
@@ -68,13 +70,14 @@ export const GiantInitialTitle: React.FC<GiantInitialTitleProps> = ({
     extrapolateRight: "clamp",
   });
 
-  const exitT = showExitAnimation
-    ? interpolate(
-        frame,
-        [frame - 30, frame - 15],
-        [0, 1],
-        { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-      )
+  const entryEnd = startFrame + animationDuration;
+  const exitStart = entryEnd + holdDuration;
+  const exitT = exitDuration > 0
+    ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
+        easing: Easing.bezier(...easing),
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      })
     : 1;
 
   const rotate = (1 - initialT) * -4;

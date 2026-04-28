@@ -21,7 +21,8 @@ export type ControllersUnderlineTitleProps = {
   textFontWeight?: number;
   textLetterSpacing?: number;
   startFrame?: number;
-  showExitAnimation?: boolean;
+  exitDuration?: number;
+  holdDuration?: number;
 };
 
 export const ControllersUnderlineTitle: React.FC<
@@ -32,10 +33,11 @@ export const ControllersUnderlineTitle: React.FC<
   animationDirection: _animationDirection = "up",
   animationDuration = 45,
   easing = [0.34, 1.56, 0.64, 1],
+  exitDuration = 0,
   fontFamily = "Oswald",
+  holdDuration = 0,
   lines = ["CONTROLLERS"],
   secondaryFontFamily = "Montserrat",
-  showExitAnimation = false,
   startFrame = 0,
   subtitle = "Premium Gaming Gear",
   subtitleColor = "#a0a0a0",
@@ -77,13 +79,14 @@ export const ControllersUnderlineTitle: React.FC<
     }
   );
 
-  const exitT = showExitAnimation
-    ? interpolate(
-        frame,
-        [frame - 30, frame - 15],
-        [0, 1],
-        { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-      )
+  const entryEnd = startFrame + animationDuration;
+  const exitStart = entryEnd + holdDuration;
+  const exitT = exitDuration > 0
+    ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
+        easing: Easing.bezier(...easing),
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      })
     : 1;
 
   const scale = 0.9 + textT * 0.1;

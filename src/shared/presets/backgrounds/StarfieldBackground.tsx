@@ -109,7 +109,7 @@ export const StarfieldBackground: React.FC<StarfieldBackgroundProps> = ({
         />
       )}
 
-      <GrainOverlay opacity={0.02} amount={0.3} />
+      <GrainOverlay amount={0.3} opacity={0.02} />
       <VignetteOverlay strength={vignetteStrength} />
 
       <AbsoluteFill style={{ zIndex: 10 }}>{children}</AbsoluteFill>

@@ -24,7 +24,8 @@ export type OutlineBoxTitleProps = {
   subtitleFontSize?: number;
   subtitleLetterSpacing?: number;
   startFrame?: number;
-  showExitAnimation?: boolean;
+  exitDuration?: number;
+  holdDuration?: number;
 };
 
 export const OutlineBoxTitle: React.FC<OutlineBoxTitleProps> = ({
@@ -36,10 +37,11 @@ export const OutlineBoxTitle: React.FC<OutlineBoxTitleProps> = ({
   boxPadding = 40,
   boxWidth = 600,
   easing = [0.34, 1.56, 0.64, 1],
+  exitDuration = 0,
   fontFamily = "Oswald",
+  holdDuration = 0,
   lines = ["OUTLINE BOX"],
   secondaryFontFamily = "Montserrat",
-  showExitAnimation = false,
   startFrame = 0,
   subtitle = "Premium Design",
   subtitleColor = "#a0a0a0",
@@ -75,13 +77,14 @@ export const OutlineBoxTitle: React.FC<OutlineBoxTitleProps> = ({
     extrapolateRight: "clamp",
   });
 
-  const exitT = showExitAnimation
-    ? interpolate(
-        frame,
-        [frame - 30, frame - 15],
-        [0, 1],
-        { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-      )
+  const entryEnd = startFrame + animationDuration;
+  const exitStart = entryEnd + holdDuration;
+  const exitT = exitDuration > 0
+    ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
+        easing: Easing.bezier(...easing),
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      })
     : 1;
 
   const borderOpacity = Math.min(boxT * 1.5, 1);

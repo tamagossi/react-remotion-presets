@@ -91,27 +91,39 @@ import {
 } from "./shared/presets/backgrounds";
 import { FPS } from "./shared/constatns/fps";
 import {
+	BoldRightTitleProps,
 	CardFillTitleProps,
 	ControllersUnderlineTitleProps,
 	DoubleFrameTitleProps,
 	ExclusiveLabelTitleProps,
+	GeometricMaskTitleProps,
 	GiantInitialTitleProps,
+	GlitchStrokeTitleProps,
+	GradientTrailTitleProps,
+	HeavyStackTitleProps,
 	HeroSubtitleTitleProps,
+	HighlightBarTitleProps,
 	LabelStackTitleProps,
+	LetterSpacingRevealTitleProps,
 	MinimalDuoTitleProps,
 	MinimalStyleTitleProps,
+	MixedEmphasisTitleProps,
 	ModernRightTitleProps,
 	NumberFrameTitleProps,
 	OffsetFramesTitleProps,
 	OutlineBoxTitleProps,
+	OutlineFillTitleProps,
 	OverlineUnderlineTitleProps,
+	RoundedBoxTitleProps,
+	QuoteBlockTitleProps,
+	SandwichLabelTitleProps,
+	ShadowDepthTitleProps,
 	SplitHighlightTitleProps,
 	StackedCenterTitleProps,
 	StackedRightTitleProps,
 	StackedTrioCenterTitleProps,
 	StrikethroughBadgeTitleProps,
 	VerticalAccentTitleProps,
-	BoldRightTitleProps,
 } from "./shared/presets/titles";
 import {
 	BoldRightTitleComposition,
@@ -119,16 +131,28 @@ import {
 	ControllersUnderlineTitleComposition,
 	DoubleFrameTitleComposition,
 	ExclusiveLabelTitleComposition,
+	GeometricMaskTitleComposition,
 	GiantInitialTitleComposition,
+	GlitchStrokeTitleComposition,
+	GradientTrailTitleComposition,
+	HeavyStackTitleComposition,
 	HeroSubtitleTitleComposition,
+	HighlightBarTitleComposition,
 	LabelStackTitleComposition,
+	LetterSpacingRevealTitleComposition,
 	MinimalDuoTitleComposition,
 	MinimalStyleTitleComposition,
+	MixedEmphasisTitleComposition,
 	ModernRightTitleComposition,
 	NumberFrameTitleComposition,
 	OffsetFramesTitleComposition,
 	OutlineBoxTitleComposition,
+	OutlineFillTitleComposition,
 	OverlineUnderlineTitleComposition,
+	RoundedBoxTitleComposition,
+	QuoteBlockTitleComposition,
+	SandwichLabelTitleComposition,
+	ShadowDepthTitleComposition,
 	SplitHighlightTitleComposition,
 	StackedCenterTitleComposition,
 	StackedRightTitleComposition,
@@ -142,16 +166,28 @@ import {
 	ControllersUnderlineTitleSchema,
 	DoubleFrameTitleSchema,
 	ExclusiveLabelTitleSchema,
+	GeometricMaskTitleSchema,
 	GiantInitialTitleSchema,
+	GlitchStrokeTitleSchema,
+	GradientTrailTitleSchema,
+	HeavyStackTitleSchema,
 	HeroSubtitleTitleSchema,
+	HighlightBarTitleSchema,
 	LabelStackTitleSchema,
+	LetterSpacingRevealTitleSchema,
 	MinimalDuoTitleSchema,
 	MinimalStyleTitleSchema,
+	MixedEmphasisTitleSchema,
 	ModernRightTitleSchema,
 	NumberFrameTitleSchema,
 	OffsetFramesTitleSchema,
 	OutlineBoxTitleSchema,
+	OutlineFillTitleSchema,
 	OverlineUnderlineTitleSchema,
+	RoundedBoxTitleSchema,
+	QuoteBlockTitleSchema,
+	SandwichLabelTitleSchema,
+	ShadowDepthTitleSchema,
 	SplitHighlightTitleSchema,
 	StackedCenterTitleSchema,
 	StackedRightTitleSchema,
@@ -837,7 +873,7 @@ export const RemotionRoot: React.FC = () => {
 			<Folder name="titles">
 				<Composition
 					component={BoldRightTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="BoldRightTitle"
@@ -845,24 +881,26 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							align: "right",
-							animationDuration: 45,
-							color: "#ffffff",
-							easing: [0.16, 1, 0.3, 1],
-							entranceDirection: "up",
-							fontSize: [72, 96],
-							fontWeight: 700,
-							gap: 12,
-							letterSpacing: 0.02,
-							lines: ["BOLD IDEAS", "MATTER"],
-							staggerDelay: 12,
-							startFrame: 0,
-						} satisfies BoldRightTitleProps
+align: "right",
+						animationDuration: 45,
+						color: "#ffffff",
+						easing: [0.16, 1, 0.3, 1],
+						entranceDirection: "up",
+						exitDuration: 25,
+						fontSize: [72, 96],
+						fontWeight: 700,
+						gap: 12,
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						lines: ["BOLD IDEAS", "MATTER"],
+						staggerDelay: 12,
+						startFrame: 0,
+					} satisfies BoldRightTitleProps
 					}
 				/>
 				<Composition
 					component={CardFillTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="CardFillTitle"
@@ -870,19 +908,21 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							animationDuration: 45,
-							cardColor: "#ffffff",
-							cardPadding: 48,
-							cardWidth: 700,
-							easing: [0.16, 1, 0.3, 1],
-							lines: ["CARD FILL"],
-							subtitle: "Premium Collection",
-						} satisfies CardFillTitleProps
+animationDuration: 45,
+						cardColor: "#ffffff",
+						cardPadding: 48,
+						cardWidth: 700,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						holdDuration: 30,
+						lines: ["CARD FILL"],
+						subtitle: "Premium Collection",
+					} satisfies CardFillTitleProps
 					}
 				/>
 				<Composition
 					component={ControllersUnderlineTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="ControllersUnderlineTitle"
@@ -890,18 +930,20 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							accentColor: "#dc2626",
-							accentThickness: 3,
-							animationDuration: 45,
-							easing: [0.16, 1, 0.3, 1],
-							lines: ["CONTROLLERS"],
-							subtitle: "Premium Gaming Gear",
-						} satisfies ControllersUnderlineTitleProps
+accentColor: "#dc2626",
+						accentThickness: 3,
+						animationDuration: 45,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						holdDuration: 30,
+						lines: ["CONTROLLERS"],
+						subtitle: "Premium Gaming Gear",
+					} satisfies ControllersUnderlineTitleProps
 					}
 				/>
 				<Composition
 					component={DoubleFrameTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="DoubleFrameTitle"
@@ -909,19 +951,21 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							animationDuration: 45,
-							borderThickness: 2,
-							boxPadding: 48,
-							boxWidth: 600,
-							easing: [0.16, 1, 0.3, 1],
-							lines: ["DOUBLE FRAME"],
-							subtitle: "PREMIUM",
-						} satisfies DoubleFrameTitleProps
+animationDuration: 45,
+						borderThickness: 2,
+						boxPadding: 48,
+						boxWidth: 600,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						holdDuration: 30,
+						lines: ["DOUBLE FRAME"],
+						subtitle: "PREMIUM",
+					} satisfies DoubleFrameTitleProps
 					}
 				/>
 				<Composition
 					component={ExclusiveLabelTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="ExclusiveLabelTitle"
@@ -929,19 +973,21 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							accentColor: "#dc2626",
-							accentThickness: 2,
-							accentWidth: 120,
-							animationDuration: 45,
-							easing: [0.16, 1, 0.3, 1],
-							label: "EXCLUSIVE",
-							lines: ["DYNAMIC TITLES"],
-						} satisfies ExclusiveLabelTitleProps
+accentColor: "#dc2626",
+						accentThickness: 2,
+						accentWidth: 120,
+						animationDuration: 45,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						holdDuration: 30,
+						label: "EXCLUSIVE",
+						lines: ["DYNAMIC TITLES"],
+					} satisfies ExclusiveLabelTitleProps
 					}
 				/>
 				<Composition
 					component={GiantInitialTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="GiantInitialTitle"
@@ -949,18 +995,100 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
+animationDuration: 45,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						holdDuration: 30,
+						initial: "G",
+						initialColor: "#dc2626",
+						initialFontSize: 180,
+						lines: ["GIANT INITIAL"],
+					} satisfies GiantInitialTitleProps
+					}
+				/>
+				<Composition
+					component={GeometricMaskTitleComposition}
+					durationInFrames={3 * FPS}
+					fps={FPS}
+					height={720}
+					id="GeometricMaskTitle"
+					schema={GeometricMaskTitleSchema}
+					width={1280}
+					defaultProps={
+						{
 							animationDuration: 45,
 							easing: [0.16, 1, 0.3, 1],
-							initial: "G",
-							initialColor: "#dc2626",
-							initialFontSize: 180,
-							lines: ["GIANT INITIAL"],
-						} satisfies GiantInitialTitleProps
+							exitDuration: 25,
+							fontSize: 120,
+							holdDuration: 30,
+							maskColor: "#6b7280",
+							maskWidth: 40,
+							startFrame: 0,
+							text: "SELECT",
+							textColor: "#ffffff",
+						} satisfies GeometricMaskTitleProps
+					}
+				/>
+				<Composition
+					component={GradientTrailTitleComposition}
+					durationInFrames={3 * FPS}
+					fps={FPS}
+					height={720}
+					id="GradientTrailTitle"
+					schema={GradientTrailTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 45,
+							easing: [0.16, 1, 0.3, 1],
+							exitDuration: 25,
+							fontSize: [64, 96],
+							gap: 8,
+							holdDuration: 30,
+							lines: ["BRING", "CHANGES"],
+							startFrame: 0,
+							textColor: "#ffffff",
+							trailColor: "#ec4899",
+							trailLength: 3,
+						} satisfies GradientTrailTitleProps
+					}
+				/>
+				<Composition
+					component={GlitchStrokeTitleComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="GlitchStrokeTitle"
+					schema={GlitchStrokeTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+align: "center",
+						animationDuration: 45,
+						chromaticAberration: true,
+						chromaticOffset: 24,
+						color: "#ffffff",
+						easing: [0.16, 1, 0.3, 1],
+						entranceDirection: "up",
+						exitDuration: 25,
+						fontSize: 96,
+						fontWeight: 700,
+						gap: 12,
+						glitchDecay: 0.4,
+						glitchIntensity: 1,
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						lines: ["THE PAST IS", "NEVER DEAD"],
+						staggerDelay: 12,
+						startFrame: 0,
+						strokeColor: "#000000",
+						strokeWidth: 2,
+					} satisfies GlitchStrokeTitleProps
 					}
 				/>
 				<Composition
 					component={HeroSubtitleTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="HeroSubtitleTitle"
@@ -968,24 +1096,73 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							align: "center",
-							animationDuration: 45,
-							color: "#ffffff",
-							easing: [0.16, 1, 0.3, 1],
-							entranceDirection: "up",
-							fontSize: [96, 36],
-							fontWeight: [700, 400],
+align: "center",
+						animationDuration: 45,
+						color: "#ffffff",
+						easing: [0.16, 1, 0.3, 1],
+						entranceDirection: "up",
+						exitDuration: 25,
+						fontSize: [96, 36],
+						fontWeight: [700, 400],
+						gap: 12,
+						holdDuration: 30,
+						letterSpacing: [0.02, 0.1],
+						lines: ["DYNAMIC", "Titles Kit"],
+						staggerDelay: 12,
+						startFrame: 0,
+					} satisfies HeroSubtitleTitleProps
+					}
+				/>
+				<Composition
+					component={HeavyStackTitleComposition}
+					durationInFrames={3 * FPS}
+					fps={FPS}
+					height={720}
+					id="HeavyStackTitle"
+					schema={HeavyStackTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+							accentColor: "#f59e0b",
+							animationDuration: 50,
+							easing: [0.22, 1, 0.36, 1],
+							exitDuration: 25,
+							fontSize: [120, 72, 36],
 							gap: 12,
-							letterSpacing: [0.02, 0.1],
-							lines: ["DYNAMIC", "Titles Kit"],
-							staggerDelay: 12,
+							holdDuration: 30,
+							lines: ["THE", "TITLE IS HEAVY", "FOLLOW THE TYPE"],
 							startFrame: 0,
-						} satisfies HeroSubtitleTitleProps
+							textColor: "#ffffff",
+						} satisfies HeavyStackTitleProps
+					}
+				/>
+				<Composition
+					component={HighlightBarTitleComposition}
+					durationInFrames={3 * FPS}
+					fps={FPS}
+					height={720}
+					id="HighlightBarTitle"
+					schema={HighlightBarTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 50,
+							barColor: "#ec4899",
+							barHeight: 60,
+							easing: [0.22, 1, 0.36, 1],
+							exitDuration: 25,
+							fontSize: 96,
+							holdDuration: 30,
+							startFrame: 0,
+							subtitle: "The Brand New Title Animation Pack",
+							text: "HELLO NEW TYPE",
+							textColor: "#ffffff",
+						} satisfies HighlightBarTitleProps
 					}
 				/>
 				<Composition
 					component={LabelStackTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="LabelStackTitle"
@@ -993,24 +1170,51 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							align: "left",
-							animationDuration: 45,
-							color: "#ffffff",
-							easing: [0.16, 1, 0.3, 1],
-							entranceDirection: "up",
-							fontSize: [36, 96],
-							fontWeight: [400, 700],
-							gap: 8,
-							letterSpacing: [0.15, 0.02],
-							lines: ["TITLES KIT", "DYNAMIC"],
-							staggerDelay: 12,
+align: "left",
+						animationDuration: 45,
+						color: "#ffffff",
+						easing: [0.16, 1, 0.3, 1],
+						entranceDirection: "up",
+						exitDuration: 25,
+						fontSize: [36, 96],
+						fontWeight: [400, 700],
+						gap: 8,
+						holdDuration: 30,
+						letterSpacing: [0.15, 0.02],
+						lines: ["TITLES KIT", "DYNAMIC"],
+						staggerDelay: 12,
+						startFrame: 0,
+					} satisfies LabelStackTitleProps
+					}
+				/>
+				<Composition
+					component={LetterSpacingRevealTitleComposition}
+					durationInFrames={3 * FPS}
+					fps={FPS}
+					height={720}
+					id="LetterSpacingRevealTitle"
+					schema={LetterSpacingRevealTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 50,
+							divider: "/",
+							dividerColor: "#6b7280",
+							easing: [0.22, 1, 0.36, 1],
+							endLetterSpacing: 0.25,
+							exitDuration: 25,
+							fontSize: 96,
+							holdDuration: 30,
 							startFrame: 0,
-						} satisfies LabelStackTitleProps
+							startLetterSpacing: -0.5,
+							text: "TYPOGRAPHY",
+							textColor: "#ffffff",
+						} satisfies LetterSpacingRevealTitleProps
 					}
 				/>
 				<Composition
 					component={MinimalDuoTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="MinimalDuoTitle"
@@ -1018,24 +1222,26 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							align: "left",
-							animationDuration: 45,
-							color: "#ffffff",
-							easing: [0.16, 1, 0.3, 1],
-							entranceDirection: "up",
-							fontSize: [28, 96],
-							fontWeight: [400, 700],
-							gap: 8,
-							letterSpacing: [0.15, 0.02],
-							lines: ["MINIMAL", "TITLES"],
-							staggerDelay: 12,
-							startFrame: 0,
-						} satisfies MinimalDuoTitleProps
+align: "left",
+						animationDuration: 45,
+						color: "#ffffff",
+						easing: [0.16, 1, 0.3, 1],
+						entranceDirection: "up",
+						exitDuration: 25,
+						fontSize: [28, 96],
+						fontWeight: [400, 700],
+						gap: 8,
+						holdDuration: 30,
+						letterSpacing: [0.15, 0.02],
+						lines: ["MINIMAL", "TITLES"],
+						staggerDelay: 12,
+						startFrame: 0,
+					} satisfies MinimalDuoTitleProps
 					}
 				/>
 				<Composition
 					component={MinimalStyleTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="MinimalStyleTitle"
@@ -1043,24 +1249,54 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							align: "left",
-							animationDuration: 45,
-							color: "#ffffff",
-							easing: [0.16, 1, 0.3, 1],
-							entranceDirection: "up",
-							fontSize: [28, 96, 28],
-							fontWeight: [400, 700, 400],
-							gap: 8,
-							letterSpacing: [0.15, 0.02, 0.15],
-							lines: ["MINIMAL", "STYLE", "CONCEPT"],
-							staggerDelay: 12,
-							startFrame: 0,
-						} satisfies MinimalStyleTitleProps
+align: "left",
+						animationDuration: 45,
+						color: "#ffffff",
+						easing: [0.16, 1, 0.3, 1],
+						entranceDirection: "up",
+						exitDuration: 25,
+						fontSize: [28, 96, 28],
+						fontWeight: [400, 700, 400],
+						gap: 8,
+						holdDuration: 30,
+						letterSpacing: [0.15, 0.02, 0.15],
+						lines: ["MINIMAL", "STYLE", "CONCEPT"],
+						staggerDelay: 12,
+						startFrame: 0,
+					} satisfies MinimalStyleTitleProps
+					}
+				/>
+				<Composition
+					component={MixedEmphasisTitleComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="MixedEmphasisTitle"
+					schema={MixedEmphasisTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+align: "center",
+						animationDuration: 45,
+						easing: [0.16, 1, 0.3, 1],
+						entranceDirection: "up",
+						exitDuration: 25,
+						gap: 12,
+						holdDuration: 30,
+						lineGap: 24,
+						staggerDelay: 8,
+						startFrame: 0,
+						segments: [
+							{ fontSize: 96, text: "KNOWLEDGE" },
+							{ color: "#a0a0a0", fontSize: 72, fontStyle: "italic", text: "IS" },
+							{ fontSize: 96, text: "POWER" },
+						],
+					} satisfies MixedEmphasisTitleProps
 					}
 				/>
 				<Composition
 					component={ModernRightTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="ModernRightTitle"
@@ -1068,24 +1304,26 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							align: "right",
-							animationDuration: 45,
-							color: "#ffffff",
-							easing: [0.16, 1, 0.3, 1],
-							entranceDirection: "up",
-							fontSize: [96, 48],
-							fontWeight: [700, 400],
-							gap: 12,
-							letterSpacing: [0.02, 0.08],
-							lines: ["MODERN", "TEXT REVEAL"],
-							staggerDelay: 12,
-							startFrame: 0,
-						} satisfies ModernRightTitleProps
+align: "right",
+						animationDuration: 45,
+						color: "#ffffff",
+						easing: [0.16, 1, 0.3, 1],
+						entranceDirection: "up",
+						exitDuration: 25,
+						fontSize: [96, 48],
+						fontWeight: [700, 400],
+						gap: 12,
+						holdDuration: 30,
+						letterSpacing: [0.02, 0.08],
+						lines: ["MODERN", "TEXT REVEAL"],
+						staggerDelay: 12,
+						startFrame: 0,
+					} satisfies ModernRightTitleProps
 					}
 				/>
 				<Composition
 					component={NumberFrameTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="NumberFrameTitle"
@@ -1093,18 +1331,20 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							animationDuration: 45,
-							easing: [0.16, 1, 0.3, 1],
-							frameColor: "#dc2626",
-							frameSize: 100,
-							lines: ["FRAME TITLE"],
-							number: "01",
-						} satisfies NumberFrameTitleProps
+animationDuration: 45,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						frameColor: "#dc2626",
+						frameSize: 100,
+						holdDuration: 30,
+						lines: ["FRAME TITLE"],
+						number: "01",
+					} satisfies NumberFrameTitleProps
 					}
 				/>
 				<Composition
 					component={OffsetFramesTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="OffsetFramesTitle"
@@ -1112,21 +1352,23 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							animationDuration: 45,
-							easing: [0.16, 1, 0.3, 1],
-							frame1Color: "#dc2626",
-							frame2Color: "#ffffff",
-							frameHeight: 140,
-							frameOffset: 16,
-							frameWidth: 450,
-							lines: ["OFFSET FRAMES"],
-							subtitle: "DYNAMIC LAYOUT",
-						} satisfies OffsetFramesTitleProps
+animationDuration: 45,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						frame1Color: "#dc2626",
+						frame2Color: "#ffffff",
+						frameHeight: 140,
+						frameOffset: 16,
+						frameWidth: 450,
+						holdDuration: 30,
+						lines: ["OFFSET FRAMES"],
+						subtitle: "DYNAMIC LAYOUT",
+					} satisfies OffsetFramesTitleProps
 					}
 				/>
 				<Composition
 					component={OutlineBoxTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="OutlineBoxTitle"
@@ -1134,20 +1376,46 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
+animationDuration: 45,
+						boxBorderColor: "#dc2626",
+						boxBorderThickness: 3,
+						boxPadding: 48,
+						boxWidth: 600,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						holdDuration: 30,
+						lines: ["OUTLINE BOX"],
+						subtitle: "Premium Design",
+					} satisfies OutlineBoxTitleProps
+					}
+				/>
+				<Composition
+					component={OutlineFillTitleComposition}
+					durationInFrames={3 * FPS}
+					fps={FPS}
+					height={720}
+					id="OutlineFillTitle"
+					schema={OutlineFillTitleSchema}
+					width={1280}
+					defaultProps={
+						{
 							animationDuration: 45,
-							boxBorderColor: "#dc2626",
-							boxBorderThickness: 3,
-							boxPadding: 48,
-							boxWidth: 600,
 							easing: [0.16, 1, 0.3, 1],
-							lines: ["OUTLINE BOX"],
-							subtitle: "Premium Design",
-						} satisfies OutlineBoxTitleProps
+							exitDuration: 25,
+							fillColor: "#f59e0b",
+							fontSize: [96, 96],
+							gap: 4,
+							holdDuration: 30,
+							lines: ["FRESH", "GAME"],
+							outlineColor: "#f59e0b",
+							startFrame: 0,
+							strokeWidth: 2,
+						} satisfies OutlineFillTitleProps
 					}
 				/>
 				<Composition
 					component={OverlineUnderlineTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="OverlineUnderlineTitle"
@@ -1155,18 +1423,133 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							accentColor: "#dc2626",
-							accentThickness: 3,
+accentColor: "#dc2626",
+						accentThickness: 3,
+						animationDuration: 45,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						holdDuration: 30,
+						lines: ["OVERLINE"],
+						overline: "EST. 2024",
+					} satisfies OverlineUnderlineTitleProps
+					}
+				/>
+				<Composition
+					component={QuoteBlockTitleComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="QuoteBlockTitle"
+					schema={QuoteBlockTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+align: "center",
+						animationDuration: 60,
+						attribution: "— W. EDWARDS",
+						attributionColor: "#a0a0a0",
+						attributionFontSize: 24,
+						chromaticAberration: true,
+						chromaticOffset: 18,
+						color: "#ffffff",
+						context: "WITHOUT DATA",
+						contextColor: "#a0a0a0",
+						contextFontSize: 28,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						gap: 16,
+						holdDuration: 30,
+						quote: "YOU'RE JUST ANOTHER PERSON WITH AN OPINION",
+						quoteFontSize: 64,
+						startFrame: 0,
+					} satisfies QuoteBlockTitleProps
+					}
+				/>
+				<Composition
+					component={SandwichLabelTitleComposition}
+					durationInFrames={3 * FPS}
+					fps={FPS}
+					height={720}
+					id="SandwichLabelTitle"
+					schema={SandwichLabelTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+							animationDuration: 50,
+							bottomText: "DESIGN",
+							easing: [0.22, 1, 0.36, 1],
+							exitDuration: 25,
+							fontSize: 120,
+							gap: 4,
+							holdDuration: 30,
+							label: "JOIN THE TRENDY DESIGN CLUB",
+							labelColor: "#2dd4bf",
+							startFrame: 0,
+							textColor: "#ffffff",
+							topText: "TRENDY",
+						} satisfies SandwichLabelTitleProps
+					}
+				/>
+				<Composition
+					component={RoundedBoxTitleComposition}
+					durationInFrames={3 * FPS}
+					fps={FPS}
+					height={720}
+					id="RoundedBoxTitle"
+					schema={RoundedBoxTitleSchema}
+					width={1280}
+					defaultProps={
+						{
 							animationDuration: 45,
-							easing: [0.16, 1, 0.3, 1],
-							lines: ["OVERLINE"],
-							overline: "EST. 2024",
-						} satisfies OverlineUnderlineTitleProps
+							borderRadius: 20,
+							boxColor: "#ffffff",
+							boxSize: 280,
+							easing: [0.34, 1.56, 0.64, 1],
+							exitDuration: 25,
+							fontSize: 120,
+							holdDuration: 30,
+							startFrame: 0,
+							subtitle: "NEW TYPE BOX",
+							text: "TYPE",
+							textColor: "#000000",
+						} satisfies RoundedBoxTitleProps
+					}
+				/>
+				<Composition
+					component={ShadowDepthTitleComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="ShadowDepthTitle"
+					schema={ShadowDepthTitleSchema}
+					width={1280}
+					defaultProps={
+						{
+align: "center",
+						animationDuration: 45,
+						color: "#ffffff",
+						easing: [0.16, 1, 0.3, 1],
+						entranceDirection: "up",
+						exitDuration: 25,
+						fontSize: 96,
+						fontWeight: 700,
+						gap: 12,
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						lines: ["EVOLVE", "ADAPT", "MOVE", "FORWARD"],
+						shadowColor: "#000000",
+						shadowOffsetX: 4,
+						shadowOffsetY: 4,
+						shadowOpacity: 0.5,
+						shadowStagger: 4,
+						staggerDelay: 12,
+						startFrame: 0,
+					} satisfies ShadowDepthTitleProps
 					}
 				/>
 				<Composition
 					component={SplitHighlightTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="SplitHighlightTitle"
@@ -1174,19 +1557,21 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							animationDuration: 45,
-							boxColor: "#dc2626",
-							boxHeight: 160,
-							boxWidth: 100,
-							easing: [0.16, 1, 0.3, 1],
-							lines: ["HIGHLIGHT"],
-							subtitle: "FEATURED",
-						} satisfies SplitHighlightTitleProps
+animationDuration: 45,
+						boxColor: "#dc2626",
+						boxHeight: 160,
+						boxWidth: 100,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						holdDuration: 30,
+						lines: ["HIGHLIGHT"],
+						subtitle: "FEATURED",
+					} satisfies SplitHighlightTitleProps
 					}
 				/>
 				<Composition
 					component={StackedCenterTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="StackedCenterTitle"
@@ -1194,24 +1579,26 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							align: "center",
-							animationDuration: 45,
-							color: "#ffffff",
-							easing: [0.16, 1, 0.3, 1],
-							entranceDirection: "up",
-							fontSize: [72, 96, 72],
-							fontWeight: 700,
-							gap: 12,
-							letterSpacing: 0.02,
-							lines: ["CREATIVE", "DESIGN", "STUDIO"],
-							staggerDelay: 12,
-							startFrame: 0,
-						} satisfies StackedCenterTitleProps
+align: "center",
+						animationDuration: 45,
+						color: "#ffffff",
+						easing: [0.16, 1, 0.3, 1],
+						entranceDirection: "up",
+						exitDuration: 25,
+						fontSize: [72, 96, 72],
+						fontWeight: 700,
+						gap: 12,
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						lines: ["CREATIVE", "DESIGN", "STUDIO"],
+						staggerDelay: 12,
+						startFrame: 0,
+					} satisfies StackedCenterTitleProps
 					}
 				/>
 				<Composition
 					component={StackedRightTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="StackedRightTitle"
@@ -1219,24 +1606,26 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							align: "right",
-							animationDuration: 45,
-							color: "#ffffff",
-							easing: [0.16, 1, 0.3, 1],
-							entranceDirection: "up",
-							fontSize: [72, 96, 72],
-							fontWeight: 700,
-							gap: 12,
-							letterSpacing: 0.02,
-							lines: ["CREATIVE", "TYPOGRAPHY", "PACK"],
-							staggerDelay: 12,
-							startFrame: 0,
-						} satisfies StackedRightTitleProps
+align: "right",
+						animationDuration: 45,
+						color: "#ffffff",
+						easing: [0.16, 1, 0.3, 1],
+						entranceDirection: "up",
+						exitDuration: 25,
+						fontSize: [72, 96, 72],
+						fontWeight: 700,
+						gap: 12,
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						lines: ["CREATIVE", "TYPOGRAPHY", "PACK"],
+						staggerDelay: 12,
+						startFrame: 0,
+					} satisfies StackedRightTitleProps
 					}
 				/>
 				<Composition
 					component={StackedTrioCenterTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="StackedTrioCenterTitle"
@@ -1244,24 +1633,26 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							align: "center",
-							animationDuration: 45,
-							color: "#ffffff",
-							easing: [0.16, 1, 0.3, 1],
-							entranceDirection: "up",
-							fontSize: [72, 96, 72],
-							fontWeight: 700,
-							gap: 12,
-							letterSpacing: 0.02,
-							lines: ["DIGITAL", "MARKETING", "WEEK"],
-							staggerDelay: 12,
-							startFrame: 0,
-						} satisfies StackedTrioCenterTitleProps
+align: "center",
+						animationDuration: 45,
+						color: "#ffffff",
+						easing: [0.16, 1, 0.3, 1],
+						entranceDirection: "up",
+						exitDuration: 25,
+						fontSize: [72, 96, 72],
+						fontWeight: 700,
+						gap: 12,
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						lines: ["DIGITAL", "MARKETING", "WEEK"],
+						staggerDelay: 12,
+						startFrame: 0,
+					} satisfies StackedTrioCenterTitleProps
 					}
 				/>
 				<Composition
 					component={StrikethroughBadgeTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="StrikethroughBadgeTitle"
@@ -1269,17 +1660,19 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							animationDuration: 45,
-							badge: "NEW",
-							badgeColor: "#dc2626",
-							easing: [0.16, 1, 0.3, 1],
-							lines: ["STRIKETHROUGH"],
-						} satisfies StrikethroughBadgeTitleProps
+animationDuration: 45,
+						badge: "NEW",
+						badgeColor: "#dc2626",
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						holdDuration: 30,
+						lines: ["STRIKETHROUGH"],
+					} satisfies StrikethroughBadgeTitleProps
 					}
 				/>
 				<Composition
 					component={VerticalAccentTitleComposition}
-					durationInFrames={1 * FPS}
+					durationInFrames={4 * FPS}
 					fps={FPS}
 					height={720}
 					id="VerticalAccentTitle"
@@ -1287,13 +1680,15 @@ export const RemotionRoot: React.FC = () => {
 					width={1280}
 					defaultProps={
 						{
-							accentColor: "#dc2626",
-							accentHeight: 180,
-							accentThickness: 3,
-							animationDuration: 45,
-							easing: [0.16, 1, 0.3, 1],
-							lines: ["VERTICAL", "ACCENT"],
-						} satisfies VerticalAccentTitleProps
+accentColor: "#dc2626",
+						accentHeight: 180,
+						accentThickness: 3,
+						animationDuration: 45,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						holdDuration: 30,
+						lines: ["VERTICAL", "ACCENT"],
+					} satisfies VerticalAccentTitleProps
 					}
 				/>
 			</Folder>

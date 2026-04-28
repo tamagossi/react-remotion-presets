@@ -24,13 +24,15 @@ export type OffsetFramesTitleProps = {
   subtitleFontSize?: number;
   subtitleLetterSpacing?: number;
   startFrame?: number;
-  showExitAnimation?: boolean;
+  exitDuration?: number;
+  holdDuration?: number;
 };
 
 export const OffsetFramesTitle: React.FC<OffsetFramesTitleProps> = ({
   animationDirection: _animationDirection = "left",
   animationDuration = 45,
   easing = [0.34, 1.56, 0.64, 1],
+  exitDuration = 0,
   fontFamily = "Oswald",
   frame1Color = "#c9a96e",
   frame2Color = "#ffffff",
@@ -38,9 +40,9 @@ export const OffsetFramesTitle: React.FC<OffsetFramesTitleProps> = ({
   frameOffset = 16,
   frameThickness = 2,
   frameWidth = 440,
+  holdDuration = 0,
   lines = ["OFFSET FRAMES"],
   secondaryFontFamily = "Montserrat",
-  showExitAnimation = false,
   startFrame = 0,
   subtitle = "DYNAMIC LAYOUT",
   subtitleColor = "#909090",
@@ -76,13 +78,14 @@ export const OffsetFramesTitle: React.FC<OffsetFramesTitleProps> = ({
     extrapolateRight: "clamp",
   });
 
-  const exitT = showExitAnimation
-    ? interpolate(
-        frame,
-        [frame - 30, frame - 15],
-        [0, 1],
-        { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-      )
+  const entryEnd = startFrame + animationDuration;
+  const exitStart = entryEnd + holdDuration;
+  const exitT = exitDuration > 0
+    ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
+        easing: Easing.bezier(...easing),
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      })
     : 1;
 
   const rotate1 = (1 - frame1T) * -2.5;

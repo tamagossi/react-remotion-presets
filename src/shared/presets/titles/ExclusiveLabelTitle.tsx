@@ -22,7 +22,8 @@ export type ExclusiveLabelTitleProps = {
   textFontWeight?: number;
   textLetterSpacing?: number;
   startFrame?: number;
-  showExitAnimation?: boolean;
+  exitDuration?: number;
+  holdDuration?: number;
 };
 
 export const ExclusiveLabelTitle: React.FC<ExclusiveLabelTitleProps> = ({
@@ -32,7 +33,9 @@ export const ExclusiveLabelTitle: React.FC<ExclusiveLabelTitleProps> = ({
   animationDirection = "right",
   animationDuration = 45,
   easing = [0.34, 1.56, 0.64, 1],
+  exitDuration = 0,
   fontFamily = "Oswald",
+  holdDuration = 0,
   label = "EXCLUSIVE",
   labelColor = "#b0b0b0",
   labelFontSize = 20,
@@ -40,7 +43,6 @@ export const ExclusiveLabelTitle: React.FC<ExclusiveLabelTitleProps> = ({
   labelTextTransform = "uppercase",
   lines = ["HEADLINE"],
   secondaryFontFamily = "Montserrat",
-  showExitAnimation = false,
   startFrame = 0,
   textColor = "#ffffff",
   textFontSize = 80,
@@ -87,13 +89,14 @@ export const ExclusiveLabelTitle: React.FC<ExclusiveLabelTitleProps> = ({
     extrapolateRight: "clamp",
   });
 
-  const exitT = showExitAnimation
-    ? interpolate(
-        frame,
-        [frame - 30, frame - 15],
-        [0, 1],
-        { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-      )
+  const entryEnd = startFrame + animationDuration;
+  const exitStart = entryEnd + holdDuration;
+  const exitT = exitDuration > 0
+    ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
+        easing: Easing.bezier(...easing),
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      })
     : 1;
 
   const labelStyle: React.CSSProperties = {

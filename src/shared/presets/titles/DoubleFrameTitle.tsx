@@ -23,7 +23,8 @@ export type DoubleFrameTitleProps = {
   subtitleFontSize?: number;
   subtitleLetterSpacing?: number;
   startFrame?: number;
-  showExitAnimation?: boolean;
+  exitDuration?: number;
+  holdDuration?: number;
 };
 
 export const DoubleFrameTitle: React.FC<DoubleFrameTitleProps> = ({
@@ -32,12 +33,13 @@ export const DoubleFrameTitle: React.FC<DoubleFrameTitleProps> = ({
   boxPadding = 40,
   boxWidth = 600,
   easing = [0.34, 1.56, 0.64, 1],
+  exitDuration = 0,
   fontFamily = "Oswald",
+  holdDuration = 0,
   innerBorderColor = "#ffffff",
   lines = ["DOUBLE FRAME"],
   outerBorderColor = "#c9a96e",
   secondaryFontFamily = "Montserrat",
-  showExitAnimation = false,
   startFrame = 0,
   subtitle = "PREMIUM",
   subtitleColor = "#909090",
@@ -73,13 +75,14 @@ export const DoubleFrameTitle: React.FC<DoubleFrameTitleProps> = ({
     extrapolateRight: "clamp",
   });
 
-  const exitT = showExitAnimation
-    ? interpolate(
-        frame,
-        [frame - 30, frame - 15],
-        [0, 1],
-        { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-      )
+  const entryEnd = startFrame + animationDuration;
+  const exitStart = entryEnd + holdDuration;
+  const exitT = exitDuration > 0
+    ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
+        easing: Easing.bezier(...easing),
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      })
     : 1;
 
   return (

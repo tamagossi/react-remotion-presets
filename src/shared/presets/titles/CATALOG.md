@@ -36,6 +36,18 @@ AI selection guide for `src/shared/presets/titles/`.
 | Split highlight with box anchor | Dynamic, anchored | Medium-High | Warm | Professional | `SplitHighlightTitle` (box + text + divider) |
 | Statement with strikethrough + badge | Bold, emphasized | High | Neutral | Professional | `StrikethroughBadgeTitle` (strike + badge) |
 | Editorial with vertical accent | Bold, editorial | Medium-High | Warm | Professional | `VerticalAccentTitle` (vertical bar + stack) |
+| Glitchy bold titles with RGB split | Edgy, digital | High | Neutral | Professional | `GlitchStrokeTitle` (chromatic aberration + stroke) |
+| Mixed weight/italic inline emphasis | Dynamic, expressive | High | Neutral | Professional | `MixedEmphasisTitle` (per-segment styling) |
+| Quote with context + attribution | Authoritative, classic | Medium | Neutral | Professional | `QuoteBlockTitle` (quote block layout) |
+| Bold stacked text with drop shadow | Punchy, assertive | High | Neutral | Professional | `ShadowDepthTitle` (3D depth shadow) |
+| Bold text with gradient color trail | Energetic, modern | High | Warm | Professional | `GradientTrailTitle` (gradient trailing letters) |
+| Giant 3-line stack with accent middle | Dramatic, monumental | High | Warm | Professional-Luxury | `HeavyStackTitle` (giant stack + colored middle) |
+| Single word with geometric mask block | Editorial, geometric | Medium-High | Neutral | Professional | `GeometricMaskTitle` (mask behind last letter) |
+| Letter-spacing expand reveal | Dynamic, spacious | Medium | Neutral | Professional | `LetterSpacingRevealTitle` (spacing animation) |
+| Outlined + filled text combo | Bold, contrasting | High | Warm | Professional | `OutlineFillTitle` (outline + fill lines) |
+| Giant sandwich with small label | Energetic, trendy | High | Neutral | Professional | `SandwichLabelTitle` (big words + tiny label) |
+| Text in rounded square box | Clean, contained | Medium | Neutral | Professional | `RoundedBoxTitle` (boxed text + subtitle) |
+| Highlight bar behind text | Editorial, promo | Medium-High | Warm | Professional | `HighlightBarTitle` (expanding bar + subtitle) |
 
 ## How to Use This Catalog
 
@@ -1394,6 +1406,896 @@ Vertical accent bar on left side with small uppercase text above and huge headli
 **When NOT to Use**
 - Centered layouts
 - Minimal needs
+
+---
+
+### GlitchStrokeTitle
+
+**ID**: `GlitchStrokeTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Bold stacked text with aggressive chromatic aberration (RGB channel split) and stroke outline. The glitch effect converges to clean text over the first portion of the animation. Inspired by high-energy digital/gaming title reveals.
+
+**Visual Characteristics**
+- Style: Typographic, edgy, digital
+- Motion: Staggered slide-up + fade per line with converging RGB split
+- Texture: None (text only)
+- Depth: Flat with chromatic ghost layers
+
+**Metadata**
+```json
+{
+  "mood": ["edgy", "digital", "aggressive", "bold"],
+  "theme": ["gaming", "tech", "music-video", "action"],
+  "energy": "high",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "medium",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["THE PAST IS", "NEVER DEAD"],
+  "align": "center",
+  "fontSize": 96,
+  "fontWeight": 700,
+  "color": "#ffffff",
+  "strokeColor": "#000000",
+  "strokeWidth": 2,
+  "chromaticAberration": true,
+  "chromaticOffset": 24,
+  "glitchDecay": 0.4,
+  "glitchIntensity": 1,
+  "startFrame": 0,
+  "animationDuration": 45,
+  "staggerDelay": 12,
+  "easing": [0.16, 1, 0.3, 1],
+  "entranceDirection": "up",
+  "gap": 12,
+  "letterSpacing": 0.02
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `gaming-intro` | More aggressive glitch | `{ chromaticOffset: 36, glitchIntensity: 1.5, glitchDecay: 0.6 }` |
+| `music-video` | Faster, punchier | `{ animationDuration: 30, staggerDelay: 8, chromaticOffset: 30 }` |
+| `tech-presentation` | Subtle, professional | `{ chromaticOffset: 12, glitchIntensity: 0.6, strokeWidth: 1 }` |
+
+**When to Use**
+- Gaming content intros
+- Music video title cards
+- Action/sports content
+- High-energy tech presentations
+
+**When NOT to Use**
+- Calm, contemplative scripts
+- Corporate formal contexts
+- Minimal/editorial layouts
+
+**Composition Example**
+```tsx
+import { GlitchStrokeTitle } from "./shared/presets/titles";
+
+<GlitchStrokeTitle
+  lines={["THANKS FOR", "WATCHING"]}
+  chromaticOffset={30}
+  strokeColor="#1a1a1a"
+/>
+```
+
+---
+
+### MixedEmphasisTitle
+
+**ID**: `MixedEmphasisTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Inline text segments with per-segment control over font size, weight, style (italic/normal), and color. Segments flow horizontally on each line and animate with staggered entrance. Perfect for dynamic typography with mixed emphasis like "KNOWLEDGE *IS* POWER".
+
+**Visual Characteristics**
+- Style: Typographic, dynamic, expressive
+- Motion: Per-segment slide-up + fade with stagger
+- Texture: None (text only)
+- Depth: Flat
+
+**Metadata**
+```json
+{
+  "mood": ["dynamic", "expressive", "bold", "creative"],
+  "theme": ["editorial", "creative", "fashion", "brand"],
+  "energy": "high",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "medium",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "segments": [
+    { "text": "KNOWLEDGE", "fontSize": 96 },
+    { "text": "IS", "fontSize": 72, "fontStyle": "italic", "color": "#a0a0a0" },
+    { "text": "POWER", "fontSize": 96 }
+  ],
+  "align": "center",
+  "gap": 12,
+  "lineGap": 24,
+  "startFrame": 0,
+  "animationDuration": 45,
+  "staggerDelay": 8,
+  "easing": [0.16, 1, 0.3, 1],
+  "entranceDirection": "up"
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `fashion-editorial` | Larger contrast, thinner weights | `{ segments: [{fontSize: 120}, {fontSize: 48, fontStyle: "italic", color: "#888"}, {fontSize: 120}] }` |
+| `brand-statement` | Bold, single color | `{ segments: [{color: "#ffffff"}, {color: "#ffffff"}, {color: "#ffffff"}] }` |
+| `creative-portfolio` | More segments, tighter stagger | `{ staggerDelay: 5, gap: 6 }` |
+
+**When to Use**
+- Editorial layouts with mixed weight emphasis
+- Brand statements with visual hierarchy within a line
+- Creative portfolios
+- Fashion and design content
+
+**When NOT to Use**
+- Simple uniform text
+- Multi-line uniform stacks (use StackedCenterTitle instead)
+- When all text needs identical styling
+
+**Composition Example**
+```tsx
+import { MixedEmphasisTitle } from "./shared/presets/titles";
+
+<MixedEmphasisTitle
+  segments={[
+    { text: "HISTORY", fontSize: 96 },
+    { text: "IS WRITTEN", fontSize: 72, fontStyle: "italic", color: "#a0a0a0" },
+    { text: "BY THE", fontSize: 64 },
+    { text: "VICTORS", fontSize: 96, color: "#dc2626" },
+  ]}
+/>
+```
+
+---
+
+### QuoteBlockTitle
+
+**ID**: `QuoteBlockTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Three-tier quote layout: small context line above, large quote text in the middle with optional chromatic aberration, and attribution below. Classic authoritative quote presentation inspired by data-driven storytelling.
+
+**Visual Characteristics**
+- Style: Classic, authoritative, structured
+- Motion: Sequential fade/slide: context → quote (with aberration) → attribution
+- Texture: None (text only)
+- Depth: Flat
+
+**Metadata**
+```json
+{
+  "mood": ["authoritative", "classic", "thoughtful", "structured"],
+  "theme": ["education", "storytelling", "data", "quotes"],
+  "energy": "medium",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "context": "WITHOUT DATA",
+  "quote": "YOU'RE JUST ANOTHER PERSON WITH AN OPINION",
+  "attribution": "— W. EDWARDS",
+  "align": "center",
+  "contextColor": "#a0a0a0",
+  "contextFontSize": 28,
+  "color": "#ffffff",
+  "quoteFontSize": 64,
+  "attributionColor": "#a0a0a0",
+  "attributionFontSize": 24,
+  "chromaticAberration": true,
+  "chromaticOffset": 18,
+  "gap": 16,
+  "startFrame": 0,
+  "animationDuration": 60,
+  "easing": [0.16, 1, 0.3, 1]
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `data-storytelling` | Slower, more deliberate | `{ animationDuration: 75 }` |
+| `motivational-quote` | Larger quote, no context | `{ context: "", quoteFontSize: 80, animationDuration: 50 }` |
+| `educational` | Smaller, more readable | `{ quoteFontSize: 48, contextFontSize: 22, gap: 12 }` |
+
+**When to Use**
+- Data-driven storytelling quotes
+- Educational content with expert attribution
+- Motivational quote reveals
+- Authoritative statements with context
+
+**When NOT to Use**
+- Simple single-line titles
+- When no attribution or context is needed
+- Fast-paced, high-energy content
+
+**Composition Example**
+```tsx
+import { QuoteBlockTitle } from "./shared/presets/titles";
+
+<QuoteBlockTitle
+  context="EST. 2024"
+  quote="EVERY GREAT ACHIEVEMENT STARTS WITH A DECISION"
+  attribution="— INSPIRED MINDS"
+/>
+```
+
+---
+
+### ShadowDepthTitle
+
+**ID**: `ShadowDepthTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Bold stacked text with a 3D drop shadow layer behind each line. The shadow animates with a slight delay after the main text, creating a parallax depth effect. Perfect for punchy motivational statements and action-oriented titles.
+
+**Visual Characteristics**
+- Style: Typographic, punchy, bold
+- Motion: Staggered slide-up + fade per line with delayed shadow
+- Texture: None (text only)
+- Depth: Layered (text + shadow parallax)
+
+**Metadata**
+```json
+{
+  "mood": ["punchy", "assertive", "bold", "motivational"],
+  "theme": ["motivational", "fitness", "action", "sports"],
+  "energy": "high",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["EVOLVE", "ADAPT", "MOVE", "FORWARD"],
+  "align": "center",
+  "fontSize": 96,
+  "fontWeight": 700,
+  "color": "#ffffff",
+  "shadowColor": "#000000",
+  "shadowOffsetX": 4,
+  "shadowOffsetY": 4,
+  "shadowOpacity": 0.5,
+  "shadowStagger": 4,
+  "startFrame": 0,
+  "animationDuration": 45,
+  "staggerDelay": 12,
+  "easing": [0.16, 1, 0.3, 1],
+  "entranceDirection": "up",
+  "gap": 12,
+  "letterSpacing": 0.02
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `fitness-motivation` | Larger shadow for impact | `{ shadowOffsetX: 6, shadowOffsetY: 6, shadowOpacity: 0.6 }` |
+| `action-movie` | Faster, more aggressive | `{ animationDuration: 30, staggerDelay: 8, shadowStagger: 2 }` |
+| `minimal-depth` | Subtle shadow | `{ shadowOffsetX: 2, shadowOffsetY: 2, shadowOpacity: 0.3 }` |
+
+**When to Use**
+- Motivational statements
+- Fitness and sports content
+- Action-oriented titles
+- Bold call-to-action sequences
+
+**When NOT to Use**
+- Subtle, elegant contexts
+- When depth/layering is not desired
+- Minimal/editorial layouts
+
+**Composition Example**
+```tsx
+import { ShadowDepthTitle } from "./shared/presets/titles";
+
+<ShadowDepthTitle
+  lines={["IMPROVEMENT", "TAKES DAILY", "ACTION"]}
+  shadowColor="#1a1a1a"
+  shadowOffsetX={6}
+  shadowOffsetY={6}
+/>
+```
+
+---
+
+### GradientTrailTitle
+
+**ID**: `GradientTrailTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Bold stacked text with a gradient color trail on the last few letters of the final line. Last line is larger and features a contrasting accent color (e.g., pink/magenta) on trailing characters. Dynamic and eye-catching.
+
+**Visual Characteristics**
+- Style: Typographic, bold, gradient accent
+- Motion: Staggered slide-up + fade per line
+- Texture: None (text only)
+- Depth: Flat
+
+**Metadata**
+```json
+{
+  "mood": ["bold", "dynamic", "energetic", "modern"],
+  "theme": ["youtube", "explainer", "intro", "promo"],
+  "energy": "high",
+  "colorTemp": "neutral-to-warm",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["BRING", "CHANGES"],
+  "fontSize": [64, 96],
+  "textColor": "#ffffff",
+  "trailColor": "#ec4899",
+  "trailLength": 3,
+  "gap": 8,
+  "animationDuration": 45,
+  "exitDuration": 25,
+  "holdDuration": 30,
+  "easing": [0.16, 1, 0.3, 1],
+  "startFrame": 0
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `gaming-intro` | Neon purple trail | `{ trailColor: "#a855f7", trailLength: 4 }` |
+| `minimal-brand` | Shorter trail, monochrome | `{ trailColor: "#a0a0a0", trailLength: 2 }` |
+| `social-promo` | Fast punchy entrance | `{ animationDuration: 30, exitDuration: 15 }` |
+
+**When to Use**
+- YouTube intros with energetic topic reveals
+- Social media promo titles
+- Any script needing a bold gradient accent
+
+**When NOT to Use**
+- Minimal, understated designs
+- When all text must be uniform color
+
+**Composition Example**
+```tsx
+import { GradientTrailTitle } from "./shared/presets/titles";
+
+<GradientTrailTitle lines={["MAKE", "WAVES"]} trailColor="#ec4899" />
+```
+
+---
+
+### HeavyStackTitle
+
+**ID**: `HeavyStackTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Giant 3-line centered stack with bold italic typography. Top line is largest, middle line uses a contrasting accent color (e.g., orange/gold), bottom line is smallest. Dramatic hierarchy with scale-down entrance.
+
+**Visual Characteristics**
+- Style: Typographic, monumental, dramatic
+- Motion: Scale-down + slide-up per line, staggered
+- Texture: None (text only)
+- Depth: Flat
+
+**Metadata**
+```json
+{
+  "mood": ["dramatic", "bold", "monumental", "confident"],
+  "theme": ["brand-reveal", "cinematic", "event", "luxury"],
+  "energy": "high",
+  "colorTemp": "warm",
+  "formality": "professional-to-luxury",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["THE", "TITLE IS HEAVY", "FOLLOW THE TYPE"],
+  "fontSize": [120, 72, 36],
+  "textColor": "#ffffff",
+  "accentColor": "#f59e0b",
+  "gap": 12,
+  "animationDuration": 50,
+  "exitDuration": 25,
+  "holdDuration": 30,
+  "easing": [0.22, 1, 0.36, 1],
+  "startFrame": 0
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `brand-reveal` | Even larger top line | `{ fontSize: [140, 88, 40] }` |
+| `gaming-title` | Red accent for intensity | `{ accentColor: "#dc2626" }` |
+| `cinematic` | Slower, more elegant | `{ animationDuration: 65, easing: [0.25, 0.1, 0.25, 1] }` |
+
+**When to Use**
+- Brand name reveals with descriptor lines
+- Cinematic title cards
+- Event/conference intros needing dramatic weight
+
+**When NOT to Use**
+- Minimal, 1-2 line titles
+- When all lines need equal visual weight
+
+**Composition Example**
+```tsx
+import { HeavyStackTitle } from "./shared/presets/titles";
+
+<HeavyStackTitle lines={["CREATIVE", "DESIGN", "STUDIO"]} accentColor="#f59e0b" />
+```
+
+---
+
+### GeometricMaskTitle
+
+**ID**: `GeometricMaskTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Single large italic word with a geometric mask block (colored rectangle) sliding in behind the last letter. Creates a bold, editorial typographic statement with a structural accent element.
+
+**Visual Characteristics**
+- Style: Editorial, geometric, bold
+- Motion: Text slides from left, mask block scales in behind last letter
+- Texture: None (text only)
+- Depth: Flat with geometric accent
+
+**Metadata**
+```json
+{
+  "mood": ["editorial", "bold", "geometric", "modern"],
+  "theme": ["brand", "fashion", "editorial", "design"],
+  "energy": "medium-to-high",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "text": "SELECT",
+  "fontSize": 120,
+  "textColor": "#ffffff",
+  "maskColor": "#6b7280",
+  "maskWidth": 40,
+  "animationDuration": 45,
+  "exitDuration": 25,
+  "holdDuration": 30,
+  "easing": [0.16, 1, 0.3, 1],
+  "startFrame": 0
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `brand-mask` | Larger mask for emphasis | `{ maskWidth: 60, maskColor: "#ec4899" }` |
+| `tech-editorial` | Blue mask for tech feel | `{ maskColor: "#3b82f6" }` |
+| `minimal` | Subtle gray mask | `{ maskColor: "#a0a0a0", maskWidth: 30 }` |
+
+**When to Use**
+- Single-word brand reveals
+- Editorial headlines
+- Fashion and design content
+
+**When NOT to Use**
+- Multi-line titles
+- Minimal text-only needs
+
+**Composition Example**
+```tsx
+import { GeometricMaskTitle } from "./shared/presets/titles";
+
+<GeometricMaskTitle text="CHOOSE" maskColor="#ec4899" maskWidth={50} />
+```
+
+---
+
+### LetterSpacingRevealTitle
+
+**ID**: `LetterSpacingRevealTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Single word split into two halves with a slash divider in the center. Letters animate from tightly overlapping to widely spaced, creating a dramatic letter-spacing reveal effect.
+
+**Visual Characteristics**
+- Style: Typographic, dynamic, spacing-focused
+- Motion: Letters expand outward from center + divider fades in
+- Texture: None (text only)
+- Depth: Flat
+
+**Metadata**
+```json
+{
+  "mood": ["dynamic", "modern", "spacious", "clean"],
+  "theme": ["typography", "design", "modern", "minimal"],
+  "energy": "medium",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "text": "TYPOGRAPHY",
+  "fontSize": 96,
+  "textColor": "#ffffff",
+  "divider": "/",
+  "dividerColor": "#6b7280",
+  "startLetterSpacing": -0.5,
+  "endLetterSpacing": 0.25,
+  "animationDuration": 50,
+  "exitDuration": 25,
+  "holdDuration": 30,
+  "easing": [0.22, 1, 0.36, 1],
+  "startFrame": 0
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `typography-showcase` | Extreme spacing | `{ endLetterSpacing: 0.5 }` |
+| `tight-reveal` | Subtle spacing change | `{ startLetterSpacing: -0.2, endLetterSpacing: 0.1 }` |
+| `colorful-divider` | Accent divider | `{ dividerColor: "#ec4899" }` |
+
+**When to Use**
+- Typography-focused content
+- Design portfolio intros
+- Modern brand reveals
+
+**When NOT to Use**
+- Multi-word titles
+- When readability from a distance is critical
+
+**Composition Example**
+```tsx
+import { LetterSpacingRevealTitle } from "./shared/presets/titles";
+
+<LetterSpacingRevealTitle text="CREATIVE" endLetterSpacing={0.3} />
+```
+
+---
+
+### OutlineFillTitle
+
+**ID**: `OutlineFillTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Two stacked italic lines where the first is outlined (stroke only, transparent fill) and the second is solid filled. Both share the same accent color. Creates a striking outline-to-fill typographic contrast.
+
+**Visual Characteristics**
+- Style: Typographic, outlined, dual-state
+- Motion: Staggered slide-up + fade per line
+- Texture: None (text only)
+- Depth: Flat with stroke/fill contrast
+
+**Metadata**
+```json
+{
+  "mood": ["bold", "modern", "contrasting", "stylish"],
+  "theme": ["gaming", "sports", "music", "streetwear"],
+  "energy": "high",
+  "colorTemp": "warm",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "lines": ["FRESH", "GAME"],
+  "fontSize": [96, 96],
+  "outlineColor": "#f59e0b",
+  "fillColor": "#f59e0b",
+  "strokeWidth": 2,
+  "gap": 4,
+  "animationDuration": 45,
+  "exitDuration": 25,
+  "holdDuration": 30,
+  "easing": [0.16, 1, 0.3, 1],
+  "startFrame": 0
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `gaming-title` | Neon green outline + fill | `{ outlineColor: "#22c55e", fillColor: "#22c55e" }` |
+| `streetwear` | Thick stroke for impact | `{ strokeWidth: 3 }` |
+| `minimal` | White on dark | `{ outlineColor: "#ffffff", fillColor: "#ffffff" }` |
+
+**When to Use**
+- Gaming and sports titles
+- Streetwear and fashion content
+- Music video intros
+
+**When NOT to Use**
+- Minimal, single-state designs
+- When text must be fully readable at small sizes
+
+**Composition Example**
+```tsx
+import { OutlineFillTitle } from "./shared/presets/titles";
+
+<OutlineFillTitle lines={["NEW", "DROP"]} outlineColor="#ec4899" fillColor="#ec4899" />
+```
+
+---
+
+### SandwichLabelTitle
+
+**ID**: `SandwichLabelTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Giant stacked text with a small colored label sandwiched between two large words. Top and bottom words are massive; middle label is tiny with a contrasting accent color. Top slides from left, bottom from right.
+
+**Visual Characteristics**
+- Style: Typographic, sandwich, hierarchical
+- Motion: Top from left, bottom from right, label fades in last
+- Texture: None (text only)
+- Depth: Flat
+
+**Metadata**
+```json
+{
+  "mood": ["energetic", "bold", "trendy", "modern"],
+  "theme": ["event", "promo", "social", "brand"],
+  "energy": "high",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "topText": "TRENDY",
+  "bottomText": "DESIGN",
+  "label": "JOIN THE TRENDY DESIGN CLUB",
+  "fontSize": 120,
+  "labelColor": "#2dd4bf",
+  "labelFontSize": 20,
+  "textColor": "#ffffff",
+  "gap": 4,
+  "animationDuration": 50,
+  "exitDuration": 25,
+  "holdDuration": 30,
+  "easing": [0.22, 1, 0.36, 1],
+  "startFrame": 0
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `event-promo` | Larger label, tighter gap | `{ labelFontSize: 28, gap: 2 }` |
+| `brand-reveal` | Gold accent label | `{ labelColor: "#fbbf24" }` |
+| `minimal` | Smaller words, subtle label | `{ fontSize: 80, labelColor: "#a0a0a0" }` |
+
+**When to Use**
+- Event and promo titles
+- Social media content
+- Brand reveals with tagline
+
+**When NOT to Use**
+- Single-line titles
+- Minimal, quiet designs
+
+**Composition Example**
+```tsx
+import { SandwichLabelTitle } from "./shared/presets/titles";
+
+<SandwichLabelTitle topText="SUMMER" bottomText="SALE" label="UP TO 50% OFF" labelColor="#ec4899" />
+```
+
+---
+
+### RoundedBoxTitle
+
+**ID**: `RoundedBoxTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Bold italic text inside a white rounded square box with optional subtitle beneath. Box scales in with slight rotation, text fades in after. Clean, contained, and modern.
+
+**Visual Characteristics**
+- Style: Boxed, clean, contained
+- Motion: Box scales + rotates in, text staggers in
+- Texture: None (text only)
+- Depth: Flat with rounded container
+
+**Metadata**
+```json
+{
+  "mood": ["clean", "modern", "contained", "premium"],
+  "theme": ["brand", "product", "presentation", "card"],
+  "energy": "medium",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "text": "TYPE",
+  "fontSize": 120,
+  "textColor": "#000000",
+  "boxColor": "#ffffff",
+  "boxSize": 280,
+  "borderRadius": 20,
+  "subtitle": "NEW TYPE BOX",
+  "animationDuration": 45,
+  "exitDuration": 25,
+  "holdDuration": 30,
+  "easing": [0.34, 1.56, 0.64, 1],
+  "startFrame": 0
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `dark-brand` | Dark box, light text | `{ boxColor: "#171717", textColor: "#ffffff" }` |
+| `product-card` | Larger box, more padding | `{ boxSize: 340, borderRadius: 24 }` |
+| `minimal` | No subtitle | `{ subtitle: undefined }` |
+
+**When to Use**
+- Brand logo reveals
+- Product title cards
+- Presentation slides
+
+**When NOT to Use**
+- Full-bleed backgrounds
+- Minimal text-only needs
+
+**Composition Example**
+```tsx
+import { RoundedBoxTitle } from "./shared/presets/titles";
+
+<RoundedBoxTitle text="NEW" boxColor="#171717" textColor="#ffffff" />
+```
+
+---
+
+### HighlightBarTitle
+
+**ID**: `HighlightBarTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+Bold text with a colored highlight bar expanding horizontally behind it, plus optional subtitle below. Bar scales from left to right, then text reveals on top. Classic editorial/promo style.
+
+**Visual Characteristics**
+- Style: Editorial, highlighted, anchored
+- Motion: Bar expands left-to-right, text fades/slides in, subtitle follows
+- Texture: None (text only)
+- Depth: Flat with colored bar anchor
+
+**Metadata**
+```json
+{
+  "mood": ["bold", "editorial", "promo", "confident"],
+  "theme": ["promo", "event", "social", "brand"],
+  "energy": "medium-to-high",
+  "colorTemp": "warm",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+```json
+{
+  "text": "HELLO NEW TYPE",
+  "fontSize": 96,
+  "textColor": "#ffffff",
+  "barColor": "#ec4899",
+  "barHeight": 60,
+  "subtitle": "The Brand New Title Animation Pack",
+  "animationDuration": 50,
+  "exitDuration": 25,
+  "holdDuration": 30,
+  "easing": [0.22, 1, 0.36, 1],
+  "startFrame": 0
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context | Override Rationale | Props |
+|---------|-------------------|-------|
+| `sale-promo` | Red bar for urgency | `{ barColor: "#dc2626" }` |
+| `tech-launch` | Blue bar for tech | `{ barColor: "#3b82f6" }` |
+| `minimal-editorial` | Thin bar, no subtitle | `{ barHeight: 8, subtitle: undefined }` |
+
+**When to Use**
+- Promo and sale titles
+- Event announcements
+- Social media highlights
+
+**When NOT to Use**
+- Minimal, text-only designs
+- When the bar would clash with background
+
+**Composition Example**
+```tsx
+import { HighlightBarTitle } from "./shared/presets/titles";
+
+<HighlightBarTitle text="SUMMER SALE" barColor="#ec4899" subtitle="Limited Time Only" />
+```
 
 ---
 
