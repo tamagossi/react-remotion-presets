@@ -239,6 +239,108 @@ import {
 	WordSlideTextComposition,
 	WordSwapTextComposition,
 } from "./shared/presets/texts/compositions";
+import {
+	ActivityRingsProps,
+	AnimatedLineChartProps,
+	AreaChartGlowProps,
+	CandlestickChartProps,
+	CircularRadialGaugeProps,
+	DataTableCardProps,
+	DemographicIconsProps,
+	DivergingBarChartProps,
+	DonutBreakdownCardProps,
+	DonutChartProps,
+	DonutChartSetProps,
+	DotScatterChartProps,
+	DualGaugeChartProps,
+	GroupedBarChartCardProps,
+	GroupedBarChartProps,
+	HorizontalBarChartCardProps,
+	HorizontalBarChartProps,
+	IconStatGridProps,
+	LoadingProgressProps,
+	NestedArcChartProps,
+	PillBounceChartProps,
+	ProgressBarCardProps,
+	PyramidChartProps,
+	RadarChartCardProps,
+	RadarChartProps,
+	RadialRingChartProps,
+	SalesReportCardProps,
+	SemiCircleGaugeCardProps,
+	SplitPercentageDisplayProps,
+	StackedBarChartCardProps,
+	StackedBarChartProps,
+	TrafficLightDotsProps,
+} from "./shared/presets/data-visualizations";
+import {
+	ActivityRingsComposition,
+	AnimatedLineChartComposition,
+	AreaChartGlowComposition,
+	CandlestickChartComposition,
+	CircularRadialGaugeComposition,
+	DataTableCardComposition,
+	DemographicIconsComposition,
+	DivergingBarChartComposition,
+	DonutBreakdownCardComposition,
+	DonutChartComposition,
+	DonutChartSetComposition,
+	DotScatterChartComposition,
+	DualGaugeChartComposition,
+	GroupedBarChartCardComposition,
+	GroupedBarChartComposition,
+	HorizontalBarChartCardComposition,
+	HorizontalBarChartComposition,
+	IconStatGridComposition,
+	LoadingProgressComposition,
+	NestedArcChartComposition,
+	PillBounceChartComposition,
+	ProgressBarCardComposition,
+	PyramidChartComposition,
+	RadarChartCardComposition,
+	RadarChartComposition,
+	RadialRingChartComposition,
+	SalesReportCardComposition,
+	SemiCircleGaugeCardComposition,
+	SplitPercentageDisplayComposition,
+	StackedBarChartCardComposition,
+	StackedBarChartComposition,
+	TrafficLightDotsComposition,
+} from "./shared/presets/data-visualizations/compositions";
+import {
+	ActivityRingsSchema,
+	AnimatedLineChartSchema,
+	AreaChartGlowSchema,
+	CandlestickChartSchema,
+	CircularRadialGaugeSchema,
+	DataTableCardSchema,
+	DemographicIconsSchema,
+	DivergingBarChartSchema,
+	DonutBreakdownCardSchema,
+	DonutChartSchema,
+	DonutChartSetSchema,
+	DotScatterChartSchema,
+	DualGaugeChartSchema,
+	GroupedBarChartCardSchema,
+	GroupedBarChartSchema,
+	HorizontalBarChartCardSchema,
+	HorizontalBarChartSchema,
+	IconStatGridSchema,
+	LoadingProgressSchema,
+	NestedArcChartSchema,
+	PillBounceChartSchema,
+	ProgressBarCardSchema,
+	PyramidChartSchema,
+	RadarChartCardSchema,
+	RadarChartSchema,
+	RadialRingChartSchema,
+	SalesReportCardSchema,
+	SemiCircleGaugeCardSchema,
+	SplitPercentageDisplaySchema,
+	StackedBarChartCardSchema,
+	StackedBarChartSchema,
+	TrafficLightDotsSchema,
+} from "./shared/presets/data-visualizations";
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -2214,6 +2316,1035 @@ accentColor: "#dc2626",
 						textColor: "#ffffff",
 						textTransform: "uppercase",
 					} satisfies WordSlideTextProps}
+				/>
+			</Folder>
+			<Folder name="data-visualizations">
+				<Composition
+					component={AnimatedLineChartComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="AnimatedLineChart"
+					schema={AnimatedLineChartSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 90,
+						backgroundColor: "#0a0a14",
+						cardBackgroundColor: "#141420",
+						cardBorderRadius: 16,
+						cardPadding: 40,
+						dotLabels: true,
+						dotStagger: 3,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						lineColor: "#3b82f6",
+						showCard: true,
+						suffix: "",
+						title: "Revenue Trend",
+						titleColor: "#ffffff",
+						totalLabel: "Total Revenue",
+						totalPrefix: "$",
+						data: [
+							{ label: "Jan", value: 12000 },
+							{ label: "Feb", value: 19000 },
+							{ label: "Mar", value: 15000 },
+							{ label: "Apr", value: 22000 },
+							{ label: "May", value: 28000 },
+							{ label: "Jun", value: 24000 },
+						],
+					} satisfies AnimatedLineChartProps}
+				/>
+				<Composition
+					component={AreaChartGlowComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="AreaChartGlow"
+					schema={AreaChartGlowSchema}
+					width={1280}
+					defaultProps={{
+						accentLabel: "Total expenditure for 10 years",
+						animationDuration: 90,
+						areaColor: "#3b82f6",
+						backgroundColor: "#0a0a14",
+						cardBackgroundColor: "#141420",
+						cardBorderRadius: 16,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						glowColor: "#3b82f6",
+						showCard: true,
+						suffix: "",
+						title: "Expenditure Overview",
+						titleColor: "#ffffff",
+						totalPrefix: "$",
+						verticalLineColor: "#2a2a3a",
+						data: [
+							{ label: "2014", value: 45000 },
+							{ label: "2015", value: 52000 },
+							{ label: "2016", value: 48000 },
+							{ label: "2017", value: 61000 },
+							{ label: "2018", value: 58000 },
+							{ label: "2019", value: 72000 },
+							{ label: "2020", value: 69000 },
+							{ label: "2021", value: 85000 },
+							{ label: "2022", value: 92000 },
+							{ label: "2023", value: 88000 },
+						],
+					} satisfies AreaChartGlowProps}
+				/>
+				<Composition
+					component={CandlestickChartComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="CandlestickChart"
+					schema={CandlestickChartSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 90,
+						backgroundColor: "#0a0a14",
+						cardBackgroundColor: "#141420",
+						cardBorderRadius: 16,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						negativeColor: "#ef4444",
+						positiveColor: "#22c55e",
+						showCard: true,
+						showLabels: true,
+						title: "BITCOIN",
+						titleColor: "#ffffff",
+						data: [
+							{ label: "Mon", secondaryValue: 42, value: 45 },
+							{ label: "Tue", secondaryValue: 45, value: 48 },
+							{ label: "Wed", secondaryValue: 48, value: 44 },
+							{ label: "Thu", secondaryValue: 44, value: 50 },
+							{ label: "Fri", secondaryValue: 50, value: 47 },
+							{ label: "Sat", secondaryValue: 47, value: 52 },
+							{ label: "Sun", secondaryValue: 52, value: 49 },
+						],
+					} satisfies CandlestickChartProps}
+				/>
+				<Composition
+					component={DataTableCardComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="DataTableCard"
+					schema={DataTableCardSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 30,
+						badgeColor: "#22c55e",
+						badgeText: "Live",
+						cardBorderRadius: 16,
+						cardPadding: 24,
+						enterEasing: [0.16, 1, 0.3, 1],
+						exitDuration: 20,
+						headerColor: "#2a2a3a",
+						holdDuration: 60,
+						metricLabel: "Total Market Cap",
+						metricPrefix: "$",
+						metricSuffix: "B",
+						metricValue: 2450,
+						rowGap: 8,
+						showHeader: true,
+						showIndex: true,
+						staggerDelay: 5,
+						subtitle: "Real-time cryptocurrency market data",
+						theme: "dark",
+						title: "Market Analytics",
+						columns: [
+							{ align: "left", key: "name", label: "Asset", width: "120px" },
+							{ align: "right", key: "price", label: "Price", width: "100px" },
+							{ align: "right", key: "change", label: "24h %", width: "80px" },
+							{ align: "right", key: "volume", label: "Volume", width: "120px" },
+						],
+						data: [
+							{ change: 5.2, name: "Bitcoin", price: 64230, volume: 28400000000 },
+							{ change: -2.1, name: "Ethereum", price: 3450, volume: 15200000000 },
+							{ change: 8.7, name: "Solana", price: 142, volume: 3200000000 },
+							{ change: -0.5, name: "Cardano", price: 0.45, volume: 450000000 },
+							{ change: 12.3, name: "Polkadot", price: 7.2, volume: 890000000 },
+						],
+					} satisfies DataTableCardProps}
+				/>
+				<Composition
+					component={DivergingBarChartComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="DivergingBarChart"
+					schema={DivergingBarChartSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 60,
+						backgroundColor: "#0a0a14",
+						barWidth: 24,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 30,
+						gridColor: "#2a2a3a",
+						holdDuration: 60,
+						labelColor: "#a0a0b0",
+						negativeColor: "#ef4444",
+						positiveColor: "#22c55e",
+						showLabels: true,
+						staggerDelay: 4,
+						subtitle: "Performance comparison across categories",
+						subtitleColor: "#a0a0b0",
+						textColor: "#ffffff",
+						title: "Net Performance",
+						titleColor: "#ffffff",
+						yMax: 100,
+						data: [
+							{ label: "Product A", value: 85 },
+							{ label: "Product B", value: -45 },
+							{ label: "Product C", value: 62 },
+							{ label: "Product D", value: -30 },
+							{ label: "Product E", value: 78 },
+							{ label: "Product F", value: -55 },
+						],
+					} satisfies DivergingBarChartProps}
+				/>
+				<Composition
+					component={DonutBreakdownCardComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="DonutBreakdownCard"
+					schema={DonutBreakdownCardSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 30,
+						badgeColor: "#f97316",
+						badgeText: "Q3 2024",
+						cardBorderRadius: 16,
+						cardPadding: 24,
+						centerSubtext: "Total Budget",
+						centerText: "$2.4M",
+						colors: ["#ec4899", "#fbbf24", "#8b5cf6", "#22c55e", "#f97316"],
+						donutWidth: 16,
+						enterEasing: [0.16, 1, 0.3, 1],
+						exitDuration: 20,
+						holdDuration: 60,
+						metricLabel: "Allocated Budget",
+						metricPrefix: "$",
+						metricSuffix: "M",
+						metricValue: 2.4,
+						showLegend: true,
+						size: 160,
+						staggerDelay: 5,
+						subtitle: "Budget allocation by department",
+						theme: "dark",
+						title: "Budget Breakdown",
+						segments: [
+							{ color: "#ec4899", label: "Marketing", percentage: 35 },
+							{ color: "#fbbf24", label: "Engineering", percentage: 28 },
+							{ color: "#8b5cf6", label: "Design", percentage: 15 },
+							{ color: "#22c55e", label: "Operations", percentage: 12 },
+							{ color: "#f97316", label: "Sales", percentage: 10 },
+						],
+					} satisfies DonutBreakdownCardProps}
+				/>
+				<Composition
+					component={DonutChartComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="DonutChart"
+					schema={DonutChartSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 60,
+						backgroundColor: "#0a0a14",
+						badgeColor: "#3b82f6",
+						badgeRadius: 4,
+						donutRadius: 80,
+						donutWidth: 20,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 30,
+						holdDuration: 60,
+						labelColor: "#a0a0b0",
+						showPercentages: true,
+						staggerDelay: 4,
+						subtitle: "Traffic sources breakdown",
+						subtitleColor: "#a0a0b0",
+						textColor: "#ffffff",
+						title: "Traffic Sources",
+						titleColor: "#ffffff",
+						data: [
+							{ color: "#ec4899", label: "Direct", value: 35 },
+							{ color: "#8b5cf6", label: "Social", value: 25 },
+							{ color: "#3b82f6", label: "Organic", value: 20 },
+							{ color: "#22c55e", label: "Referral", value: 15 },
+							{ color: "#fbbf24", label: "Email", value: 5 },
+						],
+					} satisfies DonutChartProps}
+				/>
+				<Composition
+					component={DualGaugeChartComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="DualGaugeChart"
+					schema={DualGaugeChartSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 90,
+						backgroundColor: "#0a0a14",
+						cardBackgroundColor: "#141420",
+						cardBorderRadius: 16,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						gauge1: { color: "#3b82f6", label: "CPU Usage", max: 100, value: 72 },
+						gauge2: { color: "#22c55e", label: "Memory", max: 100, value: 58 },
+						showCard: true,
+						title: "System Metrics",
+						titleColor: "#ffffff",
+					} satisfies DualGaugeChartProps}
+				/>
+				<Composition
+					component={GroupedBarChartComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="GroupedBarChart"
+					schema={GroupedBarChartSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 60,
+						backgroundColor: "#0a0a14",
+						barWidth: 20,
+						description: "Quarterly revenue by product line",
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 30,
+						gridColor: "#2a2a3a",
+						groupGap: 24,
+						holdDuration: 60,
+						labelColor: "#a0a0b0",
+						legendStaggerDelay: 4,
+						staggerDelay: 4,
+						subtitle: "Revenue comparison",
+						subtitleColor: "#a0a0b0",
+						textColor: "#ffffff",
+						title: "Total Sales",
+						titleColor: "#ffffff",
+						xLabels: ["Q1", "Q2", "Q3", "Q4"],
+						yMax: 250,
+						series: [
+							{ color: "#3b82f6", name: "Product A", values: [120, 150, 180, 200] },
+							{ color: "#ec4899", name: "Product B", values: [90, 110, 140, 160] },
+							{ color: "#22c55e", name: "Product C", values: [60, 80, 100, 120] },
+						],
+					} satisfies GroupedBarChartProps}
+				/>
+				<Composition
+					component={GroupedBarChartCardComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="GroupedBarChartCard"
+					schema={GroupedBarChartCardSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 30,
+						badgeColor: "#3b82f6",
+						badgeText: "2024",
+						barGap: 2,
+						barWidth: 8,
+						cardBorderRadius: 16,
+						cardPadding: 24,
+						colors: ["#8b5cf6", "#f97316", "#ec4899", "#fbbf24"],
+						enterEasing: [0.16, 1, 0.3, 1],
+						exitDuration: 20,
+						gridLines: true,
+						groupGap: 16,
+						holdDuration: 60,
+						labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+						metricLabel: "Total Revenue",
+						metricPrefix: "$",
+						metricSuffix: "K",
+						metricValue: 1250,
+						seriesNames: ["Enterprise", "Pro", "Starter", "Free"],
+						showLegend: true,
+						staggerDelay: 5,
+						subtitle: "Monthly revenue by plan tier",
+						theme: "dark",
+						title: "Revenue Breakdown",
+						data: [
+							{ label: "Jan", values: [65, 45, 30, 20] },
+							{ label: "Feb", values: [70, 50, 35, 25] },
+							{ label: "Mar", values: [75, 55, 40, 30] },
+							{ label: "Apr", values: [80, 60, 45, 35] },
+							{ label: "May", values: [85, 65, 50, 40] },
+							{ label: "Jun", values: [90, 70, 55, 45] },
+						],
+					} satisfies GroupedBarChartCardProps}
+				/>
+				<Composition
+					component={HorizontalBarChartComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="HorizontalBarChart"
+					schema={HorizontalBarChartSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 60,
+						backgroundColor: "#0a0a14",
+						cardBackgroundColor: "#141420",
+						cardBorderRadius: 16,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						showCard: true,
+						showLegend: true,
+						title: "Platform Usage",
+						titleColor: "#ffffff",
+						data: [
+							{
+								color: "#3b82f6",
+								name: "2023",
+								data: [
+									{ label: "Desktop", value: 65 },
+									{ label: "Mobile", value: 45 },
+									{ label: "Tablet", value: 30 },
+									{ label: "Other", value: 15 },
+								],
+							},
+							{
+								color: "#ec4899",
+								name: "2024",
+								data: [
+									{ label: "Desktop", value: 55 },
+									{ label: "Mobile", value: 55 },
+									{ label: "Tablet", value: 25 },
+									{ label: "Other", value: 20 },
+								],
+							},
+						],
+					} satisfies HorizontalBarChartProps}
+				/>
+				<Composition
+					component={HorizontalBarChartCardComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="HorizontalBarChartCard"
+					schema={HorizontalBarChartCardSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 30,
+						badgeColor: "#8b5cf6",
+						badgeText: "Annual",
+						barHeight: 16,
+						barRadius: 8,
+						cardBorderRadius: 16,
+						cardPadding: 24,
+						enterEasing: [0.16, 1, 0.3, 1],
+						exitDuration: 20,
+						gridLines: false,
+						holdDuration: 60,
+						metricLabel: "Total Allocation",
+						metricPrefix: "",
+						metricSuffix: "%",
+						metricValue: 248,
+						showPercentages: true,
+						showValues: true,
+						staggerDelay: 5,
+						subtitle: "Department budget allocation percentages",
+						theme: "dark",
+						title: "Budget Distribution",
+						trackColor: "#333333",
+						data: [
+							{ color: "#ec4899", label: "Infrastructure", maxValue: 100, value: 78 },
+							{ color: "#f97316", label: "Marketing", maxValue: 100, value: 62 },
+							{ color: "#fbbf24", label: "R&D", maxValue: 100, value: 45 },
+							{ color: "#8b5cf6", label: "Operations", maxValue: 100, value: 38 },
+							{ color: "#22c55e", label: "Support", maxValue: 100, value: 25 },
+						],
+					} satisfies HorizontalBarChartCardProps}
+				/>
+				<Composition
+					component={PillBounceChartComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="PillBounceChart"
+					schema={PillBounceChartSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 60,
+						backgroundColor: "#0a0a14",
+						ballColor: "#3b82f6",
+						ballSize: 16,
+						bounceDamping: 10,
+						bounceMass: 0.8,
+						bounceStiffness: 100,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 30,
+						holdDuration: 60,
+						labelColor: "#a0a0b0",
+						pillColor: "#1e1e2e",
+						pillHeight: 60,
+						pillWidth: 200,
+						staggerDelay: 8,
+						subtitle: "Key performance indicators",
+						subtitleColor: "#a0a0b0",
+						textColor: "#ffffff",
+						title: "KPI Overview",
+						titleColor: "#ffffff",
+						pills: [
+							{ color: "#3b82f6", label: "Users", number: "12K" },
+							{ color: "#ec4899", label: "Revenue", number: "$840K" },
+							{ color: "#22c55e", label: "Growth", number: "+24%" },
+							{ color: "#fbbf24", label: "Retention", number: "92%" },
+						],
+					} satisfies PillBounceChartProps}
+				/>
+				<Composition
+					component={RadarChartCardComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="RadarChartCard"
+					schema={RadarChartCardSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 30,
+						badgeColor: "#ec4899",
+						badgeText: "Analysis",
+						cardBorderRadius: 16,
+						cardPadding: 24,
+						colors: ["#ec4899", "#8b5cf6", "#22c55e", "#fbbf24", "#f97316", "#06b6d4"],
+						enterEasing: [0.16, 1, 0.3, 1],
+						exitDuration: 20,
+						fillOpacity: 0.2,
+						gridLines: true,
+						holdDuration: 60,
+						lineWidth: 2,
+						maxValue: 100,
+						metricLabel: "Overall Score",
+						metricSuffix: "/100",
+						metricValue: 85,
+						pointRadius: 4,
+						size: 180,
+						staggerDelay: 5,
+						subtitle: "Performance metrics across all categories",
+						theme: "dark",
+						title: "System Performance",
+						data: [
+							{ color: "#ec4899", label: "Speed", value: 85 },
+							{ color: "#8b5cf6", label: "Reliability", value: 92 },
+							{ color: "#22c55e", label: "Scalability", value: 78 },
+							{ color: "#fbbf24", label: "Security", value: 88 },
+							{ color: "#f97316", label: "Usability", value: 95 },
+							{ color: "#06b6d4", label: "Cost", value: 72 },
+						],
+					} satisfies RadarChartCardProps}
+				/>
+				<Composition
+					component={RadialRingChartComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="RadialRingChart"
+					schema={RadialRingChartSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 60,
+						backgroundColor: "#0a0a14",
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 30,
+						holdDuration: 60,
+						labelColor: "#a0a0b0",
+						legendGap: 16,
+						legendStaggerDelay: 4,
+						maxValue: 100,
+						ringGap: 12,
+						showLegend: true,
+						staggerDelay: 4,
+						subtitle: "Project status overview",
+						subtitleColor: "#a0a0b0",
+						textColor: "#ffffff",
+						title: "Task Completion",
+						titleColor: "#ffffff",
+						rings: [
+							{ color: "#3b82f6", label: "Completed", value: 78 },
+							{ color: "#ec4899", label: "In Progress", value: 45 },
+							{ color: "#22c55e", label: "Planned", value: 32 },
+							{ color: "#fbbf24", label: "Backlog", value: 15 },
+						],
+					} satisfies RadialRingChartProps}
+				/>
+				<Composition
+					component={SalesReportCardComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="SalesReportCard"
+					schema={SalesReportCardSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 30,
+						areaColor: "#8b5cf6",
+						areaOpacity: 0.3,
+						badgeColor: "#22c55e",
+						badgeText: "+12.5%",
+						cardBorderRadius: 16,
+						cardPadding: 24,
+						data: [42000, 55000, 48000, 61000, 72000, 68000, 85000, 92000, 88000, 95000, 102000, 98000],
+						enterEasing: [0.16, 1, 0.3, 1],
+						exitDuration: 20,
+						gridLines: true,
+						holdDuration: 60,
+						labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+						lineColor: "#8b5cf6",
+						lineWidth: 2,
+						metricLabel: "Total Sales",
+						metricPrefix: "$",
+						metricSuffix: "",
+						metricValue: 820000,
+						showDots: true,
+						showGradient: true,
+						staggerDelay: 5,
+						subtitle: "Monthly revenue performance",
+						theme: "dark",
+						title: "Sales Report",
+					} satisfies SalesReportCardProps}
+				/>
+				<Composition
+					component={SemiCircleGaugeCardComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="SemiCircleGaugeCard"
+					schema={SemiCircleGaugeCardSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 30,
+						badgeColor: "#3b82f6",
+						badgeText: "Live",
+						cardBorderRadius: 16,
+						cardPadding: 24,
+						centerLabel: "Completion Rate",
+						colors: ["#8b5cf6", "#fbbf24", "#f97316"],
+						enterEasing: [0.16, 1, 0.3, 1],
+						exitDuration: 20,
+						gaugeWidth: 12,
+						holdDuration: 60,
+						metricLabel: "Overall Progress",
+						metricSuffix: "%",
+						metricValue: 78,
+						showLegend: true,
+						staggerDelay: 5,
+						subtitle: "Project milestone tracking",
+						theme: "dark",
+						title: "Project Status",
+						segments: [
+							{ color: "#8b5cf6", label: "Completed", percentage: 55 },
+							{ color: "#fbbf24", label: "In Progress", percentage: 30 },
+							{ color: "#f97316", label: "Pending", percentage: 15 },
+						],
+					} satisfies SemiCircleGaugeCardProps}
+				/>
+				<Composition
+					component={StackedBarChartComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="StackedBarChart"
+					schema={StackedBarChartSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 60,
+						backgroundColor: "#0a0a14",
+						barColor: "#3b82f6",
+						barWidth: 40,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 30,
+						gridColor: "#2a2a3a",
+						holdDuration: 60,
+						labelColor: "#a0a0b0",
+						secondaryColor: "#ec4899",
+						showValues: true,
+						staggerDelay: 4,
+						subtitle: "Cashflow breakdown by month",
+						subtitleColor: "#a0a0b0",
+						textColor: "#ffffff",
+						title: "Total Cashflow",
+						titleColor: "#ffffff",
+						valueColor: "#ffffff",
+						yMax: 100,
+						data: [
+							{ label: "Jan", secondaryValue: 20, value: 45 },
+							{ label: "Feb", secondaryValue: 25, value: 55 },
+							{ label: "Mar", secondaryValue: 30, value: 50 },
+							{ label: "Apr", secondaryValue: 22, value: 65 },
+							{ label: "May", secondaryValue: 35, value: 70 },
+							{ label: "Jun", secondaryValue: 28, value: 60 },
+						],
+					} satisfies StackedBarChartProps}
+				/>
+				<Composition
+					component={StackedBarChartCardComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="StackedBarChartCard"
+					schema={StackedBarChartCardSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 30,
+						badgeColor: "#ec4899",
+						badgeText: "YoY +18%",
+						barGap: 8,
+						barWidth: 24,
+						cardBorderRadius: 16,
+						cardPadding: 24,
+						colors: ["#ec4899", "#f97316", "#8b5cf6"],
+						enterEasing: [0.16, 1, 0.3, 1],
+						exitDuration: 20,
+						gridLines: true,
+						holdDuration: 60,
+						labels: ["Q1", "Q2", "Q3", "Q4"],
+						metricLabel: "Total Revenue",
+						metricPrefix: "$",
+						metricSuffix: "K",
+						metricValue: 495,
+						seriesNames: ["Product A", "Product B", "Product C"],
+						showLegend: true,
+						staggerDelay: 5,
+						subtitle: "Quarterly revenue by product line",
+						theme: "dark",
+						title: "Revenue Stack",
+						data: [
+							{ label: "Q1", values: [45, 30, 25] },
+							{ label: "Q2", values: [55, 35, 28] },
+							{ label: "Q3", values: [50, 40, 32] },
+							{ label: "Q4", values: [65, 45, 35] },
+						],
+					} satisfies StackedBarChartCardProps}
+				/>
+				<Composition
+					component={CircularRadialGaugeComposition}
+					durationInFrames={5 * FPS}
+					fps={FPS}
+					height={720}
+					id="CircularRadialGauge"
+					schema={CircularRadialGaugeSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 90,
+						backgroundColor: "#0a0a14",
+						cardBackgroundColor: "#141420",
+						cardBorderRadius: 16,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						gradientColors: ["#7c3aed", "#3b82f6"],
+						max: 100,
+						showCard: true,
+						value: 62,
+					} satisfies CircularRadialGaugeProps}
+				/>
+				<Composition
+					component={DonutChartSetComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="DonutChartSet"
+					schema={DonutChartSetSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 90,
+						backgroundColor: "#0a0a14",
+						cardBackgroundColor: "#141420",
+						cardBorderRadius: 16,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						showCard: true,
+						charts: [
+							{ color: "#22c55e", label: "Income", max: 100, value: 42 },
+							{ color: "#3b82f6", label: "Expenses", max: 100, value: 67 },
+							{ color: "#f59e0b", label: "Profit", max: 100, value: 77 },
+						],
+					} satisfies DonutChartSetProps}
+				/>
+				<Composition
+					component={NestedArcChartComposition}
+					durationInFrames={5 * FPS}
+					fps={FPS}
+					height={720}
+					id="NestedArcChart"
+					schema={NestedArcChartSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 90,
+						backgroundColor: "#e8e8e8",
+						cardBackgroundColor: "#f5f5f5",
+						cardBorderRadius: 16,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						showCard: true,
+						titleColor: "#333333",
+						data: [
+							{ color: "#1e3a5f", label: "Graphic Design", value: 80 },
+							{ color: "#2d5a8a", label: "Organization", value: 63 },
+							{ color: "#3b82f6", label: "Copywriting", value: 74 },
+						],
+					} satisfies NestedArcChartProps}
+				/>
+				<Composition
+					component={ActivityRingsComposition}
+					durationInFrames={5 * FPS}
+					fps={FPS}
+					height={720}
+					id="ActivityRings"
+					schema={ActivityRingsSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 90,
+						backgroundColor: "#0a0a14",
+						cardBackgroundColor: "#141420",
+						cardBorderRadius: 16,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						showCard: true,
+						rings: [
+							{ color: "#ec4899", label: "Move", max: 600, value: 420 },
+							{ color: "#a3e635", label: "Exercise", max: 60, value: 35 },
+							{ color: "#06b6d4", label: "Stand", max: 12, value: 8 },
+						],
+					} satisfies ActivityRingsProps}
+				/>
+				<Composition
+					component={ProgressBarCardComposition}
+					durationInFrames={5 * FPS}
+					fps={FPS}
+					height={720}
+					id="ProgressBarCard"
+					schema={ProgressBarCardSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 90,
+						backgroundColor: "#e8e8e8",
+						barColors: ["#ef4444", "#f97316", "#eab308", "#22c55e"],
+						cardBackgroundColor: "#f0f0f0",
+						cardBorderRadius: 12,
+						cardPadding: 40,
+						currentValue: 10000,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						maxValue: 10000,
+						prefix: "$",
+						showCard: true,
+						suffix: "",
+						title: "COMPANY CAPITAL",
+						titleColor: "#888888",
+					} satisfies ProgressBarCardProps}
+				/>
+				<Composition
+					component={LoadingProgressComposition}
+					durationInFrames={5 * FPS}
+					fps={FPS}
+					height={720}
+					id="LoadingProgress"
+					schema={LoadingProgressSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 90,
+						backgroundColor: "#0a0a14",
+						barColor: "#f87171",
+						cardBackgroundColor: "#141420",
+						cardBorderRadius: 0,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						label: "Movie loading...",
+						showCard: true,
+						value: 78,
+					} satisfies LoadingProgressProps}
+				/>
+				<Composition
+					component={SplitPercentageDisplayComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="SplitPercentageDisplay"
+					schema={SplitPercentageDisplaySchema}
+					width={1280}
+					defaultProps={{
+						accentColor: "#ef4444",
+						animationDuration: 90,
+						backgroundColor: "#ef4444",
+						bottomColor: "#1f2937",
+						cardBackgroundColor: "transparent",
+						cardBorderRadius: 0,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						showCard: true,
+						suffix: "%",
+						value: 62,
+					} satisfies SplitPercentageDisplayProps}
+				/>
+				<Composition
+					component={DemographicIconsComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="DemographicIcons"
+					schema={DemographicIconsSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 90,
+						backgroundColor: "#0a0a14",
+						cardBackgroundColor: "#141420",
+						cardBorderRadius: 16,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						showCard: true,
+						groups: [
+							{ color: "#06b6d4", icon: "person", label: "MEN", value: 86 },
+							{ color: "#ec4899", icon: "woman", label: "WOMEN", value: 14 },
+						],
+					} satisfies DemographicIconsProps}
+				/>
+				<Composition
+					component={PyramidChartComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="PyramidChart"
+					schema={PyramidChartSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 90,
+						backgroundColor: "#0a0a14",
+						cardBackgroundColor: "#141420",
+						cardBorderRadius: 16,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						showCard: true,
+						data: [
+							{ color: "#4c1d95", label: "PHYSIOLOGICAL", value: 100 },
+							{ color: "#7c3aed", label: "SAFETY", value: 100 },
+							{ color: "#c026d3", label: "LOVE / BELONGING", value: 100 },
+							{ color: "#ec4899", label: "ESTEEM", value: 100 },
+						],
+					} satisfies PyramidChartProps}
+				/>
+				<Composition
+					component={IconStatGridComposition}
+					durationInFrames={5 * FPS}
+					fps={FPS}
+					height={720}
+					id="IconStatGrid"
+					schema={IconStatGridSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 90,
+						backgroundColor: "#0a0a14",
+						cardBackgroundColor: "#141420",
+						cardBorderRadius: 16,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						showCard: true,
+						title: "Account Statistic",
+						titleColor: "#ffffff",
+						items: [
+							{ color: "#ec4899", icon: "heart", label: "likes", value: 2 },
+							{ color: "#8b5cf6", icon: "user", label: "followers", value: 0 },
+							{ color: "#3b82f6", icon: "comment", label: "comments", value: 0 },
+						],
+					} satisfies IconStatGridProps}
+				/>
+				<Composition
+					component={RadarChartComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="RadarChart"
+					schema={RadarChartSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 90,
+						backgroundColor: "#e8e8e8",
+						cardBackgroundColor: "#f5f5f5",
+						cardBorderRadius: 16,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						gradientColors: ["#a855f7", "#f97316"],
+						showCard: true,
+						titleColor: "#333333",
+						data: [
+							{ label: "Interaction Design", value: 85 },
+							{ label: "Information Design", value: 72 },
+							{ label: "Creative Coding", value: 65 },
+							{ label: "Front-end Development", value: 90 },
+							{ label: "Information Architecture", value: 78 },
+							{ label: "Interaction Design", value: 88 },
+						],
+					} satisfies RadarChartProps}
+				/>
+				<Composition
+					component={DotScatterChartComposition}
+					durationInFrames={5 * FPS}
+					fps={FPS}
+					height={720}
+					id="DotScatterChart"
+					schema={DotScatterChartSchema}
+					width={1280}
+					defaultProps={{
+						animationDuration: 90,
+						backgroundColor: "#0a0a14",
+						cardBackgroundColor: "#141420",
+						cardBorderRadius: 16,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						showCard: true,
+						data: [
+							{ color: "#93c5fd", label: "Leadership", value: 85 },
+							{ color: "#a3e635", label: "Goal Oriented", value: 72 },
+							{ color: "#f472b6", label: "Teamwork", value: 90 },
+						],
+					} satisfies DotScatterChartProps}
+				/>
+				<Composition
+					component={TrafficLightDotsComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="TrafficLightDots"
+					schema={TrafficLightDotsSchema}
+					width={1280}
+					defaultProps={{
+						activeIndex: 0,
+						animationDuration: 90,
+						backgroundColor: "#0a0a14",
+						cardBackgroundColor: "#141420",
+						cardBorderRadius: 16,
+						cardPadding: 40,
+						easing: [0.16, 1, 0.3, 1],
+						fontFamily: "Inter",
+						showCard: true,
+						dots: [
+							{ color: "#ef4444", label: "Critical" },
+							{ color: "#eab308", label: "Warning" },
+							{ color: "#22c55e", label: "Normal" },
+						],
+					} satisfies TrafficLightDotsProps}
 				/>
 			</Folder>
 		</>
