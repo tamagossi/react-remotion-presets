@@ -195,6 +195,50 @@ import {
 	StrikethroughBadgeTitleSchema,
 	VerticalAccentTitleSchema,
 } from "./shared/presets/titles";
+import {
+	BlurRevealTextProps,
+	CascadeLetterTextProps,
+	ColorStackTextProps,
+	FocusShiftTextProps,
+	GlitchRevealTextProps,
+	InlineHighlightTextProps,
+	LetterSpacingRevealTextProps,
+	MixedWeightSlideTextProps,
+	ScalePopTextProps,
+	SequentialWordTextProps,
+	SimpleFadeTextProps,
+	SingleWordZoomTextProps,
+	StackedLineTextProps,
+	StackedRepeatTextProps,
+	TypewriterGlitchTextProps,
+	TypewriterTextProps,
+	WaveTextProps,
+	WiggleTextProps,
+	WordSlideTextProps,
+	WordSwapTextProps,
+} from "./shared/presets/texts";
+import {
+	BlurRevealTextComposition,
+	CascadeLetterTextComposition,
+	ColorStackTextComposition,
+	FocusShiftTextComposition,
+	GlitchRevealTextComposition,
+	InlineHighlightTextComposition,
+	LetterSpacingRevealTextComposition,
+	MixedWeightSlideTextComposition,
+	ScalePopTextComposition,
+	SequentialWordTextComposition,
+	SimpleFadeTextComposition,
+	SingleWordZoomTextComposition,
+	StackedLineTextComposition,
+	StackedRepeatTextComposition,
+	TypewriterGlitchTextComposition,
+	TypewriterTextComposition,
+	WaveTextComposition,
+	WiggleTextComposition,
+	WordSlideTextComposition,
+	WordSwapTextComposition,
+} from "./shared/presets/texts/compositions";
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -1690,6 +1734,486 @@ accentColor: "#dc2626",
 						lines: ["VERTICAL", "ACCENT"],
 					} satisfies VerticalAccentTitleProps
 					}
+				/>
+			</Folder>
+			<Folder name="texts">
+				<Composition
+					component={ScalePopTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="ScalePopText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 40,
+						bounceDamping: 8,
+						bounceMass: 0.6,
+						bounceStiffness: 120,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						fontFamily: "Anton",
+						fontSize: 96,
+						fontWeight: 400,
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						overshoot: 1.15,
+						staggerDelay: 6,
+						startFrame: 0,
+						text: "BOUNCE",
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+					} satisfies ScalePopTextProps}
+				/>
+				<Composition
+					component={GlitchRevealTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="GlitchRevealText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 50,
+						chromaticOffset: 8,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						fontFamily: "Anton",
+						fontSize: 96,
+						fontWeight: 400,
+						glitchColor1: "#00f0ff",
+						glitchColor2: "#ff0080",
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						scrambleIntensity: 0.8,
+						startFrame: 0,
+						text: "TEXT PRESETS",
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+					} satisfies GlitchRevealTextProps}
+				/>
+				<Composition
+					component={WaveTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="WaveText"
+					width={1280}
+					defaultProps={{
+						amplitude: 40,
+						animationDuration: 40,
+						damping: 0.92,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						fontFamily: "Anton",
+						fontSize: 96,
+						fontWeight: 400,
+						frequency: 0.3,
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						startFrame: 0,
+						text: "WAVE MOTION",
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+						waveDirection: "left-to-right",
+					} satisfies WaveTextProps}
+				/>
+				<Composition
+					component={TypewriterTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="TypewriterText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 60,
+						blinkingCursor: true,
+						cursorColor: "#ffffff",
+						cursorWidth: 3,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						fontFamily: "Anton",
+						fontSize: 64,
+						fontWeight: 400,
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						startFrame: 0,
+						text: "Typewriter effect",
+						textColor: "#ffffff",
+						textTransform: "none",
+					} satisfies TypewriterTextProps}
+				/>
+				<Composition
+					component={LetterSpacingRevealTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="LetterSpacingRevealText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 50,
+						blurAmount: 8,
+						easing: [0.22, 1, 0.36, 1],
+						exitDuration: 25,
+						fontFamily: "Anton",
+						fontSize: 96,
+						fontWeight: 400,
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						startFrame: 0,
+						startLetterSpacing: 0.8,
+						text: "CINEMATIC",
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+					} satisfies LetterSpacingRevealTextProps}
+				/>
+				<Composition
+					component={WiggleTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="WiggleText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 40,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						fontFamily: "Anton",
+						fontSize: 96,
+						fontWeight: 400,
+						holdDuration: 30,
+						jitterIntensity: 12,
+						jitterSpeed: 0.4,
+						letterSpacing: 0.02,
+						startFrame: 0,
+						text: "WIGGLE POSITION",
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+					} satisfies WiggleTextProps}
+				/>
+				<Composition
+					component={BlurRevealTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="BlurRevealText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 45,
+						blurAmount: 12,
+						easing: [0.22, 1, 0.36, 1],
+						exitDuration: 25,
+						fontFamily: "Anton",
+						fontSize: 96,
+						fontWeight: 400,
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						scaleStart: 0.85,
+						staggerDelay: 3,
+						startFrame: 0,
+						text: "BLUR REVEAL",
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+					} satisfies BlurRevealTextProps}
+				/>
+				<Composition
+					component={CascadeLetterTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="CascadeLetterText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 45,
+						cascadeDirection: "down",
+						easing: [0.22, 1, 0.36, 1],
+						exitDuration: 25,
+						fontFamily: "Anton",
+						fontSize: 96,
+						fontWeight: 400,
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						rotation: 45,
+						startFrame: 0,
+						text: "CASCADE",
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+					} satisfies CascadeLetterTextProps}
+				/>
+				<Composition
+					component={FocusShiftTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="FocusShiftText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 50,
+						blurAmount: 16,
+						easing: [0.22, 1, 0.36, 1],
+						exitDuration: 25,
+						fontFamily: "Anton",
+						fontSize: 96,
+						fontWeight: 400,
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						shiftX: 60,
+						shiftY: 0,
+						startFrame: 0,
+						text: "FOCUS SHIFT",
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+					} satisfies FocusShiftTextProps}
+				/>
+				<Composition
+					component={MixedWeightSlideTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="MixedWeightSlideText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 45,
+						easing: [0.22, 1, 0.36, 1],
+						exitDuration: 25,
+						fontFamily: "Anton",
+						fontSize: 96,
+						fontWeights: [400, 700],
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						slideDirection: "alternate",
+						startFrame: 0,
+						text: "MIXED WEIGHT",
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+					} satisfies MixedWeightSlideTextProps}
+				/>
+				<Composition
+					component={StackedRepeatTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="StackedRepeatText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 40,
+						easing: [0.22, 1, 0.36, 1],
+						exitDuration: 25,
+						fontFamily: "Anton",
+						fontSize: 96,
+						fontWeight: 400,
+						holdDuration: 30,
+						layerCount: 4,
+						layerOffset: 4,
+						layerOpacity: 0.15,
+						letterSpacing: 0.02,
+						startFrame: 0,
+						text: "STACKED",
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+					} satisfies StackedRepeatTextProps}
+				/>
+				<Composition
+					component={WordSwapTextComposition}
+					durationInFrames={6 * FPS}
+					fps={FPS}
+					height={720}
+					id="WordSwapText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 30,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						fontFamily: "Anton",
+						fontSize: 96,
+						fontWeight: 400,
+						holdDuration: 30,
+						letterSpacing: 0.02,
+						startFrame: 0,
+						swapInterval: 45,
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+						words: ["CREATE", "DESIGN", "BUILD"],
+					} satisfies WordSwapTextProps}
+				/>
+				<Composition
+					component={ColorStackTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="ColorStackText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 45,
+						durationInFrames: 120,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						fontSize: 96,
+						fontWeight: 700,
+						holdDuration: 30,
+						lineColors: ["#ef4444", "#ef4444", "#ffffff"],
+						lineGap: 12,
+						lines: ["TRUE", "POWER OF", "WORDS"],
+						staggerDelay: 12,
+						startFrame: 0,
+						textTransform: "uppercase",
+					} satisfies ColorStackTextProps}
+				/>
+				<Composition
+					component={InlineHighlightTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="InlineHighlightText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 40,
+						durationInFrames: 120,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						fontSize: 72,
+						holdDuration: 30,
+						startFrame: 0,
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+						segments: [
+							{ color: "#ef4444", text: "e" },
+							{ text: "Patmos" },
+						],
+					} satisfies InlineHighlightTextProps}
+				/>
+				<Composition
+					component={SequentialWordTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="SequentialWordText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 40,
+						durationInFrames: 120,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						fontSize: 72,
+						holdDuration: 30,
+						staggerDelay: 10,
+						startFrame: 0,
+						text: "THANK YOU FOR WATCHING",
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+					} satisfies SequentialWordTextProps}
+				/>
+				<Composition
+					component={SimpleFadeTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="SimpleFadeText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 40,
+						durationInFrames: 120,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						fontSize: 72,
+						holdDuration: 30,
+						slideY: 20,
+						startFrame: 0,
+						text: "INSPIRED BY CURIOSITY",
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+					} satisfies SimpleFadeTextProps}
+				/>
+				<Composition
+					component={SingleWordZoomTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="SingleWordZoomText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 40,
+						durationInFrames: 120,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						fontSize: 120,
+						fontWeight: 700,
+						holdDuration: 30,
+						overshoot: 1.15,
+						scaleStart: 0.3,
+						startFrame: 0,
+						text: "WORDS",
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+					} satisfies SingleWordZoomTextProps}
+				/>
+				<Composition
+					component={StackedLineTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="StackedLineText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 40,
+						durationInFrames: 120,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						fontSize: 72,
+						holdDuration: 30,
+						lineGap: 16,
+						lines: ["FULL SCREEN", "POWERFUL", "TYPOGRAPHY"],
+						staggerDelay: 10,
+						startFrame: 0,
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+					} satisfies StackedLineTextProps}
+				/>
+				<Composition
+					component={TypewriterGlitchTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="TypewriterGlitchText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 60,
+						blinkingCursor: true,
+						cursorColor: "#3b82f6",
+						cursorWidth: 3,
+						durationInFrames: 120,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						fontSize: 72,
+						glitchColor1: "#00f0ff",
+						glitchColor2: "#ff0080",
+						holdDuration: 20,
+						scrambleIntensity: 0.8,
+						startFrame: 0,
+						text: "TYPEWRITER GLITCH",
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+					} satisfies TypewriterGlitchTextProps}
+				/>
+				<Composition
+					component={WordSlideTextComposition}
+					durationInFrames={4 * FPS}
+					fps={FPS}
+					height={720}
+					id="WordSlideText"
+					width={1280}
+					defaultProps={{
+						animationDuration: 40,
+						durationInFrames: 120,
+						easing: [0.16, 1, 0.3, 1],
+						exitDuration: 25,
+						fontSize: 72,
+						holdDuration: 30,
+						slideDistance: 80,
+						staggerDelay: 8,
+						startFrame: 0,
+						text: "WORDS APPEAR AT THE RIGHT TIME",
+						textColor: "#ffffff",
+						textTransform: "uppercase",
+					} satisfies WordSlideTextProps}
 				/>
 			</Folder>
 		</>
