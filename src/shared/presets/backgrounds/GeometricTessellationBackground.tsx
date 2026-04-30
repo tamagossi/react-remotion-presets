@@ -76,8 +76,10 @@ export const GeometricTessellationBackground: React.FC<
 
   const rotation = progress * rotationSpeed;
   const scale = 1 + Math.sin(progress * Math.PI * 2) * scalePulse;
-  const driftX = Math.sin(progress * Math.PI * 2 * driftSpeed) * width * layerOffset;
-  const driftY = Math.cos(progress * Math.PI * 2 * driftSpeed * 0.7) * height * layerOffset;
+  const driftX =
+    Math.sin(progress * Math.PI * 2 * driftSpeed) * width * layerOffset;
+  const driftY =
+    Math.cos(progress * Math.PI * 2 * driftSpeed * 0.7) * height * layerOffset;
 
   const renderDiamondCross = () => {
     const tilesX = Math.ceil(width / tileSize) + 2;
@@ -91,7 +93,7 @@ export const GeometricTessellationBackground: React.FC<
         const groupElements: React.ReactNode[] = [];
 
         for (let n = 0; n < nestingDepth; n++) {
-          const s = (tileSize * 0.4) * (1 - n / nestingDepth);
+          const s = tileSize * 0.4 * (1 - n / nestingDepth);
           groupElements.push(
             <polygon
               fill="none"
@@ -128,9 +130,7 @@ export const GeometricTessellationBackground: React.FC<
           );
         }
 
-        elements.push(
-          <g key={`tile-${row}-${col}`}>{groupElements}</g>,
-        );
+        elements.push(<g key={`tile-${row}-${col}`}>{groupElements}</g>);
       }
     }
 
@@ -148,7 +148,7 @@ export const GeometricTessellationBackground: React.FC<
         const cy = row * tileSize + tileSize / 2 + driftY;
 
         for (let n = 0; n < nestingDepth; n++) {
-          const s = (tileSize * 0.45) * (1 - n / nestingDepth);
+          const s = tileSize * 0.45 * (1 - n / nestingDepth);
           elements.push(
             <polygon
               fill="none"
@@ -182,7 +182,9 @@ export const GeometricTessellationBackground: React.FC<
         const hexPoints = [];
         for (let i = 0; i < 6; i++) {
           const angle = (Math.PI / 3) * i - Math.PI / 6;
-          hexPoints.push(`${cx + r * Math.cos(angle)},${cy + r * Math.sin(angle)}`);
+          hexPoints.push(
+            `${cx + r * Math.cos(angle)},${cy + r * Math.sin(angle)}`,
+          );
         }
 
         elements.push(
@@ -274,7 +276,7 @@ export const GeometricTessellationBackground: React.FC<
         const centerY = bandY + bandHeight / 2;
 
         for (let n = 0; n < chevronDepth; n++) {
-          const s = (tileSize * 0.4) * (1 - n / chevronDepth);
+          const s = tileSize * 0.4 * (1 - n / chevronDepth);
           const vOffset = n * (bandHeight * 0.08);
           const pointsUp = `${baseX},${centerY - s + vOffset} ${baseX + s / 2},${centerY + vOffset} ${baseX + s},${centerY - s + vOffset}`;
           const pointsDown = `${baseX},${centerY + s - vOffset} ${baseX + s / 2},${centerY - vOffset} ${baseX + s},${centerY + s - vOffset}`;
@@ -319,7 +321,7 @@ export const GeometricTessellationBackground: React.FC<
         const centerY = bandY + bandHeight / 2;
 
         for (let n = 0; n < chevronDepth; n++) {
-          const s = (tileSize * 0.35) * (1 - n / chevronDepth);
+          const s = tileSize * 0.35 * (1 - n / chevronDepth);
           const points = `${baseX},${centerY - s} ${baseX + s / 2},${centerY} ${baseX + s},${centerY - s}`;
           elements.push(
             <polyline

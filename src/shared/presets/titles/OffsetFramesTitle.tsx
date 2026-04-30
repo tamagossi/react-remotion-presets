@@ -80,13 +80,14 @@ export const OffsetFramesTitle: React.FC<OffsetFramesTitleProps> = ({
 
   const entryEnd = startFrame + animationDuration;
   const exitStart = entryEnd + holdDuration;
-  const exitT = exitDuration > 0
-    ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
-        easing: Easing.bezier(...easing),
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      })
-    : 1;
+  const exitT =
+    exitDuration > 0
+      ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
+          easing: Easing.bezier(...easing),
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        })
+      : 1;
 
   const rotate1 = (1 - frame1T) * -2.5;
   const rotate2 = frame2T * 1.5;

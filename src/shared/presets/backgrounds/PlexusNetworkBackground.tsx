@@ -133,7 +133,12 @@ export const PlexusNetworkBackground: React.FC<
 
   const shapeAlpha = interpolate(
     frame,
-    [0, animationDuration * fps * 0.3, animationDuration * fps * 0.7, animationDuration * fps],
+    [
+      0,
+      animationDuration * fps * 0.3,
+      animationDuration * fps * 0.7,
+      animationDuration * fps,
+    ],
     [0, shapeOpacity, shapeOpacity, 0],
     { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );

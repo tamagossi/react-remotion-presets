@@ -1,1 +1,1 @@
-export {TitleAnimationSchema as MinimalDuoTitleSchema} from "./TitleAnimationSchema";
+export { TitleAnimationSchema as MinimalDuoTitleSchema } from "./TitleAnimationSchema";

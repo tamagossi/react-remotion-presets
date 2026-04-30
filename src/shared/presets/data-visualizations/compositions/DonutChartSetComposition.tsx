@@ -1,16 +1,13 @@
 import React from "react";
 
-import {
-	DonutChartSet,
-	type DonutChartSetProps,
-} from "../DonutChartSet";
+import { DonutChartSet, type DonutChartSetProps } from "../DonutChartSet";
 
 export const DonutChartSetComposition: React.FC<DonutChartSetProps> = (
-	props,
+  props,
 ) => {
-	return (
-		<DonutChartSet {...props}>
-			<div />
-		</DonutChartSet>
-	);
+  return (
+    <DonutChartSet {...props}>
+      <div />
+    </DonutChartSet>
+  );
 };

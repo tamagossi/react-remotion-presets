@@ -88,20 +88,17 @@ export const MixedWeightSlideText: React.FC<MixedWeightSlideTextProps> = ({
           { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
         );
 
-			const exitWordDelay = Math.min(
-				i * 4,
-				Math.max(0, exitDuration - 1),
-			);
-			const wordExitT = interpolate(
-				frame,
-				[exitStart + exitWordDelay, exitEnd],
-				[1, 0],
-				{
-					easing: Easing.bezier(...easing),
-					extrapolateLeft: "clamp",
-					extrapolateRight: "clamp",
-				},
-			);
+        const exitWordDelay = Math.min(i * 4, Math.max(0, exitDuration - 1));
+        const wordExitT = interpolate(
+          frame,
+          [exitStart + exitWordDelay, exitEnd],
+          [1, 0],
+          {
+            easing: Easing.bezier(...easing),
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+          },
+        );
 
         const finalOpacity =
           frame >= exitStart + exitWordDelay

@@ -1,1 +1,1 @@
-export {TextAnimationSchema as SimpleFadeTextSchema} from "./TextAnimationSchema";
+export { TextAnimationSchema as SimpleFadeTextSchema } from "./TextAnimationSchema";

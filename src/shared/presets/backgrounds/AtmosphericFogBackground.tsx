@@ -54,8 +54,7 @@ export const AtmosphericFogBackground: React.FC<
     const color = fogColors[i % fogColors.length];
     const phase = i * (Math.PI / bandCount);
     const speed = 0.3 + i * 0.15;
-    const yOffset =
-      height * (0.15 + (i / Math.max(bandCount - 1, 1)) * 0.7);
+    const yOffset = height * (0.15 + (i / Math.max(bandCount - 1, 1)) * 0.7);
 
     const angle = progress * Math.PI * 2 * speed + phase;
     const driftX = Math.sin(angle) * width * 0.15;

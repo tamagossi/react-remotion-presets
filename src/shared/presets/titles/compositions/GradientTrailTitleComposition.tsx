@@ -2,26 +2,26 @@ import React from "react";
 
 import { AbsoluteFill } from "remotion";
 
-import {
-	GradientTrailTitle,
-	type GradientTrailTitleProps,
-} from "../GradientTrailTitle";
 import { useAnton } from "../../../hooks/useAnton";
+import {
+  GradientTrailTitle,
+  type GradientTrailTitleProps,
+} from "../GradientTrailTitle";
 
 export const GradientTrailTitleComposition: React.FC<
-	GradientTrailTitleProps
+  GradientTrailTitleProps
 > = (props) => {
-	useAnton();
-	return (
-		<AbsoluteFill
-			style={{
-				alignItems: "center",
-				background: "#000000",
-				display: "flex",
-				justifyContent: "center",
-			}}
-		>
-			<GradientTrailTitle {...props} />
-		</AbsoluteFill>
-	);
+  useAnton();
+  return (
+    <AbsoluteFill
+      style={{
+        alignItems: "center",
+        background: "#000000",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <GradientTrailTitle {...props} />
+    </AbsoluteFill>
+  );
 };

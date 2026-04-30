@@ -61,7 +61,10 @@ export const ArchitecturalWireframeBackground: React.FC<
 
   const drift = Math.sin(progress * Math.PI * 2 * driftSpeed) * 0.15;
   const vpX = width * (vanishingPointX + drift);
-  const vpY = height * (vanishingPointY + Math.cos(progress * Math.PI * 2 * driftSpeed * 0.7) * 0.1);
+  const vpY =
+    height *
+    (vanishingPointY +
+      Math.cos(progress * Math.PI * 2 * driftSpeed * 0.7) * 0.1);
 
   const lines = useMemo(() => {
     const result: {
@@ -90,7 +93,6 @@ export const ArchitecturalWireframeBackground: React.FC<
 
       // Perspective diagonals from edges to vanishing point
       if (i < gridDensity - 1) {
-
         result.push({
           distance: Math.abs(yNorm - 0.5),
           key: `d-tl-${i}`,

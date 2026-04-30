@@ -2,8 +2,8 @@ import React from "react";
 
 import {
   CinematicVignetteOverlay,
-  type CinematicVignetteOverlayProps,
   DarkGradientBackground,
+  type CinematicVignetteOverlayProps,
 } from "..";
 
 export const CinematicVignetteOverlayComposition: React.FC<

@@ -1,9 +1,6 @@
 import React from "react";
 
-import {
-  HaloVignetteBackground,
-  type HaloVignetteBackgroundProps,
-} from "..";
+import { HaloVignetteBackground, type HaloVignetteBackgroundProps } from "..";
 
 export const HaloVignetteBackgroundComposition: React.FC<
   HaloVignetteBackgroundProps

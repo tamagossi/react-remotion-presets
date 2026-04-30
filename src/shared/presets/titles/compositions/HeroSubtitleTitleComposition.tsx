@@ -2,11 +2,11 @@ import React from "react";
 
 import { AbsoluteFill } from "remotion";
 
+import { useAnton } from "../../../hooks/useAnton";
 import {
   HeroSubtitleTitle,
   type HeroSubtitleTitleProps,
 } from "../HeroSubtitleTitle";
-import { useAnton } from "../../../hooks/useAnton";
 
 export const HeroSubtitleTitleComposition: React.FC<HeroSubtitleTitleProps> = ({
   lines = ["DYNAMIC", "Titles Kit"],

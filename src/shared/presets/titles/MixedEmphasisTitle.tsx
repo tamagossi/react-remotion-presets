@@ -48,13 +48,19 @@ export const MixedEmphasisTitle: React.FC<MixedEmphasisTitleProps> = ({
 
   const entryEndGlobal = startFrame + animationDuration;
   const exitStartGlobal = entryEndGlobal + holdDuration;
-  const exitFade = exitDuration > 0
-    ? interpolate(frame, [exitStartGlobal, exitStartGlobal + exitDuration], [1, 0], {
-        easing: Easing.bezier(...easing),
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      })
-    : 1;
+  const exitFade =
+    exitDuration > 0
+      ? interpolate(
+          frame,
+          [exitStartGlobal, exitStartGlobal + exitDuration],
+          [1, 0],
+          {
+            easing: Easing.bezier(...easing),
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+          },
+        )
+      : 1;
 
   const lines: MixedEmphasisSegment[][] = Array.isArray(segments[0])
     ? (segments as MixedEmphasisSegment[][])

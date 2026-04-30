@@ -102,7 +102,9 @@ export const WaveCurveBackground: React.FC<WaveCurveBackgroundProps> = ({
             </linearGradient>
           </defs>
           <path d={path} fill="url(#wave-grad)" />
-          {reflectPath && <path d={reflectPath} fill="url(#wave-grad)" opacity={0.4} />}
+          {reflectPath && (
+            <path d={reflectPath} fill="url(#wave-grad)" opacity={0.4} />
+          )}
         </svg>
       </AbsoluteFill>
 

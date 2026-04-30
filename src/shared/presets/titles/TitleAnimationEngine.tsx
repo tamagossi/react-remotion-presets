@@ -270,8 +270,7 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({
         const entryEnd = lineStart + animationDuration;
         const lineExitStart = entryEnd + holdDuration;
 
-        const isExiting =
-          hasExit && frame >= lineExitStart + i * staggerDelay;
+        const isExiting = hasExit && frame >= lineExitStart + i * staggerDelay;
 
         const aberration = chromaticAberration
           ? getChromaticAberration(
@@ -296,8 +295,7 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({
 
         let accentWidth: number;
         if (hasExit) {
-          const lineExitEnd =
-            lineExitStart + i * staggerDelay + exitDuration;
+          const lineExitEnd = lineExitStart + i * staggerDelay + exitDuration;
           const accentExitT = interpolate(
             frame,
             [lineExitStart + i * staggerDelay, lineExitEnd],
@@ -308,8 +306,7 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({
               extrapolateRight: "clamp",
             },
           );
-          accentWidth =
-            (isExiting ? accentExitT : accentEntryT) * accentLength;
+          accentWidth = (isExiting ? accentExitT : accentEntryT) * accentLength;
         } else {
           accentWidth = accentEntryT * accentLength;
         }

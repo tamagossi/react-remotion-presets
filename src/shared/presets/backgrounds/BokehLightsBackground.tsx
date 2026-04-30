@@ -38,9 +38,7 @@ interface BokehLight {
   y: number;
 }
 
-export const BokehLightsBackground: React.FC<
-  BokehLightsBackgroundProps
-> = ({
+export const BokehLightsBackground: React.FC<BokehLightsBackgroundProps> = ({
   animationDuration = 25,
   baseColor = "#0a0a14",
   blurAmount = 60,
@@ -88,7 +86,8 @@ export const BokehLightsBackground: React.FC<
         {lights.map((light, i) => {
           const t = progress * Math.PI * 2 * light.speed + light.phase;
           const dx = Math.sin(t) * width * driftAmount * light.depth;
-          const dy = Math.cos(t * 0.7) * height * driftAmount * light.depth * 0.6;
+          const dy =
+            Math.cos(t * 0.7) * height * driftAmount * light.depth * 0.6;
           const sx = light.size * lightSize * (0.8 + light.depth * 0.4);
           const blur = blurAmount * (1.2 - light.depth * 0.6);
 

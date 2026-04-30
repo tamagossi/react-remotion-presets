@@ -1,9 +1,6 @@
 import React from "react";
 
-import {
-  FlowWaveBackground,
-  type FlowWaveBackgroundProps,
-} from "..";
+import { FlowWaveBackground, type FlowWaveBackgroundProps } from "..";
 
 export const FlowWaveBackgroundComposition: React.FC<
   FlowWaveBackgroundProps

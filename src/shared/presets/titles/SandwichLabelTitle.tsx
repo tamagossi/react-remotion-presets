@@ -52,16 +52,11 @@ export const SandwichLabelTitle: React.FC<SandwichLabelTitleProps> = ({
   const topExitStart = topEntryEnd + holdDuration;
   const topExitEnd = topExitStart + exitDuration;
 
-  const topEntryT = interpolate(
-    frame,
-    [topEntryStart, topEntryEnd],
-    [0, 1],
-    {
-      easing: Easing.bezier(...easing),
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    },
-  );
+  const topEntryT = interpolate(frame, [topEntryStart, topEntryEnd], [0, 1], {
+    easing: Easing.bezier(...easing),
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
   const topExitT = interpolate(frame, [topExitStart, topExitEnd], [1, 0], {
     easing: Easing.bezier(...easing),

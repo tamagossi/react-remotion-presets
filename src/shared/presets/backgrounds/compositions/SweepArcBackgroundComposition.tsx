@@ -1,9 +1,6 @@
 import React from "react";
 
-import {
-  SweepArcBackground,
-  type SweepArcBackgroundProps,
-} from "..";
+import { SweepArcBackground, type SweepArcBackgroundProps } from "..";
 
 export const SweepArcBackgroundComposition: React.FC<
   SweepArcBackgroundProps

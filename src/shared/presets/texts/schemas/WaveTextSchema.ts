@@ -1,1 +1,1 @@
-export {TextAnimationSchema as WaveTextSchema} from "./TextAnimationSchema";
+export { TextAnimationSchema as WaveTextSchema } from "./TextAnimationSchema";

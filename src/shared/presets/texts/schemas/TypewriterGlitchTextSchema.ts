@@ -1,1 +1,1 @@
-export {TextAnimationSchema as TypewriterGlitchTextSchema} from "./TextAnimationSchema";
+export { TextAnimationSchema as TypewriterGlitchTextSchema } from "./TextAnimationSchema";

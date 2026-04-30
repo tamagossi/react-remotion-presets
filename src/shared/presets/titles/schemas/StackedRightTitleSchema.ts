@@ -1,1 +1,1 @@
-export {TitleAnimationSchema as StackedRightTitleSchema} from "./TitleAnimationSchema";
+export { TitleAnimationSchema as StackedRightTitleSchema } from "./TitleAnimationSchema";

@@ -59,11 +59,16 @@ export const VerticalAccentTitle: React.FC<VerticalAccentTitleProps> = ({
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
-  const smallTextT = interpolate(frame, [smallTextStart, smallTextEnd], [0, 1], {
-    easing: Easing.bezier(...easing),
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
+  const smallTextT = interpolate(
+    frame,
+    [smallTextStart, smallTextEnd],
+    [0, 1],
+    {
+      easing: Easing.bezier(...easing),
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    },
+  );
   const textT = interpolate(frame, [textStart, textEnd], [0, 1], {
     easing: Easing.bezier(...easing),
     extrapolateLeft: "clamp",
@@ -72,13 +77,14 @@ export const VerticalAccentTitle: React.FC<VerticalAccentTitleProps> = ({
 
   const entryEnd = startFrame + animationDuration;
   const exitStart = entryEnd + holdDuration;
-  const exitT = exitDuration > 0
-    ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
-        easing: Easing.bezier(...easing),
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      })
-    : 1;
+  const exitT =
+    exitDuration > 0
+      ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
+          easing: Easing.bezier(...easing),
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        })
+      : 1;
 
   return (
     <div

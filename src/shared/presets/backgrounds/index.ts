@@ -24,6 +24,11 @@ export {
 } from "./CinematicVignetteOverlay";
 
 export {
+  ConcentricCirclePatternBackground,
+  type ConcentricCirclePatternBackgroundProps,
+} from "./ConcentricCirclePatternBackground";
+
+export {
   CornerGlowBackground,
   type CornerGlowBackgroundProps,
 } from "./CornerGlowBackground";
@@ -44,6 +49,11 @@ export {
 } from "./DiagonalSpectrumBackground";
 
 export {
+  DiagonalStripePatternBackground,
+  type DiagonalStripePatternBackgroundProps,
+} from "./DiagonalStripePatternBackground";
+
+export {
   FlowWaveBackground,
   type FlowWaveBackgroundProps,
 } from "./FlowWaveBackground";
@@ -59,9 +69,24 @@ export {
 } from "./GeometricTessellationBackground";
 
 export {
+  GridDotPatternBackground,
+  type GridDotPatternBackgroundProps,
+} from "./GridDotPatternBackground";
+
+export {
+  GridLinePatternBackground,
+  type GridLinePatternBackgroundProps,
+} from "./GridLinePatternBackground";
+
+export {
   HaloVignetteBackground,
   type HaloVignetteBackgroundProps,
 } from "./HaloVignetteBackground";
+
+export {
+  HexagonPatternBackground,
+  type HexagonPatternBackgroundProps,
+} from "./HexagonPatternBackground";
 
 export {
   LightGradientBackground,
@@ -129,19 +154,29 @@ export {
 } from "./WaveCurveBackground";
 
 export {
+  WaveDotPatternBackground,
+  type WaveDotPatternBackgroundProps,
+} from "./WaveDotPatternBackground";
+
+export {
   ArchitecturalWireframeBackgroundSchema,
   AtmosphericFogBackgroundSchema,
   AuroraFlowBackgroundSchema,
   BokehLightsBackgroundSchema,
   CinematicVignetteOverlaySchema,
+  ConcentricCirclePatternBackgroundSchema,
   CornerGlowBackgroundSchema,
   DarkGradientBackgroundSchema,
   DepthFogBackgroundSchema,
   DiagonalSpectrumBackgroundSchema,
+  DiagonalStripePatternBackgroundSchema,
   FlowWaveBackgroundSchema,
   GeometricGridBackgroundSchema,
   GeometricTessellationBackgroundSchema,
+  GridDotPatternBackgroundSchema,
+  GridLinePatternBackgroundSchema,
   HaloVignetteBackgroundSchema,
+  HexagonPatternBackgroundSchema,
   LightGradientBackgroundSchema,
   MonochromeDriftBackgroundSchema,
   MorphingMeshBackgroundSchema,
@@ -155,4 +190,5 @@ export {
   SweepArcBackgroundSchema,
   WarmDriftBackgroundSchema,
   WaveCurveBackgroundSchema,
+  WaveDotPatternBackgroundSchema,
 } from "./schemas";

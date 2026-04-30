@@ -75,13 +75,19 @@ export const GlitchStrokeTitle: React.FC<GlitchStrokeTitleProps> = ({
 
   const entryEndGlobal = startFrame + animationDuration;
   const exitStartGlobal = entryEndGlobal + holdDuration;
-  const exitFade = exitDuration > 0
-    ? interpolate(frame, [exitStartGlobal, exitStartGlobal + exitDuration], [1, 0], {
-        easing: Easing.bezier(...easing),
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      })
-    : 1;
+  const exitFade =
+    exitDuration > 0
+      ? interpolate(
+          frame,
+          [exitStartGlobal, exitStartGlobal + exitDuration],
+          [1, 0],
+          {
+            easing: Easing.bezier(...easing),
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+          },
+        )
+      : 1;
 
   const getLineStyle = (index: number): React.CSSProperties => {
     const lineStart = startFrame + index * staggerDelay;
@@ -134,12 +140,10 @@ export const GlitchStrokeTitle: React.FC<GlitchStrokeTitleProps> = ({
       [chromaticOffset * glitchIntensity, 0],
       { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
     );
-    const ghostOpacity = interpolate(
-      frame,
-      [lineStart, decayEnd],
-      [0.9, 0],
-      { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-    );
+    const ghostOpacity = interpolate(frame, [lineStart, decayEnd], [0.9, 0], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    });
     return { ghostOpacity, offset };
   };
 
@@ -193,13 +197,9 @@ export const GlitchStrokeTitle: React.FC<GlitchStrokeTitleProps> = ({
             {chromaticAberration && glitch.offset > 0.01
               ? GLITCH_LAYERS.map((layer, gi) => {
                   const dx =
-                    layer.axis === "x"
-                      ? layer.sign * glitch.offset
-                      : 0;
+                    layer.axis === "x" ? layer.sign * glitch.offset : 0;
                   const dy =
-                    layer.axis === "y"
-                      ? layer.sign * glitch.offset
-                      : 0;
+                    layer.axis === "y" ? layer.sign * glitch.offset : 0;
                   return (
                     <div
                       aria-hidden

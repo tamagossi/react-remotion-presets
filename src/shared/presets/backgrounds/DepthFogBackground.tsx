@@ -56,8 +56,7 @@ export const DepthFogBackground: React.FC<DepthFogBackgroundProps> = ({
   });
 
   const focusShift =
-    focusLayer +
-    Math.sin(progress * Math.PI * 2 * focusShiftSpeed) * 0.5;
+    focusLayer + Math.sin(progress * Math.PI * 2 * focusShiftSpeed) * 0.5;
 
   const allBlobs = [];
   for (let layer = 0; layer < depthLayers; layer++) {
@@ -75,12 +74,11 @@ export const DepthFogBackground: React.FC<DepthFogBackgroundProps> = ({
 
       const rx = width * (0.3 + layer * 0.1);
       const ry = height * (0.25 + layer * 0.08);
-      const size = Math.min(width, height) * blobSize * (0.8 + layerDepth * 0.4);
+      const size =
+        Math.min(width, height) * blobSize * (0.8 + layerDepth * 0.4);
 
-      const x =
-        width / 2 + rx * Math.sin(t * 0.6 + phase) - size / 2;
-      const y =
-        height / 2 + ry * Math.cos(t * 0.5 + phase * 0.8) - size / 2;
+      const x = width / 2 + rx * Math.sin(t * 0.6 + phase) - size / 2;
+      const y = height / 2 + ry * Math.cos(t * 0.5 + phase * 0.8) - size / 2;
 
       allBlobs.push({
         blur: focusBlur,

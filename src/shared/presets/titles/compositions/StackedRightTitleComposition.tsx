@@ -2,11 +2,11 @@ import React from "react";
 
 import { AbsoluteFill } from "remotion";
 
+import { useAnton } from "../../../hooks/useAnton";
 import {
   StackedRightTitle,
   type StackedRightTitleProps,
 } from "../StackedRightTitle";
-import { useAnton } from "../../../hooks/useAnton";
 
 export const StackedRightTitleComposition: React.FC<StackedRightTitleProps> = ({
   lines = ["CREATIVE", "TYPOGRAPHY", "PACK"],

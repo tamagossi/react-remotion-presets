@@ -1,9 +1,6 @@
 import React from "react";
 
-import {
-  WarmDriftBackground,
-  type WarmDriftBackgroundProps,
-} from "..";
+import { WarmDriftBackground, type WarmDriftBackgroundProps } from "..";
 
 export const WarmDriftBackgroundComposition: React.FC<
   WarmDriftBackgroundProps

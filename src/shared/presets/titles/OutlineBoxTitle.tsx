@@ -79,13 +79,14 @@ export const OutlineBoxTitle: React.FC<OutlineBoxTitleProps> = ({
 
   const entryEnd = startFrame + animationDuration;
   const exitStart = entryEnd + holdDuration;
-  const exitT = exitDuration > 0
-    ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
-        easing: Easing.bezier(...easing),
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      })
-    : 1;
+  const exitT =
+    exitDuration > 0
+      ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
+          easing: Easing.bezier(...easing),
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        })
+      : 1;
 
   const borderOpacity = Math.min(boxT * 1.5, 1);
 

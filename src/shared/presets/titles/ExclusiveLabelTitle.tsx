@@ -91,13 +91,14 @@ export const ExclusiveLabelTitle: React.FC<ExclusiveLabelTitleProps> = ({
 
   const entryEnd = startFrame + animationDuration;
   const exitStart = entryEnd + holdDuration;
-  const exitT = exitDuration > 0
-    ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
-        easing: Easing.bezier(...easing),
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      })
-    : 1;
+  const exitT =
+    exitDuration > 0
+      ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
+          easing: Easing.bezier(...easing),
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        })
+      : 1;
 
   const labelStyle: React.CSSProperties = {
     color: labelColor,

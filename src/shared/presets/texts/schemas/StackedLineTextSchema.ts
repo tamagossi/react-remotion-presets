@@ -1,1 +1,1 @@
-export {TextAnimationSchema as StackedLineTextSchema} from "./TextAnimationSchema";
+export { TextAnimationSchema as StackedLineTextSchema } from "./TextAnimationSchema";

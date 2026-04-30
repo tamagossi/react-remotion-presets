@@ -52,27 +52,17 @@ export const HighlightBarTitle: React.FC<HighlightBarTitleProps> = ({
   const barExitStart = barEntryEnd + holdDuration;
   const barExitEnd = barExitStart + exitDuration * 0.7;
 
-  const barEntryT = interpolate(
-    frame,
-    [barEntryStart, barEntryEnd],
-    [0, 1],
-    {
-      easing: Easing.bezier(...easing),
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    },
-  );
+  const barEntryT = interpolate(frame, [barEntryStart, barEntryEnd], [0, 1], {
+    easing: Easing.bezier(...easing),
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
-  const barExitT = interpolate(
-    frame,
-    [barExitStart, barExitEnd],
-    [1, 0],
-    {
-      easing: Easing.bezier(...easing),
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    },
-  );
+  const barExitT = interpolate(frame, [barExitStart, barExitEnd], [1, 0], {
+    easing: Easing.bezier(...easing),
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
   const textEntryStart = startFrame + animationDuration * 0.25;
   const textEntryEnd = textEntryStart + animationDuration * 0.5;
@@ -90,16 +80,11 @@ export const HighlightBarTitle: React.FC<HighlightBarTitleProps> = ({
     },
   );
 
-  const textExitT = interpolate(
-    frame,
-    [textExitStart, textExitEnd],
-    [1, 0],
-    {
-      easing: Easing.bezier(...easing),
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    },
-  );
+  const textExitT = interpolate(frame, [textExitStart, textExitEnd], [1, 0], {
+    easing: Easing.bezier(...easing),
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
   const textOpacity = interpolate(
     frame,

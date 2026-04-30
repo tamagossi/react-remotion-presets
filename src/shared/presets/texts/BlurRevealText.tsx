@@ -89,20 +89,17 @@ export const BlurRevealText: React.FC<BlurRevealTextProps> = ({
           { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
         );
 
-			const exitCharDelay = Math.min(
-				i * 2,
-				Math.max(0, exitDuration - 1),
-			);
-			const charExitT = interpolate(
-				frame,
-				[exitStart + exitCharDelay, exitEnd],
-				[1, 0],
-				{
-					easing: Easing.bezier(...easing),
-					extrapolateLeft: "clamp",
-					extrapolateRight: "clamp",
-				},
-			);
+        const exitCharDelay = Math.min(i * 2, Math.max(0, exitDuration - 1));
+        const charExitT = interpolate(
+          frame,
+          [exitStart + exitCharDelay, exitEnd],
+          [1, 0],
+          {
+            easing: Easing.bezier(...easing),
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+          },
+        );
 
         const finalOpacity =
           frame >= exitStart + exitCharDelay

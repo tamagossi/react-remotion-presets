@@ -45,27 +45,17 @@ export const GradientTrailTitle: React.FC<GradientTrailTitleProps> = ({
     const lineExitStart = lineEntryEnd + holdDuration;
     const lineExitEnd = lineExitStart + exitDuration;
 
-    const entryT = interpolate(
-      frame,
-      [lineEntryStart, lineEntryEnd],
-      [0, 1],
-      {
-        easing: Easing.bezier(...easing),
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      },
-    );
+    const entryT = interpolate(frame, [lineEntryStart, lineEntryEnd], [0, 1], {
+      easing: Easing.bezier(...easing),
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    });
 
-    const exitT = interpolate(
-      frame,
-      [lineExitStart, lineExitEnd],
-      [1, 0],
-      {
-        easing: Easing.bezier(...easing),
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      },
-    );
+    const exitT = interpolate(frame, [lineExitStart, lineExitEnd], [1, 0], {
+      easing: Easing.bezier(...easing),
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    });
 
     const opacity = interpolate(
       frame,
@@ -122,10 +112,7 @@ export const GradientTrailTitle: React.FC<GradientTrailTitleProps> = ({
           );
         }
 
-        const mainText = text.slice(
-          0,
-          Math.max(0, text.length - trailLength),
-        );
+        const mainText = text.slice(0, Math.max(0, text.length - trailLength));
         const trailText = text.slice(Math.max(0, text.length - trailLength));
 
         return (

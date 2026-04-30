@@ -4,13 +4,18 @@ export { AuroraFlowBackgroundComposition } from "./AuroraFlowBackgroundCompositi
 export { BackgroundComposition } from "./BackgroundComposition";
 export { BokehLightsBackgroundComposition } from "./BokehLightsBackgroundComposition";
 export { CinematicVignetteOverlayComposition } from "./CinematicVignetteOverlayComposition";
+export { ConcentricCirclePatternBackgroundComposition } from "./ConcentricCirclePatternBackgroundComposition";
 export { CornerGlowBackgroundComposition } from "./CornerGlowBackgroundComposition";
 export { DepthFogBackgroundComposition } from "./DepthFogBackgroundComposition";
 export { DiagonalSpectrumBackgroundComposition } from "./DiagonalSpectrumBackgroundComposition";
+export { DiagonalStripePatternBackgroundComposition } from "./DiagonalStripePatternBackgroundComposition";
 export { FlowWaveBackgroundComposition } from "./FlowWaveBackgroundComposition";
 export { GeometricGridBackgroundComposition } from "./GeometricGridBackgroundComposition";
 export { GeometricTessellationBackgroundComposition } from "./GeometricTessellationBackgroundComposition";
+export { GridDotPatternBackgroundComposition } from "./GridDotPatternBackgroundComposition";
+export { GridLinePatternBackgroundComposition } from "./GridLinePatternBackgroundComposition";
 export { HaloVignetteBackgroundComposition } from "./HaloVignetteBackgroundComposition";
+export { HexagonPatternBackgroundComposition } from "./HexagonPatternBackgroundComposition";
 export { LightGradientBackgroundComposition } from "./LightGradientBackgroundComposition";
 export { MonochromeDriftBackgroundComposition } from "./MonochromeDriftBackgroundComposition";
 export { MorphingMeshBackgroundComposition } from "./MorphingMeshBackgroundComposition";
@@ -24,3 +29,4 @@ export { SunsetOrbitBackgroundComposition } from "./SunsetOrbitBackgroundComposi
 export { SweepArcBackgroundComposition } from "./SweepArcBackgroundComposition";
 export { WarmDriftBackgroundComposition } from "./WarmDriftBackgroundComposition";
 export { WaveCurveBackgroundComposition } from "./WaveCurveBackgroundComposition";
+export { WaveDotPatternBackgroundComposition } from "./WaveDotPatternBackgroundComposition";

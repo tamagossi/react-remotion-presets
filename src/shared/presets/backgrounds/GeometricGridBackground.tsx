@@ -86,9 +86,7 @@ export const GeometricGridBackground: React.FC<
     );
   }
 
-  const pulse = glowPulse
-    ? 1 + Math.sin(progress * Math.PI * 4) * 0.15
-    : 1;
+  const pulse = glowPulse ? 1 + Math.sin(progress * Math.PI * 4) * 0.15 : 1;
 
   return (
     <AbsoluteFill

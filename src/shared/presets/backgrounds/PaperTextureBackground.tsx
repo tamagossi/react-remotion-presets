@@ -22,9 +22,7 @@ export type PaperTextureBackgroundProps = {
   vignetteStrength?: number;
 };
 
-export const PaperTextureBackground: React.FC<
-  PaperTextureBackgroundProps
-> = ({
+export const PaperTextureBackground: React.FC<PaperTextureBackgroundProps> = ({
   animationDuration = 40,
   baseColor = "#f5f0e8",
   children,
@@ -73,7 +71,11 @@ export const PaperTextureBackground: React.FC<
         }}
       />
 
-      <GrainOverlay amount={grainAmount} animated={false} opacity={grainOpacity} />
+      <GrainOverlay
+        amount={grainAmount}
+        animated={false}
+        opacity={grainOpacity}
+      />
 
       <AbsoluteFill
         style={{

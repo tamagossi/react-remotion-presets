@@ -1,1 +1,1 @@
-export {TextAnimationSchema as GlitchRevealTextSchema} from "./TextAnimationSchema";
+export { TextAnimationSchema as GlitchRevealTextSchema } from "./TextAnimationSchema";

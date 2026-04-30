@@ -173,7 +173,7 @@ Given: `script`, `theme`, `tone`
 ```
 
 1. Extract features from script
-2. Score each preset: mood_overlap _ 0.4 + energy_match _ 0.2 + color_match _ 0.2 + formality_match _ 0.2
+2. Score each preset: mood*overlap * 0.4 + energy*match * 0.2 + color*match * 0.2 + formality*match * 0.2
 3. Pick top 2-3
 4. Apply suggestedOverrides[context]
 5. Generate code

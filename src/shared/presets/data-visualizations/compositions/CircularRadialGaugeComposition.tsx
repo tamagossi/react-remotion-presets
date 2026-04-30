@@ -1,16 +1,16 @@
 import React from "react";
 
 import {
-	CircularRadialGauge,
-	type CircularRadialGaugeProps,
+  CircularRadialGauge,
+  type CircularRadialGaugeProps,
 } from "../CircularRadialGauge";
 
 export const CircularRadialGaugeComposition: React.FC<
-	CircularRadialGaugeProps
+  CircularRadialGaugeProps
 > = (props) => {
-	return (
-		<CircularRadialGauge {...props}>
-			<div />
-		</CircularRadialGauge>
-	);
+  return (
+    <CircularRadialGauge {...props}>
+      <div />
+    </CircularRadialGauge>
+  );
 };

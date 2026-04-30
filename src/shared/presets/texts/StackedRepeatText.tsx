@@ -63,20 +63,17 @@ export const StackedRepeatText: React.FC<StackedRepeatTextProps> = ({
       }}
     >
       {Array.from({ length: layerCount }, (_, i) => {
-		const layerDelay = Math.min(
-			i * 4,
-			Math.max(0, animationDuration - 1),
-		);
-		const layerEntryT = interpolate(
-			frame,
-			[startFrame + layerDelay, startFrame + animationDuration],
-			[0, 1],
-			{
-				easing: Easing.bezier(...easing),
-				extrapolateLeft: "clamp",
-				extrapolateRight: "clamp",
-			},
-		);
+        const layerDelay = Math.min(i * 4, Math.max(0, animationDuration - 1));
+        const layerEntryT = interpolate(
+          frame,
+          [startFrame + layerDelay, startFrame + animationDuration],
+          [0, 1],
+          {
+            easing: Easing.bezier(...easing),
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+          },
+        );
 
         const offsetX = i * layerOffset * layerEntryT;
         const offsetY = i * layerOffset * layerEntryT;

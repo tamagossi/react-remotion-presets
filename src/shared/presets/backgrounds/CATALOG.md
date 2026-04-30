@@ -4,37 +4,43 @@ AI selection guide for `src/shared/presets/backgrounds/`.
 
 ## Quick Selection Guide
 
-| Script Tone                        | Mood                 | Energy      | Color Temp         | Formality           | Recommended Preset                                                       |
-| ---------------------------------- | -------------------- | ----------- | ------------------ | ------------------- | ------------------------------------------------------------------------ |
-| Corporate, serious, informative    | Calm, focused        | Low-Medium  | Cool/Neutral       | Professional        | `DarkGradientBackground` (reduce blobOpacity, faster easing)             |
-| Tech, futuristic, AI               | Mysterious, sleek    | Medium      | Cool               | Professional-Luxury | `DarkGradientBackground` (increase blobCount, add cyan accent)           |
-| Playful, creative, youth           | Dynamic, energetic   | High        | Vibrant            | Casual              | `DarkGradientBackground` (vibrant colors, faster animationDuration)      |
-| Nightlife, entertainment           | Dramatic, intense    | High        | Warm/Cool contrast | Luxury              | `DarkGradientBackground` (high contrast colors, slow easing)             |
-| Educational, documentary           | Neutral, trustworthy | Low         | Neutral            | Professional        | `DarkGradientBackground` (subtle blobs, low grain)                       |
-| Emotional, storytelling            | Contemplative        | Low         | Warm               | Casual              | `DarkGradientBackground` (warm palette, slow orbit)                      |
-| Bright, optimistic, airy           | Uplifting, fresh     | Medium      | Warm/Cool          | Casual              | `LightGradientBackground` (default palette, gentle orbit)                |
-| Wellness, lifestyle, clean         | Calm, serene         | Low-Medium  | Cool               | Casual              | `LightGradientBackground` (reduce blobOpacity, slower animationDuration) |
-| Creative, entertainment, nightlife | Dynamic, vibrant     | High        | Vibrant            | Casual-Luxury       | `MorphingMeshBackground` (default palette, high morphStiffness)          |
-| Tech, futuristic, product launch   | Sleek, immersive     | Medium-High | Cool-Vibrant       | Professional-Luxury | `MorphingMeshBackground` (cool palette, slower blobStagger)              |
-| Music, nightlife, gaming           | Energetic, bold      | High        | Vibrant            | Casual              | `NeonPulseBackground` (default palette, high pulseIntensity)             |
-| Meditation, wellness, ASMR         | Calm, minimal        | Low         | Neutral            | Casual              | `MonochromeDriftBackground` (default palette, slower animationDuration)  |
-| Emotional, travel, nature          | Warm, nostalgic      | Medium      | Warm               | Casual              | `SunsetOrbitBackground` (default palette, gentle orbit)                  |
-| Corporate, tech, data              | Structured, precise  | Medium      | Neutral            | Professional        | `GeometricGridBackground` (default palette, tighter gridDensity)         |
-| Space, science, cosmic             | Immersive, vast      | Medium      | Cool               | Casual-Luxury       | `StarfieldBackground` (default palette, more starCount)                  |
-| Spotlight, focus, product hero     | Calm, focused        | Low-Medium  | Any (color-driven) | Casual-Professional | `RadialSpotlightBackground` (single tint, gentle breathe)                |
-| Editorial, fashion, lifestyle      | Smooth, stylish      | Medium      | Any                | Casual-Luxury       | `WaveCurveBackground` (custom wave color + accent)                       |
-| Cinematic, drama, intro scenes     | Moody, atmospheric   | Low-Medium  | Cool/Vibrant       | Luxury              | `CornerGlowBackground` (2 glows opposite corners)                        |
-| Tech, fintech, data, intro         | Clean, gradient-pure | Medium      | Cool/Vibrant       | Professional        | `DiagonalSpectrumBackground` (2-3 stop palette, subtle angle drift)      |
-| Music video, creative, dreamy      | Ethereal, fluid      | Medium      | Vibrant            | Casual-Luxury       | `AuroraFlowBackground` (4-corner palette, slow flow)                     |
-| Product reveal, hero focus        | Atmospheric, focused | Low-Medium  | Cool/Vibrant       | Luxury              | `HaloVignetteBackground` (2 edge blobs, dark center)                    |
-| Tech, cyberpunk, neon arc         | Sleek, futuristic    | Medium      | Cool               | Professional-Luxury | `SweepArcBackground` (single cyan arc, slow drift)                       |
-| Ocean, deep tech, data flow       | Immersive, layered   | Medium      | Cool               | Professional        | `FlowWaveBackground` (3 diagonal bands, teal drift)                       |
-| Warm, earthy, cozy                | Inviting, grounded   | Low-Medium  | Warm               | Casual              | `WarmDriftBackground` (amber Lissajous drift)                            |
-| City night, romantic, Christmas   | Dreamy, nostalgic    | Low-Medium  | Warm/Cool          | Casual-Luxury       | `BokehLightsBackground` (hexShape false, gentle drift)                   |
-| Mystery, horror, dream sequences  | Eerie, ethereal      | Low         | Cool/Neutral       | Luxury              | `AtmosphericFogBackground` (4 bands, slow drift, high vignette)          |
-| Documentary, history, memoir      | Authentic, textured  | Low         | Warm/Neutral       | Professional        | `PaperTextureBackground` (default off-white, subtle edge bleed)          |
-| Cinematic storytelling, film intro| Dramatic, immersive  | Low-Medium  | Any                | Luxury              | `CinematicVignetteOverlay` (wrap any bg, add grain + light leak)         |
-| Portrait, interview, depth focus  | Intimate, layered    | Low-Medium  | Any                | Professional-Luxury | `DepthFogBackground` (3 layers, slow focus shift)                        |
+| Script Tone                        | Mood                  | Energy      | Color Temp         | Formality           | Recommended Preset                                                       |
+| ---------------------------------- | --------------------- | ----------- | ------------------ | ------------------- | ------------------------------------------------------------------------ |
+| Corporate, serious, informative    | Calm, focused         | Low-Medium  | Cool/Neutral       | Professional        | `DarkGradientBackground` (reduce blobOpacity, faster easing)             |
+| Tech, futuristic, AI               | Mysterious, sleek     | Medium      | Cool               | Professional-Luxury | `DarkGradientBackground` (increase blobCount, add cyan accent)           |
+| Playful, creative, youth           | Dynamic, energetic    | High        | Vibrant            | Casual              | `DarkGradientBackground` (vibrant colors, faster animationDuration)      |
+| Nightlife, entertainment           | Dramatic, intense     | High        | Warm/Cool contrast | Luxury              | `DarkGradientBackground` (high contrast colors, slow easing)             |
+| Educational, documentary           | Neutral, trustworthy  | Low         | Neutral            | Professional        | `DarkGradientBackground` (subtle blobs, low grain)                       |
+| Emotional, storytelling            | Contemplative         | Low         | Warm               | Casual              | `DarkGradientBackground` (warm palette, slow orbit)                      |
+| Bright, optimistic, airy           | Uplifting, fresh      | Medium      | Warm/Cool          | Casual              | `LightGradientBackground` (default palette, gentle orbit)                |
+| Wellness, lifestyle, clean         | Calm, serene          | Low-Medium  | Cool               | Casual              | `LightGradientBackground` (reduce blobOpacity, slower animationDuration) |
+| Creative, entertainment, nightlife | Dynamic, vibrant      | High        | Vibrant            | Casual-Luxury       | `MorphingMeshBackground` (default palette, high morphStiffness)          |
+| Tech, futuristic, product launch   | Sleek, immersive      | Medium-High | Cool-Vibrant       | Professional-Luxury | `MorphingMeshBackground` (cool palette, slower blobStagger)              |
+| Music, nightlife, gaming           | Energetic, bold       | High        | Vibrant            | Casual              | `NeonPulseBackground` (default palette, high pulseIntensity)             |
+| Meditation, wellness, ASMR         | Calm, minimal         | Low         | Neutral            | Casual              | `MonochromeDriftBackground` (default palette, slower animationDuration)  |
+| Emotional, travel, nature          | Warm, nostalgic       | Medium      | Warm               | Casual              | `SunsetOrbitBackground` (default palette, gentle orbit)                  |
+| Corporate, tech, data              | Structured, precise   | Medium      | Neutral            | Professional        | `GeometricGridBackground` (default palette, tighter gridDensity)         |
+| Space, science, cosmic             | Immersive, vast       | Medium      | Cool               | Casual-Luxury       | `StarfieldBackground` (default palette, more starCount)                  |
+| Spotlight, focus, product hero     | Calm, focused         | Low-Medium  | Any (color-driven) | Casual-Professional | `RadialSpotlightBackground` (single tint, gentle breathe)                |
+| Editorial, fashion, lifestyle      | Smooth, stylish       | Medium      | Any                | Casual-Luxury       | `WaveCurveBackground` (custom wave color + accent)                       |
+| Cinematic, drama, intro scenes     | Moody, atmospheric    | Low-Medium  | Cool/Vibrant       | Luxury              | `CornerGlowBackground` (2 glows opposite corners)                        |
+| Tech, fintech, data, intro         | Clean, gradient-pure  | Medium      | Cool/Vibrant       | Professional        | `DiagonalSpectrumBackground` (2-3 stop palette, subtle angle drift)      |
+| Music video, creative, dreamy      | Ethereal, fluid       | Medium      | Vibrant            | Casual-Luxury       | `AuroraFlowBackground` (4-corner palette, slow flow)                     |
+| Product reveal, hero focus         | Atmospheric, focused  | Low-Medium  | Cool/Vibrant       | Luxury              | `HaloVignetteBackground` (2 edge blobs, dark center)                     |
+| Tech, cyberpunk, neon arc          | Sleek, futuristic     | Medium      | Cool               | Professional-Luxury | `SweepArcBackground` (single cyan arc, slow drift)                       |
+| Ocean, deep tech, data flow        | Immersive, layered    | Medium      | Cool               | Professional        | `FlowWaveBackground` (3 diagonal bands, teal drift)                      |
+| Warm, earthy, cozy                 | Inviting, grounded    | Low-Medium  | Warm               | Casual              | `WarmDriftBackground` (amber Lissajous drift)                            |
+| City night, romantic, Christmas    | Dreamy, nostalgic     | Low-Medium  | Warm/Cool          | Casual-Luxury       | `BokehLightsBackground` (hexShape false, gentle drift)                   |
+| Mystery, horror, dream sequences   | Eerie, ethereal       | Low         | Cool/Neutral       | Luxury              | `AtmosphericFogBackground` (4 bands, slow drift, high vignette)          |
+| Documentary, history, memoir       | Authentic, textured   | Low         | Warm/Neutral       | Professional        | `PaperTextureBackground` (default off-white, subtle edge bleed)          |
+| Cinematic storytelling, film intro | Dramatic, immersive   | Low-Medium  | Any                | Luxury              | `CinematicVignetteOverlay` (wrap any bg, add grain + light leak)         |
+| Portrait, interview, depth focus   | Intimate, layered     | Low-Medium  | Any                | Professional-Luxury | `DepthFogBackground` (3 layers, slow focus shift)                        |
+| Tech, data, structured, clean      | Clean, precise        | Low-Medium  | Cool/Neutral       | Professional        | `GridDotPatternBackground` (dark theme, high density, fast speed)        |
+| Tech, structured, engineering      | Structured, technical | Low-Medium  | Cool/Neutral       | Professional        | `GridLinePatternBackground` (dark theme, slow scroll)                    |
+| Tech, creative, modern             | Smooth, sleek         | Low-Medium  | Cool/Neutral       | Professional-Luxury | `DiagonalStripePatternBackground` (custom angle, fast slide)             |
+| Tech, design, geometric            | Precise, modern       | Low-Medium  | Cool/Neutral       | Professional        | `HexagonPatternBackground` (dark theme, slow rotation)                   |
+| Tech, data, fluid                  | Dynamic, flowing      | Medium      | Cool/Neutral       | Professional        | `WaveDotPatternBackground` (horizontal wave, fast propagation)           |
+| Tech, minimalist, cinematic        | Focused, expansive    | Low-Medium  | Cool/Neutral       | Professional-Luxury | `ConcentricCirclePatternBackground` (dark theme, slow ripple)            |
 
 ## How to Use This Catalog
 
@@ -724,11 +730,11 @@ Single soft radial spotlight on dark base. Center gently drifts in a slow loop w
 
 **Suggested Prop Overrides by Context**
 
-| Context              | Override Rationale                  | Props                                                                                               |
-| -------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `product-hero`       | Off-center spotlight, warm tint     | `{ spotlightColor: "#fbbf24", spotlightX: 0.65, spotlightY: 0.45, breatheAmount: 0.08 }`            |
-| `tech-mono`          | Cool monochrome, subtle drift       | `{ spotlightColor: "#94a3b8", baseColor: "#0a0f18", driftAmount: 0.04, breatheAmount: 0.1 }`        |
-| `cinematic-deep`     | Slow breathe, large glow            | `{ spotlightSize: 1.6, animationDuration: 30, breatheAmount: 0.2, blurAmount: 160 }`                |
+| Context          | Override Rationale              | Props                                                                                        |
+| ---------------- | ------------------------------- | -------------------------------------------------------------------------------------------- |
+| `product-hero`   | Off-center spotlight, warm tint | `{ spotlightColor: "#fbbf24", spotlightX: 0.65, spotlightY: 0.45, breatheAmount: 0.08 }`     |
+| `tech-mono`      | Cool monochrome, subtle drift   | `{ spotlightColor: "#94a3b8", baseColor: "#0a0f18", driftAmount: 0.04, breatheAmount: 0.1 }` |
+| `cinematic-deep` | Slow breathe, large glow        | `{ spotlightSize: 1.6, animationDuration: 30, breatheAmount: 0.2, blurAmount: 160 }`         |
 
 **When to Use**
 
@@ -802,11 +808,11 @@ Two-tone gradient divided by a smooth animated sine-wave SVG path. Wave flows ho
 
 **Suggested Prop Overrides by Context**
 
-| Context              | Override Rationale                  | Props                                                                                                           |
-| -------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `dark-elegant`       | Black base, single dark accent      | `{ baseColor: "#000000", waveColor: "#1f2937", waveAccentColor: "#374151", waveBlur: 50 }`                      |
-| `vibrant-fashion`    | Hot magenta wave on near-black      | `{ baseColor: "#0a0212", waveColor: "#ec4899", waveAccentColor: "#fb7185", flowSpeed: 1.3 }`                    |
-| `cool-tech`          | Cyan wave, low amplitude            | `{ baseColor: "#02061a", waveColor: "#0891b2", waveAccentColor: "#22d3ee", waveAmplitude: 0.1 }`                |
+| Context           | Override Rationale             | Props                                                                                            |
+| ----------------- | ------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `dark-elegant`    | Black base, single dark accent | `{ baseColor: "#000000", waveColor: "#1f2937", waveAccentColor: "#374151", waveBlur: 50 }`       |
+| `vibrant-fashion` | Hot magenta wave on near-black | `{ baseColor: "#0a0212", waveColor: "#ec4899", waveAccentColor: "#fb7185", flowSpeed: 1.3 }`     |
+| `cool-tech`       | Cyan wave, low amplitude       | `{ baseColor: "#02061a", waveColor: "#0891b2", waveAccentColor: "#22d3ee", waveAmplitude: 0.1 }` |
 
 **When to Use**
 
@@ -878,11 +884,11 @@ Dark base with up to 4 corner-anchored color glows, soft fall-off via blur. Gent
 
 **Suggested Prop Overrides by Context**
 
-| Context              | Override Rationale                       | Props                                                                                                              |
-| -------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `red-drama`          | Crimson glow, navy opposite corner       | `{ glowColors: ["#dc2626", "#1e3a8a"], glowCorners: ["br", "tl"], glowSize: 1.5 }`                                 |
-| `single-side`        | One-sided glow only                      | `{ glowColors: ["#a855f7"], glowCorners: ["br"], glowSize: 1.6, glowOpacity: 0.8 }`                                |
-| `four-corner`        | Subtle 4-corner ambient                  | `{ glowColors: ["#6366f1", "#06b6d4", "#ec4899", "#22c55e"], glowCorners: ["tl","tr","br","bl"], glowOpacity: 0.4 }` |
+| Context       | Override Rationale                 | Props                                                                                                                |
+| ------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `red-drama`   | Crimson glow, navy opposite corner | `{ glowColors: ["#dc2626", "#1e3a8a"], glowCorners: ["br", "tl"], glowSize: 1.5 }`                                   |
+| `single-side` | One-sided glow only                | `{ glowColors: ["#a855f7"], glowCorners: ["br"], glowSize: 1.6, glowOpacity: 0.8 }`                                  |
+| `four-corner` | Subtle 4-corner ambient            | `{ glowColors: ["#6366f1", "#06b6d4", "#ec4899", "#22c55e"], glowCorners: ["tl","tr","br","bl"], glowOpacity: 0.4 }` |
 
 **When to Use**
 
@@ -900,7 +906,10 @@ Dark base with up to 4 corner-anchored color glows, soft fall-off via blur. Gent
 ```tsx
 import { CornerGlowBackground } from "./shared/presets/backgrounds";
 
-<CornerGlowBackground glowColors={["#7c3aed", "#06b6d4"]} glowCorners={["br", "tr"]}>
+<CornerGlowBackground
+  glowColors={["#7c3aed", "#06b6d4"]}
+  glowCorners={["br", "tr"]}
+>
   <YourContent />
 </CornerGlowBackground>;
 ```
@@ -952,11 +961,11 @@ Pure linear-gradient sweep across diagonal axis. Angle slowly rotates between `a
 
 **Suggested Prop Overrides by Context**
 
-| Context              | Override Rationale                     | Props                                                                                       |
-| -------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `fintech-clean`      | Two-stop blue, narrow angle range      | `{ colors: ["#1e3a8a", "#3b82f6"], angleStart: 160, angleEnd: 180 }`                        |
-| `vibrant-saas`       | Three-stop vibrant                     | `{ colors: ["#8b5cf6", "#ec4899", "#f59e0b"], angleStart: 120, angleEnd: 220 }`             |
-| `subtle-luxury`      | Dark muted spectrum                    | `{ colors: ["#1f2937", "#374151", "#1f2937"], spectrumOpacity: 0.9 }`                       |
+| Context         | Override Rationale                | Props                                                                           |
+| --------------- | --------------------------------- | ------------------------------------------------------------------------------- |
+| `fintech-clean` | Two-stop blue, narrow angle range | `{ colors: ["#1e3a8a", "#3b82f6"], angleStart: 160, angleEnd: 180 }`            |
+| `vibrant-saas`  | Three-stop vibrant                | `{ colors: ["#8b5cf6", "#ec4899", "#f59e0b"], angleStart: 120, angleEnd: 220 }` |
+| `subtle-luxury` | Dark muted spectrum               | `{ colors: ["#1f2937", "#374151", "#1f2937"], spectrumOpacity: 0.9 }`           |
 
 **When to Use**
 
@@ -1027,11 +1036,11 @@ import { DiagonalSpectrumBackground } from "./shared/presets/backgrounds";
 
 **Suggested Prop Overrides by Context**
 
-| Context              | Override Rationale                     | Props                                                                                                       |
-| -------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `northern-lights`    | Green/teal/violet aurora               | `{ colors: ["#10b981", "#06b6d4", "#8b5cf6", "#22c55e"], baseColor: "#020617" }`                            |
-| `sunset-aurora`      | Warm 4-corner palette                  | `{ colors: ["#f59e0b", "#ec4899", "#ef4444", "#fbbf24"], baseColor: "#1a0a0a" }`                            |
-| `subtle-dreamy`      | Lower opacity, more blur               | `{ zoneOpacity: 0.45, blurAmount: 220, animationDuration: 35 }`                                             |
+| Context           | Override Rationale       | Props                                                                            |
+| ----------------- | ------------------------ | -------------------------------------------------------------------------------- |
+| `northern-lights` | Green/teal/violet aurora | `{ colors: ["#10b981", "#06b6d4", "#8b5cf6", "#22c55e"], baseColor: "#020617" }` |
+| `sunset-aurora`   | Warm 4-corner palette    | `{ colors: ["#f59e0b", "#ec4899", "#ef4444", "#fbbf24"], baseColor: "#1a0a0a" }` |
+| `subtle-dreamy`   | Lower opacity, more blur | `{ zoneOpacity: 0.45, blurAmount: 220, animationDuration: 35 }`                  |
 
 **When to Use**
 
@@ -1106,12 +1115,12 @@ Diagonal flowing wave bands on dark base. Multiple blurred rectangular strips wi
 
 **Suggested Prop Overrides by Context**
 
-| Context           | Override Rationale                     | Props                                                                                                            |
-| ----------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `ocean-deep`      | Deeper blue palette, slower flow        | `{ waveColors: ["#0c4a6e", "#1e3a8a", "#164e63"], flowSpeed: 0.4, animationDuration: 25 }`                      |
-| `data-flow`       | Single-band subtle flow                 | `{ waveCount: 2, waveColors: ["#3b82f6", "#6366f1"], waveOpacity: 0.45, flowSpeed: 0.3 }`                      |
-| `neon-wave`       | Vibrant bands, fast flow                | `{ waveColors: ["#06b6d4", "#8b5cf6", "#ec4899"], waveOpacity: 0.8, flowSpeed: 1.2, waveBlur: 60 }`             |
-| `warm-flow`       | Warm tones instead of cool             | `{ waveColors: ["#d97706", "#dc2626", "#f59e0b"], baseColor: "#1a0a0a" }`                                       |
+| Context      | Override Rationale               | Props                                                                                               |
+| ------------ | -------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `ocean-deep` | Deeper blue palette, slower flow | `{ waveColors: ["#0c4a6e", "#1e3a8a", "#164e63"], flowSpeed: 0.4, animationDuration: 25 }`          |
+| `data-flow`  | Single-band subtle flow          | `{ waveCount: 2, waveColors: ["#3b82f6", "#6366f1"], waveOpacity: 0.45, flowSpeed: 0.3 }`           |
+| `neon-wave`  | Vibrant bands, fast flow         | `{ waveColors: ["#06b6d4", "#8b5cf6", "#ec4899"], waveOpacity: 0.8, flowSpeed: 1.2, waveBlur: 60 }` |
+| `warm-flow`  | Warm tones instead of cool       | `{ waveColors: ["#d97706", "#dc2626", "#f59e0b"], baseColor: "#1a0a0a" }`                           |
 
 **When to Use**
 
@@ -1130,7 +1139,10 @@ Diagonal flowing wave bands on dark base. Multiple blurred rectangular strips wi
 ```tsx
 import { FlowWaveBackground } from "./shared/presets/backgrounds";
 
-<FlowWaveBackground waveColors={["#0e7490", "#1e3a8a", "#0891b2"]} flowSpeed={0.6}>
+<FlowWaveBackground
+  waveColors={["#0e7490", "#1e3a8a", "#0891b2"]}
+  flowSpeed={0.6}
+>
   <YourContent />
 </FlowWaveBackground>;
 ```
@@ -1188,12 +1200,12 @@ Edge-anchored soft blobs creating dark oval center (negative space). Blobs alter
 
 **Suggested Prop Overrides by Context**
 
-| Context               | Override Rationale                         | Props                                                                                                         |
-| --------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| `product-hero`        | Magenta/violet from video, off-center    | `{ blobCount: 2, blobOpacity: 0.8, breatheAmount: 0.1 }`                                                     |
-| `cinematic-red-blue`  | Deep red vs blue edge blobs               | `{ colors: ["#dc2626", "#3b82f6"], baseColor: "#0a0a14" }`                                                    |
-| `gold-premium`        | Gold edge glow, dark center                | `{ colors: ["#d4af37", "#b8860b"], baseColor: "#0a0804", blobOpacity: 0.6 }`                                   |
-| `neon-focus`          | Brighter blobs, stronger vignette         | `{ colors: ["#22d3ee", "#a855f7"], blobOpacity: 0.9, breatheAmount: 0.2 }`                                    |
+| Context              | Override Rationale                    | Props                                                                        |
+| -------------------- | ------------------------------------- | ---------------------------------------------------------------------------- |
+| `product-hero`       | Magenta/violet from video, off-center | `{ blobCount: 2, blobOpacity: 0.8, breatheAmount: 0.1 }`                     |
+| `cinematic-red-blue` | Deep red vs blue edge blobs           | `{ colors: ["#dc2626", "#3b82f6"], baseColor: "#0a0a14" }`                   |
+| `gold-premium`       | Gold edge glow, dark center           | `{ colors: ["#d4af37", "#b8860b"], baseColor: "#0a0804", blobOpacity: 0.6 }` |
+| `neon-focus`         | Brighter blobs, stronger vignette     | `{ colors: ["#22d3ee", "#a855f7"], blobOpacity: 0.9, breatheAmount: 0.2 }`   |
 
 **When to Use**
 
@@ -1271,12 +1283,12 @@ Single soft radial-gradient arc sweeping from bottom of frame on dark base. Arc 
 
 **Suggested Prop Overrides by Context**
 
-| Context            | Override Rationale                  | Props                                                                                                    |
-| ------------------ | ----------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `tech-neon`        | Bright neon arc, default palette   | `{ arcColor: "#22d3ee", arcOpacity: 0.9, blurAmount: 120 }`                                              |
-| `warm-arc`         | Warm amber sweep                    | `{ arcColor: "#f59e0b", baseColor: "#0a0400", driftAmount: 0.06 }`                                       |
-| `minimal-arc`      | Subtle, slower, less distraction    | `{ arcOpacity: 0.4, animationDuration: 25, breatheAmount: 0.06, driftAmount: 0.02 }`                    |
-| `dual-arc`         | Two arcs: top + bottom              | `{ arcPosition: 1.5, arcWidth: 1.8 }`                                                                   |
+| Context       | Override Rationale               | Props                                                                                |
+| ------------- | -------------------------------- | ------------------------------------------------------------------------------------ |
+| `tech-neon`   | Bright neon arc, default palette | `{ arcColor: "#22d3ee", arcOpacity: 0.9, blurAmount: 120 }`                          |
+| `warm-arc`    | Warm amber sweep                 | `{ arcColor: "#f59e0b", baseColor: "#0a0400", driftAmount: 0.06 }`                   |
+| `minimal-arc` | Subtle, slower, less distraction | `{ arcOpacity: 0.4, animationDuration: 25, breatheAmount: 0.06, driftAmount: 0.02 }` |
+| `dual-arc`    | Two arcs: top + bottom           | `{ arcPosition: 1.5, arcWidth: 1.8 }`                                                |
 
 **When to Use**
 
@@ -1354,12 +1366,12 @@ Organic warm-toned blobs drifting on dark warm base. Blobs follow Lissajous-like
 
 **Suggested Prop Overrides by Context**
 
-| Context            | Override Rationale                | Props                                                                                                         |
-| ------------------ | --------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `cozy-evening`     | Deep amber, slower drift          | `{ colors: ["#92400e", "#78350f"], animationDuration: 40, driftAmount: 0.35 }`                                 |
-| `autumn-warm`      | Richer warm palette               | `{ colors: ["#dc2626", "#ea580c", "#d97706"], blobOpacity: 0.6 }`                                              |
-| `soft-cream`       | Lighter, creamier tones           | `{ colors: ["#fbbf24", "#f59e0b", "#d97706"], baseColor: "#1c1108", blobOpacity: 0.5, blurAmount: 200 }`      |
-| `candle-glow`      | Single warm blob, minimal motion  | `{ blobCount: 1, colors: ["#f59e0b"], driftAmount: 0.2, driftComplexity: 0.8, animationDuration: 45 }`          |
+| Context        | Override Rationale               | Props                                                                                                    |
+| -------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `cozy-evening` | Deep amber, slower drift         | `{ colors: ["#92400e", "#78350f"], animationDuration: 40, driftAmount: 0.35 }`                           |
+| `autumn-warm`  | Richer warm palette              | `{ colors: ["#dc2626", "#ea580c", "#d97706"], blobOpacity: 0.6 }`                                        |
+| `soft-cream`   | Lighter, creamier tones          | `{ colors: ["#fbbf24", "#f59e0b", "#d97706"], baseColor: "#1c1108", blobOpacity: 0.5, blurAmount: 200 }` |
+| `candle-glow`  | Single warm blob, minimal motion | `{ blobCount: 1, colors: ["#f59e0b"], driftAmount: 0.2, driftComplexity: 0.8, animationDuration: 45 }`   |
 
 **When to Use**
 
@@ -1379,7 +1391,10 @@ Organic warm-toned blobs drifting on dark warm base. Blobs follow Lissajous-like
 ```tsx
 import { WarmDriftBackground } from "./shared/presets/backgrounds";
 
-<WarmDriftBackground colors={["#d97706", "#b45309", "#92400e"]} baseColor="#1a0a04">
+<WarmDriftBackground
+  colors={["#d97706", "#b45309", "#92400e"]}
+  baseColor="#1a0a04"
+>
   <YourContent />
 </WarmDriftBackground>;
 ```
@@ -1439,11 +1454,11 @@ Out-of-focus hexagonal or circular light discs drifting at different depths on d
 
 **Suggested Prop Overrides by Context**
 
-| Context            | Override Rationale                  | Props                                                                           |
-| ------------------ | ----------------------------------- | ------------------------------------------------------------------------------- |
-| `city-night`       | Cooler palette, larger lights       | `{ bokehColors: ["#60a5fa", "#a78bfa", "#c084fc"], lightSize: 1.3 }`            |
-| `christmas-warm`   | Warm gold/red/green, hex shapes     | `{ bokehColors: ["#fbbf24", "#ef4444", "#22c55e"], hexShape: true }`            |
-| `romantic-soft`    | Fewer lights, slower drift          | `{ bokehCount: 10, driftAmount: 0.25, animationDuration: 40 }`                  |
+| Context          | Override Rationale              | Props                                                                |
+| ---------------- | ------------------------------- | -------------------------------------------------------------------- |
+| `city-night`     | Cooler palette, larger lights   | `{ bokehColors: ["#60a5fa", "#a78bfa", "#c084fc"], lightSize: 1.3 }` |
+| `christmas-warm` | Warm gold/red/green, hex shapes | `{ bokehColors: ["#fbbf24", "#ef4444", "#22c55e"], hexShape: true }` |
+| `romantic-soft`  | Fewer lights, slower drift      | `{ bokehCount: 10, driftAmount: 0.25, animationDuration: 40 }`       |
 
 **When to Use**
 
@@ -1461,7 +1476,10 @@ Out-of-focus hexagonal or circular light discs drifting at different depths on d
 ```tsx
 import { BokehLightsBackground } from "./shared/presets/backgrounds";
 
-<BokehLightsBackground bokehColors={["#f472b6", "#a78bfa", "#60a5fa"]} hexShape={false}>
+<BokehLightsBackground
+  bokehColors={["#f472b6", "#a78bfa", "#60a5fa"]}
+  hexShape={false}
+>
   <YourContent />
 </BokehLightsBackground>;
 ```
@@ -1514,11 +1532,11 @@ Horizontal soft fog bands drifting at multiple vertical positions with parallax 
 
 **Suggested Prop Overrides by Context**
 
-| Context           | Override Rationale                     | Props                                                                           |
-| ----------------- | -------------------------------------- | ------------------------------------------------------------------------------- |
-| `horror-dark`     | Darker palette, stronger vignette      | `{ fogColors: ["#1e293b", "#0f172a"], vignetteStrength: 0.6, bandOpacity: 0.5 }` |
-| `dream-ethereal`  | Lighter, more bands, slower drift      | `{ fogColors: ["#cbd5e1", "#e2e8f0"], bandCount: 6, animationDuration: 45 }`     |
-| `mystery-noir`    | Monochrome fog, high contrast          | `{ fogColors: ["#374151", "#6b7280"], baseColor: "#020617" }`                    |
+| Context          | Override Rationale                | Props                                                                            |
+| ---------------- | --------------------------------- | -------------------------------------------------------------------------------- |
+| `horror-dark`    | Darker palette, stronger vignette | `{ fogColors: ["#1e293b", "#0f172a"], vignetteStrength: 0.6, bandOpacity: 0.5 }` |
+| `dream-ethereal` | Lighter, more bands, slower drift | `{ fogColors: ["#cbd5e1", "#e2e8f0"], bandCount: 6, animationDuration: 45 }`     |
+| `mystery-noir`   | Monochrome fog, high contrast     | `{ fogColors: ["#374151", "#6b7280"], baseColor: "#020617" }`                    |
 
 **When to Use**
 
@@ -1593,11 +1611,11 @@ Multi-layer blurred blobs with simulated depth-of-field. Blobs are organized int
 
 **Suggested Prop Overrides by Context**
 
-| Context            | Override Rationale                     | Props                                                                           |
-| ------------------ | -------------------------------------- | ------------------------------------------------------------------------------- |
-| `portrait-intimate`| Shallow depth, warm tint               | `{ colors: ["#78350f", "#92400e", "#b45309"], depthLayers: 2, blurAmount: 160 }` |
-| `product-focus`    | Cool precision, sharp center           | `{ colors: ["#0f172a", "#1e293b", "#334155"], focusShiftSpeed: 0.1 }`            |
-| `cinematic-pull`   | Dramatic focus shift                   | `{ focusShiftSpeed: 0.8, animationDuration: 20 }`                               |
+| Context             | Override Rationale           | Props                                                                            |
+| ------------------- | ---------------------------- | -------------------------------------------------------------------------------- |
+| `portrait-intimate` | Shallow depth, warm tint     | `{ colors: ["#78350f", "#92400e", "#b45309"], depthLayers: 2, blurAmount: 160 }` |
+| `product-focus`     | Cool precision, sharp center | `{ colors: ["#0f172a", "#1e293b", "#334155"], focusShiftSpeed: 0.1 }`            |
+| `cinematic-pull`    | Dramatic focus shift         | `{ focusShiftSpeed: 0.8, animationDuration: 20 }`                                |
 
 **When to Use**
 
@@ -1666,11 +1684,11 @@ Warm off-white base with SVG paper fiber texture and ink-bleed vignette edges. S
 
 **Suggested Prop Overrides by Context**
 
-| Context            | Override Rationale                     | Props                                                                           |
-| ------------------ | -------------------------------------- | ------------------------------------------------------------------------------- |
-| `history-aged`     | Darker paper, stronger bleed           | `{ baseColor: "#e8dcc8", edgeBleedColor: "#a89878", edgeBleedStrength: 0.4 }`   |
-| `documentary-clean`| Minimal bleed, lighter base            | `{ baseColor: "#faf8f5", edgeBleedStrength: 0.1, vignetteStrength: 0.05 }`      |
-| `editorial-modern` | Cool grey tint                         | `{ baseColor: "#f1f5f9", edgeBleedColor: "#94a3b8" }`                            |
+| Context             | Override Rationale           | Props                                                                         |
+| ------------------- | ---------------------------- | ----------------------------------------------------------------------------- |
+| `history-aged`      | Darker paper, stronger bleed | `{ baseColor: "#e8dcc8", edgeBleedColor: "#a89878", edgeBleedStrength: 0.4 }` |
+| `documentary-clean` | Minimal bleed, lighter base  | `{ baseColor: "#faf8f5", edgeBleedStrength: 0.1, vignetteStrength: 0.05 }`    |
+| `editorial-modern`  | Cool grey tint               | `{ baseColor: "#f1f5f9", edgeBleedColor: "#94a3b8" }`                         |
 
 **When to Use**
 
@@ -1740,11 +1758,11 @@ Reusable wrapper component that adds cinematic grain, vignette, and optional lig
 
 **Suggested Prop Overrides by Context**
 
-| Context            | Override Rationale                     | Props                                                                           |
-| ------------------ | -------------------------------------- | ------------------------------------------------------------------------------- |
-| `film-noir`        | Strong vignette, no light leak         | `{ vignetteStrength: 0.7, lightLeakOpacity: 0 }`                                |
-| `vintage-8mm`      | Heavy grain, warm leak                 | `{ grainOpacity: 0.08, lightLeakColor: "#fbbf24", lightLeakOpacity: 0.15 }`     |
-| `subtle-cinematic` | Minimal grain, gentle vignette         | `{ grainOpacity: 0.02, vignetteStrength: 0.25 }`                                |
+| Context            | Override Rationale             | Props                                                                       |
+| ------------------ | ------------------------------ | --------------------------------------------------------------------------- |
+| `film-noir`        | Strong vignette, no light leak | `{ vignetteStrength: 0.7, lightLeakOpacity: 0 }`                            |
+| `vintage-8mm`      | Heavy grain, warm leak         | `{ grainOpacity: 0.08, lightLeakColor: "#fbbf24", lightLeakOpacity: 0.15 }` |
+| `subtle-cinematic` | Minimal grain, gentle vignette | `{ grainOpacity: 0.02, vignetteStrength: 0.25 }`                            |
 
 **When to Use**
 
@@ -1760,9 +1778,15 @@ Reusable wrapper component that adds cinematic grain, vignette, and optional lig
 **Composition Example**
 
 ```tsx
-import { CinematicVignetteOverlay, DarkGradientBackground } from "./shared/presets/backgrounds";
+import {
+  CinematicVignetteOverlay,
+  DarkGradientBackground,
+} from "./shared/presets/backgrounds";
 
-<DarkGradientBackground colors={["#0f172a", "#1e293b", "#334155"]} vignetteStrength={0}>
+<DarkGradientBackground
+  colors={["#0f172a", "#1e293b", "#334155"]}
+  vignetteStrength={0}
+>
   <CinematicVignetteOverlay vignetteStrength={0.5} lightLeakOpacity={0.1}>
     <YourContent />
   </CinematicVignetteOverlay>
@@ -1824,11 +1848,11 @@ Dense field of nodes on a grid with dynamic proximity-based connections. Nodes s
 
 **Suggested Prop Overrides by Context**
 
-| Context | Override Rationale | Props |
-| ------- | ------------------ | ----- |
-| `tech-AI` | Colder palette, sharper lines | `{ lineColor: "#38bdf8", nodeColor: "#a5f3fc", connectionOpacity: 0.4 }` |
-| `data-dashboard` | Denser grid, more connections | `{ gridDensity: 20, connectionDistance: 80, lineWidth: 0.3 }` |
-| `minimal-connect` | No shapes, fewer nodes | `{ emergentShapes: false, gridDensity: 10, pulseIntensity: 0.2 }` |
+| Context           | Override Rationale            | Props                                                                    |
+| ----------------- | ----------------------------- | ------------------------------------------------------------------------ |
+| `tech-AI`         | Colder palette, sharper lines | `{ lineColor: "#38bdf8", nodeColor: "#a5f3fc", connectionOpacity: 0.4 }` |
+| `data-dashboard`  | Denser grid, more connections | `{ gridDensity: 20, connectionDistance: 80, lineWidth: 0.3 }`            |
+| `minimal-connect` | No shapes, fewer nodes        | `{ emergentShapes: false, gridDensity: 10, pulseIntensity: 0.2 }`        |
 
 **When to Use**
 
@@ -1905,11 +1929,11 @@ Randomly scattered nodes drifting independently across canvas. Connections flick
 
 **Suggested Prop Overrides by Context**
 
-| Context | Override Rationale | Props |
-| ------- | ------------------ | ----- |
-| `crypto-web3` | More nodes, faster drift | `{ nodeCount: 120, driftSpeed: 0.6, connectionThreshold: 130 }` |
-| `disruption` | High contrast, bold | `{ nodeColor: "#f472b6", lineColor: "#a78bfa", connectionOpacity: 0.4 }` |
-| `calm-scatter` | Fewer nodes, slower | `{ nodeCount: 40, driftSpeed: 0.2, pulseIntensity: 0.15 }` |
+| Context        | Override Rationale       | Props                                                                    |
+| -------------- | ------------------------ | ------------------------------------------------------------------------ |
+| `crypto-web3`  | More nodes, faster drift | `{ nodeCount: 120, driftSpeed: 0.6, connectionThreshold: 130 }`          |
+| `disruption`   | High contrast, bold      | `{ nodeColor: "#f472b6", lineColor: "#a78bfa", connectionOpacity: 0.4 }` |
+| `calm-scatter` | Fewer nodes, slower      | `{ nodeCount: 40, driftSpeed: 0.2, pulseIntensity: 0.15 }`               |
 
 **When to Use**
 
@@ -1989,14 +2013,14 @@ Tiling geometric patterns with 6 sub-variants via `patternType` prop. Clean, hyp
 
 **Suggested Prop Overrides by Context**
 
-| Context | Override Rationale | Props |
-| ------- | ------------------ | ----- |
-| `meditation-luxury` | Diamond cross, slow, gold | `{ patternType: "diamondCross", lineColor: "#d4af37", baseColor: "#1a1a2e", rotationSpeed: 8 }` |
-| `tech-isometric` | Hex cube pattern | `{ patternType: "hexCube", lineColor: "#22d3ee", baseColor: "#0a0a1a" }` |
-| `energy-rhythm` | Chevron, faster | `{ patternType: "chevron", rotationSpeed: 25, scalePulse: 0.08 }` |
-| `artisan-craft` | L-weave pattern | `{ patternType: "lWeave", lineColor: "#fbbf24", baseColor: "#1c1108" }` |
-| `decorative-playful` | Chevron dots | `{ patternType: "chevronDot", accentColor: "#f472b6", lineColor: "#a78bfa" }` |
-| `corporate-clean` | Diamond grid, minimal | `{ patternType: "diamondGrid", lineOpacity: 0.25, rotationSpeed: 5 }` |
+| Context              | Override Rationale        | Props                                                                                           |
+| -------------------- | ------------------------- | ----------------------------------------------------------------------------------------------- |
+| `meditation-luxury`  | Diamond cross, slow, gold | `{ patternType: "diamondCross", lineColor: "#d4af37", baseColor: "#1a1a2e", rotationSpeed: 8 }` |
+| `tech-isometric`     | Hex cube pattern          | `{ patternType: "hexCube", lineColor: "#22d3ee", baseColor: "#0a0a1a" }`                        |
+| `energy-rhythm`      | Chevron, faster           | `{ patternType: "chevron", rotationSpeed: 25, scalePulse: 0.08 }`                               |
+| `artisan-craft`      | L-weave pattern           | `{ patternType: "lWeave", lineColor: "#fbbf24", baseColor: "#1c1108" }`                         |
+| `decorative-playful` | Chevron dots              | `{ patternType: "chevronDot", accentColor: "#f472b6", lineColor: "#a78bfa" }`                   |
+| `corporate-clean`    | Diamond grid, minimal     | `{ patternType: "diamondGrid", lineOpacity: 0.25, rotationSpeed: 5 }`                           |
 
 **When to Use**
 
@@ -2072,11 +2096,11 @@ import { GeometricTessellationBackground } from "./shared/presets/backgrounds";
 
 **Suggested Prop Overrides by Context**
 
-| Context | Override Rationale | Props |
-| ------- | ------------------ | ----- |
-| `blueprint-cad` | Cyan lines, strong fade | `{ lineColor: "#06b6d4", lineOpacity: 0.5, perspectiveStrength: 0.9 }` |
-| `luxury-space` | Gold lines, dark base | `{ lineColor: "#d4af37", baseColor: "#0a0a0a", gridDensity: 14 }` |
-| `minimal-drift` | Subtle drift, fewer lines | `{ driftSpeed: 0.08, gridDensity: 6, lineOpacity: 0.2 }` |
+| Context         | Override Rationale        | Props                                                                  |
+| --------------- | ------------------------- | ---------------------------------------------------------------------- |
+| `blueprint-cad` | Cyan lines, strong fade   | `{ lineColor: "#06b6d4", lineOpacity: 0.5, perspectiveStrength: 0.9 }` |
+| `luxury-space`  | Gold lines, dark base     | `{ lineColor: "#d4af37", baseColor: "#0a0a0a", gridDensity: 14 }`      |
+| `minimal-drift` | Subtle drift, fewer lines | `{ driftSpeed: 0.08, gridDensity: 6, lineOpacity: 0.2 }`               |
 
 **When to Use**
 
@@ -2097,6 +2121,469 @@ import { ArchitecturalWireframeBackground } from "./shared/presets/backgrounds";
 <ArchitecturalWireframeBackground perspectiveStrength={0.7} fadeToCenter={true}>
   <YourContent />
 </ArchitecturalWireframeBackground>;
+```
+
+---
+
+### GridDotPatternBackground
+
+**ID**: `GridDotPatternBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Evenly spaced SVG dot pattern on a clean base. Dots drift diagonally at configurable speed with optional parallax depth (near/far layers). Dark and light themes with auto color palette. Frame-driven, no CSS animation.
+
+**Visual Characteristics**
+
+- Style: Geometric, minimal, clean
+- Motion: Diagonal drift + parallax depth layers (frame-driven)
+- Texture: Clean dots, no grain
+- Depth: Two-layer parallax (near fast, far slow)
+
+**Metadata**
+
+```json
+{
+  "mood": ["clean", "precise", "modern", "structured"],
+  "theme": ["tech", "data", "corporate", "minimal", "presentation"],
+  "energy": "low-to-medium",
+  "colorTemp": "cool-to-neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "maximum"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 20,
+  "animationSpeed": 1,
+  "baseColor": "#020617",
+  "accentColor": "#94a3b8",
+  "dotSize": 2,
+  "opacity": 0.4,
+  "parallaxDepth": true,
+  "patternDensity": 40,
+  "theme": "dark",
+  "easing": [0.45, 0, 0.55, 1],
+  "vignetteStrength": 0.25
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context             | Override Rationale          | Props                                                                         |
+| ------------------- | --------------------------- | ----------------------------------------------------------------------------- |
+| `tech-clean`        | Brighter dots, tighter grid | `{ accentColor: "#60a5fa", dotSize: 3, patternDensity: 30, opacity: 0.5 }`    |
+| `minimal-light`     | Light theme, subtle dots    | `{ theme: "light", opacity: 0.25, patternDensity: 60, parallaxDepth: false }` |
+| `fast-presentation` | Quick drift, higher density | `{ animationSpeed: 2, patternDensity: 50, opacity: 0.3 }`                     |
+
+**When to Use**
+
+- Tech, data, corporate presentations needing subtle geometric texture
+- Minimal backgrounds where dots add structure without distraction
+- Any script with clean, modern, structured aesthetic
+
+**When NOT to Use**
+
+- Organic, nature, emotional scripts (too geometric)
+- Content needing heavy atmospheric depth
+- Scripts where any pattern competes with content
+
+**Composition Example**
+
+```tsx
+import { GridDotPatternBackground } from "./shared/presets/backgrounds";
+
+<GridDotPatternBackground theme="dark" patternDensity={40} parallaxDepth={true}>
+  <YourContent />
+</GridDotPatternBackground>;
+```
+
+### GridLinePatternBackground
+
+**ID**: `GridLinePatternBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Horizontal and vertical SVG grid lines scrolling continuously. Horizontal lines drift vertically, vertical lines drift slightly horizontally — creating a subtle crosshatch motion. Dark and light themes. Frame-driven, no CSS animation.
+
+**Visual Characteristics**
+
+- Style: Technical, structured, architectural
+- Motion: Continuous vertical + slight horizontal drift
+- Texture: Clean lines, no grain
+- Depth: Flat grid plane
+
+**Metadata**
+
+```json
+{
+  "mood": ["structured", "technical", "precise", "modern"],
+  "theme": ["engineering", "architecture", "tech", "data"],
+  "energy": "low-to-medium",
+  "colorTemp": "cool-to-neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "maximum"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 20,
+  "animationSpeed": 1,
+  "opacity": 0.3,
+  "lineWidth": 1,
+  "patternDensity": 50,
+  "theme": "dark",
+  "easing": [0.45, 0, 0.55, 1],
+  "vignetteStrength": 0.25
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context          | Override Rationale          | Props                                                                   |
+| ---------------- | --------------------------- | ----------------------------------------------------------------------- |
+| `tech-blueprint` | Bright lines on dark base   | `{ accentColor: "#38bdf8", opacity: 0.4, lineWidth: 1.5 }`              |
+| `minimal-grid`   | Light theme, subtle lines   | `{ theme: "light", opacity: 0.15, lineWidth: 0.5, patternDensity: 80 }` |
+| `fast-scroll`    | Quicker motion, denser grid | `{ animationSpeed: 2.5, patternDensity: 30, opacity: 0.25 }`            |
+
+**When to Use**
+
+- Engineering, architecture, blueprint-style backgrounds
+- Tech content needing structured visual language
+- Any script with precise, technical aesthetic
+
+**When NOT to Use**
+
+- Organic, emotional, warm scripts (too rigid)
+- Content where grid lines compete with UI elements
+- Bright scripts where lines may be invisible (use `theme: "light"`)
+
+**Composition Example**
+
+```tsx
+import { GridLinePatternBackground } from "./shared/presets/backgrounds";
+
+<GridLinePatternBackground theme="dark" patternDensity={50} opacity={0.3}>
+  <YourContent />
+</GridLinePatternBackground>;
+```
+
+### DiagonalStripePatternBackground
+
+**ID**: `DiagonalStripePatternBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+SVG diagonal stripe pattern sliding continuously along its angle. Stripe angle, width, density all configurable. Smooth linear drift for an infinite slide feel. Dark and light themes. Frame-driven, no CSS animation.
+
+**Visual Characteristics**
+
+- Style: Sleek, modern, directional
+- Motion: Continuous diagonal slide (infinite)
+- Texture: Clean stripes, no grain
+- Depth: Flat directional pattern
+
+**Metadata**
+
+```json
+{
+  "mood": ["sleek", "modern", "directional", "smooth"],
+  "theme": ["tech", "creative", "fashion", "modern"],
+  "energy": "low-to-medium",
+  "colorTemp": "cool-to-neutral",
+  "formality": "professional-to-luxury",
+  "complexity": "low",
+  "readability": "maximum"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 20,
+  "animationSpeed": 1,
+  "opacity": 0.3,
+  "patternDensity": 30,
+  "stripeAngle": 45,
+  "stripeWidth": 10,
+  "theme": "dark",
+  "easing": [0.45, 0, 0.55, 1],
+  "vignetteStrength": 0.25
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context         | Override Rationale           | Props                                                                       |
+| --------------- | ---------------------------- | --------------------------------------------------------------------------- |
+| `tech-diagonal` | Bright accent, steeper angle | `{ accentColor: "#22d3ee", stripeAngle: 60, stripeWidth: 6, opacity: 0.4 }` |
+| `light-fashion` | Thin subtle stripes          | `{ theme: "light", stripeWidth: 4, opacity: 0.15, patternDensity: 50 }`     |
+| `fast-motion`   | Quick slide, denser          | `{ animationSpeed: 3, patternDensity: 20, stripeWidth: 15 }`                |
+
+**When to Use**
+
+- Tech, creative, fashion intros needing directional motion
+- Modern, sleek presentation backgrounds
+- Any script benefiting from dynamic diagonal movement
+
+**When NOT to Use**
+
+- Content with diagonal UI elements (pattern may clash)
+- Static, formal scripts (motion may distract)
+- Scripts needing organic or soft backgrounds
+
+**Composition Example**
+
+```tsx
+import { DiagonalStripePatternBackground } from "./shared/presets/backgrounds";
+
+<DiagonalStripePatternBackground theme="dark" stripeAngle={45} stripeWidth={10}>
+  <YourContent />
+</DiagonalStripePatternBackground>;
+```
+
+### HexagonPatternBackground
+
+**ID**: `HexagonPatternBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Honeycomb SVG hexagon tiling pattern with slow continuous rotation and optional scale breathing. Clean geometric aesthetic with scientific, technical feel. Dark and light themes. Frame-driven, no CSS animation.
+
+**Visual Characteristics**
+
+- Style: Geometric, scientific, technical
+- Motion: Slow rotation + optional scale breathe
+- Texture: Clean hexagons, no grain
+- Depth: Flat tiling plane
+
+**Metadata**
+
+```json
+{
+  "mood": ["precise", "geometric", "scientific", "technical"],
+  "theme": ["science", "tech", "design", "data", "engineering"],
+  "energy": "low",
+  "colorTemp": "cool-to-neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "maximum"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 30,
+  "animationSpeed": 1,
+  "opacity": 0.35,
+  "patternDensity": 60,
+  "rotationSpeed": 10,
+  "scaleBreathe": true,
+  "theme": "dark",
+  "easing": [0.45, 0, 0.55, 1],
+  "vignetteStrength": 0.25
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context          | Override Rationale            | Props                                                                     |
+| ---------------- | ----------------------------- | ------------------------------------------------------------------------- |
+| `science-tech`   | Brighter hexes, faster rotate | `{ accentColor: "#38bdf8", rotationSpeed: 15, opacity: 0.45 }`            |
+| `minimal-hex`    | Light theme, subtle           | `{ theme: "light", opacity: 0.2, scaleBreathe: false, rotationSpeed: 4 }` |
+| `bold-geometric` | Larger cells, stronger lines  | `{ patternDensity: 40, opacity: 0.5, scaleBreathe: false }`               |
+
+**When to Use**
+
+- Science, technology, engineering content
+- Design-oriented backgrounds needing geometric interest
+- Any script with structured, precise, scientific tone
+
+**When NOT to Use**
+
+- Organic, warm, emotional scripts (too mechanical)
+- Content with very small text (hex pattern may interfere)
+- Fast-paced energetic content (rotation is slow, meditative)
+
+**Composition Example**
+
+```tsx
+import { HexagonPatternBackground } from "./shared/presets/backgrounds";
+
+<HexagonPatternBackground theme="dark" rotationSpeed={10} scaleBreathe={true}>
+  <YourContent />
+</HexagonPatternBackground>;
+```
+
+### WaveDotPatternBackground
+
+**ID**: `WaveDotPatternBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Dots arranged in rows, each row oscillating horizontally or vertically in a propagating sine wave. Creates fluid, organic motion from rigid dot grid. Wave amplitude, frequency, direction all configurable. Dark and light themes. Frame-driven, no CSS animation.
+
+**Visual Characteristics**
+
+- Style: Fluid, dynamic, organic
+- Motion: Sine wave propagation per row/column
+- Texture: Clean dots, no grain
+- Depth: Wave motion creates parallax illusion
+
+**Metadata**
+
+```json
+{
+  "mood": ["fluid", "dynamic", "organic", "rhythmic"],
+  "theme": ["tech", "data", "fluid", "creative", "music"],
+  "energy": "medium",
+  "colorTemp": "cool-to-neutral",
+  "formality": "professional",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "amplitude": 20,
+  "animationDuration": 20,
+  "animationSpeed": 1,
+  "dotSize": 2.5,
+  "frequency": 0.3,
+  "opacity": 0.4,
+  "patternDensity": 40,
+  "theme": "dark",
+  "easing": [0.45, 0, 0.55, 1],
+  "vignetteStrength": 0.25,
+  "waveDirection": "horizontal"
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context        | Override Rationale         | Props                                                                          |
+| -------------- | -------------------------- | ------------------------------------------------------------------------------ |
+| `fluid-tech`   | Stronger wave, faster      | `{ amplitude: 30, frequency: 0.5, animationSpeed: 2, accentColor: "#38bdf8" }` |
+| `subtle-wave`  | Gentle vertical wave       | `{ waveDirection: "vertical", amplitude: 10, frequency: 0.2, opacity: 0.25 }`  |
+| `light-rhythm` | Light theme, rhythmic wave | `{ theme: "light", animationSpeed: 1.5, frequency: 0.4 }`                      |
+
+**When to Use**
+
+- Tech, data, music content needing organic motion
+- Dynamic backgrounds where rigid patterns feel too static
+- Any script benefiting from fluid, wave-like visual rhythm
+
+**When NOT to Use**
+
+- Highly formal/corporate scripts (fluid motion may feel playful)
+- Content with very small text (wave dots may distract)
+- Static, non-animated compositions
+
+**Composition Example**
+
+```tsx
+import { WaveDotPatternBackground } from "./shared/presets/backgrounds";
+
+<WaveDotPatternBackground
+  theme="dark"
+  amplitude={20}
+  waveDirection="horizontal"
+>
+  <YourContent />
+</WaveDotPatternBackground>;
+```
+
+### ConcentricCirclePatternBackground
+
+**ID**: `ConcentricCirclePatternBackground`
+**Export**: `src/shared/presets/backgrounds`
+
+**Description**
+Concentric SVG circles radiating from screen center, continuously expanding outward with staggered fade. Rings at larger radii fade toward edge, creating a ripple or radar effect. Configurable ring count, spacing, and speed. Dark and light themes. Frame-driven, no CSS animation.
+
+**Visual Characteristics**
+
+- Style: Cinematic, expansive, focused
+- Motion: Continuous outward ring expansion with fade
+- Texture: Clean circles, no grain
+- Depth: Radiating rings create center-focus
+
+**Metadata**
+
+```json
+{
+  "mood": ["focused", "cinematic", "expansive", "radar"],
+  "theme": ["tech", "radar", "cinematic", "intro", "focus"],
+  "energy": "low-to-medium",
+  "colorTemp": "cool-to-neutral",
+  "formality": "professional-to-luxury",
+  "complexity": "low",
+  "readability": "high"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "animationDuration": 20,
+  "animationSpeed": 1,
+  "opacity": 0.35,
+  "lineWidth": 1,
+  "patternDensity": 8,
+  "ringSpacing": 80,
+  "theme": "dark",
+  "easing": [0.45, 0, 0.55, 1],
+  "vignetteStrength": 0.25
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context           | Override Rationale            | Props                                                                             |
+| ----------------- | ----------------------------- | --------------------------------------------------------------------------------- |
+| `radar-tech`      | Fast rings, bright accent     | `{ animationSpeed: 3, patternDensity: 12, opacity: 0.5, accentColor: "#22d3ee" }` |
+| `cinematic-focus` | Slow expansion, glowing rings | `{ animationDuration: 40, ringSpacing: 120, patternDensity: 5, opacity: 0.25 }`   |
+| `light-ripple`    | Light theme, subtle ripple    | `{ theme: "light", opacity: 0.15, lineWidth: 0.5, animationSpeed: 0.5 }`          |
+
+**When to Use**
+
+- Cinematic intros needing center-focus draw
+- Tech/radar/scan aesthetic backgrounds
+- Any script benefiting from radial focal point
+
+**When NOT to Use**
+
+- Content already centered in frame (rings may compete)
+- Scripts needing flat, non-focused backgrounds
+- Fast-paced content where ring motion distracts
+
+**Composition Example**
+
+```tsx
+import { ConcentricCirclePatternBackground } from "./shared/presets/backgrounds";
+
+<ConcentricCirclePatternBackground
+  theme="dark"
+  ringSpacing={80}
+  animationSpeed={1}
+>
+  <YourContent />
+</ConcentricCirclePatternBackground>;
 ```
 
 ---

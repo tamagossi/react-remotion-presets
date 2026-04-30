@@ -28,9 +28,7 @@ export type HaloVignetteBackgroundProps = {
   vignetteStrength?: number;
 };
 
-export const HaloVignetteBackground: React.FC<
-  HaloVignetteBackgroundProps
-> = ({
+export const HaloVignetteBackground: React.FC<HaloVignetteBackgroundProps> = ({
   animationDuration = 20,
   baseColor = "#0a0212",
   blobCount = 2,

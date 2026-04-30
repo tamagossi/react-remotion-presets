@@ -4,26 +4,26 @@ AI selection guide for `src/shared/presets/data-visualizations/`.
 
 ## Quick Selection Guide
 
-| Script Tone | Mood | Energy | Color Temp | Formality | Recommended Preset |
-|-------------|------|--------|------------|-----------|-------------------|
-| Corporate | Trust | Medium | Cool | Professional | `AnimatedLineChart` |
-| Tech | Futuristic | High | Cool | Professional | `AreaChartGlow` |
-| Financial | Dramatic | High | Neutral | Professional | `CandlestickChart` |
-| Analytical | Neutral | Medium | Cool | Professional | `HorizontalBarChart` |
-| Dashboard | Energetic | Medium | Vibrant | Professional | `DualGaugeChart` |
-| Minimal | Calm | Low | Neutral | Professional | `CircularRadialGauge` |
-| Corporate | Trust | Medium | Cool | Professional | `DonutChartSet` |
-| Tech | Futuristic | Medium | Cool | Professional | `NestedArcChart` |
-| Fitness | Energetic | High | Vibrant | Casual | `ActivityRings` |
-| Corporate | Trust | Medium | Warm | Professional | `ProgressBarCard` |
-| Tech | Futuristic | Medium | Cool | Professional | `LoadingProgress` |
-| Bold | Energetic | High | Vibrant | Casual | `SplitPercentageDisplay` |
-| Social | Playful | Medium | Vibrant | Casual | `DemographicIcons` |
-| Educational | Warm | Low | Warm | Professional | `PyramidChart` |
-| Social | Playful | Medium | Cool | Casual | `IconStatGrid` |
-| Analytical | Neutral | Medium | Cool | Professional | `RadarChart` |
-| Creative | Playful | Medium | Vibrant | Casual | `DotScatterChart` |
-| Status | Neutral | Low | Neutral | Professional | `TrafficLightDots` |
+| Script Tone | Mood       | Energy | Color Temp | Formality    | Recommended Preset       |
+| ----------- | ---------- | ------ | ---------- | ------------ | ------------------------ |
+| Corporate   | Trust      | Medium | Cool       | Professional | `AnimatedLineChart`      |
+| Tech        | Futuristic | High   | Cool       | Professional | `AreaChartGlow`          |
+| Financial   | Dramatic   | High   | Neutral    | Professional | `CandlestickChart`       |
+| Analytical  | Neutral    | Medium | Cool       | Professional | `HorizontalBarChart`     |
+| Dashboard   | Energetic  | Medium | Vibrant    | Professional | `DualGaugeChart`         |
+| Minimal     | Calm       | Low    | Neutral    | Professional | `CircularRadialGauge`    |
+| Corporate   | Trust      | Medium | Cool       | Professional | `DonutChartSet`          |
+| Tech        | Futuristic | Medium | Cool       | Professional | `NestedArcChart`         |
+| Fitness     | Energetic  | High   | Vibrant    | Casual       | `ActivityRings`          |
+| Corporate   | Trust      | Medium | Warm       | Professional | `ProgressBarCard`        |
+| Tech        | Futuristic | Medium | Cool       | Professional | `LoadingProgress`        |
+| Bold        | Energetic  | High   | Vibrant    | Casual       | `SplitPercentageDisplay` |
+| Social      | Playful    | Medium | Vibrant    | Casual       | `DemographicIcons`       |
+| Educational | Warm       | Low    | Warm       | Professional | `PyramidChart`           |
+| Social      | Playful    | Medium | Cool       | Casual       | `IconStatGrid`           |
+| Analytical  | Neutral    | Medium | Cool       | Professional | `RadarChart`             |
+| Creative    | Playful    | Medium | Vibrant    | Casual       | `DotScatterChart`        |
+| Status      | Neutral    | Low    | Neutral    | Professional | `TrafficLightDots`       |
 
 ## How to Use This Catalog
 
@@ -92,10 +92,10 @@ Smooth SVG line chart with path draw-on animation, staggered data point dots, da
 
 **Suggested Prop Overrides by Context**
 
-| Context | Override Rationale | Props |
-|---------|-------------------|-------|
+| Context                  | Override Rationale                 | Props                                                      |
+| ------------------------ | ---------------------------------- | ---------------------------------------------------------- |
 | `corporate-professional` | Muted colors for corporate reports | `{ lineColor: "#3b82f6", cardBackgroundColor: "#f8fafc" }` |
-| `tech-futuristic` | Neon glow effect | `{ lineColor: "#06b6d4", backgroundColor: "#020617" }` |
+| `tech-futuristic`        | Neon glow effect                   | `{ lineColor: "#06b6d4", backgroundColor: "#020617" }`     |
 
 **When to Use**
 
@@ -164,10 +164,10 @@ Glowing blue area chart with gradient fill reveal via clip-path expansion, verti
 
 **Suggested Prop Overrides by Context**
 
-| Context | Override Rationale | Props |
-|---------|-------------------|-------|
-| `tech-futuristic` | Cyan glow for sci-fi feel | `{ areaColor: "#06b6d4", glowColor: "#22d3ee" }` |
-| `corporate-professional` | Subtle blue for reports | `{ areaColor: "#1e40af", glowColor: "#3b82f6" }` |
+| Context                  | Override Rationale        | Props                                            |
+| ------------------------ | ------------------------- | ------------------------------------------------ |
+| `tech-futuristic`        | Cyan glow for sci-fi feel | `{ areaColor: "#06b6d4", glowColor: "#22d3ee" }` |
+| `corporate-professional` | Subtle blue for reports   | `{ areaColor: "#1e40af", glowColor: "#3b82f6" }` |
 
 ---
 

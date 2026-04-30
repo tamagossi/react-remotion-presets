@@ -1,6 +1,7 @@
 # Root.tsx Refactor Plan
 
 ## Goal
+
 1. Order compositions alphabetically in both backgrounds and titles folders
 2. Use barrel exports for composition imports instead of individual file imports
 
@@ -64,6 +65,7 @@ export { VerticalAccentTitleComposition } from "./VerticalAccentTitleComposition
 ## Step 3: Rewrite Root.tsx
 
 Replace the 26 individual background composition imports with a single barrel import:
+
 ```ts
 import {
   ArchitecturalWireframeBackgroundComposition,
@@ -96,6 +98,7 @@ import {
 ```
 
 Replace the 21 individual title composition imports with:
+
 ```ts
 import {
   BoldRightTitleComposition,
@@ -123,6 +126,7 @@ import {
 ```
 
 ### Backgrounds Section - Alphabetical Order:
+
 1. ArchitecturalWireframeBackground
 2. AtmosphericFogBackground
 3. AuroraFlowBackground (new - needs composition + registration)
@@ -155,6 +159,7 @@ Note: Some backgrounds exist in the barrel but don't have compositions registere
 Actually, let me check which backgrounds DON'T have compositions yet...
 
 Already-registered backgrounds (current Root.tsx):
+
 - BackgroundComposition
 - LightGradientBackground
 - MorphingMeshBackground
@@ -178,6 +183,7 @@ Already-registered backgrounds (current Root.tsx):
 - CinematicVignetteOverlay
 
 Missing from Root.tsx but have composition files:
+
 - AuroraFlowBackgroundComposition
 - CornerGlowBackgroundComposition
 - DiagonalSpectrumBackgroundComposition
@@ -187,6 +193,7 @@ Missing from Root.tsx but have composition files:
 These should be added too. Need to check if they have Props types in the backgrounds barrel.
 
 ### Titles Section - Alphabetical Order:
+
 1. BoldRightTitle
 2. CardFillTitle
 3. ControllersUnderlineTitle
@@ -210,6 +217,7 @@ These should be added too. Need to check if they have Props types in the backgro
 21. VerticalAccentTitle
 
 ## Step 4: Fix existing lint error
+
 In AtmosphericFogBackground defaultProps, swap `bandBlur` and `baseColor` so `bandBlur` comes before `baseColor` (alphabetical order).
 
 ## Step 5: Run lint + typecheck

@@ -1,16 +1,13 @@
 import React from "react";
 
-import {
-	AreaChartGlow,
-	type AreaChartGlowProps,
-} from "../AreaChartGlow";
+import { AreaChartGlow, type AreaChartGlowProps } from "../AreaChartGlow";
 
 export const AreaChartGlowComposition: React.FC<AreaChartGlowProps> = (
-	props,
+  props,
 ) => {
-	return (
-		<AreaChartGlow {...props}>
-			<div />
-		</AreaChartGlow>
-	);
+  return (
+    <AreaChartGlow {...props}>
+      <div />
+    </AreaChartGlow>
+  );
 };

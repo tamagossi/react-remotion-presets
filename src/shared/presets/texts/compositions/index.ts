@@ -12,18 +12,10 @@ export { WiggleTextComposition } from "./WiggleTextComposition";
 export { WordSwapTextComposition } from "./WordSwapTextComposition";
 
 export { ColorStackTextComposition } from "./ColorStackTextComposition";
-export {
-	InlineHighlightTextComposition,
-} from "./InlineHighlightTextComposition";
-export {
-	SequentialWordTextComposition,
-} from "./SequentialWordTextComposition";
+export { InlineHighlightTextComposition } from "./InlineHighlightTextComposition";
+export { SequentialWordTextComposition } from "./SequentialWordTextComposition";
 export { SimpleFadeTextComposition } from "./SimpleFadeTextComposition";
-export {
-	SingleWordZoomTextComposition,
-} from "./SingleWordZoomTextComposition";
+export { SingleWordZoomTextComposition } from "./SingleWordZoomTextComposition";
 export { StackedLineTextComposition } from "./StackedLineTextComposition";
-export {
-	TypewriterGlitchTextComposition,
-} from "./TypewriterGlitchTextComposition";
+export { TypewriterGlitchTextComposition } from "./TypewriterGlitchTextComposition";
 export { WordSlideTextComposition } from "./WordSlideTextComposition";

@@ -54,16 +54,11 @@ export const RoundedBoxTitle: React.FC<RoundedBoxTitleProps> = ({
   const boxExitStart = boxEntryEnd + holdDuration;
   const boxExitEnd = boxExitStart + exitDuration;
 
-  const boxEntryT = interpolate(
-    frame,
-    [boxEntryStart, boxEntryEnd],
-    [0, 1],
-    {
-      easing: Easing.bezier(...easing),
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    },
-  );
+  const boxEntryT = interpolate(frame, [boxEntryStart, boxEntryEnd], [0, 1], {
+    easing: Easing.bezier(...easing),
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
   const boxExitT = interpolate(frame, [boxExitStart, boxExitEnd], [1, 0], {
     easing: Easing.bezier(...easing),
@@ -91,16 +86,11 @@ export const RoundedBoxTitle: React.FC<RoundedBoxTitleProps> = ({
     },
   );
 
-  const textExitT = interpolate(
-    frame,
-    [textExitStart, textExitEnd],
-    [1, 0],
-    {
-      easing: Easing.bezier(...easing),
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    },
-  );
+  const textExitT = interpolate(frame, [textExitStart, textExitEnd], [1, 0], {
+    easing: Easing.bezier(...easing),
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
   const textOpacity = interpolate(
     frame,

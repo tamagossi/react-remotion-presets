@@ -2,26 +2,23 @@ import React from "react";
 
 import { AbsoluteFill } from "remotion";
 
-import {
-	HeavyStackTitle,
-	type HeavyStackTitleProps,
-} from "../HeavyStackTitle";
 import { useAnton } from "../../../hooks/useAnton";
+import { HeavyStackTitle, type HeavyStackTitleProps } from "../HeavyStackTitle";
 
 export const HeavyStackTitleComposition: React.FC<HeavyStackTitleProps> = (
-	props,
+  props,
 ) => {
-	useAnton();
-	return (
-		<AbsoluteFill
-			style={{
-				alignItems: "center",
-				background: "#000000",
-				display: "flex",
-				justifyContent: "center",
-			}}
-		>
-			<HeavyStackTitle {...props} />
-		</AbsoluteFill>
-	);
+  useAnton();
+  return (
+    <AbsoluteFill
+      style={{
+        alignItems: "center",
+        background: "#000000",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <HeavyStackTitle {...props} />
+    </AbsoluteFill>
+  );
 };

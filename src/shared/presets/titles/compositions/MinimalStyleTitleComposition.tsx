@@ -2,11 +2,11 @@ import React from "react";
 
 import { AbsoluteFill } from "remotion";
 
+import { useAnton } from "../../../hooks/useAnton";
 import {
   MinimalStyleTitle,
   type MinimalStyleTitleProps,
 } from "../MinimalStyleTitle";
-import { useAnton } from "../../../hooks/useAnton";
 
 export const MinimalStyleTitleComposition: React.FC<MinimalStyleTitleProps> = ({
   lines = ["MINIMAL", "STYLE", "CONCEPT"],

@@ -1,6 +1,9 @@
 import React from "react";
 
-import { AtmosphericFogBackground, type AtmosphericFogBackgroundProps } from "..";
+import {
+  AtmosphericFogBackground,
+  type AtmosphericFogBackgroundProps,
+} from "..";
 
 export const AtmosphericFogBackgroundComposition: React.FC<
   AtmosphericFogBackgroundProps

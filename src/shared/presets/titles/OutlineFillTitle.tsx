@@ -45,27 +45,17 @@ export const OutlineFillTitle: React.FC<OutlineFillTitleProps> = ({
     const lineExitStart = lineEntryEnd + holdDuration;
     const lineExitEnd = lineExitStart + exitDuration;
 
-    const entryT = interpolate(
-      frame,
-      [lineEntryStart, lineEntryEnd],
-      [0, 1],
-      {
-        easing: Easing.bezier(...easing),
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      },
-    );
+    const entryT = interpolate(frame, [lineEntryStart, lineEntryEnd], [0, 1], {
+      easing: Easing.bezier(...easing),
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    });
 
-    const exitT = interpolate(
-      frame,
-      [lineExitStart, lineExitEnd],
-      [1, 0],
-      {
-        easing: Easing.bezier(...easing),
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      },
-    );
+    const exitT = interpolate(frame, [lineExitStart, lineExitEnd], [1, 0], {
+      easing: Easing.bezier(...easing),
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    });
 
     const opacity = interpolate(
       frame,

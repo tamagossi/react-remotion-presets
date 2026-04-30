@@ -1,1 +1,1 @@
-export {TitleAnimationSchema as LabelStackTitleSchema} from "./TitleAnimationSchema";
+export { TitleAnimationSchema as LabelStackTitleSchema } from "./TitleAnimationSchema";

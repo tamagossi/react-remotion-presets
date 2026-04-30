@@ -92,15 +92,15 @@ Follow strict structure from `rules/preset-structure.md`:
 
 ## Rules Reference
 
-| File                            | Purpose                                                         |
-| ------------------------------- | --------------------------------------------------------------- |
+| File                            | Purpose                                                               |
+| ------------------------------- | --------------------------------------------------------------------- |
 | `rules/persona.md`              | Top-tier motion designer identity, video analysis, creative authority |
-| `rules/preset-structure.md`     | Mandatory file template, naming, exports, Root.tsx registration |
-| `rules/categories.md`           | All preset categories + conventions per type                    |
-| `rules/animation-principles.md` | Motion design best practices for Remotion                       |
-| `rules/color-theory.md`         | Palette selection, contrast, mood mapping                       |
-| `rules/typography.md`           | Video-safe typography hierarchy                                 |
-| `rules/catalog-update.md`       | How to read, append, and format CATALOG.md entries              |
+| `rules/preset-structure.md`     | Mandatory file template, naming, exports, Root.tsx registration       |
+| `rules/categories.md`           | All preset categories + conventions per type                          |
+| `rules/animation-principles.md` | Motion design best practices for Remotion                             |
+| `rules/color-theory.md`         | Palette selection, contrast, mood mapping                             |
+| `rules/typography.md`           | Video-safe typography hierarchy                                       |
+| `rules/catalog-update.md`       | How to read, append, and format CATALOG.md entries                    |
 
 ## Output Guarantee
 

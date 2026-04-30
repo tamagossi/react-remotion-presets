@@ -1,5 +1,6 @@
-import {zColor} from "@remotion/zod-types";
-import {z} from "zod";
+import { z } from "zod";
+
+import { zColor } from "@remotion/zod-types";
 
 export const QuoteBlockTitleSchema = z.object({
   align: z.enum(["center", "left", "right"]).optional(),
@@ -21,5 +22,7 @@ export const QuoteBlockTitleSchema = z.object({
   quote: z.string().optional(),
   quoteFontSize: z.number().optional(),
   startFrame: z.number().optional(),
-  textTransform: z.enum(["capitalize", "lowercase", "none", "uppercase"]).optional(),
+  textTransform: z
+    .enum(["capitalize", "lowercase", "none", "uppercase"])
+    .optional(),
 });

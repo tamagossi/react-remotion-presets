@@ -69,15 +69,24 @@ export const ShadowDepthTitle: React.FC<ShadowDepthTitleProps> = ({
 
   const entryEndGlobal = startFrame + animationDuration;
   const exitStartGlobal = entryEndGlobal + holdDuration;
-  const exitFade = exitDuration > 0
-    ? interpolate(frame, [exitStartGlobal, exitStartGlobal + exitDuration], [1, 0], {
-        easing: Easing.bezier(...easing),
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      })
-    : 1;
+  const exitFade =
+    exitDuration > 0
+      ? interpolate(
+          frame,
+          [exitStartGlobal, exitStartGlobal + exitDuration],
+          [1, 0],
+          {
+            easing: Easing.bezier(...easing),
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+          },
+        )
+      : 1;
 
-  const getLineStyle = (index: number, isShadow: boolean): React.CSSProperties => {
+  const getLineStyle = (
+    index: number,
+    isShadow: boolean,
+  ): React.CSSProperties => {
     const delay = isShadow ? shadowStagger : 0;
     const lineStart = startFrame + index * staggerDelay + delay;
     const lineEnd = lineStart + animationDuration;

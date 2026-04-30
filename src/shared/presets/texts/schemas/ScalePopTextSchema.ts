@@ -1,1 +1,1 @@
-export {TextAnimationSchema as ScalePopTextSchema} from "./TextAnimationSchema";
+export { TextAnimationSchema as ScalePopTextSchema } from "./TextAnimationSchema";

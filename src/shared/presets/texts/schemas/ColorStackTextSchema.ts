@@ -1,1 +1,1 @@
-export {TextAnimationSchema as ColorStackTextSchema} from "./TextAnimationSchema";
+export { TextAnimationSchema as ColorStackTextSchema } from "./TextAnimationSchema";

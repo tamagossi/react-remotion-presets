@@ -4,28 +4,28 @@ AI selection guide for `src/shared/presets/texts/`.
 
 ## Quick Selection Guide
 
-| Script Tone | Mood | Energy | Recommended Preset |
-|-------------|------|--------|-------------------|
-| Cinematic, dramatic reveal | Mysterious, sleek | Medium | `BlurRevealText` (heavy blur, slow easing) |
-| Tech, futuristic, focus pull | Sleek, immersive | Medium | `FocusShiftText` (directional blur + slide) |
-| Creative, dynamic, energetic | Playful, bold | High | `ScalePopText` (spring bounce, word stagger) |
-| Digital, glitch, cyberpunk | Edgy, chaotic | High | `GlitchRevealText` (scramble, chromatic aberration) |
-| Editorial, wave motion | Fluid, rhythmic | Medium | `WaveText` (sine wave per-character) |
-| Typewriter, documentary | Neutral, precise | Low | `TypewriterText` (character reveal, cursor) |
-| Jittery, chaotic energy | Unstable, raw | High | `WiggleText` (random jitter decay) |
-| Letter spacing expansion | Cinematic, wide | Medium | `LetterSpacingRevealText` (blur + spacing) |
-| Word cycling, dynamic | Changing, active | Medium-High | `WordSwapText` (crossfade word rotation) |
-| Layered depth, echo | Atmospheric, deep | Medium | `StackedRepeatText` (offset echo layers) |
-| Falling letters, playful | Dynamic, bouncy | Medium-High | `CascadeLetterText` (rotate + drop in) |
-| Mixed typography, editorial | Structured, bold | Medium | `MixedWeightSlideText` (alternating weights + slide) |
-| Dramatic typewriter + glitch exit | Digital, chaotic | High | `TypewriterGlitchText` (type then scramble) |
-| Inline color highlight reveal | Bold, editorial | Medium | `InlineHighlightText` (segmented color text) |
-| Staggered word slide-in | Clean, direct | Medium | `WordSlideText` (words slide from left) |
-| Multi-line stack reveal | Powerful, bold | Medium-High | `StackedLineText` (lines slide up staggered) |
-| Minimal fade + slide | Subtle, calm | Low | `SimpleFadeText` (opacity + gentle Y slide) |
-| Bold colored stack zoom | Assertive, punchy | High | `ColorStackText` (colored lines with zoom) |
-| Sequential word fade-in | Grateful, closing | Low-Medium | `SequentialWordText` (words appear one by one) |
-| Single word dramatic zoom | Impactful, bold | High | `SingleWordZoomText` (scale from zero) |
+| Script Tone                       | Mood              | Energy      | Recommended Preset                                   |
+| --------------------------------- | ----------------- | ----------- | ---------------------------------------------------- |
+| Cinematic, dramatic reveal        | Mysterious, sleek | Medium      | `BlurRevealText` (heavy blur, slow easing)           |
+| Tech, futuristic, focus pull      | Sleek, immersive  | Medium      | `FocusShiftText` (directional blur + slide)          |
+| Creative, dynamic, energetic      | Playful, bold     | High        | `ScalePopText` (spring bounce, word stagger)         |
+| Digital, glitch, cyberpunk        | Edgy, chaotic     | High        | `GlitchRevealText` (scramble, chromatic aberration)  |
+| Editorial, wave motion            | Fluid, rhythmic   | Medium      | `WaveText` (sine wave per-character)                 |
+| Typewriter, documentary           | Neutral, precise  | Low         | `TypewriterText` (character reveal, cursor)          |
+| Jittery, chaotic energy           | Unstable, raw     | High        | `WiggleText` (random jitter decay)                   |
+| Letter spacing expansion          | Cinematic, wide   | Medium      | `LetterSpacingRevealText` (blur + spacing)           |
+| Word cycling, dynamic             | Changing, active  | Medium-High | `WordSwapText` (crossfade word rotation)             |
+| Layered depth, echo               | Atmospheric, deep | Medium      | `StackedRepeatText` (offset echo layers)             |
+| Falling letters, playful          | Dynamic, bouncy   | Medium-High | `CascadeLetterText` (rotate + drop in)               |
+| Mixed typography, editorial       | Structured, bold  | Medium      | `MixedWeightSlideText` (alternating weights + slide) |
+| Dramatic typewriter + glitch exit | Digital, chaotic  | High        | `TypewriterGlitchText` (type then scramble)          |
+| Inline color highlight reveal     | Bold, editorial   | Medium      | `InlineHighlightText` (segmented color text)         |
+| Staggered word slide-in           | Clean, direct     | Medium      | `WordSlideText` (words slide from left)              |
+| Multi-line stack reveal           | Powerful, bold    | Medium-High | `StackedLineText` (lines slide up staggered)         |
+| Minimal fade + slide              | Subtle, calm      | Low         | `SimpleFadeText` (opacity + gentle Y slide)          |
+| Bold colored stack zoom           | Assertive, punchy | High        | `ColorStackText` (colored lines with zoom)           |
+| Sequential word fade-in           | Grateful, closing | Low-Medium  | `SequentialWordText` (words appear one by one)       |
+| Single word dramatic zoom         | Impactful, bold   | High        | `SingleWordZoomText` (scale from zero)               |
 
 ## Presets
 
@@ -472,10 +472,7 @@ Inline text with configurable colored segments. Each segment reveals character-b
   "fontWeight": 400,
   "holdDuration": 30,
   "letterSpacing": 0.02,
-  "segments": [
-    { "color": "#ef4444", "text": "e" },
-    { "text": "Patmos" }
-  ],
+  "segments": [{ "color": "#ef4444", "text": "e" }, { "text": "Patmos" }],
   "startFrame": 0,
   "textColor": "#ffffff",
   "textTransform": "uppercase"

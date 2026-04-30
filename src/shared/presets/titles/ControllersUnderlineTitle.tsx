@@ -76,18 +76,19 @@ export const ControllersUnderlineTitle: React.FC<
       easing: Easing.bezier(...easing),
       extrapolateLeft: "clamp",
       extrapolateRight: "clamp",
-    }
+    },
   );
 
   const entryEnd = startFrame + animationDuration;
   const exitStart = entryEnd + holdDuration;
-  const exitT = exitDuration > 0
-    ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
-        easing: Easing.bezier(...easing),
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      })
-    : 1;
+  const exitT =
+    exitDuration > 0
+      ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
+          easing: Easing.bezier(...easing),
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        })
+      : 1;
 
   const scale = 0.9 + textT * 0.1;
   const yOffset = (1 - textT) * 30;

@@ -1,1 +1,1 @@
-export {TextAnimationSchema as SingleWordZoomTextSchema} from "./TextAnimationSchema";
+export { TextAnimationSchema as SingleWordZoomTextSchema } from "./TextAnimationSchema";

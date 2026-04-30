@@ -57,13 +57,19 @@ export const QuoteBlockTitle: React.FC<QuoteBlockTitleProps> = ({
 
   const entryEndGlobal = startFrame + animationDuration;
   const exitStartGlobal = entryEndGlobal + holdDuration;
-  const exitFade = exitDuration > 0
-    ? interpolate(frame, [exitStartGlobal, exitStartGlobal + exitDuration], [1, 0], {
-        easing: Easing.bezier(...easing),
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      })
-    : 1;
+  const exitFade =
+    exitDuration > 0
+      ? interpolate(
+          frame,
+          [exitStartGlobal, exitStartGlobal + exitDuration],
+          [1, 0],
+          {
+            easing: Easing.bezier(...easing),
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+          },
+        )
+      : 1;
 
   const contextStart = startFrame;
   const contextEnd = contextStart + animationDuration * 0.3;
@@ -104,20 +110,16 @@ export const QuoteBlockTitle: React.FC<QuoteBlockTitleProps> = ({
 
   const aberrationEnd = quoteStart + animationDuration * 0.4;
   const offset = chromaticAberration
-    ? interpolate(
-        frame,
-        [quoteStart, aberrationEnd],
-        [chromaticOffset, 0],
-        { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-      )
+    ? interpolate(frame, [quoteStart, aberrationEnd], [chromaticOffset, 0], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      })
     : 0;
   const ghostOpacity = chromaticAberration
-    ? interpolate(
-        frame,
-        [quoteStart, aberrationEnd],
-        [0.85, 0],
-        { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-      )
+    ? interpolate(frame, [quoteStart, aberrationEnd], [0.85, 0], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      })
     : 0;
 
   const yDist = (1 - quoteT) * 50;
@@ -177,10 +179,8 @@ export const QuoteBlockTitle: React.FC<QuoteBlockTitleProps> = ({
         >
           {chromaticAberration && offset > 0.01
             ? GHOST_LAYERS.map((layer, gi) => {
-                const dx =
-                  layer.axis === "x" ? layer.sign * offset : 0;
-                const dy =
-                  layer.axis === "y" ? layer.sign * offset : 0;
+                const dx = layer.axis === "x" ? layer.sign * offset : 0;
+                const dy = layer.axis === "y" ? layer.sign * offset : 0;
                 return (
                   <div
                     aria-hidden

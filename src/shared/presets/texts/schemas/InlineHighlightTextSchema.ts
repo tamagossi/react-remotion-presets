@@ -1,1 +1,1 @@
-export {TextAnimationSchema as InlineHighlightTextSchema} from "./TextAnimationSchema";
+export { TextAnimationSchema as InlineHighlightTextSchema } from "./TextAnimationSchema";

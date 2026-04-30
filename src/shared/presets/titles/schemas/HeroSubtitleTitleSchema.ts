@@ -1,1 +1,1 @@
-export {TitleAnimationSchema as HeroSubtitleTitleSchema} from "./TitleAnimationSchema";
+export { TitleAnimationSchema as HeroSubtitleTitleSchema } from "./TitleAnimationSchema";

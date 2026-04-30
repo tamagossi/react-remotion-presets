@@ -1,16 +1,13 @@
 import React from "react";
 
-import {
-	DualGaugeChart,
-	type DualGaugeChartProps,
-} from "../DualGaugeChart";
+import { DualGaugeChart, type DualGaugeChartProps } from "../DualGaugeChart";
 
 export const DualGaugeChartComposition: React.FC<DualGaugeChartProps> = (
-	props,
+  props,
 ) => {
-	return (
-		<DualGaugeChart {...props}>
-			<div />
-		</DualGaugeChart>
-	);
+  return (
+    <DualGaugeChart {...props}>
+      <div />
+    </DualGaugeChart>
+  );
 };

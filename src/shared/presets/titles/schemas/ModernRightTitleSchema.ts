@@ -1,1 +1,1 @@
-export {TitleAnimationSchema as ModernRightTitleSchema} from "./TitleAnimationSchema";
+export { TitleAnimationSchema as ModernRightTitleSchema } from "./TitleAnimationSchema";

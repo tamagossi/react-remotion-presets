@@ -25,7 +25,9 @@ export type StrikethroughBadgeTitleProps = {
   holdDuration?: number;
 };
 
-export const StrikethroughBadgeTitle: React.FC<StrikethroughBadgeTitleProps> = ({
+export const StrikethroughBadgeTitle: React.FC<
+  StrikethroughBadgeTitleProps
+> = ({
   animationDuration = 45,
   badge = "NEW",
   badgeColor = "#c9a96e",
@@ -73,13 +75,14 @@ export const StrikethroughBadgeTitle: React.FC<StrikethroughBadgeTitleProps> = (
 
   const entryEnd = startFrame + animationDuration;
   const exitStart = entryEnd + holdDuration;
-  const exitT = exitDuration > 0
-    ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
-        easing: Easing.bezier(...easing),
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      })
-    : 1;
+  const exitT =
+    exitDuration > 0
+      ? interpolate(frame, [exitStart, exitStart + exitDuration], [1, 0], {
+          easing: Easing.bezier(...easing),
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        })
+      : 1;
 
   return (
     <div

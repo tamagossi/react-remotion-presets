@@ -1,16 +1,13 @@
 import React from "react";
 
-import {
-	NestedArcChart,
-	type NestedArcChartProps,
-} from "../NestedArcChart";
+import { NestedArcChart, type NestedArcChartProps } from "../NestedArcChart";
 
 export const NestedArcChartComposition: React.FC<NestedArcChartProps> = (
-	props,
+  props,
 ) => {
-	return (
-		<NestedArcChart {...props}>
-			<div />
-		</NestedArcChart>
-	);
+  return (
+    <NestedArcChart {...props}>
+      <div />
+    </NestedArcChart>
+  );
 };

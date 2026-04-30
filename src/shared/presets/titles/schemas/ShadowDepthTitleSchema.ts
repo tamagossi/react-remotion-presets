@@ -1,5 +1,6 @@
-import {zColor} from "@remotion/zod-types";
-import {z} from "zod";
+import { z } from "zod";
+
+import { zColor } from "@remotion/zod-types";
 
 export const ShadowDepthTitleSchema = z.object({
   align: z.enum(["center", "left", "right"]).optional(),
@@ -23,5 +24,7 @@ export const ShadowDepthTitleSchema = z.object({
   shadowStagger: z.number().optional(),
   staggerDelay: z.number().optional(),
   startFrame: z.number().optional(),
-  textTransform: z.enum(["capitalize", "lowercase", "none", "uppercase"]).optional(),
+  textTransform: z
+    .enum(["capitalize", "lowercase", "none", "uppercase"])
+    .optional(),
 });

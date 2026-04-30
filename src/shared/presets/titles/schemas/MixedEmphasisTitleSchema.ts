@@ -1,5 +1,6 @@
-import {zColor} from "@remotion/zod-types";
-import {z} from "zod";
+import { z } from "zod";
+
+import { zColor } from "@remotion/zod-types";
 
 const SegmentSchema = z.object({
   color: zColor().optional(),
@@ -23,5 +24,7 @@ export const MixedEmphasisTitleSchema = z.object({
   segments: z.union([z.array(SegmentSchema), z.array(z.array(SegmentSchema))]),
   staggerDelay: z.number().optional(),
   startFrame: z.number().optional(),
-  textTransform: z.enum(["capitalize", "lowercase", "none", "uppercase"]).optional(),
+  textTransform: z
+    .enum(["capitalize", "lowercase", "none", "uppercase"])
+    .optional(),
 });

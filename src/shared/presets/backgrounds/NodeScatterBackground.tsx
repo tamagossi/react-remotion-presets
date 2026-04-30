@@ -104,7 +104,13 @@ export const NodeScatterBackground: React.FC<NodeScatterBackgroundProps> = ({
     };
   });
 
-  const connections: { alpha: number; x1: number; x2: number; y1: number; y2: number }[] = [];
+  const connections: {
+    alpha: number;
+    x1: number;
+    x2: number;
+    y1: number;
+    y2: number;
+  }[] = [];
   for (let i = 0; i < nodePositions.length; i++) {
     for (let j = i + 1; j < nodePositions.length; j++) {
       const dx = nodePositions[i].x - nodePositions[j].x;

@@ -1,1 +1,1 @@
-export {TextAnimationSchema as WordSlideTextSchema} from "./TextAnimationSchema";
+export { TextAnimationSchema as WordSlideTextSchema } from "./TextAnimationSchema";

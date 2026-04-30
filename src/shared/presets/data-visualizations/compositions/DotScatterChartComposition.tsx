@@ -1,16 +1,13 @@
 import React from "react";
 
-import {
-	DotScatterChart,
-	type DotScatterChartProps,
-} from "../DotScatterChart";
+import { DotScatterChart, type DotScatterChartProps } from "../DotScatterChart";
 
 export const DotScatterChartComposition: React.FC<DotScatterChartProps> = (
-	props,
+  props,
 ) => {
-	return (
-		<DotScatterChart {...props}>
-			<div />
-		</DotScatterChart>
-	);
+  return (
+    <DotScatterChart {...props}>
+      <div />
+    </DotScatterChart>
+  );
 };

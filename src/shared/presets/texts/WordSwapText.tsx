@@ -74,8 +74,7 @@ export const WordSwapText: React.FC<WordSwapTextProps> = ({
     >
       {words.map((word, i) => {
         const isActive = i === activeIndex;
-        const isPrev =
-          i === (activeIndex - 1 + words.length) % words.length;
+        const isPrev = i === (activeIndex - 1 + words.length) % words.length;
 
         const opacity = isActive
           ? interpolate(swapT, [0, 0.5, 1], [0, 1, 1], {

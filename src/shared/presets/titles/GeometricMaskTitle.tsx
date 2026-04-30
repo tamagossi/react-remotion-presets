@@ -78,16 +78,11 @@ export const GeometricMaskTitle: React.FC<GeometricMaskTitleProps> = ({
     },
   );
 
-  const maskExitT = interpolate(
-    frame,
-    [maskExitStart, maskExitEnd],
-    [1, 0],
-    {
-      easing: Easing.bezier(...easing),
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    },
-  );
+  const maskExitT = interpolate(frame, [maskExitStart, maskExitEnd], [1, 0], {
+    easing: Easing.bezier(...easing),
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
   const beforeLast = text.slice(0, -1);
   const lastChar = text.slice(-1);

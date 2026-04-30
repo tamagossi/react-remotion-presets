@@ -1,16 +1,16 @@
 import React from "react";
 
 import {
-	SplitPercentageDisplay,
-	type SplitPercentageDisplayProps,
+  SplitPercentageDisplay,
+  type SplitPercentageDisplayProps,
 } from "../SplitPercentageDisplay";
 
 export const SplitPercentageDisplayComposition: React.FC<
-	SplitPercentageDisplayProps
+  SplitPercentageDisplayProps
 > = (props) => {
-	return (
-		<SplitPercentageDisplay {...props}>
-			<div />
-		</SplitPercentageDisplay>
-	);
+  return (
+    <SplitPercentageDisplay {...props}>
+      <div />
+    </SplitPercentageDisplay>
+  );
 };

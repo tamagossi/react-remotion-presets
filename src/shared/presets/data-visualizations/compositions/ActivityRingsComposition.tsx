@@ -1,16 +1,13 @@
 import React from "react";
 
-import {
-	ActivityRings,
-	type ActivityRingsProps,
-} from "../ActivityRings";
+import { ActivityRings, type ActivityRingsProps } from "../ActivityRings";
 
 export const ActivityRingsComposition: React.FC<ActivityRingsProps> = (
-	props,
+  props,
 ) => {
-	return (
-		<ActivityRings {...props}>
-			<div />
-		</ActivityRings>
-	);
+  return (
+    <ActivityRings {...props}>
+      <div />
+    </ActivityRings>
+  );
 };
