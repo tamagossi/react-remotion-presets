@@ -11,17 +11,6 @@ export const HorizontalBarChartCardSchema = z.object({
   cardBg: zColor().optional(),
   cardBorderRadius: z.number().optional(),
   cardPadding: z.number().optional(),
-  data: z.array(
-    z.object({
-      color: zColor(),
-      label: z.string(),
-      maxValue: z.number().optional(),
-      value: z.number(),
-    }),
-  ),
-  enterEasing: z
-    .tuple([z.number(), z.number(), z.number(), z.number()])
-    .optional(),
   exitDuration: z.number().optional(),
   gridLines: z.boolean().optional(),
   holdDuration: z.number().optional(),
@@ -36,4 +25,15 @@ export const HorizontalBarChartCardSchema = z.object({
   theme: z.enum(["dark", "light"]).optional(),
   title: z.string().optional(),
   trackColor: zColor().optional(),
+  data: z.array(
+    z.object({
+      color: zColor(),
+      label: z.string(),
+      maxValue: z.number().optional(),
+      value: z.number(),
+    }),
+  ),
+  enterEasing: z
+    .tuple([z.number(), z.number(), z.number(), z.number()])
+    .optional(),
 });

@@ -9,18 +9,7 @@ export const DataTableCardSchema = z.object({
   cardBg: zColor().optional(),
   cardBorderRadius: z.number().optional(),
   cardPadding: z.number().optional(),
-  columns: z.array(
-    z.object({
-      align: z.enum(["left", "right"]).optional(),
-      key: z.string(),
-      label: z.string(),
-      width: z.string().optional(),
-    }),
-  ),
   data: z.array(z.record(z.string(), z.union([z.number(), z.string()]))),
-  enterEasing: z
-    .tuple([z.number(), z.number(), z.number(), z.number()])
-    .optional(),
   exitDuration: z.number().optional(),
   headerColor: zColor().optional(),
   holdDuration: z.number().optional(),
@@ -35,4 +24,15 @@ export const DataTableCardSchema = z.object({
   subtitle: z.string().optional(),
   theme: z.enum(["dark", "light"]).optional(),
   title: z.string().optional(),
+  columns: z.array(
+    z.object({
+      align: z.enum(["left", "right"]).optional(),
+      key: z.string(),
+      label: z.string(),
+      width: z.string().optional(),
+    }),
+  ),
+  enterEasing: z
+    .tuple([z.number(), z.number(), z.number(), z.number()])
+    .optional(),
 });

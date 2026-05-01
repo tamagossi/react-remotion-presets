@@ -10,6 +10,7 @@ export { GradientTrailTitleComposition } from "./GradientTrailTitleComposition";
 export { HeavyStackTitleComposition } from "./HeavyStackTitleComposition";
 export { HeroSubtitleTitleComposition } from "./HeroSubtitleTitleComposition";
 export { HighlightBarTitleComposition } from "./HighlightBarTitleComposition";
+export { KineticSlamTitleComposition } from "./KineticSlamTitleComposition";
 export { LabelStackTitleComposition } from "./LabelStackTitleComposition";
 export { LetterSpacingRevealTitleComposition } from "./LetterSpacingRevealTitleComposition";
 export { MinimalDuoTitleComposition } from "./MinimalDuoTitleComposition";

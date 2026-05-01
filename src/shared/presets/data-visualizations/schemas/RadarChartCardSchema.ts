@@ -10,12 +10,6 @@ export const RadarChartCardSchema = z.object({
   cardBorderRadius: z.number().optional(),
   cardPadding: z.number().optional(),
   colors: z.array(zColor()).optional(),
-  data: z.array(
-    z.object({ color: zColor(), label: z.string(), value: z.number() }),
-  ),
-  enterEasing: z
-    .tuple([z.number(), z.number(), z.number(), z.number()])
-    .optional(),
   exitDuration: z.number().optional(),
   fillOpacity: z.number().optional(),
   gridLines: z.boolean().optional(),
@@ -32,4 +26,10 @@ export const RadarChartCardSchema = z.object({
   subtitle: z.string().optional(),
   theme: z.enum(["dark", "light"]).optional(),
   title: z.string().optional(),
+  data: z.array(
+    z.object({ color: zColor(), label: z.string(), value: z.number() }),
+  ),
+  enterEasing: z
+    .tuple([z.number(), z.number(), z.number(), z.number()])
+    .optional(),
 });

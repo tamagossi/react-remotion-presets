@@ -48,6 +48,7 @@ AI selection guide for `src/shared/presets/titles/`.
 | Giant sandwich with small label       | Energetic, trendy      | High        | Neutral    | Professional        | `SandwichLabelTitle` (big words + tiny label)       |
 | Text in rounded square box            | Clean, contained       | Medium      | Neutral    | Professional        | `RoundedBoxTitle` (boxed text + subtitle)           |
 | Highlight bar behind text             | Editorial, promo       | Medium-High | Warm       | Professional        | `HighlightBarTitle` (expanding bar + subtitle)      |
+| High-energy opener, kinetic slam      | Bold, cinematic        | High        | Neutral    | Professional        | `KineticSlamTitle` (scale slam / outline swap / letter stagger) |
 
 ## How to Use This Catalog
 
@@ -2507,6 +2508,96 @@ import { HighlightBarTitle } from "./shared/presets/titles";
   text="SUMMER SALE"
   barColor="#ec4899"
   subtitle="Limited Time Only"
+/>;
+```
+
+---
+
+### KineticSlamTitle
+
+**ID**: `KineticSlamTitle`
+**Export**: `src/shared/presets/titles`
+
+**Description**
+High-energy kinetic typography title with three distinct entrance modes: scale slam (overshoot impact), outline-to-fill ghost swap, and per-character letter stagger. Includes an ambient bottom glow for cinematic atmosphere. Inspired by premium motion graphics openers.
+
+**Visual Characteristics**
+
+- Style: Typographic, bold, cinematic
+- Motion: Mode-dependent — scale overshoot, stroke-to-fill swap, or character stagger
+- Texture: Ambient radial glow at bottom edge
+- Depth: Flat with atmospheric glow layer
+
+**Metadata**
+
+```json
+{
+  "mood": ["bold", "cinematic", "energetic", "impactful"],
+  "theme": ["intro", "opener", "promo", "gaming", "music-video"],
+  "energy": "high",
+  "colorTemp": "neutral",
+  "formality": "professional",
+  "complexity": "medium",
+  "readability": "high"
+}
+```
+
+**Default Props**
+
+```json
+{
+  "lines": ["MAKE IT", "HAPPEN"],
+  "align": "center",
+  "animationMode": "scaleSlam",
+  "animationDuration": 40,
+  "holdDuration": 45,
+  "exitDuration": 20,
+  "fontSize": 96,
+  "fontWeight": 700,
+  "textColor": "#ffffff",
+  "outlineColor": "#ffffff",
+  "glowColor": "#7c3aed",
+  "glowIntensity": 0.25,
+  "glowSpread": 300,
+  "letterSpacing": 0.02,
+  "easing": [0.16, 1, 0.3, 1],
+  "exitEasing": [0.55, 0, 1, 1],
+  "startFrame": 0
+}
+```
+
+**Suggested Prop Overrides by Context**
+
+| Context          | Override Rationale                          | Props                                                              |
+| ---------------- | ------------------------------------------- | ------------------------------------------------------------------ |
+| `gaming-intro`   | Aggressive scale slam, neon glow            | `{ animationMode: "scaleSlam", glowColor: "#06b6d4", glowIntensity: 0.4, fontSize: 120 }` |
+| `music-video`    | Outline swap for ethereal feel              | `{ animationMode: "outlineSwap", glowColor: "#ec4899", animationDuration: 50 }` |
+| `tech-opener`    | Letter stagger for precision                | `{ animationMode: "letterStagger", glowColor: "#3b82f6", letterSpacing: 0.05 }` |
+| `minimal-brand`  | Subtle glow, slower entrance                | `{ animationMode: "scaleSlam", glowIntensity: 0.15, animationDuration: 60, easing: [0.25, 0.1, 0.25, 1] }` |
+
+**When to Use**
+
+- Video openers and title sequences
+- High-energy promo trailers
+- Gaming and esports intros
+- Music video title cards
+- Any script needing immediate visual impact
+
+**When NOT to Use**
+
+- Calm, contemplative, or slow-paced scripts
+- Corporate formal contexts needing restraint
+- Minimal/editorial layouts where subtlety is key
+
+**Composition Example**
+
+```tsx
+import { KineticSlamTitle } from "./shared/presets/titles";
+
+<KineticSlamTitle
+  lines={["NEXT", "LEVEL"]}
+  animationMode="outlineSwap"
+  glowColor="#a855f7"
 />;
 ```
 

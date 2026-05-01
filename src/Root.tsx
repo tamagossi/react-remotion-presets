@@ -310,6 +310,8 @@ import {
   HeroSubtitleTitleSchema,
   HighlightBarTitleProps,
   HighlightBarTitleSchema,
+  KineticSlamTitleProps,
+  KineticSlamTitleSchema,
   LabelStackTitleProps,
   LabelStackTitleSchema,
   LetterSpacingRevealTitleProps,
@@ -366,6 +368,7 @@ import {
   HeavyStackTitleComposition,
   HeroSubtitleTitleComposition,
   HighlightBarTitleComposition,
+  KineticSlamTitleComposition,
   LabelStackTitleComposition,
   LetterSpacingRevealTitleComposition,
   MinimalDuoTitleComposition,
@@ -388,6 +391,14 @@ import {
   StrikethroughBadgeTitleComposition,
   VerticalAccentTitleComposition,
 } from "./shared/presets/titles/compositions";
+import {
+  ChatConversationProps,
+  ChatConversationSchema,
+  YouTubeSubscribeOverlayProps,
+  YouTubeSubscribeOverlaySchema,
+} from "./shared/presets/misc";
+import { ChatConversationComposition } from "./shared/presets/misc/compositions/ChatConversationComposition";
+import { YouTubeSubscribeOverlayComposition } from "./shared/presets/misc/compositions/YouTubeSubscribeOverlayComposition";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -1490,6 +1501,36 @@ export const RemotionRoot: React.FC = () => {
               text: "HELLO NEW TYPE",
               textColor: "#ffffff",
             } satisfies HighlightBarTitleProps
+          }
+        />
+        <Composition
+          component={KineticSlamTitleComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="KineticSlamTitle"
+          schema={KineticSlamTitleSchema}
+          width={1280}
+          defaultProps={
+            {
+              align: "center",
+              animationDuration: 40,
+              animationMode: "scaleSlam",
+              easing: [0.16, 1, 0.3, 1],
+              exitDuration: 20,
+              exitEasing: [0.55, 0, 1, 1],
+              fontSize: 96,
+              fontWeight: 700,
+              glowColor: "#7c3aed",
+              glowIntensity: 0.25,
+              glowSpread: 300,
+              holdDuration: 45,
+              letterSpacing: 0.02,
+              lines: ["MAKE IT", "HAPPEN"],
+              outlineColor: "#ffffff",
+              startFrame: 0,
+              textColor: "#ffffff",
+            } satisfies KineticSlamTitleProps
           }
         />
         <Composition
@@ -4143,6 +4184,110 @@ export const RemotionRoot: React.FC = () => {
                 { color: "#22c55e", label: "Normal" },
               ],
             } satisfies TrafficLightDotsProps
+          }
+        />
+      </Folder>
+      <Folder name="misc">
+        <Composition
+          component={ChatConversationComposition}
+          durationInFrames={6 * FPS}
+          fps={FPS}
+          height={720}
+          id="ChatConversation"
+          schema={ChatConversationSchema}
+          width={1280}
+          defaultProps={
+            {
+              bubbleBorderRadius: 20,
+              bubbleGap: 14,
+              bubbleMaxWidth: 420,
+              bubblePadding: 18,
+              defaultBubbleColor: "rgba(20, 20, 30, 0.72)",
+              defaultTextColor: "#ffffff",
+              enterDuration: 22,
+              enterEasing: [0.22, 1, 0.36, 1],
+              exitDuration: 20,
+              exitEasing: [0.45, 0, 0.55, 1],
+              fontFamily: "Inter, system-ui, sans-serif",
+              fontSize: 24,
+              fontWeight: 400,
+              glowColor: "rgba(124, 58, 237, 0.25)",
+              glowIntensity: 1,
+              position: "right",
+              staggerDelay: 18,
+              threadWidth: 520,
+              messages: [
+                {
+                  bubbleColor: "rgba(30, 30, 40, 0.75)",
+                  duration: 50,
+                  side: "left",
+                  text: "Hey! Are you free this Saturday?",
+                },
+                {
+                  bubbleColor: "rgba(124, 58, 237, 0.35)",
+                  duration: 55,
+                  side: "right",
+                  text: "Yup, nothing planned yet. What's up?",
+                },
+                {
+                  bubbleColor: "rgba(30, 30, 40, 0.75)",
+                  duration: 60,
+                  side: "left",
+                  text: "I found this new hiking trail — it's supposed to be amazing",
+                },
+                {
+                  bubbleColor: "rgba(124, 58, 237, 0.35)",
+                  duration: 55,
+                  side: "right",
+                  text: "Ooooh, I'm listening... where is it?",
+                },
+              ],
+            } satisfies ChatConversationProps
+          }
+        />
+        <Composition
+          component={YouTubeSubscribeOverlayComposition}
+          durationInFrames={6 * FPS}
+          fps={FPS}
+          height={720}
+          id="YouTubeSubscribeOverlay"
+          schema={YouTubeSubscribeOverlaySchema}
+          width={1280}
+          defaultProps={
+            {
+              actionFrame: 75,
+              avatarBorderColor: "#ff0000",
+              avatarBorderWidth: 3,
+              avatarSize: 48,
+              avatarUrl: "",
+              bellWiggleIntensity: 15,
+              cardBorderRadius: 16,
+              cardGlowColor: "rgba(255, 0, 0, 0.3)",
+              cardGlowIntensity: 1,
+              cardPadding: 14,
+              channelName: "Channel Name",
+              checkmarkColor: "#ffffff",
+              enterDuration: 20,
+              enterEasing: [0.22, 1, 0.36, 1],
+              exitDuration: 20,
+              exitEasing: [0.45, 0, 0.55, 1],
+              fontFamily: "Inter, system-ui, sans-serif",
+              fontSize: 18,
+              glassBlur: 20,
+              glassOpacity: 0.12,
+              notificationDotColor: "#ff0000",
+              particleColor: "rgba(255, 50, 50, 0.8)",
+              particleCount: 10,
+              particleSpread: 70,
+              position: "bottom-left",
+              showLike: false,
+              showNotificationDot: true,
+              subscribeColor: "#ff0000",
+              subscribedColor: "#606060",
+              subscribedText: "SUBSCRIBED",
+              subscribeText: "SUBSCRIBE",
+              textColor: "#ffffff",
+            } satisfies YouTubeSubscribeOverlayProps
           }
         />
       </Folder>

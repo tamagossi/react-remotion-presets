@@ -20,8 +20,8 @@ export const SandwichLabelTitleSchema = z.object({
   labelLetterSpacing: z.number().optional(),
   startFrame: z.number().optional(),
   textColor: zColor().optional(),
+  topText: z.string(),
   textTransform: z
     .enum(["capitalize", "lowercase", "none", "uppercase"])
     .optional(),
-  topText: z.string(),
 });

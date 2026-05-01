@@ -213,10 +213,10 @@ export const PillBounceChart: React.FC<PillBounceChartProps> = ({
                 height: ballSize,
                 justifyContent: "center",
                 left: pillX + (pillWidth - ballSize) / 2,
+                opacity: (frame > 25 + delay ? 1 : 0) * exitProgress,
                 position: "absolute",
                 top: ballY,
                 width: ballSize,
-                opacity: (frame > 25 + delay ? 1 : 0) * exitProgress,
               }}
             >
               <span

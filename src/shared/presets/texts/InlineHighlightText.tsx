@@ -28,10 +28,10 @@ export const InlineHighlightText: React.FC<InlineHighlightTextProps> = ({
   fontWeight = 400,
   holdDuration = 30,
   letterSpacing = 0.02,
+  segments = [{ color: "#ef4444", text: "e" }, { text: "Patmos" }],
   startFrame = 0,
   textColor = "#ffffff",
   textTransform = "uppercase",
-  segments = [{ color: "#ef4444", text: "e" }, { text: "Patmos" }],
 }) => {
   const frame = useCurrentFrame();
 

@@ -43,6 +43,10 @@ export {
   HighlightBarTitle,
   type HighlightBarTitleProps,
 } from "./HighlightBarTitle";
+export {
+  KineticSlamTitle,
+  type KineticSlamTitleProps,
+} from "./KineticSlamTitle";
 export { LabelStackTitle, type LabelStackTitleProps } from "./LabelStackTitle";
 export {
   LetterSpacingRevealTitle,
@@ -126,6 +130,7 @@ export {
   HeavyStackTitleSchema,
   HeroSubtitleTitleSchema,
   HighlightBarTitleSchema,
+  KineticSlamTitleSchema,
   LabelStackTitleSchema,
   LetterSpacingRevealTitleSchema,
   MinimalDuoTitleSchema,

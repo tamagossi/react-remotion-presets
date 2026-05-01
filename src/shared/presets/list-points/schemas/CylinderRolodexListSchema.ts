@@ -17,8 +17,8 @@ export const CylinderRolodexListSchema = z.object({
   rotationSpeed: z.number().optional(),
   startFrame: z.number().optional(),
   textColor: zColor().optional(),
+  visibleCount: z.number().optional(),
   textTransform: z
     .enum(["capitalize", "lowercase", "none", "uppercase"])
     .optional(),
-  visibleCount: z.number().optional(),
 });

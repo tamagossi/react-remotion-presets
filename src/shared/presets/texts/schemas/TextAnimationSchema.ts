@@ -37,13 +37,13 @@ export const TextAnimationSchema = z.object({
   startFrame: z.number().optional(),
   text: z.string().optional(),
   textColor: z.union([zColor(), z.string()]).optional(),
-  waveDirection: z
-    .enum(["center-out", "left-to-right", "right-to-left"])
-    .optional(),
   segments: z
     .array(z.object({ color: z.string().optional(), text: z.string() }))
     .optional(),
   textTransform: z
     .enum(["capitalize", "lowercase", "none", "uppercase"])
+    .optional(),
+  waveDirection: z
+    .enum(["center-out", "left-to-right", "right-to-left"])
     .optional(),
 });

@@ -29,9 +29,9 @@ export const TitleAnimationSchema = z.object({
   opacityStart: z.number().optional(),
   staggerDelay: z.number().optional(),
   startFrame: z.number().optional(),
+  xOffset: z.number().optional(),
+  yOffset: z.number().optional(),
   textTransform: z
     .enum(["capitalize", "lowercase", "none", "uppercase"])
     .optional(),
-  xOffset: z.number().optional(),
-  yOffset: z.number().optional(),
 });

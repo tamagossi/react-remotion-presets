@@ -10,6 +10,7 @@ export { GradientTrailTitleSchema } from "./GradientTrailTitleSchema";
 export { HeavyStackTitleSchema } from "./HeavyStackTitleSchema";
 export { HeroSubtitleTitleSchema } from "./HeroSubtitleTitleSchema";
 export { HighlightBarTitleSchema } from "./HighlightBarTitleSchema";
+export { KineticSlamTitleSchema } from "./KineticSlamTitleSchema";
 export { LabelStackTitleSchema } from "./LabelStackTitleSchema";
 export { LetterSpacingRevealTitleSchema } from "./LetterSpacingRevealTitleSchema";
 export { MinimalDuoTitleSchema } from "./MinimalDuoTitleSchema";

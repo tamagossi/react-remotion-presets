@@ -9,9 +9,6 @@ export const DataCardSchema = z.object({
   cardBg: zColor().optional(),
   cardBorderRadius: z.number().optional(),
   cardPadding: z.number().optional(),
-  enterEasing: z
-    .tuple([z.number(), z.number(), z.number(), z.number()])
-    .optional(),
   exitDuration: z.number().optional(),
   holdDuration: z.number().optional(),
   metricLabel: z.string().optional(),
@@ -22,4 +19,7 @@ export const DataCardSchema = z.object({
   subtitle: z.string().optional(),
   theme: z.enum(["dark", "light"]).optional(),
   title: z.string().optional(),
+  enterEasing: z
+    .tuple([z.number(), z.number(), z.number(), z.number()])
+    .optional(),
 });

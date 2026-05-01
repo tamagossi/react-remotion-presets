@@ -16,9 +16,6 @@ export const ExclusiveLabelTitleSchema = z.object({
   labelColor: zColor().optional(),
   labelFontSize: z.number().optional(),
   labelLetterSpacing: z.number().optional(),
-  labelTextTransform: z
-    .enum(["capitalize", "lowercase", "none", "uppercase"])
-    .optional(),
   lines: z.array(z.string()),
   secondaryFontFamily: z.string().optional(),
   startFrame: z.number().optional(),
@@ -26,4 +23,7 @@ export const ExclusiveLabelTitleSchema = z.object({
   textFontSize: z.number().optional(),
   textFontWeight: z.number().optional(),
   textLetterSpacing: z.number().optional(),
+  labelTextTransform: z
+    .enum(["capitalize", "lowercase", "none", "uppercase"])
+    .optional(),
 });

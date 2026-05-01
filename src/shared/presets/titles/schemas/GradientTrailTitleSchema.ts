@@ -15,9 +15,9 @@ export const GradientTrailTitleSchema = z.object({
   lines: z.array(z.string()),
   startFrame: z.number().optional(),
   textColor: zColor().optional(),
+  trailColor: zColor().optional(),
+  trailLength: z.number().optional(),
   textTransform: z
     .enum(["capitalize", "lowercase", "none", "uppercase"])
     .optional(),
-  trailColor: zColor().optional(),
-  trailLength: z.number().optional(),
 });

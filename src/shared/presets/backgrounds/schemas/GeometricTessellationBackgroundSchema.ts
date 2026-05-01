@@ -18,6 +18,9 @@ export const GeometricTessellationBackgroundSchema = z.object({
   lineOpacity: z.number().optional(),
   lineThickness: z.number().optional(),
   nestingDepth: z.number().optional(),
+  rotationSpeed: z.number().optional(),
+  scalePulse: z.number().optional(),
+  tileSize: z.number().optional(),
   patternType: z
     .enum([
       "chevron",
@@ -28,7 +31,4 @@ export const GeometricTessellationBackgroundSchema = z.object({
       "lWeave",
     ])
     .optional(),
-  rotationSpeed: z.number().optional(),
-  scalePulse: z.number().optional(),
-  tileSize: z.number().optional(),
 });

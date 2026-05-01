@@ -230,14 +230,14 @@ export const DivergingBarChart: React.FC<DivergingBarChartProps> = ({
             <React.Fragment key={i}>
               <div
                 style={{
+                  backgroundColor: isPositive ? positiveColor : negativeColor,
+                  borderRadius: isPositive ? "4px 4px 0 0" : "0 0 4px 4px",
                   height: currentHeight,
                   left: barX,
                   opacity: exitProgress,
                   position: "absolute",
                   top,
                   width: barWidth,
-                  backgroundColor: isPositive ? positiveColor : negativeColor,
-                  borderRadius: isPositive ? "4px 4px 0 0" : "0 0 4px 4px",
                 }}
               />
               {showLabels && (

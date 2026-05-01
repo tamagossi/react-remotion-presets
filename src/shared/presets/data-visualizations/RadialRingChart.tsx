@@ -177,13 +177,13 @@ export const RadialRingChart: React.FC<RadialRingChartProps> = ({
 
           return (
             <path
+              d={describeArc(centerX, centerY, radius, -Math.PI / 2, endAngle)}
               fill="none"
               key={i}
               opacity={exitProgress}
               stroke={ring.color}
               strokeLinecap="round"
               strokeWidth={10}
-              d={describeArc(centerX, centerY, radius, -Math.PI / 2, endAngle)}
             />
           );
         })}

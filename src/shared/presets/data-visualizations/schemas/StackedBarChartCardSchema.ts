@@ -12,12 +12,6 @@ export const StackedBarChartCardSchema = z.object({
   cardBorderRadius: z.number().optional(),
   cardPadding: z.number().optional(),
   colors: z.array(zColor()).optional(),
-  data: z.array(
-    z.object({ label: z.string().optional(), values: z.array(z.number()) }),
-  ),
-  enterEasing: z
-    .tuple([z.number(), z.number(), z.number(), z.number()])
-    .optional(),
   exitDuration: z.number().optional(),
   gridLines: z.boolean().optional(),
   holdDuration: z.number().optional(),
@@ -32,4 +26,10 @@ export const StackedBarChartCardSchema = z.object({
   subtitle: z.string().optional(),
   theme: z.enum(["dark", "light"]).optional(),
   title: z.string().optional(),
+  data: z.array(
+    z.object({ label: z.string().optional(), values: z.array(z.number()) }),
+  ),
+  enterEasing: z
+    .tuple([z.number(), z.number(), z.number(), z.number()])
+    .optional(),
 });

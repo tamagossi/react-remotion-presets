@@ -80,14 +80,14 @@ export const DataCard: React.FC<DataCardProps> = ({
   });
 
   const cardScale = interpolate(frame, [0, 15], [0.95, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
     easing: Easing.bezier(
       enterEasing[0],
       enterEasing[1],
       enterEasing[2],
       enterEasing[3],
     ),
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
   });
 
   const titleOpacity = interpolate(
