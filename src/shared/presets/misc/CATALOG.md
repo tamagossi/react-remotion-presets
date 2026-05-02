@@ -8,10 +8,7 @@ AI selection guide for `src/shared/presets/misc/`.
 | ----------- | ---- | ------ | ---------- | --------- | ------------------ |
 | Conversational, casual | Modern, social | Low-Medium | Cool | Casual-Professional | `ChatConversation` (glassmorphism bubbles, spring overshoot) |
 | Energetic, promotional | Exciting, playful | Medium-High | Warm-Vibrant | Casual | `YouTubeSubscribeOverlay` (glass card, particle burst, subscribe action) |
-| Educational, instructional | Focused, calm | Medium | Neutral-Cool | Structured | `ShadowingScene` (word reveal, mic pulse, progress bar, VO synced) |
-| Repetitive, echo-driven | Hypnotic, rhythmic | Low-Medium | Cool | Casual | `EchoRepeatScene` (ghost word trails, ripple rings, muted purple accent) |
-| Phonetic, language-learning | Precise, studious | Medium | Warm | Formal | `PronunciationDrillScene` (phonetic guides, syllable emphasis, amber accent) |
-| Energetic, sing-along | Vibrant, festive | High | Warm-Vibrant | Casual | `KaraokeShadowScene` (waveform bars, sweep highlight, pink accent) |
+| Educational, instructional | Focused, calm | Medium | Neutral-Cool | Structured | `ShadowingScene` (word reveal, mic pulse, echo trails, waveform bars, phonetic guides, progress bar) |
 
 ## How to Use This Catalog
 
@@ -231,25 +228,25 @@ import { YouTubeSubscribeOverlay } from "./shared/presets/misc";
 **Export**: `src/shared/presets/misc`
 
 **Description**
-Language shadowing practice scene. Words reveal one by one with staggered animation. A central microphone icon pulses slowly during VO playback (blue), then transitions to a faster pulse (green) when the VO completes, signaling it's the user's turn. A progress bar fills across the bottom, and a "Speak Now" badge appears on user turn. Designed as a transparent overlay for any background.
+Universal language practice scene — the Swiss Army knife for listen-and-repeat exercises. Words reveal one by one with staggered animation. A central microphone icon pulses slowly during VO playback, then transitions to a faster pulse when it's the user's turn. Supports echo ghost trails (from EchoRepeatScene), pronunciation guides (from PronunciationDrillScene), waveform bars (from KaraokeShadowScene), and ripple ring animations. Fully configurable colors, custom title text, and custom mic icon.
 
 **Visual Characteristics**
 
-- Style: Clean, focused, educational
-- Motion: Smooth entry fade + translateY, staggered word reveal, mic pulse with scale breathing
-- Texture: Colored mic circle with glow shadow
+- Style: Clean, focused, educational — adapts to echo/ripple/waveform modes
+- Motion: Smooth entry fade + translateY, staggered word reveal, mic pulse with scale breathing, optional ripple rings, optional echo ghost trails
+- Texture: Colored mic circle with glow shadow, optional waveform equalizer bars, optional italic pronunciation guides
 - Depth: Transparent overlay for background composition
 
 **Metadata**
 
 ```json
 {
-  "mood": ["focused", "calm", "motivating", "structured"],
-  "theme": ["education", "language", "practice", "tutorial"],
-  "energy": "medium",
-  "colorTemp": "neutral-cool",
+  "mood": ["focused", "calm", "motivating", "structured", "hypnotic", "vibrant"],
+  "theme": ["education", "language", "practice", "tutorial", "karaoke", "music", "pronunciation", "echo"],
+  "energy": "low-to-high (configurable)",
+  "colorTemp": "configurable",
   "formality": "structured",
-  "complexity": "medium",
+  "complexity": "medium-to-high",
   "readability": "high"
 }
 ```
@@ -258,12 +255,24 @@ Language shadowing practice scene. Words reveal one by one with staggered animat
 
 ```json
 {
+  "accentColor": "#22c55e",
   "audioSrc": "...",
   "durationInFrames": 360,
+  "echoCount": 0,
+  "enablePronunciation": false,
+  "enableWaveform": false,
+  "idleColor": "#3b82f6",
+  "micIconUrl": "",
   "phrase": "The quick brown fox jumps over the lazy dog",
   "phraseIndex": 1,
   "phraseTotal": 6,
-  "voDurationInFrames": 252
+  "pronunciations": [],
+  "pulseNotSpeakingColor": "",
+  "pulseSpeakingColor": "",
+  "rippleStyle": "single",
+  "sceneTitle": "Shadowing Practice",
+  "voDurationInFrames": 252,
+  "waveformBars": 16
 }
 ```
 
@@ -274,11 +283,19 @@ Language shadowing practice scene. Words reveal one by one with staggered animat
 | `beginner-phrases` | Slower reveal, larger text | `{ phrase: "Hello, how are you?" }` |
 | `advanced-shadowing` | Longer phrases, more dots | `{ phrase: "The intricate patterns of neural networks...", phraseTotal: 10 }` |
 | `quick-practice` | Short duration, minimal dots | `{ durationInFrames: 180, phraseTotal: 3 }` |
+| `echo-repeat-drill` | Ghost word trails for hypnotic repetition | `{ echoCount: 3, idleColor: "#8b5cf6", rippleStyle: "ripple" }` |
+| `pronunciation-drill` | Phonetic guides below each word | `{ enablePronunciation: true, pronunciations: ["SHEE", "SELZ", "SEE-shelz"], idleColor: "#f59e0b" }` |
+| `karaoke-sing-along` | Waveform bars, vibrant colors | `{ enableWaveform: true, waveformBars: 16, idleColor: "#ec4899", sceneTitle: "Karaoke Shadow" }` |
+| `meditation-mantra` | Deep echo, slow reveal, ripple rings | `{ echoCount: 5, rippleStyle: "ripple", idleColor: "#8b5cf6", sceneTitle: "Mantra Echo" }` |
+| `corporate-training` | Subdued blue, no animations | `{ accentColor: "#3b82f6", idleColor: "#64748b" }` |
 
 **When to Use**
 
 - Language learning apps with listen-and-repeat exercises
-- Pronunciation practice videos
+- Pronunciation practice videos with phonetic guides
+- Echo-based repetition drills
+- Karaoke-style sing-along content
+- Meditative mantra/chant content
 - Any interactive audio-visual drill requiring VO+user turn states
 - Educational content with timed speaking prompts
 
@@ -295,260 +312,15 @@ import { ShadowingScene } from "./shared/presets/misc";
 
 <YourBackground>
   <ShadowingScene
+    accentColor="#22c55e"
     audioSrc={staticFile("phrase-01.mp3")}
     durationInFrames={360}
+    idleColor="#3b82f6"
     phrase="The quick brown fox jumps over the lazy dog"
     phraseIndex={1}
     phraseTotal={6}
+    sceneTitle="Shadowing Practice"
     voDurationInFrames={252}
-  />
-</YourBackground>
-```
-
-### EchoRepeatScene
-
-**ID**: `EchoRepeatScene`
-**Export**: `src/shared/presets/misc`
-
-**Description**
-Echo-driven repeat-after-me scene. Words appear with ghost trail copies that fade and blur behind the main text, creating a hypnotic echo effect. Concentric ripple rings pulse outward from the central mic icon. Purple accent during VO, green on user turn. For rhythmic, repetitive language drills.
-
-**Visual Characteristics**
-
-- Style: Hypnotic, dreamy, rhythmic
-- Motion: Word reveal with blurred echo trails (2-3 copies), ripple rings breathing, staggered entry
-- Texture: Blurred ghost text copies, expanding ring borders
-- Depth: Transparent overlay with spatial echo layers
-
-**Metadata**
-
-```json
-{
-  "mood": ["hypnotic", "rhythmic", "dreamy", "contemplative"],
-  "theme": ["language", "meditation", "rhythm", "echo"],
-  "energy": "low-to-medium",
-  "colorTemp": "cool",
-  "formality": "casual",
-  "complexity": "medium",
-  "readability": "high"
-}
-```
-
-**Default Props**
-
-```json
-{
-  "audioSrc": "...",
-  "durationInFrames": 360,
-  "echoCount": 3,
-  "phrase": "Every sunset brings the promise of a new dawn",
-  "phraseIndex": 1,
-  "phraseTotal": 6,
-  "voDurationInFrames": 252
-}
-```
-
-**Suggested Prop Overrides by Context**
-
-| Context | Override Rationale | Props |
-| ------- | ------------------ | ----- |
-| `meditation-mantra` | Deep echo, slow reveal | `{ echoCount: 5 }` |
-| `quick-echo` | Single echo, fast pace | `{ echoCount: 1, durationInFrames: 180 }` |
-| `dramatic-reveal` | Long trails, slow words | `{ echoCount: 4, phrase: "Everything... changes..." }` |
-
-**When to Use**
-
-- Echo-based listen-and-repeat language exercises
-- Meditative or rhythmic speech patterns
-- Hypnotic visual effect for mantra/chant content
-- Content where trailing echoes reinforce memory
-
-**When NOT to Use**
-
-- Fast-paced content where echo trails distract
-- Very short phrases (echoes bunch up visually)
-- Text-heavy content needing clean readability
-
-**Composition Example**
-
-```tsx
-import { EchoRepeatScene } from "./shared/presets/misc";
-
-<YourBackground>
-  <EchoRepeatScene
-    audioSrc={staticFile("echo-phrase.mp3")}
-    durationInFrames={360}
-    echoCount={3}
-    phrase="Every sunset brings the promise of a new dawn"
-    phraseIndex={1}
-    phraseTotal={6}
-    voDurationInFrames={252}
-  />
-</YourBackground>
-```
-
-### PronunciationDrillScene
-
-**ID**: `PronunciationDrillScene`
-**Export**: `src/shared/presets/misc`
-
-**Description**
-Pronunciation drill scene with phonetic guides. Each word reveals with its romanized pronunciation displayed below in italic. Amber/gold accent during VO study phase transitions to green for practice phase. The phonetic guides appear staggered with their parent words, creating a layered learning view. Ideal for language pronunciation practice.
-
-**Visual Characteristics**
-
-- Style: Academic, precise, warm
-- Motion: Parent word + phonetic guide paired stagger, smooth slide-in, pulse circle
-- Texture: Italic subscript guides beneath bold words
-- Depth: Transparent overlay, layered word+guide pairs
-
-**Metadata**
-
-```json
-{
-  "mood": ["precise", "studious", "warm", "academic"],
-  "theme": ["education", "language", "phonetics", "pronunciation"],
-  "energy": "medium",
-  "colorTemp": "warm",
-  "formality": "formal",
-  "complexity": "medium",
-  "readability": "very-high"
-}
-```
-
-**Default Props**
-
-```json
-{
-  "audioSrc": "...",
-  "durationInFrames": 360,
-  "phrase": "She sells seashells by the seashore",
-  "phraseIndex": 1,
-  "phraseTotal": 6,
-  "pronunciations": ["SHEE", "SELZ", "SEE-shelz", "BAHY", "the", "SEE-shawr"],
-  "voDurationInFrames": 252
-}
-```
-
-**Suggested Prop Overrides by Context**
-
-| Context | Override Rationale | Props |
-| ------- | ------------------ | ----- |
-| `ipa-phonetics` | Use IPA symbols in guides | `{ pronunciations: ["/ˈʃæd.oʊ/", "/ˈpræk.tɪs/"] }` |
-| `syllable-drill` | Emphasize syllable breaks | `{ pronunciations: ["SHA", "dow", "ing"], phrase: "SHADOWING" }` |
-| `minimal-pairs` | Contrastive pronunciation | `{ phrase: "ship sheep", pronunciations: ["/ʃɪp/", "/ʃiːp/"] }` |
-
-**When to Use**
-
-- Language pronunciation training videos
-- Phonetics and accent reduction content
-- Minimal pair drills for language learners
-- Academic ESL/EFL content
-
-**When NOT to Use**
-
-- When pronunciation guides aren't needed
-- Quick-reference text (guides add visual weight)
-- Non-language contexts where romanization seems out of place
-
-**Composition Example**
-
-```tsx
-import { PronunciationDrillScene } from "./shared/presets/misc";
-
-<YourBackground>
-  <PronunciationDrillScene
-    audioSrc={staticFile("tongue-twister.mp3")}
-    durationInFrames={360}
-    phrase="She sells seashells by the seashore"
-    phraseIndex={1}
-    phraseTotal={6}
-    pronunciations={["SHEE", "SELZ", "SEE-shelz", "BAHY", "the", "SEE-shawr"]}
-    voDurationInFrames={252}
-  />
-</YourBackground>
-```
-
-### KaraokeShadowScene
-
-**ID**: `KaraokeShadowScene`
-**Export**: `src/shared/presets/misc`
-
-**Description**
-Karaoke-style follow-along scene. Words reveal with a gradient sweep highlight effect that fills each word from left to right. A waveform equalizer of animated bars sits above the progress bar, pulsing gently during VO (pink) and more vigorously on user turn (green). Designed for sing-along, chant-along, or energetic repetition exercises.
-
-**Visual Characteristics**
-
-- Style: Energetic, vibrant, musical
-- Motion: Gradient sweep highlight per word, waveform bars bouncing, mic pulse, progress bar slide
-- Texture: Color sweep gradients, animated equalizer bars, glow shadow on mic
-- Depth: Transparent overlay with stacked visualizer + progress elements
-
-**Metadata**
-
-```json
-{
-  "mood": ["energetic", "vibrant", "festive", "playful"],
-  "theme": ["music", "karaoke", "sing-along", "performance"],
-  "energy": "high",
-  "colorTemp": "warm-vibrant",
-  "formality": "casual",
-  "complexity": "medium-high",
-  "readability": "high"
-}
-```
-
-**Default Props**
-
-```json
-{
-  "audioSrc": "...",
-  "durationInFrames": 360,
-  "phrase": "We are the champions my friend",
-  "phraseIndex": 1,
-  "phraseTotal": 6,
-  "voDurationInFrames": 252,
-  "waveformBars": 16,
-  "waveformColor": "#ec4899"
-}
-```
-
-**Suggested Prop Overrides by Context**
-
-| Context | Override Rationale | Props |
-| ------- | ------------------ | ----- |
-| `club-karaoke` | More bars, neon color | `{ waveformBars: 24, waveformColor: "#06b6d4" }` |
-| `acoustic-chill` | Fewer bars, warm tone | `{ waveformBars: 8, waveformColor: "#f59e0b" }` |
-| `childrens-song` | Big text, playful bars | `{ phrase: "Twinkle twinkle little star", waveformBars: 12 }` |
-
-**When to Use**
-
-- Karaoke-style sing-along content
-- Music video overlays with lyrics reveal
-- Energetic chant or mantra repetition
-- Performance or talent show content
-
-**When NOT to Use**
-
-- Quiet, minimal content (waveform bars may feel busy)
-- Very long phrases (gradient sweep loses impact)
-- Corporate/academic contexts (too playful)
-
-**Composition Example**
-
-```tsx
-import { KaraokeShadowScene } from "./shared/presets/misc";
-
-<YourBackground>
-  <KaraokeShadowScene
-    audioSrc={staticFile("song-verse.mp3")}
-    durationInFrames={360}
-    phrase="We are the champions my friend"
-    phraseIndex={1}
-    phraseTotal={6}
-    voDurationInFrames={252}
-    waveformBars={16}
-    waveformColor="#ec4899"
   />
 </YourBackground>
 ```
