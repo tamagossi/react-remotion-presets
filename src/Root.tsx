@@ -394,10 +394,22 @@ import {
 import {
   ChatConversationProps,
   ChatConversationSchema,
+  EchoRepeatSceneProps,
+  EchoRepeatSceneSchema,
+  KaraokeShadowSceneProps,
+  KaraokeShadowSceneSchema,
+  PronunciationDrillSceneProps,
+  PronunciationDrillSceneSchema,
+  ShadowingSceneProps,
+  ShadowingSceneSchema,
   YouTubeSubscribeOverlayProps,
   YouTubeSubscribeOverlaySchema,
 } from "./shared/presets/misc";
 import { ChatConversationComposition } from "./shared/presets/misc/compositions/ChatConversationComposition";
+import { EchoRepeatSceneComposition } from "./shared/presets/misc/compositions/EchoRepeatSceneComposition";
+import { KaraokeShadowSceneComposition } from "./shared/presets/misc/compositions/KaraokeShadowSceneComposition";
+import { PronunciationDrillSceneComposition } from "./shared/presets/misc/compositions/PronunciationDrillSceneComposition";
+import { ShadowingSceneComposition } from "./shared/presets/misc/compositions/ShadowingSceneComposition";
 import { YouTubeSubscribeOverlayComposition } from "./shared/presets/misc/compositions/YouTubeSubscribeOverlayComposition";
 
 export const RemotionRoot: React.FC = () => {
@@ -4288,6 +4300,93 @@ export const RemotionRoot: React.FC = () => {
               subscribeText: "SUBSCRIBE",
               textColor: "#ffffff",
             } satisfies YouTubeSubscribeOverlayProps
+          }
+        />
+        <Composition
+          component={ShadowingSceneComposition}
+          durationInFrames={6 * FPS}
+          fps={FPS}
+          height={720}
+          id="ShadowingScene"
+          schema={ShadowingSceneSchema}
+          width={1280}
+          defaultProps={
+            {
+              audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+              durationInFrames: 6 * FPS,
+              phrase: "The quick brown fox jumps over the lazy dog",
+              phraseIndex: 1,
+              phraseTotal: 6,
+              voDurationInFrames: Math.round(6 * FPS * 0.7),
+            } satisfies ShadowingSceneProps
+          }
+        />
+        <Composition
+          component={EchoRepeatSceneComposition}
+          durationInFrames={6 * FPS}
+          fps={FPS}
+          height={720}
+          id="EchoRepeatScene"
+          schema={EchoRepeatSceneSchema}
+          width={1280}
+          defaultProps={
+            {
+              audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+              durationInFrames: 6 * FPS,
+              echoCount: 3,
+              phrase: "Every sunset brings the promise of a new dawn",
+              phraseIndex: 2,
+              phraseTotal: 6,
+              voDurationInFrames: Math.round(6 * FPS * 0.7),
+            } satisfies EchoRepeatSceneProps
+          }
+        />
+        <Composition
+          component={PronunciationDrillSceneComposition}
+          durationInFrames={6 * FPS}
+          fps={FPS}
+          height={720}
+          id="PronunciationDrillScene"
+          schema={PronunciationDrillSceneSchema}
+          width={1280}
+          defaultProps={
+            {
+              audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+              durationInFrames: 6 * FPS,
+              phrase: "She sells seashells by the seashore",
+              phraseIndex: 3,
+              phraseTotal: 6,
+              voDurationInFrames: Math.round(6 * FPS * 0.7),
+              pronunciations: [
+                "SHEE",
+                "SELZ",
+                "SEE-shelz",
+                "BAHY",
+                "the",
+                "SEE-shawr",
+              ],
+            } satisfies PronunciationDrillSceneProps
+          }
+        />
+        <Composition
+          component={KaraokeShadowSceneComposition}
+          durationInFrames={6 * FPS}
+          fps={FPS}
+          height={720}
+          id="KaraokeShadowScene"
+          schema={KaraokeShadowSceneSchema}
+          width={1280}
+          defaultProps={
+            {
+              audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+              durationInFrames: 6 * FPS,
+              phrase: "We are the champions my friend",
+              phraseIndex: 4,
+              phraseTotal: 6,
+              voDurationInFrames: Math.round(6 * FPS * 0.7),
+              waveformBars: 16,
+              waveformColor: "#ec4899",
+            } satisfies KaraokeShadowSceneProps
           }
         />
       </Folder>
