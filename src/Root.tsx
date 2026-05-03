@@ -3101,6 +3101,8 @@ export const RemotionRoot: React.FC = () => {
               easing: [0.16, 1, 0.3, 1],
               fontFamily: "Inter",
               showCard: true,
+              title: "Daily Activity",
+              titleColor: "#ffffff",
               rings: [
                 { color: "#ec4899", label: "Move", max: 600, value: 420 },
                 { color: "#a3e635", label: "Exercise", max: 60, value: 35 },
@@ -3245,6 +3247,7 @@ export const RemotionRoot: React.FC = () => {
               gradientColors: ["#7c3aed", "#3b82f6"],
               max: 100,
               showCard: true,
+              title: "System Load",
               value: 62,
             } satisfies CircularRadialGaugeProps
           }
@@ -3350,6 +3353,8 @@ export const RemotionRoot: React.FC = () => {
               easing: [0.16, 1, 0.3, 1],
               fontFamily: "Inter",
               showCard: true,
+              title: "USER DEMOGRAPHICS",
+              titleColor: "#ffffff",
               groups: [
                 { color: "#06b6d4", icon: "person", label: "MEN", value: 86 },
                 { color: "#ec4899", icon: "woman", label: "WOMEN", value: 14 },
@@ -3497,6 +3502,8 @@ export const RemotionRoot: React.FC = () => {
               easing: [0.16, 1, 0.3, 1],
               fontFamily: "Inter",
               showCard: true,
+              title: "Quarterly Performance",
+              titleColor: "#ffffff",
               charts: [
                 { color: "#22c55e", label: "Income", max: 100, value: 42 },
                 { color: "#3b82f6", label: "Expenses", max: 100, value: 67 },
@@ -3508,7 +3515,7 @@ export const RemotionRoot: React.FC = () => {
 
         <Composition
           component={DotScatterChartComposition}
-          durationInFrames={5 * FPS}
+          durationInFrames={6 * FPS}
           fps={FPS}
           height={720}
           id="DotScatterChart"
@@ -3516,18 +3523,31 @@ export const RemotionRoot: React.FC = () => {
           width={1280}
           defaultProps={
             {
-              animationDuration: 90,
               backgroundColor: "#0a0a14",
               cardBackgroundColor: "#141420",
               cardBorderRadius: 16,
               cardPadding: 40,
-              easing: [0.16, 1, 0.3, 1],
+              dotRadius: 5,
               fontFamily: "Inter",
+              showAxisLabels: true,
               showCard: true,
+              showGrid: true,
+              showLabels: true,
+              title: "Correlation Analysis",
+              titleColor: "#ffffff",
+              xAxisLabel: "Study Hours",
+              yAxisLabel: "Test Score",
               data: [
-                { color: "#93c5fd", label: "Leadership", value: 85 },
-                { color: "#a3e635", label: "Goal Oriented", value: 72 },
-                { color: "#f472b6", label: "Teamwork", value: 90 },
+                { color: "#93c5fd", label: "Student A", secondaryValue: 45, value: 2.5 },
+                { color: "#93c5fd", label: "Student B", secondaryValue: 55, value: 4.0 },
+                { color: "#93c5fd", label: "Student C", secondaryValue: 62, value: 5.5 },
+                { color: "#f472b6", label: "Student D", secondaryValue: 48, value: 3.0 },
+                { color: "#f472b6", label: "Student E", secondaryValue: 70, value: 6.0 },
+                { color: "#a3e635", label: "Student F", secondaryValue: 38, value: 1.5 },
+                { color: "#a3e635", label: "Student G", secondaryValue: 75, value: 7.0 },
+                { color: "#fbbf24", label: "Student H", secondaryValue: 52, value: 3.5 },
+                { color: "#fbbf24", label: "Student I", secondaryValue: 80, value: 8.0 },
+                { color: "#c084fc", label: "Student J", secondaryValue: 60, value: 5.0 },
               ],
             } satisfies DotScatterChartProps
           }
@@ -3557,12 +3577,14 @@ export const RemotionRoot: React.FC = () => {
                 color: "#3b82f6",
                 label: "CPU Usage",
                 max: 100,
+                suffix: "%",
                 value: 72,
               },
               gauge2: {
                 color: "#22c55e",
                 label: "Memory",
                 max: 100,
+                suffix: "%",
                 value: 58,
               },
             } satisfies DualGaugeChartProps
@@ -3590,6 +3612,7 @@ export const RemotionRoot: React.FC = () => {
               holdDuration: 60,
               labelColor: "#a0a0b0",
               legendStaggerDelay: 4,
+              showValues: true,
               staggerDelay: 4,
               subtitle: "Revenue comparison",
               subtitleColor: "#a0a0b0",
@@ -3857,6 +3880,9 @@ export const RemotionRoot: React.FC = () => {
               easing: [0.16, 1, 0.3, 1],
               fontFamily: "Inter",
               showCard: true,
+              subtitle: "Key performance metrics across core competencies",
+              subtitleColor: "#777777",
+              title: "Skill Breakdown",
               titleColor: "#333333",
               data: [
                 { color: "#1e3a5f", label: "Graphic Design", value: 80 },
@@ -3880,7 +3906,7 @@ export const RemotionRoot: React.FC = () => {
               animationDuration: 60,
               backgroundColor: "#0a0a14",
               ballColor: "#3b82f6",
-              ballSize: 16,
+              ballSize: 56,
               bounceDamping: 10,
               bounceMass: 0.8,
               bounceStiffness: 100,
@@ -3889,7 +3915,7 @@ export const RemotionRoot: React.FC = () => {
               holdDuration: 60,
               labelColor: "#a0a0b0",
               pillColor: "#1e1e2e",
-              pillHeight: 60,
+              pillHeight: 80,
               pillWidth: 200,
               staggerDelay: 8,
               subtitle: "Key performance indicators",
@@ -3947,13 +3973,22 @@ export const RemotionRoot: React.FC = () => {
           defaultProps={
             {
               animationDuration: 90,
+              arrowColor: "#ffffff",
+              arrowOpacity: 0.3,
               backgroundColor: "#0a0a14",
               cardBackgroundColor: "#141420",
               cardBorderRadius: 16,
               cardPadding: 40,
               easing: [0.16, 1, 0.3, 1],
+              exitDuration: 25,
               fontFamily: "Inter",
+              labelFontSize: 16,
+              showArrow: true,
               showCard: true,
+              subtitle: "HIERARCHY OF NEEDS",
+              subtitleColor: "#a0a0b0",
+              title: "MASLOW'S HIERARCHY",
+              titleColor: "#ffffff",
               data: [
                 { color: "#4c1d95", label: "PHYSIOLOGICAL", value: 100 },
                 { color: "#7c3aed", label: "SAFETY", value: 100 },
@@ -3982,7 +4017,14 @@ export const RemotionRoot: React.FC = () => {
               easing: [0.16, 1, 0.3, 1],
               fontFamily: "Inter",
               gradientColors: ["#a855f7", "#f97316"],
+              labelBackgroundColor: "#ffffff",
+              labelBackgroundPadding: 6,
+              labelBackgroundRadius: 4,
+              labelColor: "#333333",
               showCard: true,
+              subtitle: "Performance metrics across all design categories",
+              subtitleColor: "#666666",
+              title: "Design Skill Assessment",
               titleColor: "#333333",
               data: [
                 { label: "Interaction Design", value: 85 },
@@ -4306,6 +4348,12 @@ export const RemotionRoot: React.FC = () => {
               easing: [0.16, 1, 0.3, 1],
               fontFamily: "Inter",
               showCard: true,
+              showStatusCaption: true,
+              showTrack: true,
+              subtitle: "Live monitoring",
+              subtitleColor: "#a0a0b0",
+              title: "System Status",
+              titleColor: "#ffffff",
               dots: [
                 { color: "#ef4444", label: "Critical" },
                 { color: "#eab308", label: "Warning" },

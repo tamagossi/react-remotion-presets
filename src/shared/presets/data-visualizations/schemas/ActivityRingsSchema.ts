@@ -12,6 +12,8 @@ export const ActivityRingsSchema = z.object({
   fontFamily: z.string().optional(),
   showCard: z.boolean().optional(),
   theme: z.record(z.string(), z.string()).optional(),
+  title: z.string().optional(),
+  titleColor: zColor().optional(),
   rings: z.array(
     z.object({
       color: zColor(),

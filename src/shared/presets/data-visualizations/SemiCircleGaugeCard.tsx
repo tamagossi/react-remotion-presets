@@ -17,6 +17,31 @@ export type SemiCircleGaugeCardProps = Omit<
   showLegend?: boolean;
 };
 
+const polarToCartesian = (
+  centerX: number,
+  centerY: number,
+  radius: number,
+  angleInRadians: number,
+): { x: number; y: number } => ({
+  x: centerX + radius * Math.cos(angleInRadians),
+  y: centerY + radius * Math.sin(angleInRadians),
+});
+
+const arcPath = (
+  centerX: number,
+  centerY: number,
+  radius: number,
+  fromAngle: number,
+  toAngle: number,
+): string => {
+  const end = polarToCartesian(centerX, centerY, radius, toAngle);
+  const start = polarToCartesian(centerX, centerY, radius, fromAngle);
+  const angleDelta = fromAngle - toAngle;
+  const largeArc = angleDelta > Math.PI ? 1 : 0;
+
+  return `M ${start.x} ${start.y} A ${radius} ${radius} 0 ${largeArc} 0 ${end.x} ${end.y}`;
+};
+
 export const SemiCircleGaugeCard: React.FC<SemiCircleGaugeCardProps> = ({
   centerLabel,
   colors: _colors = ["#8b5cf6", "#fbbf24", "#f97316"],
@@ -30,8 +55,7 @@ export const SemiCircleGaugeCard: React.FC<SemiCircleGaugeCardProps> = ({
   const size = 200;
   const radius = size / 2 - gaugeWidth;
   const centerX = size / 2;
-  const centerY = size / 2 + 10;
-
+  const centerY = size / 2 + 8;
   const startAngle = Math.PI;
   const totalAngle = Math.PI;
 
@@ -50,6 +74,31 @@ export const SemiCircleGaugeCard: React.FC<SemiCircleGaugeCardProps> = ({
     cardProps.enterEasing ?? [0.16, 1, 0.3, 1],
   );
 
+  const progress = interpolate(frame, [sweepStart, sweepEnd], [0, 1], {
+    easing: Easing.out(Easing.quad),
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  let currentAngle = startAngle;
+  const arcs = segments.map((seg) => {
+    const segMaxAngle = (seg.percentage / 100) * totalAngle;
+    const segCurrentAngle = segMaxAngle * progress;
+    const fromAngle = currentAngle;
+    const toAngle = currentAngle - segCurrentAngle;
+
+    currentAngle = toAngle;
+
+    return {
+      color: seg.color,
+      d: arcPath(centerX, centerY, radius, fromAngle, toAngle),
+    };
+  });
+
+  const trackEnd = polarToCartesian(centerX, centerY, radius, 0);
+  const trackStart = polarToCartesian(centerX, centerY, radius, startAngle);
+  const trackD = `M ${trackStart.x} ${trackStart.y} A ${radius} ${radius} 0 0 0 ${trackEnd.x} ${trackEnd.y}`;
+
   return (
     <AbsoluteFill
       style={{
@@ -67,49 +116,27 @@ export const SemiCircleGaugeCard: React.FC<SemiCircleGaugeCardProps> = ({
             viewBox={`0 0 ${size} ${size}`}
             width={size}
           >
-            {segments.map((seg, i) => {
-              const prevPercentages = segments
-                .slice(0, i)
-                .reduce((a, s) => a + s.percentage, 0);
-              const segStart =
-                startAngle + (prevPercentages / 100) * totalAngle;
-              const segEnd =
-                startAngle +
-                ((prevPercentages + seg.percentage) / 100) * totalAngle;
-
-              const segDelay = sweepStart + i * 5;
-              const segProgress = interpolate(
-                frame,
-                [segDelay, sweepEnd],
-                [segStart, segEnd],
-                {
-                  easing: Easing.out(Easing.quad),
-                  extrapolateLeft: "clamp",
-                  extrapolateRight: "clamp",
-                },
-              );
-
-              const largeArc = seg.percentage > 50 ? 1 : 0;
-
-              const x1 = centerX + radius * Math.cos(segStart);
-              const y1 = centerY + radius * Math.sin(segStart) * -1;
-              const x2 = centerX + radius * Math.cos(segProgress);
-              const y2 = centerY + radius * Math.sin(segProgress) * -1;
-
-              const d = `M ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2}`;
-
-              return (
-                <path
-                  d={d}
-                  fill="none"
-                  key={i}
-                  stroke={seg.color}
-                  strokeLinecap="round"
-                  strokeWidth={gaugeWidth}
-                />
-              );
-            })}
-
+            <path
+              d={trackD}
+              fill="none"
+              strokeLinecap="round"
+              strokeWidth={gaugeWidth}
+              stroke={
+                cardProps.theme === "light"
+                  ? "rgba(0,0,0,0.08)"
+                  : "rgba(255,255,255,0.06)"
+              }
+            />
+            {arcs.map((arc, i) => (
+              <path
+                d={arc.d}
+                fill="none"
+                key={i}
+                stroke={arc.color}
+                strokeLinecap="round"
+                strokeWidth={gaugeWidth}
+              />
+            ))}
             <text
               fill={labelColor}
               fontFamily="sans-serif"
@@ -123,8 +150,7 @@ export const SemiCircleGaugeCard: React.FC<SemiCircleGaugeCardProps> = ({
                 ? Math.round(centerCount).toLocaleString()
                 : ""}
             </text>
-
-            {textColor && (
+            {centerLabel && (
               <text
                 fill={textColor}
                 fontFamily="sans-serif"
@@ -137,7 +163,6 @@ export const SemiCircleGaugeCard: React.FC<SemiCircleGaugeCardProps> = ({
               </text>
             )}
           </svg>
-
           {showLegend && (
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {segments.map((seg, i) => {

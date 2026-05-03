@@ -22,7 +22,7 @@ AI selection guide for `src/shared/presets/data-visualizations/`.
 | Educational | Warm       | Low    | Warm       | Professional | `PyramidChart`           |
 | Social      | Playful    | Medium | Cool       | Casual       | `IconStatGrid`           |
 | Analytical  | Neutral    | Medium | Cool       | Professional | `RadarChart`             |
-| Creative    | Playful    | Medium | Vibrant    | Casual       | `DotScatterChart`        |
+| Analytical  | Analytical | Medium | Vibrant    | Professional | `DotScatterChart`        |
 | Status      | Neutral    | Low    | Neutral    | Professional | `TrafficLightDots`       |
 
 ## How to Use This Catalog
@@ -377,7 +377,7 @@ Circular gauge with radial tick marks that stagger in, center gradient blob, and
 **Export**: `src/shared/presets/data-visualizations`
 
 **Description**
-Three side-by-side donut charts with arc stroke draw-on, inner percentage counter, and 10-frame stagger between charts.
+Three side-by-side donut charts with arc stroke draw-on, inner percentage counter, 10-frame stagger, and an optional title with concurrent entry/exit animations.
 
 **Visual Characteristics**
 
@@ -747,14 +747,23 @@ Layered colored pyramid with layers sliding up from bottom, staggered 8 frames e
 ```json
 {
   "animationDuration": 90,
+  "arrowColor": "#ffffff",
+  "arrowOpacity": 0.3,
   "backgroundColor": "#0a0a14",
   "cardBackgroundColor": "#141420",
   "cardBorderRadius": 16,
   "cardPadding": 40,
   "data": [],
   "easing": [0.16, 1, 0.3, 1],
+  "exitDuration": 25,
   "fontFamily": "Inter",
-  "showCard": true
+  "labelFontSize": 16,
+  "showArrow": true,
+  "showCard": true,
+  "subtitle": "",
+  "subtitleColor": "#a0a0b0",
+  "title": "",
+  "titleColor": "#ffffff"
 }
 ```
 
@@ -815,12 +824,12 @@ Icon circles that scale in with spring physics, percentages count up, and labels
 **Export**: `src/shared/presets/data-visualizations`
 
 **Description**
-Hexagonal spider chart with axes drawing on, gradient fill expanding from center, and vertex dots popping in.
+Hexagonal spider chart with axes drawing on, gradient fill expanding from center, vertex dots popping in, and axis labels backed by configurable background rectangles. Optional title and subtitle animate in with staggered fade + slide, then fade out concurrently with the chart exit.
 
 **Visual Characteristics**
 
 - Style: geometric/analytical
-- Motion: draw-on + expand
+- Motion: draw-on + expand + staggered label reveal
 - Texture: gradient
 - Depth: flat
 
@@ -851,7 +860,13 @@ Hexagonal spider chart with axes drawing on, gradient fill expanding from center
   "easing": [0.16, 1, 0.3, 1],
   "fontFamily": "Inter",
   "gradientColors": ["#a855f7", "#f97316"],
+  "labelBackgroundColor": "#ffffff",
+  "labelBackgroundPadding": 6,
+  "labelBackgroundRadius": 4,
+  "labelColor": "#333333",
   "showCard": true,
+  "subtitle": "",
+  "subtitleColor": "#666666",
   "title": "",
   "titleColor": "#333333"
 }
@@ -865,12 +880,12 @@ Hexagonal spider chart with axes drawing on, gradient fill expanding from center
 **Export**: `src/shared/presets/data-visualizations`
 
 **Description**
-Colored dots fly in from random off-screen positions to organized grid, with dashed lines connecting to text labels.
+Proper 2D scatter plot for visualizing relationship between two numeric variables — correlation, clustering, ML model results. Dots spring into position at their exact data coordinates with staggered animation, supported by x/y axes, grid lines, and per-point labels.
 
 **Visual Characteristics**
 
-- Style: geometric/creative
-- Motion: scatter to organize
+- Style: analytical/data-driven
+- Motion: spring pop-in with overshoot
 - Texture: none
 - Depth: flat
 
@@ -878,13 +893,13 @@ Colored dots fly in from random off-screen positions to organized grid, with das
 
 ```json
 {
-  "mood": ["playful", "creative"],
-  "theme": ["creative", "education"],
+  "mood": ["analytical", "data-driven"],
+  "theme": ["corporate", "education", "tech"],
   "energy": "medium",
   "colorTemp": "vibrant",
-  "formality": "casual",
+  "formality": "professional",
   "complexity": "medium",
-  "readability": "medium"
+  "readability": "high"
 }
 ```
 
@@ -892,15 +907,21 @@ Colored dots fly in from random off-screen positions to organized grid, with das
 
 ```json
 {
-  "animationDuration": 90,
   "backgroundColor": "#0a0a14",
   "cardBackgroundColor": "#141420",
   "cardBorderRadius": 16,
   "cardPadding": 40,
   "data": [],
-  "easing": [0.16, 1, 0.3, 1],
+  "dotRadius": 5,
   "fontFamily": "Inter",
-  "showCard": true
+  "showAxisLabels": true,
+  "showCard": true,
+  "showGrid": true,
+  "showLabels": true,
+  "title": "",
+  "titleColor": "#ffffff",
+  "xAxisLabel": "",
+  "yAxisLabel": ""
 }
 ```
 
@@ -912,12 +933,12 @@ Colored dots fly in from random off-screen positions to organized grid, with das
 **Export**: `src/shared/presets/data-visualizations`
 
 **Description**
-Three status dots (red/yellow/green) that scale in with spring physics, with optional pulse animation on active dot.
+Status dots arranged on a faint vertical track with spring-animated scale-in, pulsing glow on the active dot, an animated title/subtitle header, and a large status caption. Clean hierarchical status indicator with unified concurrent exit.
 
 **Visual Characteristics**
 
 - Style: geometric/status
-- Motion: spring scale + pulse
+- Motion: spring scale + pulse + staggered header reveal
 - Texture: none
 - Depth: flat
 
@@ -948,7 +969,13 @@ Three status dots (red/yellow/green) that scale in with spring physics, with opt
   "dots": [],
   "easing": [0.16, 1, 0.3, 1],
   "fontFamily": "Inter",
-  "showCard": true
+  "showCard": true,
+  "showStatusCaption": true,
+  "showTrack": true,
+  "subtitle": "Live monitoring",
+  "subtitleColor": "#a0a0b0",
+  "title": "System Status",
+  "titleColor": "#ffffff"
 }
 ```
 

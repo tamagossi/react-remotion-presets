@@ -15,5 +15,6 @@ export const CircularRadialGaugeSchema = z.object({
   showCard: z.boolean().optional(),
   theme: z.record(z.string(), z.string()).optional(),
   title: z.string().optional(),
+  titleColor: zColor().optional(),
   value: z.number(),
 });

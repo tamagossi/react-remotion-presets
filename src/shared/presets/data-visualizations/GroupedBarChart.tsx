@@ -21,12 +21,14 @@ export type GroupedBarChartProps = {
   labelColor?: string;
   legendStaggerDelay?: number;
   series: Array<{ color: string; name: string; values: number[] }>;
+  showValues?: boolean;
   staggerDelay?: number;
   subtitle?: string;
   subtitleColor?: string;
   textColor?: string;
   title?: string;
   titleColor?: string;
+  valueColor?: string;
   xLabels: string[];
   yMax?: number;
 };
@@ -36,7 +38,7 @@ export const GroupedBarChart: React.FC<GroupedBarChartProps> = ({
   backgroundColor = "#0f1115",
   barWidth = 24,
   description = "",
-  easing = [0.16, 1, 0.3, 1],
+  easing: _easing = [0.16, 1, 0.3, 1],
   exitDuration = 25,
   gridColor = "#2a2d35",
   groupGap = 16,
@@ -44,12 +46,14 @@ export const GroupedBarChart: React.FC<GroupedBarChartProps> = ({
   labelColor = "#9ca3af",
   legendStaggerDelay = 6,
   series,
+  showValues = true,
   staggerDelay = 4,
   subtitle = "",
   subtitleColor = "#6b7280",
   textColor = "#ffffff",
   title = "",
   titleColor = "#ffffff",
+  valueColor = "#ffffff",
   xLabels,
   yMax = 10,
 }) => {
@@ -61,7 +65,7 @@ export const GroupedBarChart: React.FC<GroupedBarChartProps> = ({
   } = useVideoConfig();
 
   const chartTop = 140;
-  const chartBottom = height - 180;
+  const chartBottom = height - 210;
   const chartLeft = 80;
   const chartRight = width - 280;
   const chartHeight = chartBottom - chartTop;
@@ -72,12 +76,6 @@ export const GroupedBarChart: React.FC<GroupedBarChartProps> = ({
     holdDuration +
     exitDuration +
     staggerDelay * xLabels.length;
-
-  const entranceProgress = interpolate(frame, [0, animationDuration], [0, 1], {
-    easing: Easing.bezier(easing[0], easing[1], easing[2], easing[3]),
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
 
   const exitProgress = interpolate(
     frame,
@@ -90,8 +88,6 @@ export const GroupedBarChart: React.FC<GroupedBarChartProps> = ({
     },
   );
 
-  const globalOpacity = Math.min(entranceProgress * 2, 1) * exitProgress;
-
   const titleOpacity = interpolate(frame, [0, 15], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
@@ -102,7 +98,7 @@ export const GroupedBarChart: React.FC<GroupedBarChartProps> = ({
     extrapolateRight: "clamp",
   });
 
-  const gridOpacity = interpolate(frame, [5, 20], [0, 1], {
+  const gridOpacity = interpolate(frame, [0, 15], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -206,6 +202,19 @@ export const GroupedBarChart: React.FC<GroupedBarChartProps> = ({
           );
         })}
 
+        {/* Y-axis vertical line */}
+        <div
+          style={{
+            backgroundColor: gridColor,
+            height: chartHeight,
+            left: chartLeft,
+            opacity: gridOpacity * exitProgress,
+            position: "absolute",
+            top: chartTop,
+            width: 2,
+          }}
+        />
+
         {/* X-axis baseline */}
         <div
           style={{
@@ -233,7 +242,7 @@ export const GroupedBarChart: React.FC<GroupedBarChartProps> = ({
                   left: groupX,
                   position: "absolute",
                   textAlign: "center",
-                  top: chartBottom + 12,
+                  top: chartBottom + 18,
                   width: groupWidth - groupGap * 2,
                   opacity:
                     interpolate(
@@ -269,21 +278,50 @@ export const GroupedBarChart: React.FC<GroupedBarChartProps> = ({
                   },
                 );
 
+                const valueOpacity = interpolate(
+                  frame,
+                  [30 + delay, 40 + delay],
+                  [0, 1],
+                  {
+                    extrapolateLeft: "clamp",
+                    extrapolateRight: "clamp",
+                  },
+                );
+
                 return (
-                  <div
-                    key={seriesIndex}
-                    style={{
-                      backgroundColor: s.color,
-                      borderRadius: "2px 2px 0 0",
-                      bottom: chartBottom,
-                      height: barHeight * barProgress,
-                      left: barX,
-                      opacity: globalOpacity,
-                      position: "absolute",
-                      transformOrigin: "bottom",
-                      width: actualBarWidth,
-                    }}
-                  />
+                  <React.Fragment key={seriesIndex}>
+                    <div
+                      style={{
+                        backgroundColor: s.color,
+                        borderRadius: "2px 2px 0 0",
+                        height: barHeight * barProgress,
+                        left: barX,
+                        opacity: exitProgress,
+                        position: "absolute",
+                        top: chartBottom - barHeight * barProgress,
+                        transformOrigin: "bottom",
+                        width: actualBarWidth,
+                      }}
+                    />
+                    {showValues && (
+                      <div
+                        style={{
+                          color: valueColor,
+                          fontSize: 11,
+                          fontWeight: 600,
+                          left: barX,
+                          opacity: valueOpacity * exitProgress,
+                          position: "absolute",
+                          textAlign: "center",
+                          width: actualBarWidth,
+                          top:
+                            chartBottom - barHeight * barProgress - 20,
+                        }}
+                      >
+                        {value}
+                      </div>
+                    )}
+                  </React.Fragment>
                 );
               })}
             </React.Fragment>
@@ -354,7 +392,7 @@ export const GroupedBarChart: React.FC<GroupedBarChartProps> = ({
             opacity: descOpacity * exitProgress,
             position: "absolute",
             textAlign: "center",
-            top: chartBottom + 50,
+            top: chartBottom + 60,
             width: chartWidth,
           }}
         >

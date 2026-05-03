@@ -31,6 +31,8 @@ export const DemographicIcons: React.FC<DemographicIconsProps> = ({
   groups,
   showCard = true,
   theme: themeOverride,
+  title,
+  titleColor,
 }) => {
   useInter();
   const frame = useCurrentFrame();
@@ -42,11 +44,21 @@ export const DemographicIcons: React.FC<DemographicIconsProps> = ({
   const chartHeight = height - (showCard ? cardPadding * 2 : 80);
   const gap = chartWidth / (groups.length + 1);
 
+  const titleOpacity = spring({
+    config: { damping: 12, mass: 0.5, stiffness: 100 },
+    fps,
+    frame,
+    from: 0,
+    to: 1,
+  });
+
+  const lastEntryEndFrame = (groups.length - 1) * 10 + 65;
+  const exitStartFrame = Math.max(durationInFrames - 20, lastEntryEndFrame + 5);
   const exitProgress = interpolate(
     frame,
-    [durationInFrames - 20, durationInFrames],
+    [exitStartFrame, durationInFrames],
     [1, 0],
-    { extrapolateLeft: "clamp" },
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
   const innerContent = (
@@ -55,9 +67,24 @@ export const DemographicIcons: React.FC<DemographicIconsProps> = ({
       viewBox={`0 0 ${chartWidth} ${chartHeight}`}
       width={chartWidth}
     >
+      {title ? (
+        <text
+          fill={titleColor ?? theme.primaryTextColor}
+          fontFamily={fontFamily}
+          fontSize={28}
+          fontWeight={700}
+          letterSpacing={2}
+          opacity={titleOpacity}
+          textAnchor="middle"
+          x={chartWidth / 2}
+          y={50}
+        >
+          {title}
+        </text>
+      ) : null}
       {groups.map((group, i) => {
         const cx = gap * (i + 1);
-        const cy = chartHeight * 0.45;
+        const cy = chartHeight * 0.48;
         const iconScale = spring({
           config: { damping: 12, mass: 0.5, stiffness: 100 },
           fps,

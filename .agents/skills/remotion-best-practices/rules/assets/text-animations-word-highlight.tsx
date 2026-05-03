@@ -32,32 +32,32 @@ const Highlight: React.FC<{
   color: string;
   delay: number;
   durationInFrames: number;
-}> = ({ word, color, delay, durationInFrames }) => {
+}> = ({ color, delay, durationInFrames, word }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
   const highlightProgress = spring({
-    fps,
-    frame,
     config: { damping: 200 },
     delay,
     durationInFrames,
+    fps,
+    frame,
   });
   const scaleX = Math.max(0, Math.min(1, highlightProgress));
 
   return (
-    <span style={{ position: "relative", display: "inline-block" }}>
+    <span style={{ display: "inline-block", position: "relative" }}>
       <span
         style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: "50%",
-          height: "1.05em",
-          transform: `translateY(-50%) scaleX(${scaleX})`,
-          transformOrigin: "left center",
           backgroundColor: color,
           borderRadius: "0.18em",
+          height: "1.05em",
+          left: 0,
+          position: "absolute",
+          right: 0,
+          top: "50%",
+          transform: `translateY(-50%) scaleX(${scaleX})`,
+          transformOrigin: "left center",
           zIndex: 0,
         }}
       />
@@ -77,10 +77,10 @@ export const MyAnimation = () => {
   return (
     <AbsoluteFill
       style={{
-        backgroundColor: COLOR_BG,
         alignItems: "center",
-        justifyContent: "center",
+        backgroundColor: COLOR_BG,
         fontFamily,
+        justifyContent: "center",
       }}
     >
       <div
@@ -94,10 +94,10 @@ export const MyAnimation = () => {
           <>
             <span>{preText}</span>
             <Highlight
-              word={HIGHLIGHT_WORD}
               color={COLOR_HIGHLIGHT}
               delay={HIGHLIGHT_START_FRAME}
               durationInFrames={HIGHLIGHT_WIPE_DURATION}
+              word={HIGHLIGHT_WORD}
             />
             <span>{postText}</span>
           </>

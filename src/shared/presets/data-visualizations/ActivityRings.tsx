@@ -31,17 +31,14 @@ export const ActivityRings: React.FC<ActivityRingsProps> = ({
   rings,
   showCard = true,
   theme: themeOverride,
+  title,
+  titleColor,
 }) => {
   useInter();
   const frame = useCurrentFrame();
   const { durationInFrames, fps, height, width } = useVideoConfig();
 
   const theme: ChartTheme = { ...defaultDarkTheme, ...themeOverride };
-
-  const chartWidth = width - (showCard ? cardPadding * 2 : 80);
-  const chartHeight = height - (showCard ? cardPadding * 2 : 80);
-  const cx = chartWidth * 0.3;
-  const cy = chartHeight / 2;
 
   const exitProgress = interpolate(
     frame,
@@ -53,114 +50,133 @@ export const ActivityRings: React.FC<ActivityRingsProps> = ({
   const innerContent = (
     <div
       style={{
-        alignItems: "center",
         display: "flex",
+        flexDirection: "column",
         height: "100%",
-        justifyContent: "center",
         width: "100%",
       }}
     >
-      <svg
-        height={chartHeight}
-        viewBox={`0 0 ${chartWidth} ${chartHeight}`}
-        width={chartWidth}
-      >
-        {rings.map((ring, i) => {
-          const radius = 90 - i * 28;
-          const strokeWidth = 20;
-          const circumference = 2 * Math.PI * radius;
-          const targetDash = circumference * (ring.value / ring.max);
-
-          const delay = i * 10;
-          const progress = spring({
-            config: { damping: 14, mass: 0.5, stiffness: 80 },
-            fps,
-            frame: Math.max(0, frame - delay),
-            from: 0,
-            to: 1,
-          });
-
-          const currentDash = targetDash * progress;
-          const gap = circumference * 0.08;
-
-          return (
-            <g key={`ring-${i}`}>
-              {/* Background track */}
-              <circle
-                cx={cx}
-                cy={cy}
-                fill="none"
-                r={radius}
-                stroke={theme.cardBorderColor}
-                strokeWidth={strokeWidth}
-              />
-
-              {/* Active ring */}
-              <circle
-                cx={cx}
-                cy={cy}
-                fill="none"
-                r={radius}
-                stroke={ring.color}
-                strokeDasharray={`${Math.max(currentDash - gap, 0)} ${circumference}`}
-                strokeLinecap="round"
-                strokeWidth={strokeWidth}
-                transform={`rotate(-90, ${cx}, ${cy})`}
-              />
-            </g>
-          );
-        })}
-      </svg>
-
-      {/* Side labels */}
+      {title ? (
+        <div
+          style={{
+            color: titleColor || theme.primaryTextColor,
+            fontFamily,
+            fontSize: 20,
+            fontWeight: 600,
+            marginBottom: 24,
+            textAlign: "center",
+          }}
+        >
+          {title}
+        </div>
+      ) : null}
       <div
         style={{
+          alignItems: "center",
           display: "flex",
-          flexDirection: "column",
-          gap: 16,
-          marginLeft: 40,
+          flex: 1,
+          gap: 30,
+          justifyContent: "center",
+          width: "100%",
         }}
       >
-        {rings.map((ring, i) => {
-          const delay = i * 10;
-          const counter = interpolate(
-            frame,
-            [delay + 15, delay + 65],
-            [0, ring.value],
-            { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-          );
+        <svg height={260} viewBox="0 0 260 260" width={260}>
+          {rings.map((ring, i) => {
+            const radius = 90 - i * 28;
+            const strokeWidth = 20;
+            const circumference = 2 * Math.PI * radius;
+            const targetDash = circumference * (ring.value / ring.max);
 
-          return (
-            <div
-              key={`label-${i}`}
-              style={{
-                opacity: interpolate(frame, [delay + 20, delay + 35], [0, 1], {
-                  extrapolateLeft: "clamp",
-                }),
-              }}
-            >
+            const delay = i * 10;
+            const progress = spring({
+              config: { damping: 14, mass: 0.5, stiffness: 80 },
+              fps,
+              frame: Math.max(0, frame - delay),
+              from: 0,
+              to: 1,
+            });
+
+            const currentDash = targetDash * progress;
+            const gap = circumference * 0.08;
+
+            return (
+              <g key={`ring-${i}`}>
+                {/* Background track */}
+                <circle
+                  cx={130}
+                  cy={130}
+                  fill="none"
+                  r={radius}
+                  stroke={theme.cardBorderColor}
+                  strokeWidth={strokeWidth}
+                />
+
+                {/* Active ring */}
+                <circle
+                  cx={130}
+                  cy={130}
+                  fill="none"
+                  r={radius}
+                  stroke={ring.color}
+                  strokeDasharray={`${Math.max(currentDash - gap, 0)} ${circumference}`}
+                  strokeLinecap="round"
+                  strokeWidth={strokeWidth}
+                  transform="rotate(-90, 130, 130)"
+                />
+              </g>
+            );
+          })}
+        </svg>
+
+        {/* Side labels */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 16,
+          }}
+        >
+          {rings.map((ring, i) => {
+            const delay = i * 10;
+            const counter = interpolate(
+              frame,
+              [delay + 15, delay + 65],
+              [0, ring.value],
+              { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+            );
+
+            return (
               <div
+                key={`label-${i}`}
                 style={{
-                  color: ring.color,
-                  fontFamily,
-                  fontSize: 32,
-                  fontWeight: 700,
+                  opacity: interpolate(frame, [delay + 20, delay + 35], [0, 1], {
+                    extrapolateLeft: "clamp",
+                  }),
                 }}
               >
-                {Math.round(counter)}
+                <div
+                  style={{
+                    color: ring.color,
+                    fontFamily,
+                    fontSize: 32,
+                    fontWeight: 700,
+                  }}
+                >
+                  {Math.round(counter)}
+                </div>
+                <div
+                  style={{
+                    color: theme.secondaryTextColor,
+                    fontFamily,
+                    fontSize: 13,
+                  }}
+                >
+                  {ring.label}
+                </div>
               </div>
-              <div
-                style={{
-                  color: theme.secondaryTextColor,
-                  fontFamily,
-                  fontSize: 13,
-                }}
-              >
-                {ring.label}
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

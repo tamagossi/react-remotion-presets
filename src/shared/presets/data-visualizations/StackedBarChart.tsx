@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 import {
   AbsoluteFill,
@@ -23,7 +23,9 @@ export type StackedBarChartProps = {
   gridColor?: string;
   holdDuration?: number;
   labelColor?: string;
+  primaryLabel?: string;
   secondaryColor?: string;
+  secondaryLabel?: string;
   showValues?: boolean;
   staggerDelay?: number;
   subtitle?: string;
@@ -41,39 +43,50 @@ export const StackedBarChart: React.FC<StackedBarChartProps> = ({
   barColor = "#a7f3d0",
   barWidth = 48,
   data,
-  easing: _easing = [0.16, 1, 0.3, 1],
+  easing = [0.16, 1, 0.3, 1],
   exitDuration = 25,
   gridColor = "#2a2d35",
   holdDuration = 60,
   labelColor = "#9ca3af",
+  primaryLabel = "Primary",
   secondaryColor = "#34d399",
+  secondaryLabel = "Secondary",
   showValues = true,
   staggerDelay = 5,
   subtitle = "",
   subtitleColor = "#6b7280",
-  textColor: _textColor = "#ffffff",
+  textColor = "#ffffff",
   title = "",
   titleColor = "#ffffff",
   valueColor = "#ffffff",
-  yMax = 50,
+  yMax,
 }) => {
   const frame = useCurrentFrame();
-  const {
-    durationInFrames: _durationInFrames,
-    height,
-    width,
-  } = useVideoConfig();
+  const { height, width } = useVideoConfig();
 
-  const chartTop = 140;
-  const chartBottom = height - 160;
-  const chartLeft = (width - data.length * (barWidth + 20)) / 2;
+  const calculatedYMax = useMemo(() => {
+    if (yMax !== undefined) return yMax;
+
+    const maxTotal = Math.max(
+      ...data.map((d) => d.value + (d.secondaryValue ?? 0)),
+    );
+
+    return Math.ceil(maxTotal * 1.12);
+  }, [data, yMax]);
+
+  const chartTop = 120;
+  const chartBottom = height - 260;
+  const chartLeft = (width - data.length * (barWidth + 24)) / 2;
   const chartHeight = chartBottom - chartTop;
+  const chartTotalWidth = data.length * (barWidth + 24);
 
   const totalFrames =
     animationDuration +
     holdDuration +
     exitDuration +
     staggerDelay * data.length;
+
+  const easingFn = Easing.bezier(easing[0], easing[1], easing[2], easing[3]);
 
   const exitProgress = interpolate(
     frame,
@@ -87,16 +100,25 @@ export const StackedBarChart: React.FC<StackedBarChartProps> = ({
   );
 
   const titleOpacity = interpolate(frame, [0, 15], [0, 1], {
+    easing: easingFn,
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
   const titleY = interpolate(frame, [0, 15], [-20, 0], {
+    easing: easingFn,
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
   const gridOpacity = interpolate(frame, [5, 20], [0, 1], {
+    easing: easingFn,
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  const legendOpacity = interpolate(frame, [25, 40], [0, 1], {
+    easing: easingFn,
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -142,11 +164,92 @@ export const StackedBarChart: React.FC<StackedBarChartProps> = ({
         )}
       </div>
 
+      {/* Legend */}
+      <div
+        style={{
+          display: "flex",
+          gap: 24,
+          justifyContent: "center",
+          marginTop: 40,
+          opacity: legendOpacity * exitProgress,
+        }}
+      >
+        <div
+          style={{
+            alignItems: "center",
+            display: "flex",
+            gap: 8,
+          }}
+        >
+          <div
+            style={{
+              background: barColor,
+              borderRadius: 3,
+              height: 12,
+              width: 12,
+            }}
+          />
+          <span
+            style={{
+              color: textColor,
+              fontSize: 12,
+              fontWeight: 500,
+            }}
+          >
+            {primaryLabel}
+          </span>
+        </div>
+        <div
+          style={{
+            alignItems: "center",
+            display: "flex",
+            gap: 8,
+          }}
+        >
+          <div
+            style={{
+              background: secondaryColor,
+              borderRadius: 3,
+              height: 12,
+              width: 12,
+            }}
+          />
+          <span
+            style={{
+              color: textColor,
+              fontSize: 12,
+              fontWeight: 500,
+            }}
+          >
+            {secondaryLabel}
+          </span>
+        </div>
+      </div>
+
       {/* Chart area */}
-      <div style={{ position: "relative" }}>
-        {/* Y-axis grid lines */}
+      <div
+        style={{
+          height: chartBottom + 40,
+          position: "relative",
+          width: "100%",
+        }}
+      >
+        {/* Y-axis spine */}
+        <div
+          style={{
+            backgroundColor: gridColor,
+            height: chartHeight + 6,
+            left: chartLeft - 20,
+            opacity: gridOpacity * exitProgress,
+            position: "absolute",
+            top: chartTop - 3,
+            width: 2,
+          }}
+        />
+
+        {/* Y-axis grid lines + labels */}
         {[0, 1, 2, 3, 4].map((i) => {
-          const value = Math.round((yMax / 4) * i);
+          const value = Math.round((calculatedYMax / 4) * i);
           const y = chartBottom - (chartHeight / 4) * i;
 
           return (
@@ -157,10 +260,10 @@ export const StackedBarChart: React.FC<StackedBarChartProps> = ({
                     backgroundColor: gridColor,
                     height: 1,
                     left: chartLeft - 20,
-                    opacity: gridOpacity * 0.4 * exitProgress,
+                    opacity: gridOpacity * 0.3 * exitProgress,
                     position: "absolute",
                     top: y,
-                    width: data.length * (barWidth + 20) + 40,
+                    width: chartTotalWidth + 40,
                   }}
                 />
               )}
@@ -168,12 +271,12 @@ export const StackedBarChart: React.FC<StackedBarChartProps> = ({
                 style={{
                   color: labelColor,
                   fontSize: 12,
-                  left: chartLeft - 40,
+                  left: chartLeft - 48,
                   opacity: gridOpacity * exitProgress,
                   position: "absolute",
                   textAlign: "right",
                   top: y - 6,
-                  width: 30,
+                  width: 34,
                 }}
               >
                 {value}
@@ -191,36 +294,97 @@ export const StackedBarChart: React.FC<StackedBarChartProps> = ({
             opacity: gridOpacity * exitProgress,
             position: "absolute",
             top: chartBottom,
-            width: data.length * (barWidth + 20) + 40,
+            width: chartTotalWidth + 40,
           }}
         />
 
-        {/* Bars */}
-        {data.map((d, i) => {
-          const barX = chartLeft + i * (barWidth + 20);
-          const delay = i * staggerDelay;
-
-          const barProgress = interpolate(
+        {/* X-axis ticks */}
+        {data.map((_d, i) => {
+          const barX = chartLeft + i * (barWidth + 24);
+          const tickOpacity = interpolate(
             frame,
-            [15 + delay, 35 + delay],
+            [10 + i * 2, 20 + i * 2],
             [0, 1],
             {
-              easing: Easing.out(Easing.quad),
+              easing: easingFn,
               extrapolateLeft: "clamp",
               extrapolateRight: "clamp",
             },
           );
 
-          const barHeight = (d.value / yMax) * chartHeight * barProgress;
-          const secondaryHeight = d.secondaryValue
-            ? (d.secondaryValue / yMax) * chartHeight * barProgress
+          return (
+            <div
+              key={`tick-${i}`}
+              style={{
+                backgroundColor: gridColor,
+                height: 4,
+                left: barX + barWidth / 2,
+                opacity: tickOpacity * exitProgress,
+                position: "absolute",
+                top: chartBottom,
+                width: 1,
+              }}
+            />
+          );
+        })}
+
+        {/* Bars */}
+        {data.map((d, i) => {
+          const barX = chartLeft + i * (barWidth + 24);
+          const delay = i * staggerDelay;
+
+          const primaryProgress = interpolate(
+            frame,
+            [15 + delay, 35 + delay],
+            [0, 1],
+            {
+              easing: easingFn,
+              extrapolateLeft: "clamp",
+              extrapolateRight: "clamp",
+            },
+          );
+
+          const secondaryProgress = d.secondaryValue
+            ? interpolate(
+                frame,
+                [23 + delay, 43 + delay],
+                [0, 1],
+                {
+                  easing: easingFn,
+                  extrapolateLeft: "clamp",
+                  extrapolateRight: "clamp",
+                },
+              )
             : 0;
+
+          const totalValue = d.value + (d.secondaryValue ?? 0);
+          const primaryTargetHeight =
+            (d.value / calculatedYMax) * chartHeight;
+          const secondaryTargetHeight = d.secondaryValue
+            ? ((d.secondaryValue / calculatedYMax) * chartHeight)
+            : 0;
+
+          const primaryHeight = primaryTargetHeight * primaryProgress;
+          const secondaryHeight = secondaryTargetHeight * secondaryProgress;
+          const totalHeight = primaryHeight + secondaryHeight;
 
           const valueOpacity = interpolate(
             frame,
             [30 + delay, 40 + delay],
             [0, 1],
             {
+              easing: easingFn,
+              extrapolateLeft: "clamp",
+              extrapolateRight: "clamp",
+            },
+          );
+
+          const labelOpacity = interpolate(
+            frame,
+            [10 + i * 2, 20 + i * 2],
+            [0, 1],
+            {
+              easing: easingFn,
               extrapolateLeft: "clamp",
               extrapolateRight: "clamp",
             },
@@ -228,35 +392,37 @@ export const StackedBarChart: React.FC<StackedBarChartProps> = ({
 
           return (
             <React.Fragment key={i}>
-              {/* Main bar */}
+              {/* Primary segment */}
               <div
                 style={{
-                  backgroundColor: barColor,
-                  borderRadius: "6px 6px 0 0",
-                  bottom: chartBottom,
-                  height: barHeight,
+                  background: `linear-gradient(180deg, ${barColor} 0%, ${barColor}dd 100%)`,
+                  borderRadius: d.secondaryValue ? "0 0 0 0" : "6px 6px 0 0",
+                  height: primaryHeight,
                   left: barX,
                   opacity: exitProgress,
                   position: "absolute",
+                  top: chartBottom - totalHeight,
                   width: barWidth,
                 }}
-              >
-                {/* Secondary value overlay (dual-tone) */}
-                {secondaryHeight > 0 && (
-                  <div
-                    style={{
-                      backgroundColor: secondaryColor,
-                      borderRadius: "6px 6px 0 0",
-                      height: `${(secondaryHeight / barHeight) * 100}%`,
-                      opacity: 0.7,
-                      position: "absolute",
-                      width: "100%",
-                    }}
-                  />
-                )}
-              </div>
+              />
 
-              {/* Value label */}
+              {/* Secondary segment */}
+              {d.secondaryValue !== undefined && d.secondaryValue > 0 && (
+                <div
+                  style={{
+                    background: `linear-gradient(180deg, ${secondaryColor} 0%, ${secondaryColor}dd 100%)`,
+                    borderRadius: "6px 6px 0 0",
+                    height: secondaryHeight,
+                    left: barX,
+                    opacity: exitProgress,
+                    position: "absolute",
+                    top: chartBottom - totalHeight + primaryHeight,
+                    width: barWidth,
+                  }}
+                />
+              )}
+
+              {/* Total value label */}
               {showValues && (
                 <div
                   style={{
@@ -267,11 +433,11 @@ export const StackedBarChart: React.FC<StackedBarChartProps> = ({
                     opacity: valueOpacity * exitProgress,
                     position: "absolute",
                     textAlign: "center",
-                    top: chartBottom - barHeight - 20,
+                    top: chartBottom - totalHeight - 22,
                     width: barWidth,
                   }}
                 >
-                  {d.value}
+                  {Math.round(totalValue * (primaryProgress > 0.8 ? secondaryProgress > 0 ? 1 : primaryProgress : primaryProgress))}
                 </div>
               )}
 
@@ -281,15 +447,11 @@ export const StackedBarChart: React.FC<StackedBarChartProps> = ({
                   color: labelColor,
                   fontSize: 12,
                   left: barX,
+                  opacity: labelOpacity * exitProgress,
                   position: "absolute",
                   textAlign: "center",
-                  top: chartBottom + 12,
+                  top: chartBottom + 14,
                   width: barWidth,
-                  opacity:
-                    interpolate(frame, [10 + i * 2, 20 + i * 2], [0, 1], {
-                      extrapolateLeft: "clamp",
-                      extrapolateRight: "clamp",
-                    }) * exitProgress,
                 }}
               >
                 {d.label}

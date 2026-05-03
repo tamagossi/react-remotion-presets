@@ -17,12 +17,14 @@ export type DualGaugeChartProps = BaseChartProps & {
     color: string;
     label: string;
     max: number;
+    suffix?: string;
     value: number;
   };
   gauge2: {
     color: string;
     label: string;
     max: number;
+    suffix?: string;
     value: number;
   };
 };
@@ -48,9 +50,11 @@ export const DualGaugeChart: React.FC<DualGaugeChartProps> = ({
 
   const theme: ChartTheme = { ...defaultDarkTheme, ...themeOverride };
 
-  const chartWidth = width - (showCard ? cardPadding * 2 : 80);
-  const chartHeight = height - (showCard ? cardPadding * 2 : 80);
-  const centerY = chartHeight * 0.55;
+  const chartWidth = width - (showCard ? 80 + cardPadding * 2 : 80);
+  const chartHeight = height - (showCard ? 80 + cardPadding * 2 : 80);
+  const titleHeight = title ? 56 : 0;
+  const gaugeSvgHeight = chartHeight - titleHeight;
+  const centerY = gaugeSvgHeight * 0.48;
   const radius = Math.min(chartWidth, chartHeight) * 0.32;
   const strokeWidth = 24;
 
@@ -116,102 +120,281 @@ export const DualGaugeChart: React.FC<DualGaugeChartProps> = ({
     { extrapolateLeft: "clamp" },
   );
 
+  const titleOpacity = interpolate(frame, [5, 25], [0, 1], {
+    extrapolateLeft: "clamp",
+  });
+  const titleTranslateY = interpolate(frame, [5, 25], [15, 0], {
+    extrapolateLeft: "clamp",
+  });
+
   const gaugePositions = [
     { cx: chartWidth * 0.28, data: gauge1 },
     { cx: chartWidth * 0.72, data: gauge2 },
   ];
 
   const innerContent = (
-    <svg
-      height={chartHeight}
-      viewBox={`0 0 ${chartWidth} ${chartHeight}`}
-      width={chartWidth}
+    <div
+      style={{
+        alignItems: "center",
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+        justifyContent: "center",
+        width: "100%",
+      }}
     >
       {title && (
-        <text
-          fill={titleColor}
-          fontFamily={fontFamily}
-          fontSize={20}
-          fontWeight={600}
-          textAnchor="middle"
-          x={chartWidth / 2}
-          y={36}
+        <div
+          style={{
+            color: titleColor,
+            flexShrink: 0,
+            fontFamily,
+            fontSize: 20,
+            fontWeight: 600,
+            marginBottom: 12,
+            opacity: titleOpacity,
+            textAlign: "center",
+            transform: `translateY(${titleTranslateY}px)`,
+          }}
         >
           {title}
-        </text>
+        </div>
       )}
-      {gaugePositions.map((g, i) => {
-        const isFirst = i === 0;
-        const angle = isFirst ? needleAngle1 : needleAngle2;
-        const counter = isFirst ? counter1 : counter2;
-        const arcProgress = interpolate(
-          frame,
-          [isFirst ? 20 : 30, isFirst ? 80 : 90],
-          [0, 1],
-          { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-        );
-        const currentArcEnd =
-          arcStart + arcLength * arcProgress * (g.data.value / g.data.max);
+      <svg
+        height="100%"
+        viewBox={`0 0 ${chartWidth} ${gaugeSvgHeight}`}
+        width="100%"
+      >
+        <defs>
+          <filter height="200%" id="arcGlow" width="200%" x="-50%" y="-50%">
+            <feGaussianBlur result="blur" stdDeviation="4" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        {gaugePositions.map((g, i) => {
+          const isFirst = i === 0;
+          const angle = isFirst ? needleAngle1 : needleAngle2;
+          const counter = isFirst ? counter1 : counter2;
+          const arcProgress = interpolate(
+            frame,
+            [isFirst ? 20 : 30, isFirst ? 80 : 90],
+            [0, 1],
+            { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+          );
+          const currentArcEnd =
+            arcStart + arcLength * arcProgress * (g.data.value / g.data.max);
 
-        return (
-          <g key={`gauge-${i}`}>
-            {/* Background arc */}
-            <path
-              d={arcPath(arcStart, arcEnd, g.cx, centerY, radius)}
-              fill="none"
-              stroke={theme.cardBorderColor}
-              strokeLinecap="round"
-              strokeWidth={strokeWidth}
-            />
+          const labelEntryProgress = interpolate(
+            frame,
+            [isFirst ? 55 : 65, isFirst ? 75 : 85],
+            [0, 1],
+            { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+          );
 
-            {/* Active arc */}
-            <path
-              d={arcPath(arcStart, currentArcEnd, g.cx, centerY, radius)}
-              fill="none"
-              stroke={g.data.color}
-              strokeLinecap="round"
-              strokeWidth={strokeWidth}
-            />
+          const tickBaseDelay = isFirst ? 15 : 25;
 
-            {/* Needle */}
-            <g
-              transform={`rotate(${(angle * 180) / Math.PI - 90}, ${g.cx}, ${centerY})`}
-            >
-              <polygon
-                fill="#ffffff"
-                points={`${g.cx - 6},${centerY - radius + 12} ${g.cx + 6},${centerY - radius + 12} ${g.cx},${centerY - radius - 8}`}
+          return (
+            <g key={`gauge-${i}`}>
+              {/* Inner rim ring */}
+              <path
+                fill="none"
+                opacity={0.3}
+                stroke={theme.cardBorderColor}
+                strokeLinecap="round"
+                strokeWidth={1}
+                d={arcPath(
+                  arcStart,
+                  arcEnd,
+                  g.cx,
+                  centerY,
+                  radius - strokeWidth / 2 - 4,
+                )}
               />
+
+              {/* Background arc */}
+              <path
+                d={arcPath(arcStart, arcEnd, g.cx, centerY, radius)}
+                fill="none"
+                stroke={theme.cardBorderColor}
+                strokeLinecap="round"
+                strokeWidth={strokeWidth}
+              />
+
+              {/* Active arc glow */}
+              <path
+                d={arcPath(arcStart, currentArcEnd, g.cx, centerY, radius)}
+                fill="none"
+                opacity={0.18}
+                stroke={g.data.color}
+                strokeLinecap="round"
+                strokeWidth={strokeWidth + 10}
+              />
+
+              {/* Active arc */}
+              <path
+                d={arcPath(arcStart, currentArcEnd, g.cx, centerY, radius)}
+                fill="none"
+                filter="url(#arcGlow)"
+                stroke={g.data.color}
+                strokeLinecap="round"
+                strokeWidth={strokeWidth}
+              />
+
+              {/* Tick marks */}
+              {Array.from({ length: 11 }, (_, tickIdx) => {
+                const isMajor = tickIdx % 5 === 0;
+                const outerR =
+                  radius + strokeWidth / 2 + (isMajor ? 14 : 10);
+                const tickAngle =
+                  arcStart + arcLength * (tickIdx / 10);
+                const tickInnerR = radius + strokeWidth / 2 + 4;
+                const tickOpacity = interpolate(
+                  frame,
+                  [
+                    tickBaseDelay + tickIdx * 2,
+                    tickBaseDelay + tickIdx * 2 + 12,
+                  ],
+                  [0, 1],
+                  {
+                    extrapolateLeft: "clamp",
+                    extrapolateRight: "clamp",
+                  },
+                );
+                const tx1 =
+                  g.cx + tickInnerR * Math.cos(tickAngle);
+                const tx2 = g.cx + outerR * Math.cos(tickAngle);
+                const ty1 =
+                  centerY + tickInnerR * Math.sin(tickAngle);
+                const ty2 = centerY + outerR * Math.sin(tickAngle);
+
+                return (
+                  <line
+                    key={`tick-${i}-${tickIdx}`}
+                    opacity={tickOpacity}
+                    stroke={isMajor ? "#ffffff" : "#555566"}
+                    strokeLinecap="round"
+                    strokeWidth={isMajor ? 2 : 1}
+                    x1={tx1}
+                    x2={tx2}
+                    y1={ty1}
+                    y2={ty2}
+                  />
+                );
+              })}
+
+              {/* Endpoint labels */}
+              {[0, 50, 100].map((pct) => {
+                const labelR = radius + strokeWidth / 2 + 28;
+                const lx =
+                  g.cx +
+                  labelR *
+                    Math.cos(
+                      arcStart +
+                        arcLength * (pct / 100),
+                    );
+                const ly =
+                  centerY +
+                  labelR *
+                    Math.sin(
+                      arcStart +
+                        arcLength * (pct / 100),
+                    ) +
+                  4;
+                const pctOpacity = interpolate(
+                  frame,
+                  [tickBaseDelay + 20, tickBaseDelay + 35],
+                  [0, 1],
+                  {
+                    extrapolateLeft: "clamp",
+                    extrapolateRight: "clamp",
+                  },
+                );
+
+                return (
+                  <text
+                    dominantBaseline="middle"
+                    fill={theme.secondaryTextColor}
+                    fontFamily={fontFamily}
+                    fontSize={11}
+                    fontWeight={500}
+                    key={`pct-${i}-${pct}`}
+                    opacity={pctOpacity}
+                    textAnchor="middle"
+                    x={lx}
+                    y={ly}
+                  >
+                    {pct}
+                  </text>
+                );
+              })}
+
+              {/* Needle */}
+              <g
+                transform={`rotate(${(angle * 180) / Math.PI + 90}, ${g.cx}, ${centerY})`}
+              >
+                <polygon
+                  fill="#ffffff"
+                  points={`${g.cx - 2},${centerY + 6} ${g.cx + 2},${centerY + 6} ${g.cx},${centerY - radius - 8}`}
+                />
+                <circle
+                  cx={g.cx}
+                  cy={centerY}
+                  fill="#ffffff"
+                  r={5}
+                  stroke={g.data.color}
+                  strokeWidth={2}
+                />
+              </g>
+
+              {/* Center value */}
+              <text
+                dominantBaseline="middle"
+                fill="#ffffff"
+                fontFamily={fontFamily}
+                fontSize={42}
+                fontWeight={700}
+                textAnchor="middle"
+                x={g.cx}
+                y={centerY + 12}
+              >
+                {Math.round(counter)}
+                <tspan
+                  fill={theme.secondaryTextColor}
+                  fontSize={16}
+                  fontWeight={500}
+                >
+                  {g.data.suffix ?? "%"}
+                </tspan>
+              </text>
+
+              {/* Label */}
+              <g
+                opacity={labelEntryProgress}
+                transform={`translate(0, ${8 * (1 - labelEntryProgress)})`}
+              >
+                <text
+                  dominantBaseline="middle"
+                  fill={theme.secondaryTextColor}
+                  fontFamily={fontFamily}
+                  fontSize={14}
+                  fontWeight={600}
+                  letterSpacing="0.05em"
+                  style={{ textTransform: "uppercase" }}
+                  textAnchor="middle"
+                  x={g.cx}
+                  y={centerY + radius + 52}
+                >
+                  {g.data.label}
+                </text>
+              </g>
             </g>
-
-            {/* Center value */}
-            <text
-              fill="#ffffff"
-              fontFamily={fontFamily}
-              fontSize={42}
-              fontWeight={700}
-              textAnchor="middle"
-              x={g.cx}
-              y={centerY + 16}
-            >
-              {Math.round(counter)}
-            </text>
-
-            {/* Label */}
-            <text
-              fill={theme.secondaryTextColor}
-              fontFamily={fontFamily}
-              fontSize={12}
-              fontWeight={500}
-              textAnchor="middle"
-              x={g.cx}
-              y={centerY + radius + 40}
-            >
-              {g.data.label}
-            </text>
-          </g>
-        );
-      })}
-    </svg>
+          );
+        })}
+      </svg>
+    </div>
   );
 
   if (!showCard) {
@@ -225,7 +408,7 @@ export const DualGaugeChart: React.FC<DualGaugeChartProps> = ({
           padding: 40,
         }}
       >
-        <div style={{ opacity: exitProgress, width: "100%" }}>
+        <div style={{ height: "100%", opacity: exitProgress, width: "100%" }}>
           {innerContent}
         </div>
       </AbsoluteFill>
@@ -247,6 +430,8 @@ export const DualGaugeChart: React.FC<DualGaugeChartProps> = ({
           backgroundColor: cardBackgroundColor,
           border: `1px solid ${theme.cardBorderColor}`,
           borderRadius: cardBorderRadius,
+          display: "flex",
+          flexDirection: "column",
           height: height - 80,
           opacity: exitProgress,
           overflow: "hidden",

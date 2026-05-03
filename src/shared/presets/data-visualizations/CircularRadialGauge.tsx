@@ -31,6 +31,7 @@ export const CircularRadialGauge: React.FC<CircularRadialGaugeProps> = ({
   showCard = true,
   theme: themeOverride,
   title: _title = "",
+  titleColor: _titleColor,
   value,
 }) => {
   useInter();
@@ -38,6 +39,14 @@ export const CircularRadialGauge: React.FC<CircularRadialGaugeProps> = ({
   const { durationInFrames, fps, height, width } = useVideoConfig();
 
   const theme: ChartTheme = { ...defaultDarkTheme, ...themeOverride };
+  const titleColor = _titleColor ?? theme.primaryTextColor;
+
+  const titleOpacity = interpolate(frame, [5, 25], [0, 1], {
+    extrapolateLeft: "clamp",
+  });
+  const titleTranslateY = interpolate(frame, [5, 25], [15, 0], {
+    extrapolateLeft: "clamp",
+  });
 
   const chartWidth = width - (showCard ? cardPadding * 2 : 80);
   const chartHeight = height - (showCard ? cardPadding * 2 : 80);
@@ -95,9 +104,9 @@ export const CircularRadialGauge: React.FC<CircularRadialGaugeProps> = ({
 
   const innerContent = (
     <svg
-      height={chartHeight}
+      height="100%"
       viewBox={`0 0 ${chartWidth} ${chartHeight}`}
-      width={chartWidth}
+      width="100%"
     >
       <defs>
         <radialGradient cx="50%" cy="50%" id="gaugeGradient" r="50%">
@@ -177,8 +186,44 @@ export const CircularRadialGauge: React.FC<CircularRadialGaugeProps> = ({
           padding: 40,
         }}
       >
-        <div style={{ opacity: exitProgress, width: "100%" }}>
-          {innerContent}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+            opacity: exitProgress,
+            width: "100%",
+          }}
+        >
+          {_title && (
+            <div
+              style={{
+                color: titleColor,
+                flexShrink: 0,
+                fontFamily,
+                fontSize: 20,
+                fontWeight: 600,
+                marginBottom: 12,
+                opacity: titleOpacity,
+                textAlign: "center",
+                transform: `translateY(${titleTranslateY}px)`,
+              }}
+            >
+              {_title}
+            </div>
+          )}
+          <div
+            style={{
+              alignItems: "center",
+              display: "flex",
+              flex: 1,
+              justifyContent: "center",
+              overflow: "hidden",
+              width: "100%",
+            }}
+          >
+            {innerContent}
+          </div>
         </div>
       </AbsoluteFill>
     );
@@ -199,6 +244,8 @@ export const CircularRadialGauge: React.FC<CircularRadialGaugeProps> = ({
           backgroundColor: cardBackgroundColor,
           border: `1px solid ${theme.cardBorderColor}`,
           borderRadius: cardBorderRadius,
+          display: "flex",
+          flexDirection: "column",
           height: height - 80,
           opacity: exitProgress,
           overflow: "hidden",
@@ -206,7 +253,35 @@ export const CircularRadialGauge: React.FC<CircularRadialGaugeProps> = ({
           width: width - 80,
         }}
       >
-        {innerContent}
+        {_title && (
+          <div
+            style={{
+              color: titleColor,
+              flexShrink: 0,
+              fontFamily,
+              fontSize: 20,
+              fontWeight: 600,
+              marginBottom: 12,
+              opacity: titleOpacity,
+              textAlign: "center",
+              transform: `translateY(${titleTranslateY}px)`,
+            }}
+          >
+            {_title}
+          </div>
+        )}
+        <div
+          style={{
+            alignItems: "center",
+            display: "flex",
+            flex: 1,
+            justifyContent: "center",
+            overflow: "hidden",
+            width: "100%",
+          }}
+        >
+          {innerContent}
+        </div>
       </div>
     </AbsoluteFill>
   );

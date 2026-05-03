@@ -18,10 +18,10 @@ const PAUSE_SECONDS = 1;
 // Ideal composition size: 1280x720
 
 const getTypedText = ({
+  charFrames,
   frame,
   fullText,
   pauseAfter,
-  charFrames,
   pauseFrames,
 }: {
   frame: number;
@@ -53,7 +53,7 @@ const Cursor: React.FC<{
   frame: number;
   blinkFrames: number;
   symbol?: string;
-}> = ({ frame, blinkFrames, symbol = "\u258C" }) => {
+}> = ({ blinkFrames, frame, symbol = "\u258C" }) => {
   const opacity = interpolate(
     frame % blinkFrames,
     [0, blinkFrames / 2, blinkFrames],
@@ -71,10 +71,10 @@ export const MyAnimation = () => {
   const pauseFrames = Math.round(fps * PAUSE_SECONDS);
 
   const typedText = getTypedText({
+    charFrames: CHAR_FRAMES,
     frame,
     fullText: FULL_TEXT,
     pauseAfter: PAUSE_AFTER,
-    charFrames: CHAR_FRAMES,
     pauseFrames,
   });
 
@@ -87,13 +87,13 @@ export const MyAnimation = () => {
       <div
         style={{
           color: COLOR_TEXT,
+          fontFamily: "sans-serif",
           fontSize: FONT_SIZE,
           fontWeight: FONT_WEIGHT,
-          fontFamily: "sans-serif",
         }}
       >
         <span>{typedText}</span>
-        <Cursor frame={frame} blinkFrames={CURSOR_BLINK_FRAMES} />
+        <Cursor blinkFrames={CURSOR_BLINK_FRAMES} frame={frame} />
       </div>
     </AbsoluteFill>
   );

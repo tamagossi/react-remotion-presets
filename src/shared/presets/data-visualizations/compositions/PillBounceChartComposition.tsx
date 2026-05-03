@@ -8,6 +8,9 @@ export const PillBounceChartComposition: React.FC<PillBounceChartProps> = (
   return (
     <PillBounceChart
       {...props}
+      ballSize={64}
+      pillHeight={320}
+      pillWidth={72}
       subtitle="Designed By Nacant"
       title="YOUR SIMPLE TEXT"
       pills={[

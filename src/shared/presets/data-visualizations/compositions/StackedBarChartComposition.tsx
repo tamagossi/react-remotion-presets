@@ -8,9 +8,10 @@ export const StackedBarChartComposition: React.FC<StackedBarChartProps> = (
   return (
     <StackedBarChart
       {...props}
+      primaryLabel="Direct"
+      secondaryLabel="Referral"
       subtitle="Total sales for current year"
       title="YOUR TEXT"
-      yMax={55}
       data={[
         { label: "Mon", secondaryValue: 15, value: 48 },
         { label: "Tue", secondaryValue: 18, value: 45 },

@@ -20,12 +20,14 @@ export const DualGaugeChartSchema = z.object({
     color: zColor(),
     label: z.string(),
     max: z.number(),
+    suffix: z.string().optional(),
     value: z.number(),
   }),
   gauge2: z.object({
     color: zColor(),
     label: z.string(),
     max: z.number(),
+    suffix: z.string().optional(),
     value: z.number(),
   }),
 });

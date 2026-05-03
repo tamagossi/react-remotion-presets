@@ -31,12 +31,23 @@ export const DonutChartSet: React.FC<DonutChartSetProps> = ({
   fontFamily = "Inter",
   showCard = true,
   theme: themeOverride,
+  title = "",
+  titleColor,
 }) => {
   useInter();
   const frame = useCurrentFrame();
   const { durationInFrames, fps, height, width } = useVideoConfig();
 
   const theme: ChartTheme = { ...defaultDarkTheme, ...themeOverride };
+
+  const titleOpacity = interpolate(frame, [0, 20], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const titleTranslateY = interpolate(frame, [0, 20], [15, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
   const chartWidth = width - (showCard ? cardPadding * 2 : 80);
   const chartHeight = height - (showCard ? cardPadding * 2 : 80);
@@ -50,12 +61,38 @@ export const DonutChartSet: React.FC<DonutChartSetProps> = ({
   );
 
   const innerContent = (
-    <svg
-      height={chartHeight}
-      viewBox={`0 0 ${chartWidth} ${chartHeight}`}
-      width={chartWidth}
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+        width: "100%",
+      }}
     >
-      {charts.map((chart, i) => {
+      {title ? (
+        <div
+          style={{
+            color: titleColor || theme.primaryTextColor,
+            flexShrink: 0,
+            fontFamily,
+            fontSize: 20,
+            fontWeight: 600,
+            marginBottom: 20,
+            opacity: titleOpacity * exitProgress,
+            textAlign: "center",
+            transform: `translateY(${titleTranslateY}px)`,
+          }}
+        >
+          {title}
+        </div>
+      ) : null}
+      <div style={{ flex: 1, width: "100%" }}>
+        <svg
+          height="100%"
+          viewBox={`0 0 ${chartWidth} ${chartHeight}`}
+          width="100%"
+        >
+          {charts.map((chart, i) => {
         const cx = gap * (i + 1);
         const cy = chartHeight * 0.4;
         const radius = Math.min(gap, chartHeight) * 0.32;
@@ -134,7 +171,9 @@ export const DonutChartSet: React.FC<DonutChartSetProps> = ({
           </g>
         );
       })}
-    </svg>
+        </svg>
+      </div>
+    </div>
   );
 
   if (!showCard) {
@@ -148,7 +187,7 @@ export const DonutChartSet: React.FC<DonutChartSetProps> = ({
           padding: 40,
         }}
       >
-        <div style={{ opacity: exitProgress, width: "100%" }}>
+        <div style={{ height: "100%", opacity: exitProgress, width: "100%" }}>
           {innerContent}
         </div>
       </AbsoluteFill>

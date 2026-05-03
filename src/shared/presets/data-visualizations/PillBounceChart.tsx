@@ -41,7 +41,7 @@ export const PillBounceChart: React.FC<PillBounceChartProps> = ({
   animationDuration = 40,
   backgroundColor = "#0f1115",
   ballColor = "#ffffff",
-  ballSize = 56,
+  ballSize = 64,
   bounceDamping = 10,
   bounceMass = 0.5,
   bounceStiffness = 100,
@@ -56,7 +56,7 @@ export const PillBounceChart: React.FC<PillBounceChartProps> = ({
   staggerDelay = 8,
   subtitle = "",
   subtitleColor = "#6b7280",
-  textColor: _textColor = "#ffffff",
+  textColor,
   title = "",
   titleColor = "#ffffff",
 }) => {
@@ -98,6 +98,7 @@ export const PillBounceChart: React.FC<PillBounceChartProps> = ({
   const totalWidth = pills.length * (pillWidth + 24) - 24;
   const startX = (width - totalWidth) / 2;
   const pillTop = height / 2 - pillHeight / 2 + 20;
+  const actualBallSize = Math.min(ballSize, pillWidth - 8);
 
   return (
     <AbsoluteFill
@@ -172,7 +173,7 @@ export const PillBounceChart: React.FC<PillBounceChartProps> = ({
         const ballY = interpolate(
           ballDropProgress,
           [0, 1],
-          [pillTop - 100, pillTop + pillHeight - ballSize - 12],
+          [pillTop - 100, pillTop + (pillHeight - actualBallSize) / 2],
         );
 
         const labelOpacity = interpolate(
@@ -209,21 +210,28 @@ export const PillBounceChart: React.FC<PillBounceChartProps> = ({
                 alignItems: "center",
                 backgroundColor: ballColor,
                 borderRadius: "50%",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.35)",
                 display: "flex",
-                height: ballSize,
+                height: actualBallSize,
                 justifyContent: "center",
-                left: pillX + (pillWidth - ballSize) / 2,
+                left: pillX + (pillWidth - actualBallSize) / 2,
                 opacity: (frame > 25 + delay ? 1 : 0) * exitProgress,
                 position: "absolute",
                 top: ballY,
-                width: ballSize,
+                width: actualBallSize,
               }}
             >
               <span
                 style={{
-                  color: actualColor,
-                  fontSize: 18,
+                  color: textColor ?? actualColor,
                   fontWeight: 700,
+                  lineHeight: 1,
+                  whiteSpace: "nowrap",
+                  fontSize: Math.min(
+                    28,
+                    Math.max(12, actualBallSize * 0.55) /
+                      (pill.number.length * 0.5),
+                  ),
                 }}
               >
                 {pill.number}
@@ -240,6 +248,7 @@ export const PillBounceChart: React.FC<PillBounceChartProps> = ({
                 position: "absolute",
                 textAlign: "center",
                 top: pillTop + pillHeight + 16,
+                transform: `translateY(${(1 - labelOpacity) * 6}px)`,
                 width: pillWidth,
               }}
             >

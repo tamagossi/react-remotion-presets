@@ -64,7 +64,7 @@ export const DivergingBarChart: React.FC<DivergingBarChartProps> = ({
   const chartLeft = 80;
   const chartRight = width - 80;
   const chartTop = 140;
-  const chartBottom = height - 120;
+  const chartBottom = height - 145;
   const chartWidth = chartRight - chartLeft;
   const chartHeight = chartBottom - chartTop;
   const centerY = chartTop + chartHeight / 2;
@@ -131,6 +131,7 @@ export const DivergingBarChart: React.FC<DivergingBarChartProps> = ({
         >
           {title}
         </div>
+        
         {subtitle && (
           <div
             style={{
@@ -240,6 +241,7 @@ export const DivergingBarChart: React.FC<DivergingBarChartProps> = ({
                   width: barWidth,
                 }}
               />
+              
               {showLabels && (
                 <div
                   style={{

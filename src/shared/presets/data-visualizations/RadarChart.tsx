@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 
 import {
   AbsoluteFill,
+  Easing,
   interpolate,
   spring,
   useCurrentFrame,
@@ -20,6 +21,12 @@ import { usePathDrawOn } from "./utils/animations";
 export type RadarChartProps = BaseChartProps & {
   data: DataPoint[];
   gradientColors?: string[];
+  labelBackgroundColor?: string;
+  labelBackgroundPadding?: number;
+  labelBackgroundRadius?: number;
+  labelColor?: string;
+  subtitle?: string;
+  subtitleColor?: string;
 };
 
 export const RadarChart: React.FC<RadarChartProps> = ({
@@ -32,10 +39,16 @@ export const RadarChart: React.FC<RadarChartProps> = ({
   easing: _easing = [0.16, 1, 0.3, 1],
   fontFamily = "Inter",
   gradientColors = ["#a855f7", "#f97316"],
+  labelBackgroundColor = "#ffffff",
+  labelBackgroundPadding = 6,
+  labelBackgroundRadius = 4,
+  labelColor = "#333333",
   showCard = true,
+  subtitle = "",
+  subtitleColor = "#666666",
   theme: themeOverride,
-  title: _title = "",
-  titleColor: _titleColor = "#333333",
+  title = "",
+  titleColor = "#333333",
 }) => {
   useInter();
   const frame = useCurrentFrame();
@@ -45,9 +58,10 @@ export const RadarChart: React.FC<RadarChartProps> = ({
 
   const chartWidth = width - (showCard ? cardPadding * 2 : 80);
   const chartHeight = height - (showCard ? cardPadding * 2 : 80);
+  const headerHeight = title || subtitle ? 70 : 0;
   const cx = chartWidth / 2;
-  const cy = chartHeight / 2;
-  const radius = Math.min(chartWidth, chartHeight) * 0.32;
+  const cy = (chartHeight - headerHeight) / 2 + headerHeight;
+  const radius = Math.min(chartWidth, chartHeight - headerHeight) * 0.32;
 
   const maxValue = useMemo(() => Math.max(...data.map((d) => d.value)), [data]);
 
@@ -69,6 +83,26 @@ export const RadarChart: React.FC<RadarChartProps> = ({
     [1, 0],
     { extrapolateLeft: "clamp" },
   );
+
+  const titleEntryOpacity = interpolate(frame, [0, 15], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  const titleEntryY = interpolate(frame, [0, 15], [-15, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  const subtitleEntryOpacity = interpolate(frame, [8, 23], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  const subtitleEntryY = interpolate(frame, [8, 23], [-15, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
   const axes = useMemo(() => {
     return data.map((_, i) => {
@@ -174,27 +208,105 @@ export const RadarChart: React.FC<RadarChartProps> = ({
         />
       ))}
 
-      {/* Labels */}
+      {/* Labels with background */}
       {axes.map((axis, i) => {
-        const labelRadius = radius + 24;
+        const labelRadius = radius + 32;
         const lx = cx + labelRadius * Math.cos(axis.angle);
         const ly = cy + labelRadius * Math.sin(axis.angle);
+        const labelText = data[i]?.label ?? "";
+        const charWidth = 6.2;
+        const textWidth = labelText.length * charWidth;
+        const textHeight = 14;
+        const rectWidth = textWidth + labelBackgroundPadding * 2;
+        const rectHeight = textHeight + labelBackgroundPadding;
+
+        const labelDelay = 35 + i * 3;
+        const labelOpacity = interpolate(
+          frame,
+          [labelDelay, labelDelay + 10],
+          [0, 1],
+          {
+            easing: Easing.out(Easing.quad),
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+          },
+        );
+
         return (
-          <text
-            fill={theme.primaryTextColor}
-            fontFamily={fontFamily}
-            fontSize={11}
-            fontWeight={500}
-            key={`label-${i}`}
-            textAnchor="middle"
-            x={lx}
-            y={ly + 4}
-          >
-            {data[i]?.label}
-          </text>
+          <g key={`label-${i}`} opacity={labelOpacity}>
+            <rect
+              fill={labelBackgroundColor}
+              height={rectHeight}
+              opacity={0.95}
+              rx={labelBackgroundRadius}
+              ry={labelBackgroundRadius}
+              stroke={theme.gridColor}
+              strokeOpacity={0.12}
+              strokeWidth={1}
+              width={rectWidth}
+              x={lx - rectWidth / 2}
+              y={ly - rectHeight / 2 + 2}
+            />
+            <text
+              dominantBaseline="central"
+              fill={labelColor}
+              fontFamily={fontFamily}
+              fontSize={11}
+              fontWeight={500}
+              textAnchor="middle"
+              x={lx}
+              y={ly + 2}
+            >
+              {labelText}
+            </text>
+          </g>
         );
       })}
     </svg>
+  );
+
+  const headerBlock = (title || subtitle) && (
+    <div
+      style={{
+        boxSizing: "border-box",
+        left: 0,
+        padding: "16px 24px",
+        position: "absolute",
+        top: 0,
+        width: "100%",
+      }}
+    >
+      {title && (
+        <div
+          style={{
+            color: titleColor,
+            fontFamily,
+            fontSize: 22,
+            fontWeight: 700,
+            letterSpacing: "0.02em",
+            opacity: titleEntryOpacity * exitProgress,
+            textTransform: "uppercase",
+            transform: `translateY(${titleEntryY}px)`,
+          }}
+        >
+          {title}
+        </div>
+      )}
+      {subtitle && (
+        <div
+          style={{
+            color: subtitleColor,
+            fontFamily,
+            fontSize: 13,
+            marginTop: title ? 4 : 0,
+            opacity: subtitleEntryOpacity * exitProgress,
+            transform: `translateY(${subtitleEntryY}px)`,
+          }}
+        >
+          {subtitle}
+        </div>
+      )}
+    </div>
   );
 
   if (!showCard) {
@@ -208,8 +320,18 @@ export const RadarChart: React.FC<RadarChartProps> = ({
           padding: 40,
         }}
       >
-        <div style={{ opacity: exitProgress, width: "100%" }}>
-          {innerContent}
+        <div
+          style={{
+            height: chartHeight,
+            opacity: exitProgress,
+            position: "relative",
+            width: chartWidth,
+          }}
+        >
+          {headerBlock}
+          <div style={{ height: "100%" }}>
+            {innerContent}
+          </div>
         </div>
       </AbsoluteFill>
     );
@@ -234,10 +356,14 @@ export const RadarChart: React.FC<RadarChartProps> = ({
           opacity: exitProgress,
           overflow: "hidden",
           padding: cardPadding,
+          position: "relative",
           width: width - 80,
         }}
       >
-        {innerContent}
+        {headerBlock}
+        <div style={{ height: "100%" }}>
+          {innerContent}
+        </div>
       </div>
     </AbsoluteFill>
   );
