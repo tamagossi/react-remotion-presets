@@ -4,6 +4,7 @@ import { Easing, interpolate, useCurrentFrame } from "remotion";
 
 export type MixedWeightSlideTextProps = {
   animationDuration?: number;
+  durationInFrames?: number;
   easing?: [number, number, number, number];
   exitDuration?: number;
   fontFamily?: string;
@@ -20,9 +21,10 @@ export type MixedWeightSlideTextProps = {
 
 export const MixedWeightSlideText: React.FC<MixedWeightSlideTextProps> = ({
   animationDuration = 45,
+  durationInFrames,
   easing = [0.22, 1, 0.36, 1],
   exitDuration = 25,
-  fontFamily = "Anton",
+  fontFamily = "Anton, Impact, sans-serif",
   fontSize = 72,
   fontWeights = [400, 700],
   holdDuration = 30,
@@ -36,8 +38,18 @@ export const MixedWeightSlideText: React.FC<MixedWeightSlideTextProps> = ({
   const frame = useCurrentFrame();
   const words = text.split(" ");
 
-  const exitStart = startFrame + animationDuration + holdDuration;
+  const effectiveHoldDuration =
+    durationInFrames !== undefined
+      ? Math.max(0, durationInFrames - animationDuration - exitDuration)
+      : holdDuration;
+
+  const exitStart = startFrame + animationDuration + effectiveHoldDuration;
   const exitEnd = exitStart + exitDuration;
+
+  const holdFloat =
+    frame >= startFrame && frame < exitStart
+      ? Math.sin((frame - startFrame) * 0.08) * 2
+      : 0;
 
   const exitT = interpolate(frame, [exitStart, exitEnd], [1, 0], {
     easing: Easing.bezier(...easing),
@@ -57,7 +69,8 @@ export const MixedWeightSlideText: React.FC<MixedWeightSlideTextProps> = ({
         gap: fontSize * 0.25,
         justifyContent: "center",
         opacity: containerOpacity,
-        willChange: "opacity",
+        transform: `translate3d(0, ${holdFloat}px, 0)`,
+        willChange: "transform, opacity",
       }}
     >
       {words.map((word, i) => {

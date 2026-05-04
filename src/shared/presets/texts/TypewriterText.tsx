@@ -29,7 +29,7 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
   durationInFrames,
   easing = [0.16, 1, 0.3, 1],
   exitDuration = 25,
-  fontFamily = "Anton",
+  fontFamily = "Anton, Impact, sans-serif",
   fontSize = 72,
   fontWeight = 400,
   holdDuration = 30,
@@ -104,7 +104,8 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
           { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
         );
 
-        const charExitDelay = Math.min(i * 2, Math.max(0, exitDuration - 1));
+        const charExitDelay =
+          (i / Math.max(chars.length - 1, 1)) * exitDuration * 0.7;
         const charExitT = interpolate(
           frame,
           [exitStart + charExitDelay, exitEnd],
@@ -154,6 +155,7 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
           opacity: cursorVisible,
           transform: `scaleY(${cursorVisible})`,
           width: cursorWidth,
+          willChange: "opacity, transform",
         }}
       />
     </div>

@@ -1,9 +1,10 @@
 import React from "react";
 
-import { Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
+import { Easing, interpolate, useCurrentFrame } from "remotion";
 
 export type WiggleTextProps = {
   animationDuration?: number;
+  durationInFrames?: number;
   easing?: [number, number, number, number];
   exitDuration?: number;
   fontFamily?: string;
@@ -21,9 +22,10 @@ export type WiggleTextProps = {
 
 export const WiggleText: React.FC<WiggleTextProps> = ({
   animationDuration = 40,
+  durationInFrames,
   easing = [0.16, 1, 0.3, 1],
   exitDuration = 25,
-  fontFamily = "Anton",
+  fontFamily = "Anton, Impact, sans-serif",
   fontSize = 72,
   fontWeight = 400,
   holdDuration = 30,
@@ -36,16 +38,17 @@ export const WiggleText: React.FC<WiggleTextProps> = ({
   textTransform = "uppercase",
 }) => {
   const frame = useCurrentFrame();
-  const { durationInFrames } = useVideoConfig();
 
   const chars = text.split("");
   const charCount = chars.length;
   const charDelay = animationDuration / Math.max(charCount, 1);
 
-  const exitStart = Math.max(
-    startFrame + animationDuration + holdDuration,
-    durationInFrames - exitDuration,
-  );
+  const effectiveHoldDuration =
+    durationInFrames !== undefined
+      ? Math.max(0, durationInFrames - animationDuration - exitDuration)
+      : holdDuration;
+
+  const exitStart = startFrame + animationDuration + effectiveHoldDuration;
   const exitEnd = exitStart + exitDuration;
 
   const seededRandom = (seed: number) => {
@@ -88,7 +91,8 @@ export const WiggleText: React.FC<WiggleTextProps> = ({
           jitterIntensity *
           decayT;
 
-        const exitCharDelay = Math.min(i * 2, Math.max(0, exitDuration - 1));
+        const exitCharDelay =
+          (i / Math.max(charCount - 1, 1)) * exitDuration * 0.7;
         const charExitT = interpolate(
           frame,
           [exitStart + exitCharDelay, exitEnd],

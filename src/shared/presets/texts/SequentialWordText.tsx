@@ -24,7 +24,7 @@ export const SequentialWordText: React.FC<SequentialWordTextProps> = ({
   durationInFrames,
   easing = [0.16, 1, 0.3, 1],
   exitDuration = 25,
-  fontFamily = "Anton",
+  fontFamily = "Anton, Impact, sans-serif",
   fontSize = 72,
   fontWeight = 400,
   holdDuration = 30,
@@ -46,6 +46,11 @@ export const SequentialWordText: React.FC<SequentialWordTextProps> = ({
   const exitStart = startFrame + animationDuration + effectiveHoldDuration;
   const exitEnd = exitStart + exitDuration;
 
+  const holdFloat =
+    frame >= startFrame && frame < exitStart
+      ? Math.sin((frame - startFrame) * 0.08) * 2
+      : 0;
+
   const exitT = interpolate(frame, [exitStart, exitEnd], [1, 0], {
     easing: Easing.bezier(...easing),
     extrapolateLeft: "clamp",
@@ -64,7 +69,8 @@ export const SequentialWordText: React.FC<SequentialWordTextProps> = ({
         gap: fontSize * 0.3,
         justifyContent: "center",
         opacity: containerOpacity,
-        willChange: "opacity",
+        transform: `translate3d(0, ${holdFloat}px, 0)`,
+        willChange: "transform, opacity",
       }}
     >
       {words.map((word, i) => {
@@ -82,7 +88,7 @@ export const SequentialWordText: React.FC<SequentialWordTextProps> = ({
           extrapolateRight: "clamp",
         });
 
-        const scale = interpolate(entryT, [0, 1], [0.8, 1], {
+        const scale = interpolate(entryT, [0, 0.7, 1], [0.8, 1.04, 1], {
           extrapolateLeft: "clamp",
           extrapolateRight: "clamp",
         });

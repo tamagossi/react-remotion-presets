@@ -250,10 +250,12 @@ import {
   InlineHighlightTextProps,
   LetterSpacingRevealTextProps,
   MixedWeightSlideTextProps,
+  RotateInTextProps,
   ScalePopTextProps,
   SequentialWordTextProps,
   SimpleFadeTextProps,
   SingleWordZoomTextProps,
+  SmearStretchTextProps,
   StackedLineTextProps,
   StackedRepeatTextProps,
   TypewriterGlitchTextProps,
@@ -272,10 +274,12 @@ import {
   InlineHighlightTextComposition,
   LetterSpacingRevealTextComposition,
   MixedWeightSlideTextComposition,
+  RotateInTextComposition,
   ScalePopTextComposition,
   SequentialWordTextComposition,
   SimpleFadeTextComposition,
   SingleWordZoomTextComposition,
+  SmearStretchTextComposition,
   StackedLineTextComposition,
   StackedRepeatTextComposition,
   TypewriterGlitchTextComposition,
@@ -2152,7 +2156,7 @@ export const RemotionRoot: React.FC = () => {
               blurAmount: 12,
               easing: [0.22, 1, 0.36, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 96,
               fontWeight: 400,
               holdDuration: 30,
@@ -2180,7 +2184,7 @@ export const RemotionRoot: React.FC = () => {
               cascadeDirection: "down",
               easing: [0.22, 1, 0.36, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 96,
               fontWeight: 400,
               holdDuration: 30,
@@ -2233,7 +2237,7 @@ export const RemotionRoot: React.FC = () => {
               blurAmount: 16,
               easing: [0.22, 1, 0.36, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 96,
               fontWeight: 400,
               holdDuration: 30,
@@ -2261,7 +2265,7 @@ export const RemotionRoot: React.FC = () => {
               chromaticOffset: 8,
               easing: [0.16, 1, 0.3, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 96,
               fontWeight: 400,
               glitchColor1: "#00f0ff",
@@ -2313,7 +2317,7 @@ export const RemotionRoot: React.FC = () => {
               blurAmount: 8,
               easing: [0.22, 1, 0.36, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 96,
               fontWeight: 400,
               holdDuration: 30,
@@ -2339,7 +2343,7 @@ export const RemotionRoot: React.FC = () => {
               animationDuration: 45,
               easing: [0.22, 1, 0.36, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 96,
               fontWeights: [400, 700],
               holdDuration: 30,
@@ -2352,6 +2356,34 @@ export const RemotionRoot: React.FC = () => {
             } satisfies MixedWeightSlideTextProps
           }
         />
+
+        <Composition
+          component={RotateInTextComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="RotateInText"
+          width={1280}
+          defaultProps={
+            {
+              animationDuration: 45,
+              easing: [0.22, 1, 0.36, 1],
+              exitDuration: 25,
+              fontFamily: "Anton, Impact, sans-serif",
+              fontSize: 96,
+              fontWeight: 400,
+              holdDuration: 30,
+              letterSpacing: 0.02,
+              perspective: 800,
+              rotationAmount: 90,
+              startFrame: 0,
+              text: "CHARACTERS",
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies RotateInTextProps
+          }
+        />
+
         <Composition
           component={ScalePopTextComposition}
           durationInFrames={4 * FPS}
@@ -2367,7 +2399,7 @@ export const RemotionRoot: React.FC = () => {
               bounceStiffness: 120,
               easing: [0.16, 1, 0.3, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 96,
               fontWeight: 400,
               holdDuration: 30,
@@ -2457,6 +2489,32 @@ export const RemotionRoot: React.FC = () => {
         />
 
         <Composition
+          component={SmearStretchTextComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="SmearStretchText"
+          width={1280}
+          defaultProps={
+            {
+              animationDuration: 40,
+              easing: [0.22, 1, 0.36, 1],
+              exitDuration: 25,
+              fontFamily: "Anton, Impact, sans-serif",
+              fontSize: 96,
+              fontWeight: 400,
+              holdDuration: 30,
+              letterSpacing: 0.02,
+              smearAmount: 1.8,
+              startFrame: 0,
+              text: "SMOOTH TEXT",
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies SmearStretchTextProps
+          }
+        />
+
+        <Composition
           component={StackedLineTextComposition}
           durationInFrames={4 * FPS}
           fps={FPS}
@@ -2493,7 +2551,7 @@ export const RemotionRoot: React.FC = () => {
               animationDuration: 40,
               easing: [0.22, 1, 0.36, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 96,
               fontWeight: 400,
               holdDuration: 30,
@@ -2553,7 +2611,7 @@ export const RemotionRoot: React.FC = () => {
               cursorWidth: 3,
               easing: [0.16, 1, 0.3, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 64,
               fontWeight: 400,
               holdDuration: 30,
@@ -2580,7 +2638,7 @@ export const RemotionRoot: React.FC = () => {
               damping: 0.92,
               easing: [0.16, 1, 0.3, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 96,
               fontWeight: 400,
               frequency: 0.3,
@@ -2607,7 +2665,7 @@ export const RemotionRoot: React.FC = () => {
               animationDuration: 40,
               easing: [0.16, 1, 0.3, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 96,
               fontWeight: 400,
               holdDuration: 30,
@@ -2659,7 +2717,7 @@ export const RemotionRoot: React.FC = () => {
               animationDuration: 30,
               easing: [0.16, 1, 0.3, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 96,
               fontWeight: 400,
               holdDuration: 30,
@@ -2689,7 +2747,7 @@ export const RemotionRoot: React.FC = () => {
               driftSpeed: 0.3,
               easing: [0.22, 1, 0.36, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 96,
               fontWeight: 700,
               holdDuration: 30,
@@ -2730,7 +2788,7 @@ export const RemotionRoot: React.FC = () => {
               easing: [0.22, 1, 0.36, 1],
               exitDuration: 25,
               focusDuration: 40,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 28,
               fontWeight: 400,
               holdDuration: 30,
@@ -2767,7 +2825,7 @@ export const RemotionRoot: React.FC = () => {
               dimOpacity: 0.15,
               easing: [0.22, 1, 0.36, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 48,
               fontWeight: 400,
               holdDuration: 30,
@@ -2841,7 +2899,7 @@ export const RemotionRoot: React.FC = () => {
               easing: [0.22, 1, 0.36, 1],
               exitDuration: 25,
               focusDuration: 50,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 48,
               fontWeight: 400,
               holdDuration: 30,
@@ -2926,7 +2984,7 @@ export const RemotionRoot: React.FC = () => {
               dimOpacity: 0.15,
               easing: [0.22, 1, 0.36, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 72,
               fontWeight: 400,
               gradientColors: ["#f472b6", "#a78bfa", "#06b6d4"],
@@ -2988,7 +3046,7 @@ export const RemotionRoot: React.FC = () => {
               easing: [0.22, 1, 0.36, 1],
               exitDuration: 25,
               focusDuration: 45,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 32,
               fontWeight: 400,
               highlightBgColor: "#ffffff",
@@ -3055,7 +3113,7 @@ export const RemotionRoot: React.FC = () => {
               animationDuration: 40,
               easing: [0.22, 1, 0.36, 1],
               exitDuration: 25,
-              fontFamily: "Anton",
+              fontFamily: "Anton, Impact, sans-serif",
               fontSize: 24,
               fontWeight: 400,
               holdDuration: 30,

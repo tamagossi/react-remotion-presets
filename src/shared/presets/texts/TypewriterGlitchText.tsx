@@ -35,7 +35,7 @@ export const TypewriterGlitchText: React.FC<TypewriterGlitchTextProps> = ({
   durationInFrames,
   easing = [0.16, 1, 0.3, 1],
   exitDuration = 25,
-  fontFamily = "Anton",
+  fontFamily = "Anton, Impact, sans-serif",
   fontSize = 72,
   fontWeight = 400,
   glitchColor1 = "#00f0ff",
@@ -141,7 +141,8 @@ export const TypewriterGlitchText: React.FC<TypewriterGlitchTextProps> = ({
           ? Math.sin(frame * 3 + i * 7) * 8 * (1 - glitchProgress)
           : 0;
 
-        const charExitDelay = Math.min(i * 2, Math.max(0, exitDuration - 1));
+        const charExitDelay =
+          (i / Math.max(chars.length - 1, 1)) * exitDuration * 0.7;
         const charExitT = interpolate(
           frame,
           [exitStart + charExitDelay, exitEnd],
@@ -188,6 +189,7 @@ export const TypewriterGlitchText: React.FC<TypewriterGlitchTextProps> = ({
                     opacity: aberrationT * 0.7,
                     position: "absolute",
                     top: 0,
+                    willChange: "opacity",
                   }}
                 >
                   {char}
@@ -201,6 +203,7 @@ export const TypewriterGlitchText: React.FC<TypewriterGlitchTextProps> = ({
                     opacity: aberrationT * 0.7,
                     position: "absolute",
                     top: 0,
+                    willChange: "opacity",
                   }}
                 >
                   {char}
@@ -228,6 +231,7 @@ export const TypewriterGlitchText: React.FC<TypewriterGlitchTextProps> = ({
           opacity: cursorVisible,
           transform: `scaleY(${cursorVisible})`,
           width: cursorWidth,
+          willChange: "opacity, transform",
         }}
       />
     </div>

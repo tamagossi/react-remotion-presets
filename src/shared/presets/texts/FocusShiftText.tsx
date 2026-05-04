@@ -5,6 +5,7 @@ import { Easing, interpolate, useCurrentFrame } from "remotion";
 export type FocusShiftTextProps = {
   animationDuration?: number;
   blurAmount?: number;
+  durationInFrames?: number;
   easing?: [number, number, number, number];
   exitDuration?: number;
   fontFamily?: string;
@@ -23,9 +24,10 @@ export type FocusShiftTextProps = {
 export const FocusShiftText: React.FC<FocusShiftTextProps> = ({
   animationDuration = 50,
   blurAmount = 16,
+  durationInFrames,
   easing = [0.22, 1, 0.36, 1],
   exitDuration = 25,
-  fontFamily = "Anton",
+  fontFamily = "Anton, Impact, sans-serif",
   fontSize = 72,
   fontWeight = 400,
   holdDuration = 30,
@@ -39,8 +41,18 @@ export const FocusShiftText: React.FC<FocusShiftTextProps> = ({
 }) => {
   const frame = useCurrentFrame();
 
-  const exitStart = startFrame + animationDuration + holdDuration;
+  const effectiveHoldDuration =
+    durationInFrames !== undefined
+      ? Math.max(0, durationInFrames - animationDuration - exitDuration)
+      : holdDuration;
+
+  const exitStart = startFrame + animationDuration + effectiveHoldDuration;
   const exitEnd = exitStart + exitDuration;
+
+  const holdFloat =
+    frame >= startFrame && frame < exitStart
+      ? Math.sin((frame - startFrame) * 0.08) * 2
+      : 0;
 
   const currentBlur = interpolate(
     frame,
@@ -81,7 +93,7 @@ export const FocusShiftText: React.FC<FocusShiftTextProps> = ({
         flexDirection: "row",
         justifyContent: "center",
         opacity: containerOpacity,
-        transform: `translate3d(${currentX + exitX}px, ${currentY}px, 0)`,
+        transform: `translate3d(${currentX + exitX}px, ${currentY + holdFloat}px, 0)`,
         willChange: "opacity, transform",
       }}
     >

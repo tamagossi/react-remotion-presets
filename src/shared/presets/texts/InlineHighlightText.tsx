@@ -23,7 +23,7 @@ export const InlineHighlightText: React.FC<InlineHighlightTextProps> = ({
   durationInFrames,
   easing = [0.16, 1, 0.3, 1],
   exitDuration = 25,
-  fontFamily = "Anton",
+  fontFamily = "Anton, Impact, sans-serif",
   fontSize = 72,
   fontWeight = 400,
   holdDuration = 30,
@@ -42,6 +42,11 @@ export const InlineHighlightText: React.FC<InlineHighlightTextProps> = ({
 
   const exitStart = startFrame + animationDuration + effectiveHoldDuration;
   const exitEnd = exitStart + exitDuration;
+
+  const holdFloat =
+    frame >= startFrame && frame < exitStart
+      ? Math.sin((frame - startFrame) * 0.08) * 2
+      : 0;
 
   const exitT = interpolate(frame, [exitStart, exitEnd], [1, 0], {
     easing: Easing.bezier(...easing),
@@ -63,7 +68,7 @@ export const InlineHighlightText: React.FC<InlineHighlightTextProps> = ({
         display: "flex",
         flexDirection: "row",
         opacity: containerOpacity,
-        transform: `translate3d(0, ${containerY}px, 0)`,
+        transform: `translate3d(0, ${containerY + holdFloat}px, 0)`,
         willChange: "transform, opacity",
       }}
     >

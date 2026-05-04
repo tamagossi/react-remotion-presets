@@ -5,6 +5,7 @@ import { Easing, interpolate, useCurrentFrame } from "remotion";
 export type BlurRevealTextProps = {
   animationDuration?: number;
   blurAmount?: number;
+  durationInFrames?: number;
   easing?: [number, number, number, number];
   exitDuration?: number;
   fontFamily?: string;
@@ -23,9 +24,10 @@ export type BlurRevealTextProps = {
 export const BlurRevealText: React.FC<BlurRevealTextProps> = ({
   animationDuration = 45,
   blurAmount = 12,
+  durationInFrames,
   easing = [0.22, 1, 0.36, 1],
   exitDuration = 25,
-  fontFamily = "Anton",
+  fontFamily = "Anton, Impact, sans-serif",
   fontSize = 72,
   fontWeight = 400,
   holdDuration = 30,
@@ -42,8 +44,18 @@ export const BlurRevealText: React.FC<BlurRevealTextProps> = ({
   const charCount = chars.length;
   const charDelay = animationDuration / Math.max(charCount, 1);
 
-  const exitStart = startFrame + animationDuration + holdDuration;
+  const effectiveHoldDuration =
+    durationInFrames !== undefined
+      ? Math.max(0, durationInFrames - animationDuration - exitDuration)
+      : holdDuration;
+
+  const exitStart = startFrame + animationDuration + effectiveHoldDuration;
   const exitEnd = exitStart + exitDuration;
+
+  const holdFloat =
+    frame >= startFrame && frame < exitStart
+      ? Math.sin((frame - startFrame) * 0.08) * 2
+      : 0;
 
   const exitT = interpolate(frame, [exitStart, exitEnd], [1, 0], {
     easing: Easing.bezier(...easing),
@@ -61,7 +73,8 @@ export const BlurRevealText: React.FC<BlurRevealTextProps> = ({
         flexDirection: "row",
         justifyContent: "center",
         opacity: containerOpacity,
-        willChange: "opacity",
+        transform: `translate3d(0, ${holdFloat}px, 0)`,
+        willChange: "transform, opacity",
       }}
     >
       {chars.map((char, i) => {
@@ -82,6 +95,20 @@ export const BlurRevealText: React.FC<BlurRevealTextProps> = ({
           { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
         );
 
+        const scaleEntryT = interpolate(
+          frame,
+          [revealStart, revealEnd],
+          [0, 1],
+          { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+        );
+
+        const overshootScale = interpolate(
+          scaleEntryT,
+          [0, 0.7, 1],
+          [scaleStart, 1.04, 1],
+          { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+        );
+
         const entryOpacity = interpolate(
           frame,
           [revealStart, revealStart + charDelay * 0.5],
@@ -89,7 +116,8 @@ export const BlurRevealText: React.FC<BlurRevealTextProps> = ({
           { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
         );
 
-        const exitCharDelay = Math.min(i * 2, Math.max(0, exitDuration - 1));
+        const exitCharDelay =
+          (i / Math.max(charCount - 1, 1)) * exitDuration * 0.7;
         const charExitT = interpolate(
           frame,
           [exitStart + exitCharDelay, exitEnd],
@@ -108,8 +136,8 @@ export const BlurRevealText: React.FC<BlurRevealTextProps> = ({
 
         const finalScale =
           frame >= exitStart + exitCharDelay
-            ? currentScale * charExitT
-            : currentScale;
+            ? overshootScale * charExitT
+            : overshootScale;
 
         return (
           <span

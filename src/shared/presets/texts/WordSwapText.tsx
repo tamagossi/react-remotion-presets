@@ -4,6 +4,7 @@ import { Easing, interpolate, useCurrentFrame } from "remotion";
 
 export type WordSwapTextProps = {
   animationDuration?: number;
+  durationInFrames?: number;
   easing?: [number, number, number, number];
   exitDuration?: number;
   fontFamily?: string;
@@ -20,9 +21,10 @@ export type WordSwapTextProps = {
 
 export const WordSwapText: React.FC<WordSwapTextProps> = ({
   animationDuration = 30,
+  durationInFrames,
   easing = [0.16, 1, 0.3, 1],
   exitDuration = 25,
-  fontFamily = "Anton",
+  fontFamily = "Anton, Impact, sans-serif",
   fontSize = 72,
   fontWeight = 400,
   holdDuration = 30,
@@ -35,8 +37,18 @@ export const WordSwapText: React.FC<WordSwapTextProps> = ({
 }) => {
   const frame = useCurrentFrame();
 
-  const exitStart = startFrame + animationDuration + holdDuration;
+  const effectiveHoldDuration =
+    durationInFrames !== undefined
+      ? Math.max(0, durationInFrames - animationDuration - exitDuration)
+      : holdDuration;
+
+  const exitStart = startFrame + animationDuration + effectiveHoldDuration;
   const exitEnd = exitStart + exitDuration;
+
+  const holdFloat =
+    frame >= startFrame && frame < exitStart
+      ? Math.sin((frame - startFrame) * 0.08) * 2
+      : 0;
 
   const totalSwapCycle = swapInterval;
   const currentIndex = Math.floor(
@@ -69,7 +81,8 @@ export const WordSwapText: React.FC<WordSwapTextProps> = ({
         justifyContent: "center",
         opacity: containerOpacity,
         position: "relative",
-        willChange: "opacity",
+        transform: `translate3d(0, ${holdFloat}px, 0)`,
+        willChange: "transform, opacity",
       }}
     >
       {words.map((word, i) => {

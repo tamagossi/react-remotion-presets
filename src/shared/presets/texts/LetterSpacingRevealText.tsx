@@ -1,10 +1,11 @@
 import React from "react";
 
-import { Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
+import { Easing, interpolate, useCurrentFrame } from "remotion";
 
 export type LetterSpacingRevealTextProps = {
   animationDuration?: number;
   blurAmount?: number;
+  durationInFrames?: number;
   easing?: [number, number, number, number];
   exitDuration?: number;
   fontFamily?: string;
@@ -24,9 +25,10 @@ export const LetterSpacingRevealText: React.FC<
 > = ({
   animationDuration = 50,
   blurAmount = 8,
+  durationInFrames,
   easing = [0.22, 1, 0.36, 1],
   exitDuration = 25,
-  fontFamily = "Anton",
+  fontFamily = "Anton, Impact, sans-serif",
   fontSize = 72,
   fontWeight = 400,
   holdDuration = 30,
@@ -38,17 +40,23 @@ export const LetterSpacingRevealText: React.FC<
   textTransform = "uppercase",
 }) => {
   const frame = useCurrentFrame();
-  const { durationInFrames } = useVideoConfig();
 
   const chars = text.split("");
   const charCount = chars.length;
   const charDelay = animationDuration / Math.max(charCount, 1);
 
-  const exitStart = Math.max(
-    startFrame + animationDuration + holdDuration,
-    durationInFrames - exitDuration,
-  );
+  const effectiveHoldDuration =
+    durationInFrames !== undefined
+      ? Math.max(0, durationInFrames - animationDuration - exitDuration)
+      : holdDuration;
+
+  const exitStart = startFrame + animationDuration + effectiveHoldDuration;
   const exitEnd = exitStart + exitDuration;
+
+  const holdFloat =
+    frame >= startFrame && frame < exitStart
+      ? Math.sin((frame - startFrame) * 0.08) * 2
+      : 0;
 
   return (
     <div
@@ -57,6 +65,7 @@ export const LetterSpacingRevealText: React.FC<
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
+        transform: `translate3d(0, ${holdFloat}px, 0)`,
       }}
     >
       {chars.map((char, i) => {
@@ -89,7 +98,8 @@ export const LetterSpacingRevealText: React.FC<
           { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
         );
 
-        const exitCharDelay = Math.min(i * 2, Math.max(0, exitDuration - 1));
+        const exitCharDelay =
+          (i / Math.max(charCount - 1, 1)) * exitDuration * 0.7;
         const charExitT = interpolate(
           frame,
           [exitStart + exitCharDelay, exitEnd],
@@ -130,7 +140,7 @@ export const LetterSpacingRevealText: React.FC<
               opacity: finalOpacity,
               textTransform,
               whiteSpace: "pre",
-              willChange: "filter, opacity, letter-spacing",
+              willChange: "filter, opacity",
             }}
           >
             {char}

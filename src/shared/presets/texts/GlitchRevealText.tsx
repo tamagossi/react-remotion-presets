@@ -31,7 +31,7 @@ export const GlitchRevealText: React.FC<GlitchRevealTextProps> = ({
   durationInFrames,
   easing = [0.16, 1, 0.3, 1],
   exitDuration = 25,
-  fontFamily = "Anton",
+  fontFamily = "Anton, Impact, sans-serif",
   fontSize = 72,
   fontWeight = 400,
   glitchColor1 = "#00f0ff",
@@ -156,6 +156,7 @@ export const GlitchRevealText: React.FC<GlitchRevealTextProps> = ({
                     opacity: aberrationT * 0.7,
                     position: "absolute",
                     top: 0,
+                    willChange: "opacity",
                   }}
                 >
                   {char}
@@ -169,6 +170,7 @@ export const GlitchRevealText: React.FC<GlitchRevealTextProps> = ({
                     opacity: aberrationT * 0.7,
                     position: "absolute",
                     top: 0,
+                    willChange: "opacity",
                   }}
                 >
                   {char}

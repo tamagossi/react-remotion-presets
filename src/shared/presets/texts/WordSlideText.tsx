@@ -25,7 +25,7 @@ export const WordSlideText: React.FC<WordSlideTextProps> = ({
   durationInFrames,
   easing = [0.16, 1, 0.3, 1],
   exitDuration = 25,
-  fontFamily = "Anton",
+  fontFamily = "Anton, Impact, sans-serif",
   fontSize = 72,
   fontWeight = 400,
   holdDuration = 30,
@@ -48,6 +48,11 @@ export const WordSlideText: React.FC<WordSlideTextProps> = ({
   const exitStart = startFrame + animationDuration + effectiveHoldDuration;
   const exitEnd = exitStart + exitDuration;
 
+  const holdFloat =
+    frame >= startFrame && frame < exitStart
+      ? Math.sin((frame - startFrame) * 0.08) * 2
+      : 0;
+
   const exitT = interpolate(frame, [exitStart, exitEnd], [1, 0], {
     easing: Easing.bezier(...easing),
     extrapolateLeft: "clamp",
@@ -66,7 +71,8 @@ export const WordSlideText: React.FC<WordSlideTextProps> = ({
         gap: fontSize * 0.3,
         justifyContent: "center",
         opacity: containerOpacity,
-        willChange: "opacity",
+        transform: `translate3d(0, ${holdFloat}px, 0)`,
+        willChange: "transform, opacity",
       }}
     >
       {words.map((word, i) => {

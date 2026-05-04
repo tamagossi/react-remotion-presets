@@ -4,6 +4,7 @@ import { Easing, interpolate, useCurrentFrame } from "remotion";
 
 export type StackedRepeatTextProps = {
   animationDuration?: number;
+  durationInFrames?: number;
   easing?: [number, number, number, number];
   exitDuration?: number;
   fontFamily?: string;
@@ -22,9 +23,10 @@ export type StackedRepeatTextProps = {
 
 export const StackedRepeatText: React.FC<StackedRepeatTextProps> = ({
   animationDuration = 40,
+  durationInFrames,
   easing = [0.22, 1, 0.36, 1],
   exitDuration = 25,
-  fontFamily = "Anton",
+  fontFamily = "Anton, Impact, sans-serif",
   fontSize = 72,
   fontWeight = 400,
   holdDuration = 30,
@@ -79,7 +81,10 @@ export const StackedRepeatText: React.FC<StackedRepeatTextProps> = ({
         const offsetY = i * layerOffset * layerEntryT;
         const opacity =
           i === 0
-            ? layerEntryT
+            ? interpolate(layerEntryT, [0, 1], [0.5, 1], {
+                extrapolateLeft: "clamp",
+                extrapolateRight: "clamp",
+              })
             : layerOpacity * (1 - i / layerCount) * layerEntryT;
 
         return (
