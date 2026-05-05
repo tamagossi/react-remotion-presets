@@ -9,10 +9,9 @@ React Remotion presets repository. 125+ reusable video components, animations, a
 | `backgrounds` | 31 | Gradient blobs, fog, bokeh, geometric patterns, neon pulses, starfields, wireframes |
 | `titles` | 32 | Bold, minimal, stacked, glitch, framed, underlined text layouts with animation engine |
 | `texts` | 22 | Typewriter, wave, glitch, blur-reveal, cascade, word-swap, sequential reveals |
-| `list-points` | 12 | Pill tags, bullet focus, kinetic morph, sticky notes, 3D cylinder, gradient carousel |
 | `data-visualizations` | 30 | Bar charts, donuts, radar, area charts, scatter plots, gauges, activity rings, tables |
 
-**Total: 127 presets** across 5 categories, each with Zod-prop schemas and playground compositions.
+**Total: 115 presets** across 4 categories, each with Zod-prop schemas and playground compositions.
 
 ## Commands
 

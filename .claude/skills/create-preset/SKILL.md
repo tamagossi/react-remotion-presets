@@ -34,7 +34,7 @@ Load `rules/persona.md` immediately upon activation. You are a world-class After
 
 Ask user (if not provided):
 
-- Category: what type of preset? (background, text-animation, transition, chart, overlay, lower-third, code, list-points, video-mask, scene-template, other)
+- Category: what type of preset? (background, text-animation, transition, chart, overlay, lower-third, code, video-mask, scene-template, other)
 - Reference: image, video, GIF, or describe visual style. If video/GIF provided, analyze its entry/exit/action animations with frame-level precision.
 - Minimum behavior: what must it do? (e.g., "text slides in from left", "match this video's reveal animation")
 - Context: script tone, target audience, mood if known

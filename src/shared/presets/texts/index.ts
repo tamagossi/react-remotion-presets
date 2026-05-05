@@ -53,17 +53,27 @@ export {
 export { WordSlideText, type WordSlideTextProps } from "./WordSlideText";
 
 export {
+  BlurRevealTextSchema,
+  CascadeLetterTextSchema,
   ColorStackTextSchema,
+  FocusShiftTextSchema,
   GlitchRevealTextSchema,
   InlineHighlightTextSchema,
+  LetterSpacingRevealTextSchema,
+  MixedWeightSlideTextSchema,
+  RotateInTextSchema,
   ScalePopTextSchema,
   SequentialWordTextSchema,
   SimpleFadeTextSchema,
   SingleWordZoomTextSchema,
+  SmearStretchTextSchema,
   StackedLineTextSchema,
+  StackedRepeatTextSchema,
   TextAnimationSchema,
   TypewriterGlitchTextSchema,
   TypewriterTextSchema,
   WaveTextSchema,
+  WiggleTextSchema,
   WordSlideTextSchema,
+  WordSwapTextSchema,
 } from "./schemas";

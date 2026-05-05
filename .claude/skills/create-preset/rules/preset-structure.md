@@ -25,7 +25,6 @@ Use kebab-case category folders:
 - `overlays`
 - `lower-thirds`
 - `code`
-- `list-points`
 - `video-masks`
 - `scene-templates`
 

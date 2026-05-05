@@ -35,7 +35,7 @@ Load `rules/persona.md` immediately upon activation. You are a senior motion des
 Determine the scope:
 
 - **Single file**: User provides `refine PresetName` or a file path
-- **Entire category**: User says "audit all titles" or "refine list-points"
+- **Entire category**: User says "audit all titles" or "refine data-visualizations"
 - **Find weakest**: User says "find the worst animations" or "which presets need most work"
 - **Video reference**: User provides a GIF/video URL or path and says "make this match"
 
@@ -71,7 +71,6 @@ Auto-detect category from the file path:
 | `/titles/` | Title | `rules/category-titles.md` |
 | `/texts/` | Text Animation | `rules/category-texts.md` |
 | `/backgrounds/` | Background | `rules/category-backgrounds.md` |
-| `/list-points/` | List / Bullet | `rules/category-list-points.md` |
 | `/data-visualizations/` | Data Viz / Chart | `rules/category-data-viz.md` |
 
 For full-category audits, load all components in the category.
@@ -150,7 +149,6 @@ Follow `rules/execution-guide.md` for safe editing procedures.
 | `rules/category-titles.md` | Title-specific refinement heuristics |
 | `rules/category-texts.md` | Text animation refinement heuristics |
 | `rules/category-backgrounds.md` | Background refinement heuristics |
-| `rules/category-list-points.md` | List/bullet refinement heuristics |
 | `rules/category-data-viz.md` | Chart/data visualization refinement heuristics |
 | `rules/animation-redflags.md` | Common anti-patterns and quick-fail checks |
 | `rules/proposal-template.md` | Conversational approve/deny format spec |

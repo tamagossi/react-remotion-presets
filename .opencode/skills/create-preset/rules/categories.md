@@ -123,23 +123,6 @@ Source code presentation with syntax highlighting.
 - `CodeBlockReveal` — lines slide in
 - `TerminalWindow` — framed terminal with cursor
 
-## list-points
-
-Bullet points, numbered lists, feature highlights.
-
-**Conventions:**
-
-- Accept `items: string[]` or structured item array
-- Staggered reveal per item
-- Support icons/numbers before text
-- Vertical stack with consistent spacing
-
-**Examples:**
-
-- `StaggeredList` — items fade/slide in sequentially
-- `ChecklistReveal` — checkmarks animate on
-- `NumberedSteps` — large number + description
-
 ## video-masks
 
 Mask video content with shapes, text, or gradients.
