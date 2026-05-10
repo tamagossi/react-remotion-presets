@@ -19,7 +19,7 @@ Each preset has typed Zod schemas for props and a dedicated playground compositi
 - **[Remotion](https://remotion.dev) 4.0.451** — React-based video framework
 - **React 19** — UI rendering
 - **Tailwind CSS v4** — utility-first styling (CSS-based config)
-- **Zod 4.3.6** — runtime prop validation and type inference
+- **Zod 4.3.6** — runtime prop validation and type inference 
 - **TypeScript 5.9** — strict mode with `noUnusedLocals`
 
 ## How to Run

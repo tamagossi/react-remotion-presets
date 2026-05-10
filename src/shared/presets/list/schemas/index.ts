@@ -1,5 +1,3 @@
-export { BarRevealListSchema } from "./BarRevealListSchema";
-export { CardBulletListSchema } from "./CardBulletListSchema";
 export { CompactBarListSchema } from "./CompactBarListSchema";
 export { FlatSearchListSchema } from "./FlatSearchListSchema";
 export { GradientSearchListSchema } from "./GradientSearchListSchema";

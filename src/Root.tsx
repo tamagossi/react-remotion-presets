@@ -15,96 +15,51 @@ import {
   AuroraFlowBackgroundSchema,
   BokehLightsBackgroundProps,
   BokehLightsBackgroundSchema,
-  CinematicVignetteOverlayProps,
-  CinematicVignetteOverlaySchema,
   ConcentricCirclePatternBackgroundProps,
   ConcentricCirclePatternBackgroundSchema,
   CornerGlowBackgroundProps,
   CornerGlowBackgroundSchema,
-  DarkGradientBackgroundProps,
-  DarkGradientBackgroundSchema,
-  DepthFogBackgroundProps,
-  DepthFogBackgroundSchema,
-  DiagonalSpectrumBackgroundProps,
-  DiagonalSpectrumBackgroundSchema,
-  DiagonalStripePatternBackgroundProps,
-  DiagonalStripePatternBackgroundSchema,
   FlowWaveBackgroundProps,
   FlowWaveBackgroundSchema,
   GeometricGridBackgroundProps,
   GeometricGridBackgroundSchema,
-  GeometricTessellationBackgroundProps,
-  GeometricTessellationBackgroundSchema,
-  GridDotPatternBackgroundProps,
-  GridDotPatternBackgroundSchema,
-  GridLinePatternBackgroundProps,
-  GridLinePatternBackgroundSchema,
+  GridPatternBackgroundProps,
+  GridPatternBackgroundSchema,
   HaloVignetteBackgroundProps,
   HaloVignetteBackgroundSchema,
   HexagonPatternBackgroundProps,
   HexagonPatternBackgroundSchema,
-  LightGradientBackgroundProps,
-  LightGradientBackgroundSchema,
-  MonochromeDriftBackgroundProps,
-  MonochromeDriftBackgroundSchema,
   MorphingMeshBackgroundProps,
   MorphingMeshBackgroundSchema,
   NeonPulseBackgroundProps,
   NeonPulseBackgroundSchema,
-  NodeScatterBackgroundProps,
-  NodeScatterBackgroundSchema,
-  PaperTextureBackgroundProps,
-  PaperTextureBackgroundSchema,
   PlexusNetworkBackgroundProps,
   PlexusNetworkBackgroundSchema,
   RadialSpotlightBackgroundProps,
   RadialSpotlightBackgroundSchema,
   StarfieldBackgroundProps,
   StarfieldBackgroundSchema,
-  SunsetOrbitBackgroundProps,
-  SunsetOrbitBackgroundSchema,
   SweepArcBackgroundProps,
   SweepArcBackgroundSchema,
-  WarmDriftBackgroundProps,
-  WarmDriftBackgroundSchema,
-  WaveCurveBackgroundProps,
-  WaveCurveBackgroundSchema,
-  WaveDotPatternBackgroundProps,
-  WaveDotPatternBackgroundSchema,
 } from "./shared/presets/backgrounds";
 import {
   ArchitecturalWireframeBackgroundComposition,
   AtmosphericFogBackgroundComposition,
   AuroraFlowBackgroundComposition,
-  BackgroundComposition,
   BokehLightsBackgroundComposition,
-  CinematicVignetteOverlayComposition,
   ConcentricCirclePatternBackgroundComposition,
   CornerGlowBackgroundComposition,
-  DepthFogBackgroundComposition,
-  DiagonalSpectrumBackgroundComposition,
-  DiagonalStripePatternBackgroundComposition,
   FlowWaveBackgroundComposition,
   GeometricGridBackgroundComposition,
-  GeometricTessellationBackgroundComposition,
-  GridDotPatternBackgroundComposition,
-  GridLinePatternBackgroundComposition,
+  GridPatternBackgroundComposition,
   HaloVignetteBackgroundComposition,
   HexagonPatternBackgroundComposition,
-  LightGradientBackgroundComposition,
-  MonochromeDriftBackgroundComposition,
   MorphingMeshBackgroundComposition,
   NeonPulseBackgroundComposition,
-  NodeScatterBackgroundComposition,
-  PaperTextureBackgroundComposition,
   PlexusNetworkBackgroundComposition,
   RadialSpotlightBackgroundComposition,
   StarfieldBackgroundComposition,
-  SunsetOrbitBackgroundComposition,
   SweepArcBackgroundComposition,
-  WarmDriftBackgroundComposition,
-  WaveCurveBackgroundComposition,
-  WaveDotPatternBackgroundComposition,
 } from "./shared/presets/backgrounds/compositions";
 import {
   ActivityRingsProps,
@@ -115,8 +70,6 @@ import {
   AreaChartGlowSchema,
   CandlestickChartProps,
   CandlestickChartSchema,
-  CircularRadialGaugeProps,
-  CircularRadialGaugeSchema,
   DataTableCardProps,
   DataTableCardSchema,
   DemographicIconsProps,
@@ -131,8 +84,6 @@ import {
   DonutChartSetSchema,
   DotScatterChartProps,
   DotScatterChartSchema,
-  DualGaugeChartProps,
-  DualGaugeChartSchema,
   GroupedBarChartCardProps,
   GroupedBarChartCardSchema,
   GroupedBarChartProps,
@@ -143,9 +94,6 @@ import {
   HorizontalBarChartSchema,
   IconStatGridProps,
   IconStatGridSchema,
-  LoadingProgressSchema,
-  NestedArcChartProps,
-  NestedArcChartSchema,
   PillBounceChartProps,
   PillBounceChartSchema,
   ProgressBarCardProps,
@@ -156,8 +104,6 @@ import {
   RadarChartCardSchema,
   RadarChartProps,
   RadarChartSchema,
-  RadialRingChartProps,
-  RadialRingChartSchema,
   SalesReportCardProps,
   SalesReportCardSchema,
   SemiCircleGaugeCardProps,
@@ -168,15 +114,12 @@ import {
   StackedBarChartCardSchema,
   StackedBarChartProps,
   StackedBarChartSchema,
-  TrafficLightDotsProps,
-  TrafficLightDotsSchema,
 } from "./shared/presets/data-visualizations";
 import {
   ActivityRingsComposition,
   AnimatedLineChartComposition,
   AreaChartGlowComposition,
   CandlestickChartComposition,
-  CircularRadialGaugeComposition,
   DataTableCardComposition,
   DemographicIconsComposition,
   DivergingBarChartComposition,
@@ -184,32 +127,23 @@ import {
   DonutChartComposition,
   DonutChartSetComposition,
   DotScatterChartComposition,
-  DualGaugeChartComposition,
   GroupedBarChartCardComposition,
   GroupedBarChartComposition,
   HorizontalBarChartCardComposition,
   HorizontalBarChartComposition,
   IconStatGridComposition,
-  LoadingProgressComposition,
-  NestedArcChartComposition,
   PillBounceChartComposition,
   ProgressBarCardComposition,
   PyramidChartComposition,
   RadarChartCardComposition,
   RadarChartComposition,
-  RadialRingChartComposition,
   SalesReportCardComposition,
   SemiCircleGaugeCardComposition,
   SplitPercentageDisplayComposition,
   StackedBarChartCardComposition,
   StackedBarChartComposition,
-  TrafficLightDotsComposition,
 } from "./shared/presets/data-visualizations/compositions";
 import {
-  BarRevealListProps,
-  BarRevealListSchema,
-  CardBulletListProps,
-  CardBulletListSchema,
   CompactBarListProps,
   CompactBarListSchema,
   FlatSearchListProps,
@@ -226,8 +160,6 @@ import {
   TimelineScheduleListSchema,
 } from "./shared/presets/list";
 import {
-  BarRevealListComposition,
-  CardBulletListComposition,
   CompactBarListComposition,
   FlatSearchListComposition,
   GradientSearchListComposition,
@@ -241,15 +173,19 @@ import {
   ChatConversationSchema,
   ShadowingSceneProps,
   ShadowingSceneSchema,
-  YouTubeSubscribeOverlayProps,
-  YouTubeSubscribeOverlaySchema,
 } from "./shared/presets/misc";
 import { ChatConversationComposition } from "./shared/presets/misc/compositions/ChatConversationComposition";
 import { ShadowingSceneComposition } from "./shared/presets/misc/compositions/ShadowingSceneComposition";
-import { YouTubeSubscribeOverlayComposition } from "./shared/presets/misc/compositions/YouTubeSubscribeOverlayComposition";
+import {
+  YouTubeSubscribeOverlayProps,
+  YouTubeSubscribeOverlaySchema,
+} from "./shared/presets/lower-thirds";
+import { YouTubeSubscribeOverlayComposition } from "./shared/presets/lower-thirds/compositions/YouTubeSubscribeOverlayComposition";
 import {
   BlurRevealTextProps,
   BlurRevealTextSchema,
+  BoldRightTitleProps,
+  BoldRightTitleSchema,
   CascadeLetterTextProps,
   CascadeLetterTextSchema,
   ColorStackTextProps,
@@ -258,28 +194,66 @@ import {
   FocusShiftTextSchema,
   GlitchRevealTextProps,
   GlitchRevealTextSchema,
+  GlitchStrokeTitleProps,
+  GlitchStrokeTitleSchema,
+  HeavyStackTitleProps,
+  HeavyStackTitleSchema,
+  HighlightBarTitleProps,
+  HighlightBarTitleSchema,
   InlineHighlightTextProps,
   InlineHighlightTextSchema,
+  KineticSlamTitleProps,
+  KineticSlamTitleSchema,
+  LabelStackTitleProps,
+  LabelStackTitleSchema,
   LetterSpacingRevealTextProps,
   LetterSpacingRevealTextSchema,
+  LetterSpacingRevealTitleProps,
+  LetterSpacingRevealTitleSchema,
+  MinimalDuoTitleProps,
+  MinimalDuoTitleSchema,
+  MinimalStyleTitleProps,
+  MinimalStyleTitleSchema,
+  MixedEmphasisTitleProps,
+  MixedEmphasisTitleSchema,
   MixedWeightSlideTextProps,
   MixedWeightSlideTextSchema,
+  ModernRightTitleProps,
+  ModernRightTitleSchema,
+  NumberFrameTitleProps,
+  NumberFrameTitleSchema,
+  OutlineFillTitleProps,
+  OutlineFillTitleSchema,
+  QuoteBlockTitleProps,
+  QuoteBlockTitleSchema,
   RotateInTextProps,
   RotateInTextSchema,
+  RoundedBoxTitleProps,
+  RoundedBoxTitleSchema,
+  SandwichLabelTitleProps,
+  SandwichLabelTitleSchema,
   ScalePopTextProps,
   ScalePopTextSchema,
   SequentialWordTextProps,
   SequentialWordTextSchema,
+  ShadowDepthTitleProps,
+  ShadowDepthTitleSchema,
   SimpleFadeTextProps,
   SimpleFadeTextSchema,
   SingleWordZoomTextProps,
   SingleWordZoomTextSchema,
   SmearStretchTextProps,
   SmearStretchTextSchema,
+  StackedCenterTitleProps,
+  StackedCenterTitleSchema,
   StackedLineTextProps,
   StackedLineTextSchema,
   StackedRepeatTextProps,
   StackedRepeatTextSchema,
+  StackedRightTitleProps,
+  StackedRightTitleSchema,
+  StackedTrioCenterTitleProps,
+  StackedTrioCenterTitleSchema,
   TypewriterGlitchTextProps,
   TypewriterGlitchTextSchema,
   TypewriterTextProps,
@@ -295,21 +269,41 @@ import {
 } from "./shared/presets/texts";
 import {
   BlurRevealTextComposition,
+  BoldRightTitleComposition,
   CascadeLetterTextComposition,
   ColorStackTextComposition,
   FocusShiftTextComposition,
   GlitchRevealTextComposition,
+  GlitchStrokeTitleComposition,
+  HeavyStackTitleComposition,
+  HighlightBarTitleComposition,
   InlineHighlightTextComposition,
+  KineticSlamTitleComposition,
+  LabelStackTitleComposition,
   LetterSpacingRevealTextComposition,
+  LetterSpacingRevealTitleComposition,
+  MinimalDuoTitleComposition,
+  MinimalStyleTitleComposition,
+  MixedEmphasisTitleComposition,
   MixedWeightSlideTextComposition,
+  ModernRightTitleComposition,
+  NumberFrameTitleComposition,
+  OutlineFillTitleComposition,
+  QuoteBlockTitleComposition,
   RotateInTextComposition,
+  RoundedBoxTitleComposition,
+  SandwichLabelTitleComposition,
   ScalePopTextComposition,
   SequentialWordTextComposition,
+  ShadowDepthTitleComposition,
   SimpleFadeTextComposition,
   SingleWordZoomTextComposition,
   SmearStretchTextComposition,
+  StackedCenterTitleComposition,
   StackedLineTextComposition,
   StackedRepeatTextComposition,
+  StackedRightTitleComposition,
+  StackedTrioCenterTitleComposition,
   TypewriterGlitchTextComposition,
   TypewriterTextComposition,
   WaveTextComposition,
@@ -317,117 +311,10 @@ import {
   WordSlideTextComposition,
   WordSwapTextComposition,
 } from "./shared/presets/texts/compositions";
-import {
-  BoldRightTitleProps,
-  BoldRightTitleSchema,
-  CardFillTitleProps,
-  CardFillTitleSchema,
-  ControllersUnderlineTitleProps,
-  ControllersUnderlineTitleSchema,
-  DoubleFrameTitleProps,
-  DoubleFrameTitleSchema,
-  ExclusiveLabelTitleProps,
-  ExclusiveLabelTitleSchema,
-  GeometricMaskTitleProps,
-  GeometricMaskTitleSchema,
-  GiantInitialTitleProps,
-  GiantInitialTitleSchema,
-  GlitchStrokeTitleProps,
-  GlitchStrokeTitleSchema,
-  GradientTrailTitleProps,
-  GradientTrailTitleSchema,
-  HeavyStackTitleProps,
-  HeavyStackTitleSchema,
-  HeroSubtitleTitleProps,
-  HeroSubtitleTitleSchema,
-  HighlightBarTitleProps,
-  HighlightBarTitleSchema,
-  KineticSlamTitleProps,
-  KineticSlamTitleSchema,
-  LabelStackTitleProps,
-  LabelStackTitleSchema,
-  LetterSpacingRevealTitleProps,
-  LetterSpacingRevealTitleSchema,
-  MinimalDuoTitleProps,
-  MinimalDuoTitleSchema,
-  MinimalStyleTitleProps,
-  MinimalStyleTitleSchema,
-  MixedEmphasisTitleProps,
-  MixedEmphasisTitleSchema,
-  ModernRightTitleProps,
-  ModernRightTitleSchema,
-  NumberFrameTitleProps,
-  NumberFrameTitleSchema,
-  OffsetFramesTitleProps,
-  OffsetFramesTitleSchema,
-  OutlineBoxTitleProps,
-  OutlineBoxTitleSchema,
-  OutlineFillTitleProps,
-  OutlineFillTitleSchema,
-  OverlineUnderlineTitleProps,
-  OverlineUnderlineTitleSchema,
-  QuoteBlockTitleProps,
-  QuoteBlockTitleSchema,
-  RoundedBoxTitleProps,
-  RoundedBoxTitleSchema,
-  SandwichLabelTitleProps,
-  SandwichLabelTitleSchema,
-  ShadowDepthTitleProps,
-  ShadowDepthTitleSchema,
-  SplitHighlightTitleProps,
-  SplitHighlightTitleSchema,
-  StackedCenterTitleProps,
-  StackedCenterTitleSchema,
-  StackedRightTitleProps,
-  StackedRightTitleSchema,
-  StackedTrioCenterTitleProps,
-  StackedTrioCenterTitleSchema,
-  StrikethroughBadgeTitleProps,
-  StrikethroughBadgeTitleSchema,
-  VerticalAccentTitleSchema,
-} from "./shared/presets/titles";
-import {
-  BoldRightTitleComposition,
-  CardFillTitleComposition,
-  ControllersUnderlineTitleComposition,
-  DoubleFrameTitleComposition,
-  ExclusiveLabelTitleComposition,
-  GeometricMaskTitleComposition,
-  GiantInitialTitleComposition,
-  GlitchStrokeTitleComposition,
-  GradientTrailTitleComposition,
-  HeavyStackTitleComposition,
-  HeroSubtitleTitleComposition,
-  HighlightBarTitleComposition,
-  KineticSlamTitleComposition,
-  LabelStackTitleComposition,
-  LetterSpacingRevealTitleComposition,
-  MinimalDuoTitleComposition,
-  MinimalStyleTitleComposition,
-  MixedEmphasisTitleComposition,
-  ModernRightTitleComposition,
-  NumberFrameTitleComposition,
-  OffsetFramesTitleComposition,
-  OutlineBoxTitleComposition,
-  OutlineFillTitleComposition,
-  OverlineUnderlineTitleComposition,
-  QuoteBlockTitleComposition,
-  RoundedBoxTitleComposition,
-  SandwichLabelTitleComposition,
-  ShadowDepthTitleComposition,
-  SplitHighlightTitleComposition,
-  StackedCenterTitleComposition,
-  StackedRightTitleComposition,
-  StackedTrioCenterTitleComposition,
-  StrikethroughBadgeTitleComposition,
-  VerticalAccentTitleComposition,
-} from "./shared/presets/titles/compositions";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
-      
-
       <Composition
         component={MyComposition}
         durationInFrames={60}
@@ -436,9 +323,7 @@ export const RemotionRoot: React.FC = () => {
         id="MyComp"
         width={1280}
       />
-
       <Folder name="backgrounds">
-
         <Composition
           component={ArchitecturalWireframeBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -467,7 +352,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies ArchitecturalWireframeBackgroundProps
           }
         />
-
         <Composition
           component={AtmosphericFogBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -491,7 +375,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies AtmosphericFogBackgroundProps
           }
         />
-
         <Composition
           component={AuroraFlowBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -516,32 +399,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies AuroraFlowBackgroundProps
           }
         />
-
-        <Composition
-          component={BackgroundComposition}
-          durationInFrames={20 * FPS}
-          fps={FPS}
-          height={720}
-          id="BackgroundComposition"
-          schema={DarkGradientBackgroundSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 20,
-              baseColor: "#020617",
-              blobCount: 3,
-              blobOpacity: 0.55,
-              blobSize: 1.4,
-              blurAmount: 140,
-              colors: ["#0f172a", "#1e293b", "#334155"],
-              easing: [0.45, 0, 0.55, 1],
-              grainAmount: 0.3,
-              grainOpacity: 0.04,
-              vignetteStrength: 0.35,
-            } satisfies DarkGradientBackgroundProps
-          }
-        />
-
         <Composition
           component={BokehLightsBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -574,30 +431,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies BokehLightsBackgroundProps
           }
         />
-
-        <Composition
-          component={CinematicVignetteOverlayComposition}
-          durationInFrames={20 * FPS}
-          fps={FPS}
-          height={720}
-          id="CinematicVignetteOverlay"
-          schema={CinematicVignetteOverlaySchema}
-          width={1280}
-          defaultProps={
-            {
-              grainAmount: 0.3,
-              grainAnimated: true,
-              grainOpacity: 0.04,
-              grainSpeed: 0.5,
-              lightLeakColor: "#ff6b35",
-              lightLeakOpacity: 0.08,
-              vignetteColor: "#000000",
-              vignetteShape: "oval",
-              vignetteStrength: 0.4,
-            } satisfies CinematicVignetteOverlayProps
-          }
-        />
-
         <Composition
           component={ConcentricCirclePatternBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -620,7 +453,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies ConcentricCirclePatternBackgroundProps
           }
         />
-
         <Composition
           component={CornerGlowBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -646,82 +478,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies CornerGlowBackgroundProps
           }
         />
-
-        <Composition
-          component={DepthFogBackgroundComposition}
-          durationInFrames={20 * FPS}
-          fps={FPS}
-          height={720}
-          id="DepthFogBackground"
-          schema={DepthFogBackgroundSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 30,
-              baseColor: "#0a0a14",
-              blobCount: 6,
-              blobOpacity: 0.45,
-              blobSize: 1.6,
-              blurAmount: 120,
-              colors: ["#1e293b", "#334155", "#475569", "#64748b"],
-              depthLayers: 3,
-              easing: [0.45, 0, 0.55, 1],
-              focusLayer: 1,
-              focusShiftSpeed: 0.3,
-              grainAmount: 0.3,
-              grainOpacity: 0.04,
-              vignetteStrength: 0.35,
-            } satisfies DepthFogBackgroundProps
-          }
-        />
-
-        <Composition
-          component={DiagonalSpectrumBackgroundComposition}
-          durationInFrames={20 * FPS}
-          fps={FPS}
-          height={720}
-          id="DiagonalSpectrumBackground"
-          schema={DiagonalSpectrumBackgroundSchema}
-          width={1280}
-          defaultProps={
-            {
-              angleEnd: 200,
-              angleStart: 135,
-              animationDuration: 24,
-              baseColor: "#02061a",
-              colors: ["#0072ff", "#00c6a7", "#0072ff"],
-              easing: [0.45, 0, 0.55, 1],
-              grainAmount: 0.3,
-              grainOpacity: 0.04,
-              spectrumOpacity: 1,
-              vignetteStrength: 0.2,
-            } satisfies DiagonalSpectrumBackgroundProps
-          }
-        />
-
-        <Composition
-          component={DiagonalStripePatternBackgroundComposition}
-          durationInFrames={20 * FPS}
-          fps={FPS}
-          height={720}
-          id="DiagonalStripePatternBackground"
-          schema={DiagonalStripePatternBackgroundSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 20,
-              animationSpeed: 1,
-              easing: [0.45, 0, 0.55, 1],
-              opacity: 0.3,
-              patternDensity: 30,
-              stripeAngle: 45,
-              stripeWidth: 10,
-              theme: "dark",
-              vignetteStrength: 0.25,
-            } satisfies DiagonalStripePatternBackgroundProps
-          }
-        />
-
         <Composition
           component={FlowWaveBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -747,7 +503,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies FlowWaveBackgroundProps
           }
         />
-
         <Composition
           component={GeometricGridBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -772,47 +527,13 @@ export const RemotionRoot: React.FC = () => {
             } satisfies GeometricGridBackgroundProps
           }
         />
-
         <Composition
-          component={GeometricTessellationBackgroundComposition}
+          component={GridPatternBackgroundComposition}
           durationInFrames={20 * FPS}
           fps={FPS}
           height={720}
-          id="GeometricTessellationBackground"
-          schema={GeometricTessellationBackgroundSchema}
-          width={1280}
-          defaultProps={
-            {
-              accentColor: "#cffafe",
-              animationDuration: 30,
-              bandCount: 8,
-              baseColor: "#0c4a6e",
-              chevronDepth: 5,
-              dotDensity: 12,
-              driftSpeed: 0.2,
-              easing: [0.45, 0, 0.55, 1],
-              grainAmount: 0.3,
-              grainOpacity: 0.04,
-              layerOffset: 0.3,
-              lineColor: "#7dd3fc",
-              lineOpacity: 0.45,
-              lineThickness: 1.5,
-              nestingDepth: 4,
-              patternType: "diamondCross",
-              rotationSpeed: 15,
-              scalePulse: 0.05,
-              tileSize: 80,
-            } satisfies GeometricTessellationBackgroundProps
-          }
-        />
-
-        <Composition
-          component={GridDotPatternBackgroundComposition}
-          durationInFrames={20 * FPS}
-          fps={FPS}
-          height={720}
-          id="GridDotPatternBackground"
-          schema={GridDotPatternBackgroundSchema}
+          id="GridPatternBackground"
+          schema={GridPatternBackgroundSchema}
           width={1280}
           defaultProps={
             {
@@ -820,37 +541,15 @@ export const RemotionRoot: React.FC = () => {
               animationSpeed: 1,
               dotSize: 2,
               easing: [0.45, 0, 0.55, 1],
+              elementType: "dot",
               opacity: 0.4,
               parallaxDepth: true,
               patternDensity: 40,
               theme: "dark",
               vignetteStrength: 0.25,
-            } satisfies GridDotPatternBackgroundProps
+            } satisfies GridPatternBackgroundProps
           }
         />
-
-        <Composition
-          component={GridLinePatternBackgroundComposition}
-          durationInFrames={20 * FPS}
-          fps={FPS}
-          height={720}
-          id="GridLinePatternBackground"
-          schema={GridLinePatternBackgroundSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 20,
-              animationSpeed: 1,
-              easing: [0.45, 0, 0.55, 1],
-              lineWidth: 1,
-              opacity: 0.3,
-              patternDensity: 50,
-              theme: "dark",
-              vignetteStrength: 0.25,
-            } satisfies GridLinePatternBackgroundProps
-          }
-        />
-
         <Composition
           component={HaloVignetteBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -877,7 +576,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies HaloVignetteBackgroundProps
           }
         />
-
         <Composition
           component={HexagonPatternBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -900,56 +598,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies HexagonPatternBackgroundProps
           }
         />
-
-        <Composition
-          component={LightGradientBackgroundComposition}
-          durationInFrames={20 * FPS}
-          fps={FPS}
-          height={720}
-          id="LightGradientBackground"
-          schema={LightGradientBackgroundSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 20,
-              baseColor: "#f8fafc",
-              blobCount: 3,
-              blobOpacity: 0.6,
-              blobSize: 1.4,
-              blurAmount: 160,
-              colors: ["#f1f5f9", "#e2e8f0", "#cbd5e1"],
-              easing: [0.45, 0, 0.55, 1],
-              grainAmount: 0.3,
-              grainOpacity: 0.03,
-              vignetteStrength: 0.15,
-            } satisfies LightGradientBackgroundProps
-          }
-        />
-
-        <Composition
-          component={MonochromeDriftBackgroundComposition}
-          durationInFrames={20 * FPS}
-          fps={FPS}
-          height={720}
-          id="MonochromeDriftBackground"
-          schema={MonochromeDriftBackgroundSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 45,
-              baseColor: "#1a1a1a",
-              blobOpacity: 0.2,
-              blobSize: 1.8,
-              blurAmount: 200,
-              colors: ["#e0e0e0", "#b0b0b0"],
-              easing: [0.25, 0.1, 0.25, 1],
-              grainAmount: 0.3,
-              grainOpacity: 0.02,
-              vignetteStrength: 0.25,
-            } satisfies MonochromeDriftBackgroundProps
-          }
-        />
-
         <Composition
           component={MorphingMeshBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -977,7 +625,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies MorphingMeshBackgroundProps
           }
         />
-
         <Composition
           component={NeonPulseBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -1003,59 +650,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies NeonPulseBackgroundProps
           }
         />
-
-        <Composition
-          component={NodeScatterBackgroundComposition}
-          durationInFrames={20 * FPS}
-          fps={FPS}
-          height={720}
-          id="NodeScatterBackground"
-          schema={NodeScatterBackgroundSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 30,
-              baseColor: "#06060a",
-              connectionOpacity: 0.25,
-              connectionThreshold: 100,
-              driftSpeed: 0.4,
-              easing: [0.45, 0, 0.55, 1],
-              grainAmount: 0.3,
-              grainOpacity: 0.04,
-              lineColor: "#475569",
-              lineWidth: 0.5,
-              nodeColor: "#e2e8f0",
-              nodeCount: 80,
-              nodeSize: 2.5,
-              pulseIntensity: 0.3,
-              scatterSeed: 42,
-              vignetteStrength: 0.35,
-            } satisfies NodeScatterBackgroundProps
-          }
-        />
-
-        <Composition
-          component={PaperTextureBackgroundComposition}
-          durationInFrames={20 * FPS}
-          fps={FPS}
-          height={720}
-          id="PaperTextureBackground"
-          schema={PaperTextureBackgroundSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 40,
-              baseColor: "#f5f0e8",
-              easing: [0.45, 0, 0.55, 1],
-              edgeBleedColor: "#c4b49a",
-              edgeBleedStrength: 0.25,
-              grainAmount: 0.3,
-              grainOpacity: 0.04,
-              vignetteStrength: 0.15,
-            } satisfies PaperTextureBackgroundProps
-          }
-        />
-
         <Composition
           component={PlexusNetworkBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -1086,7 +680,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies PlexusNetworkBackgroundProps
           }
         />
-
         <Composition
           component={RadialSpotlightBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -1114,7 +707,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies RadialSpotlightBackgroundProps
           }
         />
-
         <Composition
           component={StarfieldBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -1137,32 +729,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies StarfieldBackgroundProps
           }
         />
-
-        <Composition
-          component={SunsetOrbitBackgroundComposition}
-          durationInFrames={20 * FPS}
-          fps={FPS}
-          height={720}
-          id="SunsetOrbitBackground"
-          schema={SunsetOrbitBackgroundSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 25,
-              baseColor: "#1a0505",
-              blobCount: 3,
-              blobOpacity: 0.4,
-              blobSize: 1.5,
-              blurAmount: 150,
-              colors: ["#dc2626", "#ea580c", "#f97316", "#fbbf24"],
-              easing: [0.37, 0, 0.63, 1],
-              grainAmount: 0.3,
-              grainOpacity: 0.03,
-              vignetteStrength: 0.35,
-            } satisfies SunsetOrbitBackgroundProps
-          }
-        />
-
         <Composition
           component={SweepArcBackgroundComposition}
           durationInFrames={20 * FPS}
@@ -1189,91 +755,8 @@ export const RemotionRoot: React.FC = () => {
             } satisfies SweepArcBackgroundProps
           }
         />
-
-        <Composition
-          component={WarmDriftBackgroundComposition}
-          durationInFrames={20 * FPS}
-          fps={FPS}
-          height={720}
-          id="WarmDriftBackground"
-          schema={WarmDriftBackgroundSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 30,
-              baseColor: "#1a0a04",
-              blobCount: 2,
-              blobOpacity: 0.55,
-              blobSize: 2.0,
-              blurAmount: 180,
-              colors: ["#d97706", "#b45309", "#92400e"],
-              driftAmount: 0.5,
-              driftComplexity: 1.2,
-              easing: [0.45, 0, 0.55, 1],
-              grainAmount: 0.3,
-              grainOpacity: 0.04,
-              vignetteStrength: 0.3,
-            } satisfies WarmDriftBackgroundProps
-          }
-        />
-
-        <Composition
-          component={WaveCurveBackgroundComposition}
-          durationInFrames={20 * FPS}
-          fps={FPS}
-          height={720}
-          id="WaveCurveBackground"
-          schema={WaveCurveBackgroundSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 18,
-              baseColor: "#0a0212",
-              easing: [0.45, 0, 0.55, 1],
-              flowSpeed: 1,
-              grainAmount: 0.3,
-              grainOpacity: 0.04,
-              reflectedWave: false,
-              vignetteStrength: 0.3,
-              waveAccentColor: "#f0abfc",
-              waveAmplitude: 0.18,
-              waveBlur: 30,
-              waveColor: "#c026d3",
-              waveFrequency: 1.2,
-              waveOffsetY: 0.6,
-              waveOpacity: 1,
-            } satisfies WaveCurveBackgroundProps
-          }
-        />
-
-        <Composition
-          component={WaveDotPatternBackgroundComposition}
-          durationInFrames={20 * FPS}
-          fps={FPS}
-          height={720}
-          id="WaveDotPatternBackground"
-          schema={WaveDotPatternBackgroundSchema}
-          width={1280}
-          defaultProps={
-            {
-              amplitude: 20,
-              animationDuration: 20,
-              animationSpeed: 1,
-              dotSize: 2.5,
-              easing: [0.45, 0, 0.55, 1],
-              frequency: 0.3,
-              opacity: 0.4,
-              patternDensity: 40,
-              theme: "dark",
-              vignetteStrength: 0.25,
-              waveDirection: "horizontal",
-            } satisfies WaveDotPatternBackgroundProps
-          }
-        />
-
       </Folder>
       <Folder name="data-visualizations">
-
         <Composition
           component={ActivityRingsComposition}
           durationInFrames={5 * FPS}
@@ -1302,7 +785,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies ActivityRingsProps
           }
         />
-
         <Composition
           component={AnimatedLineChartComposition}
           durationInFrames={6 * FPS}
@@ -1340,7 +822,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies AnimatedLineChartProps
           }
         />
-
         <Composition
           component={AreaChartGlowComposition}
           durationInFrames={6 * FPS}
@@ -1382,7 +863,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies AreaChartGlowProps
           }
         />
-
         <Composition
           component={CandlestickChartComposition}
           durationInFrames={6 * FPS}
@@ -1418,33 +898,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies CandlestickChartProps
           }
         />
-
-        <Composition
-          component={CircularRadialGaugeComposition}
-          durationInFrames={5 * FPS}
-          fps={FPS}
-          height={720}
-          id="CircularRadialGauge"
-          schema={CircularRadialGaugeSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 90,
-              backgroundColor: "#0a0a14",
-              cardBackgroundColor: "#141420",
-              cardBorderRadius: 16,
-              cardPadding: 40,
-              easing: [0.16, 1, 0.3, 1],
-              fontFamily: "Inter",
-              gradientColors: ["#7c3aed", "#3b82f6"],
-              max: 100,
-              showCard: true,
-              title: "System Load",
-              value: 62,
-            } satisfies CircularRadialGaugeProps
-          }
-        />
-
         <Composition
           component={DataTableCardComposition}
           durationInFrames={6 * FPS}
@@ -1526,7 +979,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies DataTableCardProps
           }
         />
-
         <Composition
           component={DemographicIconsComposition}
           durationInFrames={4 * FPS}
@@ -1554,7 +1006,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies DemographicIconsProps
           }
         />
-
         <Composition
           component={DivergingBarChartComposition}
           durationInFrames={6 * FPS}
@@ -1594,7 +1045,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies DivergingBarChartProps
           }
         />
-
         <Composition
           component={DonutBreakdownCardComposition}
           durationInFrames={6 * FPS}
@@ -1637,7 +1087,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies DonutBreakdownCardProps
           }
         />
-
         <Composition
           component={DonutChartComposition}
           durationInFrames={6 * FPS}
@@ -1675,7 +1124,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies DonutChartProps
           }
         />
-
         <Composition
           component={DonutChartSetComposition}
           durationInFrames={6 * FPS}
@@ -1704,7 +1152,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies DonutChartSetProps
           }
         />
-
         <Composition
           component={DotScatterChartComposition}
           durationInFrames={6 * FPS}
@@ -1730,59 +1177,70 @@ export const RemotionRoot: React.FC = () => {
               xAxisLabel: "Study Hours",
               yAxisLabel: "Test Score",
               data: [
-                { color: "#93c5fd", label: "Student A", secondaryValue: 45, value: 2.5 },
-                { color: "#93c5fd", label: "Student B", secondaryValue: 55, value: 4.0 },
-                { color: "#93c5fd", label: "Student C", secondaryValue: 62, value: 5.5 },
-                { color: "#f472b6", label: "Student D", secondaryValue: 48, value: 3.0 },
-                { color: "#f472b6", label: "Student E", secondaryValue: 70, value: 6.0 },
-                { color: "#a3e635", label: "Student F", secondaryValue: 38, value: 1.5 },
-                { color: "#a3e635", label: "Student G", secondaryValue: 75, value: 7.0 },
-                { color: "#fbbf24", label: "Student H", secondaryValue: 52, value: 3.5 },
-                { color: "#fbbf24", label: "Student I", secondaryValue: 80, value: 8.0 },
-                { color: "#c084fc", label: "Student J", secondaryValue: 60, value: 5.0 },
+                {
+                  color: "#93c5fd",
+                  label: "Student A",
+                  secondaryValue: 45,
+                  value: 2.5,
+                },
+                {
+                  color: "#93c5fd",
+                  label: "Student B",
+                  secondaryValue: 55,
+                  value: 4.0,
+                },
+                {
+                  color: "#93c5fd",
+                  label: "Student C",
+                  secondaryValue: 62,
+                  value: 5.5,
+                },
+                {
+                  color: "#f472b6",
+                  label: "Student D",
+                  secondaryValue: 48,
+                  value: 3.0,
+                },
+                {
+                  color: "#f472b6",
+                  label: "Student E",
+                  secondaryValue: 70,
+                  value: 6.0,
+                },
+                {
+                  color: "#a3e635",
+                  label: "Student F",
+                  secondaryValue: 38,
+                  value: 1.5,
+                },
+                {
+                  color: "#a3e635",
+                  label: "Student G",
+                  secondaryValue: 75,
+                  value: 7.0,
+                },
+                {
+                  color: "#fbbf24",
+                  label: "Student H",
+                  secondaryValue: 52,
+                  value: 3.5,
+                },
+                {
+                  color: "#fbbf24",
+                  label: "Student I",
+                  secondaryValue: 80,
+                  value: 8.0,
+                },
+                {
+                  color: "#c084fc",
+                  label: "Student J",
+                  secondaryValue: 60,
+                  value: 5.0,
+                },
               ],
             } satisfies DotScatterChartProps
           }
         />
-
-        <Composition
-          component={DualGaugeChartComposition}
-          durationInFrames={6 * FPS}
-          fps={FPS}
-          height={720}
-          id="DualGaugeChart"
-          schema={DualGaugeChartSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 90,
-              backgroundColor: "#0a0a14",
-              cardBackgroundColor: "#141420",
-              cardBorderRadius: 16,
-              cardPadding: 40,
-              easing: [0.16, 1, 0.3, 1],
-              fontFamily: "Inter",
-              showCard: true,
-              title: "System Metrics",
-              titleColor: "#ffffff",
-              gauge1: {
-                color: "#3b82f6",
-                label: "CPU Usage",
-                max: 100,
-                suffix: "%",
-                value: 72,
-              },
-              gauge2: {
-                color: "#22c55e",
-                label: "Memory",
-                max: 100,
-                suffix: "%",
-                value: 58,
-              },
-            } satisfies DualGaugeChartProps
-          }
-        />
-
         <Composition
           component={GroupedBarChartComposition}
           durationInFrames={6 * FPS}
@@ -1833,7 +1291,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies GroupedBarChartProps
           }
         />
-
         <Composition
           component={GroupedBarChartCardComposition}
           durationInFrames={6 * FPS}
@@ -1879,7 +1336,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies GroupedBarChartCardProps
           }
         />
-
         <Composition
           component={HorizontalBarChartComposition}
           durationInFrames={6 * FPS}
@@ -1926,7 +1382,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies HorizontalBarChartProps
           }
         />
-
         <Composition
           component={HorizontalBarChartCardComposition}
           durationInFrames={6 * FPS}
@@ -1989,7 +1444,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies HorizontalBarChartCardProps
           }
         />
-
         <Composition
           component={IconStatGridComposition}
           durationInFrames={5 * FPS}
@@ -2028,82 +1482,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies IconStatGridProps
           }
         />
-
-        <Composition
-          component={LoadingProgressComposition}
-          durationInFrames={5 * FPS}
-          fps={FPS}
-          height={720}
-          id="LoadingProgress"
-          schema={LoadingProgressSchema}
-          width={1280}
-          defaultProps={
-            {
-              backgroundColor: "#1a1a1a",
-              bulletColor: "#ffffff",
-              cardBackgroundColor: "#e60012",
-              cardBorderRadius: 16,
-              cardPadding: 32,
-              enterDuration: 50,
-              enterEasing: [0.16, 1, 0.3, 1],
-              exitDuration: 30,
-              exitEasing: [0.55, 0, 1, 1],
-              itemFontSize: 20,
-              itemGap: 14,
-              staggerDelay: 8,
-              startFrame: 0,
-              textColor: "#ffffff",
-              title: "LIST TITLE",
-              titleFontSize: 32,
-              items: [
-                {
-                  text: "Turn up the heat in your kitchen with a well-structured list",
-                },
-                {
-                  text: "Break down complex features into digestible bullet points",
-                },
-                {
-                  text: "Make your product stand out with bold, clear copy",
-                },
-                {
-                  text: "Drive engagement with punchy, concise messaging",
-                },
-              ],
-            } satisfies CardBulletListProps
-          }
-        />
-
-        <Composition
-          component={NestedArcChartComposition}
-          durationInFrames={5 * FPS}
-          fps={FPS}
-          height={720}
-          id="NestedArcChart"
-          schema={NestedArcChartSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 90,
-              backgroundColor: "#e8e8e8",
-              cardBackgroundColor: "#f5f5f5",
-              cardBorderRadius: 16,
-              cardPadding: 40,
-              easing: [0.16, 1, 0.3, 1],
-              fontFamily: "Inter",
-              showCard: true,
-              subtitle: "Key performance metrics across core competencies",
-              subtitleColor: "#777777",
-              title: "Skill Breakdown",
-              titleColor: "#333333",
-              data: [
-                { color: "#1e3a5f", label: "Graphic Design", value: 80 },
-                { color: "#2d5a8a", label: "Organization", value: 63 },
-                { color: "#3b82f6", label: "Copywriting", value: 74 },
-              ],
-            } satisfies NestedArcChartProps
-          }
-        />
-
         <Composition
           component={PillBounceChartComposition}
           durationInFrames={6 * FPS}
@@ -2143,7 +1521,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies PillBounceChartProps
           }
         />
-
         <Composition
           component={ProgressBarCardComposition}
           durationInFrames={5 * FPS}
@@ -2172,7 +1549,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies ProgressBarCardProps
           }
         />
-
         <Composition
           component={PyramidChartComposition}
           durationInFrames={6 * FPS}
@@ -2209,7 +1585,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies PyramidChartProps
           }
         />
-
         <Composition
           component={RadarChartComposition}
           durationInFrames={6 * FPS}
@@ -2248,7 +1623,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies RadarChartProps
           }
         />
-
         <Composition
           component={RadarChartCardComposition}
           durationInFrames={6 * FPS}
@@ -2299,44 +1673,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies RadarChartCardProps
           }
         />
-
-        <Composition
-          component={RadialRingChartComposition}
-          durationInFrames={6 * FPS}
-          fps={FPS}
-          height={720}
-          id="RadialRingChart"
-          schema={RadialRingChartSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 60,
-              backgroundColor: "#0a0a14",
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 30,
-              holdDuration: 60,
-              labelColor: "#a0a0b0",
-              legendGap: 16,
-              legendStaggerDelay: 4,
-              maxValue: 100,
-              ringGap: 12,
-              showLegend: true,
-              staggerDelay: 4,
-              subtitle: "Project status overview",
-              subtitleColor: "#a0a0b0",
-              textColor: "#ffffff",
-              title: "Task Completion",
-              titleColor: "#ffffff",
-              rings: [
-                { color: "#3b82f6", label: "Completed", value: 78 },
-                { color: "#ec4899", label: "In Progress", value: 45 },
-                { color: "#22c55e", label: "Planned", value: 32 },
-                { color: "#fbbf24", label: "Backlog", value: 15 },
-              ],
-            } satisfies RadialRingChartProps
-          }
-        />
-
         <Composition
           component={SalesReportCardComposition}
           durationInFrames={6 * FPS}
@@ -2391,7 +1727,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies SalesReportCardProps
           }
         />
-
         <Composition
           component={SemiCircleGaugeCardComposition}
           durationInFrames={6 * FPS}
@@ -2429,7 +1764,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies SemiCircleGaugeCardProps
           }
         />
-
         <Composition
           component={SplitPercentageDisplayComposition}
           durationInFrames={4 * FPS}
@@ -2455,7 +1789,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies SplitPercentageDisplayProps
           }
         />
-
         <Composition
           component={StackedBarChartComposition}
           durationInFrames={6 * FPS}
@@ -2496,7 +1829,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies StackedBarChartProps
           }
         />
-
         <Composition
           component={StackedBarChartCardComposition}
           durationInFrames={6 * FPS}
@@ -2539,137 +1871,8 @@ export const RemotionRoot: React.FC = () => {
             } satisfies StackedBarChartCardProps
           }
         />
-
-        <Composition
-          component={TrafficLightDotsComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="TrafficLightDots"
-          schema={TrafficLightDotsSchema}
-          width={1280}
-          defaultProps={
-            {
-              activeIndex: 0,
-              animationDuration: 90,
-              backgroundColor: "#0a0a14",
-              cardBackgroundColor: "#141420",
-              cardBorderRadius: 16,
-              cardPadding: 40,
-              easing: [0.16, 1, 0.3, 1],
-              fontFamily: "Inter",
-              showCard: true,
-              showStatusCaption: true,
-              showTrack: true,
-              subtitle: "Live monitoring",
-              subtitleColor: "#a0a0b0",
-              title: "System Status",
-              titleColor: "#ffffff",
-              dots: [
-                { color: "#ef4444", label: "Critical" },
-                { color: "#eab308", label: "Warning" },
-                { color: "#22c55e", label: "Normal" },
-              ],
-            } satisfies TrafficLightDotsProps
-          }
-        />
-
       </Folder>
       <Folder name="list">
-
-        <Composition
-          component={BarRevealListComposition}
-          durationInFrames={5 * FPS}
-          fps={FPS}
-          height={720}
-          id="BarRevealList"
-          schema={BarRevealListSchema}
-          width={1280}
-          defaultProps={
-            {
-              accentColor: "#cc4444",
-              backgroundColor: "#09090c",
-              barHeight: 32,
-              enterDuration: 45,
-              enterEasing: [0.16, 1, 0.3, 1],
-              exitDuration: 30,
-              exitEasing: [0.55, 0, 1, 1],
-              itemFontSize: 24,
-              itemGap: 28,
-              ruleWidth: 2,
-              secondaryTextColor: "#78788a",
-              staggerDelay: 10,
-              startFrame: 0,
-              sublabelFontSize: 15,
-              textColor: "#f0f0f0",
-              title: "LIST TITLES",
-              titleFontSize: 56,
-              items: [
-                {
-                  label: "ALERT YOUR DREAMS",
-                  sublabel: "Create something amazing and flat",
-                },
-                {
-                  label: "SLAM YOUR ENEMY",
-                  sublabel: "Design, develop, deliver",
-                },
-                {
-                  label: "LIKE A PHOTOGRAPHY",
-                  sublabel: "Soft motion",
-                },
-                { label: "LIKE A RAINY DAY", sublabel: "" },
-                { label: "A HARD TASK", sublabel: "" },
-              ],
-            } satisfies BarRevealListProps
-          }
-        />
-
-        <Composition
-          component={CardBulletListComposition}
-          durationInFrames={5 * FPS}
-          fps={FPS}
-          height={720}
-          id="CardBulletList"
-          schema={CardBulletListSchema}
-          width={1280}
-          defaultProps={
-            {
-              backgroundColor: "#09090c",
-              bulletColor: "#cc4444",
-              cardBackgroundColor: "transparent",
-              cardBorderColor: "#cc4444",
-              cardBorderRadius: 12,
-              cardPadding: 36,
-              enterDuration: 50,
-              enterEasing: [0.16, 1, 0.3, 1],
-              exitDuration: 30,
-              exitEasing: [0.55, 0, 1, 1],
-              itemFontSize: 20,
-              itemGap: 18,
-              staggerDelay: 10,
-              startFrame: 0,
-              textColor: "#f0f0f0",
-              title: "LIST TITLE",
-              titleAccentUnderline: true,
-              titleFontSize: 28,
-              items: [
-                {
-                  text: "Turn up the heat in your kitchen with a well-structured list",
-                },
-                {
-                  text: "Break down complex features into digestible bullet points",
-                },
-                {
-                  text: "Make your product stand out with bold, clear copy",
-                },
-                {
-                  text: "Drive engagement with punchy, concise messaging",
-                },
-              ],
-            } satisfies CardBulletListProps
-          }
-        />
-
         <Composition
           component={CompactBarListComposition}
           durationInFrames={5 * FPS}
@@ -2711,7 +1914,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies CompactBarListProps
           }
         />
-
         <Composition
           component={FlatSearchListComposition}
           durationInFrames={5 * FPS}
@@ -2755,7 +1957,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies FlatSearchListProps
           }
         />
-
         <Composition
           component={GradientSearchListComposition}
           durationInFrames={5 * FPS}
@@ -2822,7 +2023,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies GradientSearchListProps
           }
         />
-
         <Composition
           component={IconGridListComposition}
           durationInFrames={5 * FPS}
@@ -2851,15 +2051,26 @@ export const RemotionRoot: React.FC = () => {
               startFrame: 0,
               textColor: "#ffffff",
               items: [
-                { description: "Ship in 24h", icon: "🔥", label: "FAST DELIVERY" },
-                { description: "Top materials", icon: "💎", label: "PREMIUM QUALITY" },
-                { description: "Grow faster", icon: "🚀", label: "BOOST TRAFFIC" },
+                {
+                  description: "Ship in 24h",
+                  icon: "🔥",
+                  label: "FAST DELIVERY",
+                },
+                {
+                  description: "Top materials",
+                  icon: "💎",
+                  label: "PREMIUM QUALITY",
+                },
+                {
+                  description: "Grow faster",
+                  icon: "🚀",
+                  label: "BOOST TRAFFIC",
+                },
                 { description: "Expand reach", icon: "📈", label: "SCALE UP" },
               ],
             } satisfies IconGridListProps
           }
         />
-
         <Composition
           component={NumberedCircleListComposition}
           durationInFrames={5 * FPS}
@@ -2912,7 +2123,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies NumberedCircleListProps
           }
         />
-
         <Composition
           component={OutlineSearchListComposition}
           durationInFrames={5 * FPS}
@@ -2952,8 +2162,9 @@ export const RemotionRoot: React.FC = () => {
                 {
                   iconColor: "#f59e0b",
                   number: 1,
-                  subtitle: "Mix walking and jogging, gradually increasing running time",
                   title: "Start Slow",
+                  subtitle:
+                    "Mix walking and jogging, gradually increasing running time",
                 },
                 {
                   iconColor: "#22c55e",
@@ -2983,7 +2194,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies OutlineSearchListProps
           }
         />
-
         <Composition
           component={TimelineScheduleListComposition}
           durationInFrames={5 * FPS}
@@ -3042,10 +2252,8 @@ export const RemotionRoot: React.FC = () => {
             } satisfies TimelineScheduleListProps
           }
         />
-
       </Folder>
       <Folder name="misc">
-
         <Composition
           component={ChatConversationComposition}
           durationInFrames={6 * FPS}
@@ -3103,7 +2311,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies ChatConversationProps
           }
         />
-
         <Composition
           component={ShadowingSceneComposition}
           durationInFrames={6 * FPS}
@@ -3115,7 +2322,6 @@ export const RemotionRoot: React.FC = () => {
           defaultProps={
             {
               accentColor: "#22c55e",
-              audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
               durationInFrames: 6 * FPS,
               echoCount: 0,
               enablePronunciation: false,
@@ -3128,16 +2334,19 @@ export const RemotionRoot: React.FC = () => {
               sceneTitle: "Shadowing Practice",
               voDurationInFrames: Math.round(6 * FPS * 0.7),
               waveformBars: 16,
+              audioSrc:
+                "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
             } satisfies ShadowingSceneProps
           }
         />
-
+      </Folder>
+      <Folder name="lower-thirds">
         <Composition
           component={YouTubeSubscribeOverlayComposition}
           durationInFrames={6 * FPS}
           fps={FPS}
           height={720}
-          id="YouTubeSubscribeOverlay"
+          id="YoutubeSubscribe"
           schema={YouTubeSubscribeOverlaySchema}
           width={1280}
           defaultProps={
@@ -3177,10 +2386,8 @@ export const RemotionRoot: React.FC = () => {
             } satisfies YouTubeSubscribeOverlayProps
           }
         />
-
       </Folder>
-      <Folder name="texts">
-
+      <Folder name="text">
         <Composition
           component={BlurRevealTextComposition}
           durationInFrames={4 * FPS}
@@ -3209,7 +2416,33 @@ export const RemotionRoot: React.FC = () => {
             } satisfies BlurRevealTextProps
           }
         />
-
+        <Composition
+          component={BoldRightTitleComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="BoldRightTitle"
+          schema={BoldRightTitleSchema}
+          width={1280}
+          defaultProps={
+            {
+              align: "right",
+              animationDuration: 45,
+              color: "#ffffff",
+              easing: [0.16, 1, 0.3, 1],
+              entranceDirection: "up",
+              exitDuration: 25,
+              fontSize: [72, 96],
+              fontWeight: 700,
+              gap: 12,
+              holdDuration: 30,
+              letterSpacing: 0.02,
+              lines: ["BOLD IDEAS", "MATTER"],
+              staggerDelay: 12,
+              startFrame: 0,
+            } satisfies BoldRightTitleProps
+          }
+        />
         <Composition
           component={CascadeLetterTextComposition}
           durationInFrames={4 * FPS}
@@ -3237,7 +2470,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies CascadeLetterTextProps
           }
         />
-
         <Composition
           component={ColorStackTextComposition}
           durationInFrames={4 * FPS}
@@ -3264,7 +2496,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies ColorStackTextProps
           }
         />
-
         <Composition
           component={FocusShiftTextComposition}
           durationInFrames={4 * FPS}
@@ -3293,7 +2524,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies FocusShiftTextProps
           }
         />
-
         <Composition
           component={GlitchRevealTextComposition}
           durationInFrames={4 * FPS}
@@ -3323,642 +2553,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies GlitchRevealTextProps
           }
         />
-
-        <Composition
-          component={InlineHighlightTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="InlineHighlightText"
-          schema={InlineHighlightTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 40,
-              durationInFrames: 120,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              fontSize: 72,
-              holdDuration: 30,
-              segments: [{ color: "#ef4444", text: "e" }, { text: "Patmos" }],
-              startFrame: 0,
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-            } satisfies InlineHighlightTextProps
-          }
-        />
-
-        <Composition
-          component={LetterSpacingRevealTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="LetterSpacingRevealText"
-          schema={LetterSpacingRevealTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 50,
-              blurAmount: 8,
-              easing: [0.22, 1, 0.36, 1],
-              exitDuration: 25,
-              fontFamily: "Anton, Impact, sans-serif",
-              fontSize: 96,
-              fontWeight: 400,
-              holdDuration: 30,
-              letterSpacing: 0.02,
-              startFrame: 0,
-              startLetterSpacing: 0.8,
-              text: "CINEMATIC",
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-            } satisfies LetterSpacingRevealTextProps
-          }
-        />
-
-        <Composition
-          component={MixedWeightSlideTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="MixedWeightSlideText"
-          schema={MixedWeightSlideTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 45,
-              easing: [0.22, 1, 0.36, 1],
-              exitDuration: 25,
-              fontFamily: "Anton, Impact, sans-serif",
-              fontSize: 96,
-              fontWeights: [400, 700],
-              holdDuration: 30,
-              letterSpacing: 0.02,
-              slideDirection: "alternate",
-              startFrame: 0,
-              text: "MIXED WEIGHT",
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-            } satisfies MixedWeightSlideTextProps
-          }
-        />
-
-        <Composition
-          component={RotateInTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="RotateInText"
-          schema={RotateInTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 45,
-              easing: [0.22, 1, 0.36, 1],
-              exitDuration: 25,
-              fontFamily: "Anton, Impact, sans-serif",
-              fontSize: 96,
-              fontWeight: 400,
-              holdDuration: 30,
-              letterSpacing: 0.02,
-              perspective: 800,
-              rotationAmount: 90,
-              startFrame: 0,
-              text: "CHARACTERS",
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-            } satisfies RotateInTextProps
-          }
-        />
-
-        <Composition
-          component={ScalePopTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="ScalePopText"
-          schema={ScalePopTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 40,
-              bounceDamping: 8,
-              bounceMass: 0.6,
-              bounceStiffness: 120,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              fontFamily: "Anton, Impact, sans-serif",
-              fontSize: 96,
-              fontWeight: 400,
-              holdDuration: 30,
-              letterSpacing: 0.02,
-              overshoot: 1.15,
-              staggerDelay: 6,
-              startFrame: 0,
-              text: "BOUNCE",
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-            } satisfies ScalePopTextProps
-          }
-        />
-
-        <Composition
-          component={SequentialWordTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="SequentialWordText"
-          schema={SequentialWordTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 40,
-              durationInFrames: 120,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              fontSize: 72,
-              holdDuration: 30,
-              staggerDelay: 10,
-              startFrame: 0,
-              text: "THANK YOU FOR WATCHING",
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-            } satisfies SequentialWordTextProps
-          }
-        />
-
-        <Composition
-          component={SimpleFadeTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="SimpleFadeText"
-          schema={SimpleFadeTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 40,
-              durationInFrames: 120,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              fontSize: 72,
-              holdDuration: 30,
-              slideY: 20,
-              startFrame: 0,
-              text: "INSPIRED BY CURIOSITY",
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-            } satisfies SimpleFadeTextProps
-          }
-        />
-
-        <Composition
-          component={SingleWordZoomTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="SingleWordZoomText"
-          schema={SingleWordZoomTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 40,
-              durationInFrames: 120,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              fontSize: 120,
-              fontWeight: 700,
-              holdDuration: 30,
-              overshoot: 1.15,
-              scaleStart: 0.3,
-              startFrame: 0,
-              text: "WORDS",
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-            } satisfies SingleWordZoomTextProps
-          }
-        />
-
-        <Composition
-          component={SmearStretchTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="SmearStretchText"
-          schema={SmearStretchTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 40,
-              easing: [0.22, 1, 0.36, 1],
-              exitDuration: 25,
-              fontFamily: "Anton, Impact, sans-serif",
-              fontSize: 96,
-              fontWeight: 400,
-              holdDuration: 30,
-              letterSpacing: 0.02,
-              smearAmount: 1.8,
-              startFrame: 0,
-              text: "SMOOTH TEXT",
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-            } satisfies SmearStretchTextProps
-          }
-        />
-
-        <Composition
-          component={StackedLineTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="StackedLineText"
-          schema={StackedLineTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 40,
-              durationInFrames: 120,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              fontSize: 72,
-              holdDuration: 30,
-              lineGap: 16,
-              lines: ["FULL SCREEN", "POWERFUL", "TYPOGRAPHY"],
-              staggerDelay: 10,
-              startFrame: 0,
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-            } satisfies StackedLineTextProps
-          }
-        />
-
-        <Composition
-          component={StackedRepeatTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="StackedRepeatText"
-          schema={StackedRepeatTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 40,
-              easing: [0.22, 1, 0.36, 1],
-              exitDuration: 25,
-              fontFamily: "Anton, Impact, sans-serif",
-              fontSize: 96,
-              fontWeight: 400,
-              holdDuration: 30,
-              layerCount: 4,
-              layerOffset: 4,
-              layerOpacity: 0.15,
-              letterSpacing: 0.02,
-              startFrame: 0,
-              text: "STACKED",
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-            } satisfies StackedRepeatTextProps
-          }
-        />
-
-        <Composition
-          component={TypewriterGlitchTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="TypewriterGlitchText"
-          schema={TypewriterGlitchTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 60,
-              blinkingCursor: true,
-              cursorColor: "#3b82f6",
-              cursorWidth: 3,
-              durationInFrames: 120,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              fontSize: 72,
-              glitchColor1: "#00f0ff",
-              glitchColor2: "#ff0080",
-              holdDuration: 20,
-              scrambleIntensity: 0.8,
-              startFrame: 0,
-              text: "TYPEWRITER GLITCH",
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-            } satisfies TypewriterGlitchTextProps
-          }
-        />
-
-        <Composition
-          component={TypewriterTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="TypewriterText"
-          schema={TypewriterTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 60,
-              blinkingCursor: true,
-              cursorColor: "#ffffff",
-              cursorWidth: 3,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              fontFamily: "Anton, Impact, sans-serif",
-              fontSize: 64,
-              fontWeight: 400,
-              holdDuration: 30,
-              letterSpacing: 0.02,
-              startFrame: 0,
-              text: "Typewriter effect",
-              textColor: "#ffffff",
-              textTransform: "none",
-            } satisfies TypewriterTextProps
-          }
-        />
-
-        <Composition
-          component={WaveTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="WaveText"
-          schema={WaveTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              amplitude: 40,
-              animationDuration: 40,
-              damping: 0.92,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              fontFamily: "Anton, Impact, sans-serif",
-              fontSize: 96,
-              fontWeight: 400,
-              frequency: 0.3,
-              holdDuration: 30,
-              letterSpacing: 0.02,
-              startFrame: 0,
-              text: "WAVE MOTION",
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-              waveDirection: "left-to-right",
-            } satisfies WaveTextProps
-          }
-        />
-
-        <Composition
-          component={WiggleTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="WiggleText"
-          schema={WiggleTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 40,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              fontFamily: "Anton, Impact, sans-serif",
-              fontSize: 96,
-              fontWeight: 400,
-              holdDuration: 30,
-              jitterIntensity: 12,
-              jitterSpeed: 0.4,
-              letterSpacing: 0.02,
-              startFrame: 0,
-              text: "WIGGLE POSITION",
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-            } satisfies WiggleTextProps
-          }
-        />
-
-        <Composition
-          component={WordSlideTextComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="WordSlideText"
-          schema={WordSlideTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 40,
-              durationInFrames: 120,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              fontSize: 72,
-              holdDuration: 30,
-              slideDistance: 80,
-              staggerDelay: 8,
-              startFrame: 0,
-              text: "WORDS APPEAR AT THE RIGHT TIME",
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-            } satisfies WordSlideTextProps
-          }
-        />
-
-        <Composition
-          component={WordSwapTextComposition}
-          durationInFrames={6 * FPS}
-          fps={FPS}
-          height={720}
-          id="WordSwapText"
-          schema={WordSwapTextSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 30,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              fontFamily: "Anton, Impact, sans-serif",
-              fontSize: 96,
-              fontWeight: 400,
-              holdDuration: 30,
-              letterSpacing: 0.02,
-              startFrame: 0,
-              swapInterval: 45,
-              textColor: "#ffffff",
-              textTransform: "uppercase",
-              words: ["CREATE", "DESIGN", "BUILD"],
-            } satisfies WordSwapTextProps
-          }
-        />
-
-      </Folder>
-      <Folder name="titles">
-
-        <Composition
-          component={BoldRightTitleComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="BoldRightTitle"
-          schema={BoldRightTitleSchema}
-          width={1280}
-          defaultProps={
-            {
-              align: "right",
-              animationDuration: 45,
-              color: "#ffffff",
-              easing: [0.16, 1, 0.3, 1],
-              entranceDirection: "up",
-              exitDuration: 25,
-              fontSize: [72, 96],
-              fontWeight: 700,
-              gap: 12,
-              holdDuration: 30,
-              letterSpacing: 0.02,
-              lines: ["BOLD IDEAS", "MATTER"],
-              staggerDelay: 12,
-              startFrame: 0,
-            } satisfies BoldRightTitleProps
-          }
-        />
-
-        <Composition
-          component={CardFillTitleComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="CardFillTitle"
-          schema={CardFillTitleSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 45,
-              cardColor: "#ffffff",
-              cardPadding: 48,
-              cardWidth: 700,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              holdDuration: 30,
-              lines: ["CARD FILL"],
-              subtitle: "Premium Collection",
-            } satisfies CardFillTitleProps
-          }
-        />
-
-        <Composition
-          component={ControllersUnderlineTitleComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="ControllersUnderlineTitle"
-          schema={ControllersUnderlineTitleSchema}
-          width={1280}
-          defaultProps={
-            {
-              accentColor: "#dc2626",
-              accentThickness: 3,
-              animationDuration: 45,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              holdDuration: 30,
-              lines: ["CONTROLLERS"],
-              subtitle: "Premium Gaming Gear",
-            } satisfies ControllersUnderlineTitleProps
-          }
-        />
-
-        <Composition
-          component={DoubleFrameTitleComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="DoubleFrameTitle"
-          schema={DoubleFrameTitleSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 45,
-              borderThickness: 2,
-              boxPadding: 48,
-              boxWidth: 600,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              holdDuration: 30,
-              lines: ["DOUBLE FRAME"],
-              subtitle: "PREMIUM",
-            } satisfies DoubleFrameTitleProps
-          }
-        />
-
-        <Composition
-          component={ExclusiveLabelTitleComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="ExclusiveLabelTitle"
-          schema={ExclusiveLabelTitleSchema}
-          width={1280}
-          defaultProps={
-            {
-              accentColor: "#dc2626",
-              accentThickness: 2,
-              accentWidth: 120,
-              animationDuration: 45,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              holdDuration: 30,
-              label: "EXCLUSIVE",
-              lines: ["DYNAMIC TITLES"],
-            } satisfies ExclusiveLabelTitleProps
-          }
-        />
-
-        <Composition
-          component={GeometricMaskTitleComposition}
-          durationInFrames={3 * FPS}
-          fps={FPS}
-          height={720}
-          id="GeometricMaskTitle"
-          schema={GeometricMaskTitleSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 45,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              fontSize: 120,
-              holdDuration: 30,
-              maskColor: "#6b7280",
-              maskWidth: 40,
-              startFrame: 0,
-              text: "SELECT",
-              textColor: "#ffffff",
-            } satisfies GeometricMaskTitleProps
-          }
-        />
-
-        <Composition
-          component={GiantInitialTitleComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="GiantInitialTitle"
-          schema={GiantInitialTitleSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 45,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              holdDuration: 30,
-              initial: "G",
-              initialColor: "#dc2626",
-              initialFontSize: 180,
-              lines: ["GIANT INITIAL"],
-            } satisfies GiantInitialTitleProps
-          }
-        />
-
         <Composition
           component={GlitchStrokeTitleComposition}
           durationInFrames={4 * FPS}
@@ -3992,32 +2586,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies GlitchStrokeTitleProps
           }
         />
-
-        <Composition
-          component={GradientTrailTitleComposition}
-          durationInFrames={3 * FPS}
-          fps={FPS}
-          height={720}
-          id="GradientTrailTitle"
-          schema={GradientTrailTitleSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 45,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              fontSize: [64, 96],
-              gap: 8,
-              holdDuration: 30,
-              lines: ["BRING", "CHANGES"],
-              startFrame: 0,
-              textColor: "#ffffff",
-              trailColor: "#ec4899",
-              trailLength: 3,
-            } satisfies GradientTrailTitleProps
-          }
-        />
-
         <Composition
           component={HeavyStackTitleComposition}
           durationInFrames={3 * FPS}
@@ -4041,35 +2609,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies HeavyStackTitleProps
           }
         />
-
-        <Composition
-          component={HeroSubtitleTitleComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="HeroSubtitleTitle"
-          schema={HeroSubtitleTitleSchema}
-          width={1280}
-          defaultProps={
-            {
-              align: "center",
-              animationDuration: 45,
-              color: "#ffffff",
-              easing: [0.16, 1, 0.3, 1],
-              entranceDirection: "up",
-              exitDuration: 25,
-              fontSize: [96, 36],
-              fontWeight: [700, 400],
-              gap: 12,
-              holdDuration: 30,
-              letterSpacing: [0.02, 0.1],
-              lines: ["DYNAMIC", "Titles Kit"],
-              staggerDelay: 12,
-              startFrame: 0,
-            } satisfies HeroSubtitleTitleProps
-          }
-        />
-
         <Composition
           component={HighlightBarTitleComposition}
           durationInFrames={3 * FPS}
@@ -4094,7 +2633,29 @@ export const RemotionRoot: React.FC = () => {
             } satisfies HighlightBarTitleProps
           }
         />
-
+        <Composition
+          component={InlineHighlightTextComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="InlineHighlightText"
+          schema={InlineHighlightTextSchema}
+          width={1280}
+          defaultProps={
+            {
+              animationDuration: 40,
+              durationInFrames: 120,
+              easing: [0.16, 1, 0.3, 1],
+              exitDuration: 25,
+              fontSize: 72,
+              holdDuration: 30,
+              segments: [{ color: "#ef4444", text: "e" }, { text: "Patmos" }],
+              startFrame: 0,
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies InlineHighlightTextProps
+          }
+        />
         <Composition
           component={KineticSlamTitleComposition}
           durationInFrames={4 * FPS}
@@ -4125,7 +2686,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies KineticSlamTitleProps
           }
         />
-
         <Composition
           component={LabelStackTitleComposition}
           durationInFrames={4 * FPS}
@@ -4153,7 +2713,33 @@ export const RemotionRoot: React.FC = () => {
             } satisfies LabelStackTitleProps
           }
         />
-
+        <Composition
+          component={LetterSpacingRevealTextComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="LetterSpacingRevealText"
+          schema={LetterSpacingRevealTextSchema}
+          width={1280}
+          defaultProps={
+            {
+              animationDuration: 50,
+              blurAmount: 8,
+              easing: [0.22, 1, 0.36, 1],
+              exitDuration: 25,
+              fontFamily: "Anton, Impact, sans-serif",
+              fontSize: 96,
+              fontWeight: 400,
+              holdDuration: 30,
+              letterSpacing: 0.02,
+              startFrame: 0,
+              startLetterSpacing: 0.8,
+              text: "CINEMATIC",
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies LetterSpacingRevealTextProps
+          }
+        />
         <Composition
           component={LetterSpacingRevealTitleComposition}
           durationInFrames={3 * FPS}
@@ -4179,7 +2765,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies LetterSpacingRevealTitleProps
           }
         />
-
         <Composition
           component={MinimalDuoTitleComposition}
           durationInFrames={4 * FPS}
@@ -4207,7 +2792,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies MinimalDuoTitleProps
           }
         />
-
         <Composition
           component={MinimalStyleTitleComposition}
           durationInFrames={4 * FPS}
@@ -4235,7 +2819,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies MinimalStyleTitleProps
           }
         />
-
         <Composition
           component={MixedEmphasisTitleComposition}
           durationInFrames={4 * FPS}
@@ -4246,14 +2829,11 @@ export const RemotionRoot: React.FC = () => {
           width={1280}
           defaultProps={
             {
-              align: "center",
               animationDuration: 45,
               easing: [0.16, 1, 0.3, 1],
-              entranceDirection: "up",
               exitDuration: 25,
               gap: 12,
               holdDuration: 30,
-              lineGap: 24,
               staggerDelay: 8,
               startFrame: 0,
               segments: [
@@ -4269,7 +2849,32 @@ export const RemotionRoot: React.FC = () => {
             } satisfies MixedEmphasisTitleProps
           }
         />
-
+        <Composition
+          component={MixedWeightSlideTextComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="MixedWeightSlideText"
+          schema={MixedWeightSlideTextSchema}
+          width={1280}
+          defaultProps={
+            {
+              animationDuration: 45,
+              easing: [0.22, 1, 0.36, 1],
+              exitDuration: 25,
+              fontFamily: "Anton, Impact, sans-serif",
+              fontSize: 96,
+              fontWeights: [400, 700],
+              holdDuration: 30,
+              letterSpacing: 0.02,
+              slideDirection: "alternate",
+              startFrame: 0,
+              text: "MIXED WEIGHT",
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies MixedWeightSlideTextProps
+          }
+        />
         <Composition
           component={ModernRightTitleComposition}
           durationInFrames={4 * FPS}
@@ -4297,7 +2902,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies ModernRightTitleProps
           }
         />
-
         <Composition
           component={NumberFrameTitleComposition}
           durationInFrames={4 * FPS}
@@ -4308,67 +2912,26 @@ export const RemotionRoot: React.FC = () => {
           width={1280}
           defaultProps={
             {
-              animationDuration: 45,
-              easing: [0.16, 1, 0.3, 1],
+              animationDuration: 50,
+              dividerColor: "#c9a96e",
+              dividerLength: 48,
+              dividerThickness: 2,
+              easing: [0.22, 1, 0.36, 1],
               exitDuration: 25,
-              frameColor: "#dc2626",
-              frameSize: 100,
               holdDuration: 30,
-              lines: ["FRAME TITLE"],
+              lines: ["CHAPTER TITLE"],
               number: "01",
+              numberColor: "#c9a96e",
+              numberFontSize: 110,
+              ringColor: "#c9a96e",
+              ringThickness: 3,
+              startFrame: 0,
+              textColor: "#ffffff",
+              textFontSize: 60,
+              textLetterSpacing: 0.04,
             } satisfies NumberFrameTitleProps
           }
         />
-
-        <Composition
-          component={OffsetFramesTitleComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="OffsetFramesTitle"
-          schema={OffsetFramesTitleSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 45,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              frame1Color: "#dc2626",
-              frame2Color: "#ffffff",
-              frameHeight: 140,
-              frameOffset: 16,
-              frameWidth: 450,
-              holdDuration: 30,
-              lines: ["OFFSET FRAMES"],
-              subtitle: "DYNAMIC LAYOUT",
-            } satisfies OffsetFramesTitleProps
-          }
-        />
-
-        <Composition
-          component={OutlineBoxTitleComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="OutlineBoxTitle"
-          schema={OutlineBoxTitleSchema}
-          width={1280}
-          defaultProps={
-            {
-              animationDuration: 45,
-              boxBorderColor: "#dc2626",
-              boxBorderThickness: 3,
-              boxPadding: 48,
-              boxWidth: 600,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              holdDuration: 30,
-              lines: ["OUTLINE BOX"],
-              subtitle: "Premium Design",
-            } satisfies OutlineBoxTitleProps
-          }
-        />
-
         <Composition
           component={OutlineFillTitleComposition}
           durationInFrames={3 * FPS}
@@ -4393,29 +2956,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies OutlineFillTitleProps
           }
         />
-
-        <Composition
-          component={OverlineUnderlineTitleComposition}
-          durationInFrames={4 * FPS}
-          fps={FPS}
-          height={720}
-          id="OverlineUnderlineTitle"
-          schema={OverlineUnderlineTitleSchema}
-          width={1280}
-          defaultProps={
-            {
-              accentColor: "#dc2626",
-              accentThickness: 3,
-              animationDuration: 45,
-              easing: [0.16, 1, 0.3, 1],
-              exitDuration: 25,
-              holdDuration: 30,
-              lines: ["OVERLINE"],
-              overline: "EST. 2024",
-            } satisfies OverlineUnderlineTitleProps
-          }
-        />
-
         <Composition
           component={QuoteBlockTitleComposition}
           durationInFrames={4 * FPS}
@@ -4447,7 +2987,33 @@ export const RemotionRoot: React.FC = () => {
             } satisfies QuoteBlockTitleProps
           }
         />
-
+        <Composition
+          component={RotateInTextComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="RotateInText"
+          schema={RotateInTextSchema}
+          width={1280}
+          defaultProps={
+            {
+              animationDuration: 45,
+              easing: [0.22, 1, 0.36, 1],
+              exitDuration: 25,
+              fontFamily: "Anton, Impact, sans-serif",
+              fontSize: 96,
+              fontWeight: 400,
+              holdDuration: 30,
+              letterSpacing: 0.02,
+              perspective: 800,
+              rotationAmount: 90,
+              startFrame: 0,
+              text: "CHARACTERS",
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies RotateInTextProps
+          }
+        />
         <Composition
           component={RoundedBoxTitleComposition}
           durationInFrames={3 * FPS}
@@ -4473,7 +3039,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies RoundedBoxTitleProps
           }
         />
-
         <Composition
           component={SandwichLabelTitleComposition}
           durationInFrames={3 * FPS}
@@ -4499,7 +3064,60 @@ export const RemotionRoot: React.FC = () => {
             } satisfies SandwichLabelTitleProps
           }
         />
-
+        <Composition
+          component={ScalePopTextComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="ScalePopText"
+          schema={ScalePopTextSchema}
+          width={1280}
+          defaultProps={
+            {
+              animationDuration: 40,
+              bounceDamping: 8,
+              bounceMass: 0.6,
+              bounceStiffness: 120,
+              easing: [0.16, 1, 0.3, 1],
+              exitDuration: 25,
+              fontFamily: "Anton, Impact, sans-serif",
+              fontSize: 96,
+              fontWeight: 400,
+              holdDuration: 30,
+              letterSpacing: 0.02,
+              overshoot: 1.15,
+              staggerDelay: 6,
+              startFrame: 0,
+              text: "BOUNCE",
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies ScalePopTextProps
+          }
+        />
+        <Composition
+          component={SequentialWordTextComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="SequentialWordText"
+          schema={SequentialWordTextSchema}
+          width={1280}
+          defaultProps={
+            {
+              animationDuration: 40,
+              durationInFrames: 120,
+              easing: [0.16, 1, 0.3, 1],
+              exitDuration: 25,
+              fontSize: 72,
+              holdDuration: 30,
+              staggerDelay: 10,
+              startFrame: 0,
+              text: "THANK YOU FOR WATCHING",
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies SequentialWordTextProps
+          }
+        />
         <Composition
           component={ShadowDepthTitleComposition}
           durationInFrames={4 * FPS}
@@ -4532,30 +3150,82 @@ export const RemotionRoot: React.FC = () => {
             } satisfies ShadowDepthTitleProps
           }
         />
-
         <Composition
-          component={SplitHighlightTitleComposition}
+          component={SimpleFadeTextComposition}
           durationInFrames={4 * FPS}
           fps={FPS}
           height={720}
-          id="SplitHighlightTitle"
-          schema={SplitHighlightTitleSchema}
+          id="SimpleFadeText"
+          schema={SimpleFadeTextSchema}
           width={1280}
           defaultProps={
             {
-              animationDuration: 45,
-              boxColor: "#dc2626",
-              boxHeight: 160,
-              boxWidth: 100,
+              animationDuration: 40,
+              durationInFrames: 120,
               easing: [0.16, 1, 0.3, 1],
               exitDuration: 25,
+              fontSize: 72,
               holdDuration: 30,
-              lines: ["HIGHLIGHT"],
-              subtitle: "FEATURED",
-            } satisfies SplitHighlightTitleProps
+              slideY: 20,
+              startFrame: 0,
+              text: "INSPIRED BY CURIOSITY",
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies SimpleFadeTextProps
           }
         />
-
+        <Composition
+          component={SingleWordZoomTextComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="SingleWordZoomText"
+          schema={SingleWordZoomTextSchema}
+          width={1280}
+          defaultProps={
+            {
+              animationDuration: 40,
+              durationInFrames: 120,
+              easing: [0.16, 1, 0.3, 1],
+              exitDuration: 25,
+              fontSize: 120,
+              fontWeight: 700,
+              holdDuration: 30,
+              overshoot: 1.15,
+              scaleStart: 0.3,
+              startFrame: 0,
+              text: "WORDS",
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies SingleWordZoomTextProps
+          }
+        />
+        <Composition
+          component={SmearStretchTextComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="SmearStretchText"
+          schema={SmearStretchTextSchema}
+          width={1280}
+          defaultProps={
+            {
+              animationDuration: 40,
+              easing: [0.22, 1, 0.36, 1],
+              exitDuration: 25,
+              fontFamily: "Anton, Impact, sans-serif",
+              fontSize: 96,
+              fontWeight: 400,
+              holdDuration: 30,
+              letterSpacing: 0.02,
+              smearAmount: 1.8,
+              startFrame: 0,
+              text: "SMOOTH TEXT",
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies SmearStretchTextProps
+          }
+        />
         <Composition
           component={StackedCenterTitleComposition}
           durationInFrames={4 * FPS}
@@ -4583,7 +3253,59 @@ export const RemotionRoot: React.FC = () => {
             } satisfies StackedCenterTitleProps
           }
         />
-
+        <Composition
+          component={StackedLineTextComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="StackedLineText"
+          schema={StackedLineTextSchema}
+          width={1280}
+          defaultProps={
+            {
+              animationDuration: 40,
+              durationInFrames: 120,
+              easing: [0.16, 1, 0.3, 1],
+              exitDuration: 25,
+              fontSize: 72,
+              holdDuration: 30,
+              lineGap: 16,
+              lines: ["FULL SCREEN", "POWERFUL", "TYPOGRAPHY"],
+              staggerDelay: 10,
+              startFrame: 0,
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies StackedLineTextProps
+          }
+        />
+        <Composition
+          component={StackedRepeatTextComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="StackedRepeatText"
+          schema={StackedRepeatTextSchema}
+          width={1280}
+          defaultProps={
+            {
+              animationDuration: 40,
+              easing: [0.22, 1, 0.36, 1],
+              exitDuration: 25,
+              fontFamily: "Anton, Impact, sans-serif",
+              fontSize: 96,
+              fontWeight: 400,
+              holdDuration: 30,
+              layerCount: 4,
+              layerOffset: 4,
+              layerOpacity: 0.15,
+              letterSpacing: 0.02,
+              startFrame: 0,
+              text: "STACKED",
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies StackedRepeatTextProps
+          }
+        />
         <Composition
           component={StackedRightTitleComposition}
           durationInFrames={4 * FPS}
@@ -4611,7 +3333,6 @@ export const RemotionRoot: React.FC = () => {
             } satisfies StackedRightTitleProps
           }
         />
-
         <Composition
           component={StackedTrioCenterTitleComposition}
           durationInFrames={4 * FPS}
@@ -4639,71 +3360,171 @@ export const RemotionRoot: React.FC = () => {
             } satisfies StackedTrioCenterTitleProps
           }
         />
-
         <Composition
-          component={StrikethroughBadgeTitleComposition}
+          component={TypewriterGlitchTextComposition}
           durationInFrames={4 * FPS}
           fps={FPS}
           height={720}
-          id="StrikethroughBadgeTitle"
-          schema={StrikethroughBadgeTitleSchema}
+          id="TypewriterGlitchText"
+          schema={TypewriterGlitchTextSchema}
           width={1280}
           defaultProps={
             {
-              animationDuration: 45,
-              badge: "NEW",
-              badgeColor: "#dc2626",
+              animationDuration: 60,
+              blinkingCursor: true,
+              cursorColor: "#3b82f6",
+              cursorWidth: 3,
+              durationInFrames: 120,
               easing: [0.16, 1, 0.3, 1],
               exitDuration: 25,
-              holdDuration: 30,
-              lines: ["STRIKETHROUGH"],
-            } satisfies StrikethroughBadgeTitleProps
+              fontSize: 72,
+              glitchColor1: "#00f0ff",
+              glitchColor2: "#ff0080",
+              holdDuration: 20,
+              scrambleIntensity: 0.8,
+              startFrame: 0,
+              text: "TYPEWRITER GLITCH",
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies TypewriterGlitchTextProps
           }
         />
-
         <Composition
-          component={VerticalAccentTitleComposition}
+          component={TypewriterTextComposition}
           durationInFrames={4 * FPS}
           fps={FPS}
           height={720}
-          id="VerticalAccentTitle"
-          schema={VerticalAccentTitleSchema}
+          id="TypewriterText"
+          schema={TypewriterTextSchema}
           width={1280}
           defaultProps={
             {
-              accentColor: "#e60012",
-              backgroundColor: "#1a1a1a",
-              barHeight: 20,
-              enterDuration: 40,
-              enterEasing: [0.16, 1, 0.3, 1],
+              animationDuration: 60,
+              blinkingCursor: true,
+              cursorColor: "#ffffff",
+              cursorWidth: 3,
+              easing: [0.16, 1, 0.3, 1],
               exitDuration: 25,
-              exitEasing: [0.55, 0, 1, 1],
-              itemFontSize: 18,
-              itemGap: 10,
-              staggerDelay: 6,
+              fontFamily: "Anton, Impact, sans-serif",
+              fontSize: 64,
+              fontWeight: 400,
+              holdDuration: 30,
+              letterSpacing: 0.02,
               startFrame: 0,
+              text: "Typewriter effect",
               textColor: "#ffffff",
-              title: "A SIMPLE LIST TITLE",
-              titleFontSize: 36,
-              valueColor: "#ffffff",
-              valueFontSize: 16,
-              items: [
-                { label: "A GLOBAL REACH OF DRIVERS", value: "" },
-                { label: "A CRIME NEEDS A VICTIM", value: "" },
-                { label: "A CARDIOVASCULAR SYSTEM WORKS", value: "" },
-                {
-                  label: "A THE BEST PERFORMANCE OF EFFICIENCY",
-                  value: "",
-                },
-                { label: "A CONVERSATION IS A SKILL", value: "" },
-              ],
-            } satisfies CompactBarListProps
+              textTransform: "none",
+            } satisfies TypewriterTextProps
           }
         />
-
+        <Composition
+          component={WaveTextComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="WaveText"
+          schema={WaveTextSchema}
+          width={1280}
+          defaultProps={
+            {
+              amplitude: 40,
+              animationDuration: 40,
+              damping: 0.92,
+              easing: [0.16, 1, 0.3, 1],
+              exitDuration: 25,
+              fontFamily: "Anton, Impact, sans-serif",
+              fontSize: 96,
+              fontWeight: 400,
+              frequency: 0.3,
+              holdDuration: 30,
+              letterSpacing: 0.02,
+              startFrame: 0,
+              text: "WAVE MOTION",
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+              waveDirection: "left-to-right",
+            } satisfies WaveTextProps
+          }
+        />
+        <Composition
+          component={WiggleTextComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="WiggleText"
+          schema={WiggleTextSchema}
+          width={1280}
+          defaultProps={
+            {
+              animationDuration: 40,
+              easing: [0.16, 1, 0.3, 1],
+              exitDuration: 25,
+              fontFamily: "Anton, Impact, sans-serif",
+              fontSize: 96,
+              fontWeight: 400,
+              holdDuration: 30,
+              jitterIntensity: 12,
+              jitterSpeed: 0.4,
+              letterSpacing: 0.02,
+              startFrame: 0,
+              text: "WIGGLE POSITION",
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies WiggleTextProps
+          }
+        />
+        <Composition
+          component={WordSlideTextComposition}
+          durationInFrames={4 * FPS}
+          fps={FPS}
+          height={720}
+          id="WordSlideText"
+          schema={WordSlideTextSchema}
+          width={1280}
+          defaultProps={
+            {
+              animationDuration: 40,
+              durationInFrames: 120,
+              easing: [0.16, 1, 0.3, 1],
+              exitDuration: 25,
+              fontSize: 72,
+              holdDuration: 30,
+              slideDistance: 80,
+              staggerDelay: 8,
+              startFrame: 0,
+              text: "WORDS APPEAR AT THE RIGHT TIME",
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+            } satisfies WordSlideTextProps
+          }
+        />
+        <Composition
+          component={WordSwapTextComposition}
+          durationInFrames={6 * FPS}
+          fps={FPS}
+          height={720}
+          id="WordSwapText"
+          schema={WordSwapTextSchema}
+          width={1280}
+          defaultProps={
+            {
+              animationDuration: 30,
+              easing: [0.16, 1, 0.3, 1],
+              exitDuration: 25,
+              fontFamily: "Anton, Impact, sans-serif",
+              fontSize: 96,
+              fontWeight: 400,
+              holdDuration: 30,
+              letterSpacing: 0.02,
+              startFrame: 0,
+              swapInterval: 45,
+              textColor: "#ffffff",
+              textTransform: "uppercase",
+              words: ["CREATE", "DESIGN", "BUILD"],
+            } satisfies WordSwapTextProps
+          }
+        />
       </Folder>
-
-
     </>
   );
 };

@@ -1,5 +1,3 @@
-export { BarRevealListComposition } from "./BarRevealListComposition";
-export { CardBulletListComposition } from "./CardBulletListComposition";
 export { CompactBarListComposition } from "./CompactBarListComposition";
 export { FlatSearchListComposition } from "./FlatSearchListComposition";
 export { GradientSearchListComposition } from "./GradientSearchListComposition";

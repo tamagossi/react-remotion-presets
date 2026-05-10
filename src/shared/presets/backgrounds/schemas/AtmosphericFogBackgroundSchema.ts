@@ -8,9 +8,20 @@ export const AtmosphericFogBackgroundSchema = z.object({
   bandCount: z.number().optional(),
   bandOpacity: z.number().optional(),
   baseColor: zColor().optional(),
-  easing: z.tuple([z.number(), z.number(), z.number(), z.number()]).optional(),
+  blobCount: z.number().optional(),
+  blobOpacity: z.number().optional(),
+  blobSize: z.number().optional(),
+  blurAmount: z.number().optional(),
+  colors: z.array(zColor()).optional(),
+  depthLayers: z.number().optional(),
+  focusLayer: z.number().optional(),
+  focusShiftSpeed: z.number().optional(),
   fogColors: z.array(zColor()).optional(),
   grainAmount: z.number().optional(),
   grainOpacity: z.number().optional(),
+  startFrame: z.number().optional(),
   vignetteStrength: z.number().optional(),
+  easing: z
+    .tuple([z.number(), z.number(), z.number(), z.number()])
+    .optional(),
 });
