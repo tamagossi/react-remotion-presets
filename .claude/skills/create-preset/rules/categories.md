@@ -14,157 +14,105 @@ Atmospheric full-screen backdrops. Always accept `children` for content overlay.
 - Grain/texture optional but common
 - Color palettes derived from mood
 
-**Examples:**
+**Existing presets:** DarkGradientBackground, LightGradientBackground, MorphingMeshBackground, NeonPulseBackground, MonochromeDriftBackground, SunsetOrbitBackground, GeometricGridBackground, StarfieldBackground, RadialSpotlightBackground, WaveCurveBackground, CornerGlowBackground, DiagonalSpectrumBackground, AuroraFlowBackground, FlowWaveBackground, HaloVignetteBackground, SweepArcBackground, WarmDriftBackground, BokehLightsBackground, AtmosphericFogBackground, DepthFogBackground, PaperTextureBackground, CinematicVignetteOverlay, PlexusNetworkBackground, ArchitecturalWireframeBackground, GridDotPatternBackground, GridLinePatternBackground, DiagonalStripePatternBackground, HexagonPatternBackground, WaveDotPatternBackground, ConcentricCirclePatternBackground
 
-- `DarkGradientBackground` — animated orbs on dark base
-- `MeshGradientBackground` — flowing mesh gradient
-- `ParticleFieldBackground` — starfield/particle drift
+## texts
 
-## text-animations
-
-Typography motion effects. Reveal, highlight, type, scramble.
+Typography motion effects and title layouts. Reveal, highlight, type, scramble, slide, zoom, stack.
 
 **Conventions:**
 
-- Accept `text: string` prop (not children, for character-level control)
-- Support `startFrame` / `endFrame` for sequencing
-- Per-character or per-word animation common
-- Preserve text selection/accessibility where possible
+- Accept `text: string` or `lines: string[]` prop (not children, for character-level/word-level control)
+- Support `startFrame` / `durationInFrames` for sequencing
+- Per-character, per-word, or per-line animation based on use case
+- Preserve text readability — never animate while viewer needs to read
+- Expose font size, weight, letter spacing, and color as props
 
-**Examples:**
+**Existing presets:** BlurRevealText, FocusShiftText, CascadeLetterText, MixedWeightSlideText, StackedRepeatText, WordSwapText, TypewriterGlitchText, InlineHighlightText, WordSlideText, StackedLineText, SimpleFadeText, ColorStackText, SequentialWordText, SingleWordZoomText, ScalePopText, GlitchRevealText, WaveText, TypewriterText, WiggleText, LetterSpacingRevealText, RotateInText, SmearStretchText + BoldRightTitle, GlitchStrokeTitle, HeavyStackTitle, HighlightBarTitle, KineticSlamTitle, LabelStackTitle, LetterSpacingRevealTitle, MinimalDuoTitle, MinimalStyleTitle, MixedEmphasisTitle, ModernRightTitle, NumberFrameTitle, OutlineFillTitle, QuoteBlockTitle, RoundedBoxTitle, SandwichLabelTitle, ShadowDepthTitle, StackedCenterTitle, StackedRightTitle, StackedTrioCenterTitle
 
-- `TypewriterText` — character-by-character reveal
-- `WordHighlight` — sequential word color change
-- `ScrambleReveal` — decrypt effect
+**Sub-categories:**
 
-## transitions
+- **Text animations:** Reveal effects, kinetic typography, word/character-level motion
+- **Title layouts:** Pre-composed title cards with specific aesthetic (bold right, stacked trio, minimal duo, etc.)
 
-Scene-to-scene visual bridges. Often used as overlay components.
+## data-visualizations
 
-**Conventions:**
-
-- `from: number`, `to: number` props for timing control
-- Full frame coverage during active period
-- Alpha/opacity based common
-- Accept `children` or work as overlay
-
-**Examples:**
-
-- `FadeTransition` — opacity fade
-- `SlideWipe` — directional wipe
-- `GlitchTransition` — digital distortion
-
-## charts
-
-Data visualization with animation.
+Animated charts, graphs, and data displays.
 
 **Conventions:**
 
-- Accept `data: DataPoint[]` array prop
-- Animate from zero on mount
-- Support `colorScheme` prop
-- Label/tooltip support if interactive
+- Accept typed data props (e.g., `data: DataPoint[]`)
+- Animate from zero or baseline on mount
+- Support `colorScheme` or per-series color props
+- Cards often wrap charts with title, subtitle, accent
+- Use `useCountUp` hook for animated counters
+- Zod schemas for data validation
 
-**Examples:**
+**Existing presets:** AnimatedLineChart, AreaChartGlow, CandlestickChart, HorizontalBarChart, HorizontalBarChartCard, GroupedBarChart, GroupedBarChartCard, StackedBarChart, StackedBarChartCard, DivergingBarChart, PillBounceChart, DonutChart, DonutChartSet, DonutBreakdownCard, DualGaugeChart, SemiCircleGaugeCard, CircularRadialGauge, ActivityRings, ProgressBarCard, LoadingProgress, SplitPercentageDisplay, DemographicIcons, PyramidChart, IconStatGrid, RadarChart, RadarChartCard, DotScatterChart, TrafficLightDots, DataTableCard, SalesReportCard
 
-- `BarChartRace` — animated bar chart
-- `LineChartDraw` — SVG path draw-on
-- `PieChartReveal` — sector-by-sector reveal
+## list
 
-## overlays
-
-Visual layers on top of content. Decorative, not structural.
+Structured item displays — bullets, numbered entries, search results, timelines, icon grids.
 
 **Conventions:**
 
-- `pointerEvents: "none"` common
-- Lower opacity (0.1 - 0.4 typical)
-- Position: absolute within parent
-- Optional `blendMode` prop
+- Accept `items` array prop with item-specific data
+- Staggered entry animation per item
+- Support `enterDuration` and `staggerDelay` props
+- Card-based or full-width layouts
+- Expose accent color for theming
 
-**Examples:**
-
-- `VignetteOverlay` — edge darkening
-- `LightLeakOverlay` — film light leaks
-- `GrainOverlay` — animated film grain
+**Existing presets:** BarRevealList, CompactBarList, CardBulletList, FlatSearchList, GradientSearchList, OutlineSearchList, NumberedCircleList, IconGridList, TimelineScheduleList
 
 ## lower-thirds
 
-Information bars, name titles, captions.
+Information bars, overlays, name titles, captions. Positioned at lower portion of frame.
 
 **Conventions:**
 
 - Positioned at bottom 15% of frame
 - Safe zone padding (48px+ from edges)
-- Two-line layout common: primary + secondary
 - Slide or fade entrance
+- Glassmorphism or overlay blend common
+- Event-triggered animations (e.g., bell ring, particle burst)
 
-**Examples:**
+**Existing presets:** YouTubeSubscribeOverlay
 
-- `NameTitleLowerThird` — name + role
-- `TopicBadgeLowerThird` — topic label
-- `SocialHandleLowerThird` — platform + handle
+## misc
 
-## code
-
-Source code presentation with syntax highlighting.
+Special-purpose scenes and compositions that don't fit other categories.
 
 **Conventions:**
 
-- Accept `code: string` and `language: string`
-- Line-by-line reveal or typewriter
-- Monospace font
-- Line numbers optional
-- Highlight specific lines via `highlightLines: number[]`
+- Full-scene compositions rather than overlay components
+- Audio integration common
+- Complex, multi-element layouts
+- Domain-specific (chat, language learning)
 
-**Examples:**
+**Existing presets:** ChatConversation, ShadowingScene
 
-- `TypewriterCode` — code types out
-- `CodeBlockReveal` — lines slide in
-- `TerminalWindow` — framed terminal with cursor
+## icons
 
-## video-masks
-
-Mask video content with shapes, text, or gradients.
+Static SVG icon components used by presets. Not standalone presets — shared assets.
 
 **Conventions:**
 
-- Accept `src: string` for video URL
-- Mask defined via SVG clipPath or CSS mask
-- Support `maskShape: 'circle' | 'text' | 'custom'`
-- Animate mask scale/position
+- Export React SVG components
+- Accept `size`, `color`, `style` props
+- Used internally by misc/list/lower-third presets
 
-**Examples:**
-
-- `CircleMaskVideo` — video inside expanding circle
-- `TextMaskVideo` — video clipped to text shape
-- `SplitRevealVideo` — mask wipes away to reveal
-
-## scene-templates
-
-Full pre-composed scenes combining multiple presets.
-
-**Conventions:**
-
-- Combine background + text + lower-third + chart
-- Accept content-specific props
-- Designed for specific video types (intro, outro, explainer)
-- Higher complexity, more props
-
-**Examples:**
-
-- `ExplainerScene` — title + bullets + background
-- `IntroTitleScene` — big title + subtitle + dramatic bg
-- `DataStoryScene` — chart + narration text + background
+**Existing presets:** MicIcon (in `icons/microphones/`)
 
 ## Extending Categories
 
 New category workflow:
 
 1. Create `src/shared/presets/[new-category]/` folder
-2. Add `CATALOG.md` with header + quick guide table
-3. Add first preset following structure rules
+2. Add first preset, schema, composition following structure rules
+3. Add barrel export `index.ts`
 4. Add `<Folder name="[new-category]">` in `Root.tsx`
 5. Update this file with new category conventions
+6. Update `preset-catalog` skill (`.opencode/skills/preset-catalog/SKILL.md`)
+7. Update `AGENTS.md` and `CLAUDE.md` preset counts
 
-**Category naming:** kebab-case, plural, descriptive. `video-effects`, `social-cards`, `kinetic-type`.
+**Category naming:** kebab-case, plural, descriptive. Use existing conventions: `backgrounds`, `texts`, `data-visualizations`, `list`, `lower-thirds`, `misc`, `icons`.

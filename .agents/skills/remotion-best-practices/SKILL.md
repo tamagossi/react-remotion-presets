@@ -9,6 +9,13 @@ metadata:
 
 Use this skills whenever you are dealing with Remotion code to obtain the domain-specific knowledge.
 
+When working on **educational videos**, **explainer content**, or **shadowing/language-learning presets**, also consult the create-preset skill's specialized rule files:
+
+- `../create-preset/rules/explainer-video-design.md` — Storytelling, storyboarding, CTA design
+- `../create-preset/rules/presentation-principles.md` — Cognitive load, redundancy, signaling
+- `../create-preset/rules/educational-video-patterns.md` — Shadowing, pronunciation, engineering English
+- `../create-preset/rules/script-driven-animation.md` — Voiceover sync, keyword emphasis, word-level timing
+
 ## New project setup
 
 When in an empty folder or workspace with no existing Remotion project, scaffold one using:

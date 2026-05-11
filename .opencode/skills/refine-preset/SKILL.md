@@ -1,8 +1,8 @@
 ---
 name: refine-preset
-description: Senior motion design director + VFX art director for auditing and enhancing existing Remotion presets. Analyzes your components, proposes high-impact refinements, and executes approved changes. Trigger when user asks to refine a preset, enhance a component, audit quality, match a video reference, or improve animation design.
+description: Senior motion design director + VFX art director for auditing and enhancing existing Remotion presets. Analyzes your components, proposes high-impact refinements, and executes approved changes. Trigger when user asks to refine a preset, enhance a component, audit quality, match a video reference, or improve animation design. Also auto-triggers for: shadowing practice refinement, language learning video enhancement, explainer video quality audit, educational content review, pronunciation drill polish, engineering English video, professional English content, British RP content, workplace English, remote work English, interview preparation content.
 metadata:
-  tags: remotion, preset, motion-design, video, animation, component, refinement, audit, enhancement, cinematic
+  tags: remotion, preset, motion-design, video, animation, component, refinement, audit, enhancement, cinematic, explainer, educational, language-learning, shadowing, english
 ---
 
 # refine-preset
@@ -23,6 +23,10 @@ Activate this skill when user:
 - Says "improve [animation/props/design]" on an existing preset
 - Asks "what's wrong with this component?" or "how can I make this better?"
 - Says "make this more cinematic" or "make this more professional"
+- Mentions **shadowing practice**, **language learning video**, **pronunciation drill**, **English practice video**
+- Mentions **explainer video**, **educational content**, **tutorial**, **how-to video**
+- Mentions **engineering English**, **professional English**, **British RP**, **workplace English**, **remote work English**, **interview English**
+- Says "audit the shadowing scene", "review the pronunciation preset", "improve the educational video"
 
 ## Persona
 
@@ -44,8 +48,11 @@ Ask user (if not provided):
 - Specific concerns they already have (list them)
 - Any constraints (must keep prop X, can't change color Y, etc.)
 - Performance budget concerns (target render platform: browser, server, cloud)
+- Target use case (explainer, educational, shadowing, marketing, etc.) — determines which specialized rules to load
 
 If a video/GIF reference is provided, analyze it with frame-level precision — timing, easing, choreography, colors, typography.
+
+**ALWAYS** load `design-motion-principles` skill (mandatory — do not skip).
 
 Load relevant rules:
 
@@ -53,25 +60,28 @@ Load relevant rules:
 - `rules/audit-checklist.md`
 - Category-specific rule file based on path
 - `rules/animation-redflags.md`
+- If educational/explainer context: also load `rules/educational-video-patterns.md`, `rules/presentation-principles.md`, `rules/explainer-video-design.md`, `rules/script-driven-animation.md`
 
 ### Step 2: Discovery
 
 Read all relevant files:
 
-1. Component file (e.g., `MyTitle.tsx`)
-2. Schema file (e.g., `schemas/MyTitleSchema.ts`)
-3. Composition file (e.g., `compositions/MyTitleComposition.tsx`)
-4. CATALOG.md entry for the preset
+1. Component file (e.g., `ShadowingScene.tsx`)
+2. Schema file (e.g., `schemas/ShadowingSceneSchema.ts`)
+3. Composition file (e.g., `compositions/ShadowingSceneComposition.tsx`)
+4. preset-catalog entry for the preset
 5. Barrel export to verify registration
 
 Auto-detect category from the file path:
 
 | Path contains | Category | Load rule file |
 |---|---|---|
-| `/titles/` | Title | `rules/category-titles.md` |
-| `/texts/` | Text Animation | `rules/category-texts.md` |
+| `/texts/` | Text Animation / Title | `rules/category-texts.md` |
 | `/backgrounds/` | Background | `rules/category-backgrounds.md` |
 | `/data-visualizations/` | Data Viz / Chart | `rules/category-data-viz.md` |
+| `/list/` | List | `rules/category-lists.md` |
+| `/lower-thirds/` | Lower Third | `rules/category-lower-thirds.md` |
+| `/misc/` | Miscellaneous | `rules/category-misc.md` |
 
 For full-category audits, load all components in the category.
 
@@ -79,14 +89,21 @@ For full-category audits, load all components in the category.
 
 Run three evaluation layers:
 
-**Layer 1 — Redflag Scan** (`rules/animation-redflags.md`)  
+**Layer 1 — Redflag Scan** (`rules/animation-redflags.md`)
 Quick pass for common anti-patterns: missing exit, linear easing, no willChange, filter abuse.
 
-**Layer 2 — Universal Checklist** (`rules/audit-checklist.md`)  
+**Layer 2 — Universal Checklist** (`rules/audit-checklist.md`)
 10-dimensional evaluation scaled to the preset type. Score each dimension mentally.
 
-**Layer 3 — Category-Specific Heuristics** (category rule file)  
+**Layer 3 — Category-Specific Heuristics** (category rule file)
 Deep dive on what makes this category shine: hierarchy for titles, pacing for texts, stagger rhythm for lists, data-to-ink for charts.
+
+**Layer 4 — Domain-Specific Heuristics** (when applicable)
+For educational/shadowing/explainer presets, also evaluate:
+- Audio-visual sync accuracy (from `rules/script-driven-animation.md`)
+- Cognitive load principles (from `rules/presentation-principles.md`)
+- Shadowing/interview pattern correctness (from `rules/educational-video-patterns.md`)
+- Explainer story structure (from `rules/explainer-video-design.md`)
 
 If a video/GIF reference was provided, run a **gap analysis**: compare the reference's choreography (timing, easing, scale, opacity, color, layout) against the current preset and map every difference.
 
@@ -104,7 +121,7 @@ Present findings in conversational approve/deny format. Group by priority. Forma
 
 **Severity levels:**
 
-- 🔴 **CRITICAL** — Broken, missing, or degrades output quality (missing exit, unreadable text, broken contrast)
+- 🔴 **CRITICAL** — Broken, missing, or degrades output quality (missing exit, unreadable text, broken contrast, bad audio-visual sync)
 - 🟡 **ENHANCEMENT** — Working but not professional (easing could be snappier, secondary motion would elevate)
 - 🟢 **POLISH** — Subtle improvements (color harmony tweak, shadow depth, grain amount)
 - 🔵 **REFACTOR** — Code quality, props API, composability (add duration props, fix ordering, deduplicate)
@@ -146,21 +163,27 @@ Follow `rules/execution-guide.md` for safe editing procedures.
 |---|---|
 | `rules/persona.md` | Senior VFX motion design director identity |
 | `rules/audit-checklist.md` | 10 universal evaluation dimensions |
-| `rules/category-titles.md` | Title-specific refinement heuristics |
 | `rules/category-texts.md` | Text animation refinement heuristics |
 | `rules/category-backgrounds.md` | Background refinement heuristics |
 | `rules/category-data-viz.md` | Chart/data visualization refinement heuristics |
+| `rules/category-lists.md` | List refinement heuristics |
+| `rules/category-lower-thirds.md` | Lower-third refinement heuristics |
+| `rules/category-misc.md` | Miscellaneous (chat, shadowing) refinement heuristics |
 | `rules/animation-redflags.md` | Common anti-patterns and quick-fail checks |
 | `rules/proposal-template.md` | Conversational approve/deny format spec |
 | `rules/execution-guide.md` | Safe editing, lint verification, and change management |
+| `../create-preset/rules/explainer-video-design.md` | Explainer storytelling, storyboarding, CTA design (shared) |
+| `../create-preset/rules/presentation-principles.md` | Cognitive load, redundancy, signaling, rule-of-4 (shared) |
+| `../create-preset/rules/educational-video-patterns.md` | Shadowing, pronunciation, engineering English (shared) |
+| `../create-preset/rules/script-driven-animation.md` | Voiceover sync, keyword emphasis, word-level timing (shared) |
 
 ## Output Guarantee
 
 Every refinement produces:
 
-- ✅ Complete audit covering all applicable dimensions
-- ✅ Prioritized findings: Critical → Enhancement → Polish → Refactor
-- ✅ Conversational items with [Approve]/[Deny]/[Modify] per item
-- ✅ After approval: all changes applied, lint passing, diff summary
-- ✅ Backward compatibility preserved unless user opts into breaking changes
-- ✅ Stunning, cinematic, professional visual quality — a pleasure to the eye
+- Complete audit covering all applicable dimensions (including domain-specific when relevant)
+- Prioritized findings: Critical → Enhancement → Polish → Refactor
+- Conversational items with [Approve]/[Deny]/[Modify] per item
+- After approval: all changes applied, lint passing, diff summary
+- Backward compatibility preserved unless user opts into breaking changes
+- Stunning, cinematic, professional visual quality — a pleasure to the eye

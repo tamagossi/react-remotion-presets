@@ -1,17 +1,21 @@
 # Agent Instructions
 
-React Remotion presets repository. 125+ reusable video components, animations, and templates organized by category.
+React Remotion presets repository. 100+ reusable video components, animations, and templates organized by category.
 
 ## Available Presets
 
 | Category | Count | Description |
 |---|---|---|
-| `backgrounds` | 31 | Gradient blobs, fog, bokeh, geometric patterns, neon pulses, starfields, wireframes |
-| `titles` | 32 | Bold, minimal, stacked, glitch, framed, underlined text layouts with animation engine |
-| `texts` | 22 | Typewriter, wave, glitch, blur-reveal, cascade, word-swap, sequential reveals |
-| `data-visualizations` | 30 | Bar charts, donuts, radar, area charts, scatter plots, gauges, activity rings, tables |
+| `backgrounds` | 20 | Gradient blobs, fog, bokeh, geometric patterns, neon pulses, starfields, wireframes |
+| `texts` | 44 | Typewriter, wave, glitch, blur-reveal, cascade, word-swap, sequential reveals, title layouts, stacked titles, kinetic slams, glitch strokes, bold/modern right-aligned titles |
+| `data-visualizations` | 27 | Bar charts, donuts, radar, area charts, scatter plots, gauges, activity rings, tables |
+| `list` | 9 | Bar reveal, bullets, numbered circles, icon grids, timeline, search UI lists |
+| `lower-thirds` | 1 | YouTube subscribe overlay with glassmorphism and particle burst |
+| `misc` | 2 | Chat conversation bubbles, language shadowing practice scene |
 
-**Total: 115 presets** across 4 categories, each with Zod-prop schemas and playground compositions.
+**Total: 103 presets** across 6 categories, each with Zod-prop schemas and playground compositions.
+
+To select the right preset for a task, load the preset-catalog skill: `.opencode/skills/preset-catalog/SKILL.md` — it contains tone, condition, persona, and VO trigger guidance for every preset.
 
 ## Commands
 
@@ -31,11 +35,11 @@ React Remotion presets repository. 125+ reusable video components, animations, a
 - Preset components live in `src/shared/presets/<category>/`
 - Each preset must have:
   1. Component file (e.g., `DarkGradientBackground.tsx`) with exported Props interface
-  2. Barrel export in `src/shared/presets/<category>/index.ts`
-  3. Playground composition in `src/shared/presets/<category>/compositions/`
-  4. Registration in `src/Root.tsx`
-  5. Entry in `src/shared/presets/<category>/CATALOG.md`
-- Zod schemas for each preset live in `src/shared/presets/<category>/schemas/`
+  2. Zod schema in `src/shared/presets/<category>/schemas/`
+  3. Barrel export in `src/shared/presets/<category>/index.ts`
+  4. Playground composition in `src/shared/presets/<category>/compositions/`
+  5. Registration in `src/Root.tsx` with `schema` prop
+  6. Entry in `.opencode/skills/preset-catalog/SKILL.md` (tone, condition, persona, VO triggers)
 - Shared constants: `src/shared/constatns/fps.ts` (note the folder spelling) — `FPS = 60`
 - Shared hooks: `src/shared/hooks/` — `useAnton`, `useInter`, `useMontserrat`, `useOswald` (Google Fonts loading)
 - Shared components: `src/shared/components/` — `GrainOverlay`, `VignetteOverlay`
@@ -62,12 +66,35 @@ ESLint uses `@remotion/eslint-config-flat` plus plugins for Tailwind, perfection
 
 Every preset must be **stunning by default** — professional, cinematic, elegant, astonishing, a pleasure to the eye. Think Netflix title sequence, Apple keynote, AAA game trailer. If it looks "fine," it's not done.
 
+## Preset Catalog Skill
+
+When selecting a preset for a user request, always load the preset-catalog skill first: `.opencode/skills/preset-catalog/SKILL.md`. It provides:
+
+- **Tone**: emotional quality of each preset (cinematic, playful, corporate, dramatic...)
+- **Condition**: when to use and when NOT to use each preset
+- **Persona**: creative persona the AI embodies when using the preset
+- **VO Trigger**: keyword/phrase patterns that auto-match to the best preset
+- **Quick Selection Matrix**: tone/mood/energy/color-temp/formality tables for instant matching
+
+The skill is auto-loaded when the user mentions video backgrounds, text animations, data visualizations, charts, lists, overlays, lower-thirds, chat UI, explainer videos, educational content, shadowing practice, language learning, engineering English, professional English, pronunciation drills, or any video element.
+
 ## Creating New Presets
 
-A detailed local skill governs preset creation. See `.opencode/skills/create-preset/SKILL.md` (or `.claude/skills/create-preset/SKILL.md`). When asked to create a preset, animation, background, or text effect, load that skill and follow its 5-step workflow (intake → expand → design → build → verify). It covers prop interface design, frame-driven animation rules (no CSS keyframes), color theory, typography, and exact file placement.
+A detailed local skill governs preset creation. See `.opencode/skills/create-preset/SKILL.md` (or `.claude/skills/create-preset/SKILL.md`). When asked to create a preset, animation, background, or text effect, load that skill along with the `design-motion-principles` skill (`.claude/skills/design-motion-principles/SKILL.md`) for expert motion design perspectives — then follow the 5-step workflow (intake → expand → design → build → verify). It covers prop interface design, frame-driven animation rules (no CSS keyframes), color theory, typography, and exact file placement. Always also load `remotion-best-practices` skill (`.claude/skills/remotion-best-practices/SKILL.md`).
 
 When a user provides a video/GIF reference, the skill analyzes its animation choreography (entry, exit, event-triggered actions) with frame-level precision and reproduces it as a parameterized preset.
 
+### Specialized Content Types
+
+For specific video types, the create-preset skill includes specialized rule files:
+
+- **Explainer videos**: `rules/explainer-video-design.md` — Storytelling, storyboarding, CTA design, video types
+- **Educational/presentation content**: `rules/presentation-principles.md` — Cognitive load, redundancy, signaling, image-over-text
+- **Shadowing/language learning**: `rules/educational-video-patterns.md` — Pronunciation drills, engineering English, interview prep
+- **Script-driven animation**: `rules/script-driven-animation.md` — Voiceover sync, keyword emphasis, word-level timing
+
+When a user mentions shadowing practice, language learning, engineering English, professional English, British RP, workplace English, remote work English, interview preparation, or explainer videos, both `create-preset` and `refine-preset` skills (with their specialized rule files) should be auto-loaded.
+
 ## Remotion Best Practices
 
-A local skill also covers Remotion best practices: `.agents/skills/remotion-best-practices/SKILL.md` with rules for timing, sequences, fonts, audio, captions, etc. Consult it for Remotion-specific guidance.
+A local skill also covers Remotion best practices: `.claude/skills/remotion-best-practices/SKILL.md` with rules for timing, sequences, fonts, audio, captions, etc. Consult it for Remotion-specific guidance. When working on educational/explainer content, the skill references the create-preset specialized rule files.

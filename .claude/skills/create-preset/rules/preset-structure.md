@@ -9,26 +9,26 @@ src/shared/presets/
 ├── [category]/
 │   ├── [PresetName].tsx          # Main component
 │   ├── index.ts                  # Barrel export
-│   ├── CATALOG.md                # Catalog of presets in this category
+│   ├── schemas/
+│   │   ├── [PresetName]Schema.ts # Zod schema
+│   │   └── index.ts              # Schema barrel export
 │   └── compositions/
 │       └── [PresetName]Composition.tsx   # Demo composition
 ```
 
 ## Category Names
 
-Use kebab-case category folders:
+Use kebab-case category folders matching what exists:
 
 - `backgrounds`
-- `text-animations`
-- `transitions`
-- `charts`
-- `overlays`
+- `texts`
+- `data-visualizations`
+- `list`
 - `lower-thirds`
-- `code`
-- `video-masks`
-- `scene-templates`
+- `misc`
+- `icons` (shared SVG assets, not presets)
 
-If new category needed, create folder + `CATALOG.md` + update `src/Root.tsx` with new `<Folder>`.
+If new category needed, create folder + update `src/Root.tsx` with new `<Folder>`, update `categories.md`, update `AGENTS.md`/`CLAUDE.md`, and update `preset-catalog` skill.
 
 ## File Templates
 
@@ -75,15 +75,50 @@ export const [PresetName]: React.FC<[PresetName]Props> = ({
 - Accept `children?: React.ReactNode` for composability
 - Style with inline styles or CSS modules (project convention)
 
-### 2. Barrel Export: `index.ts`
+### 2. Zod Schema: `[PresetName]Schema.ts`
+
+Every preset must have a corresponding Zod schema for runtime prop validation:
+
+```tsx
+import { z } from "zod";
+
+export const [PresetName]Schema = z.object({
+  // Match all props from the component's Props interface
+  // Use z.coerce for number/string coercion from CLI
+  // Use .default() for optional props with defaults
+  // Use .describe() for human-readable prop descriptions
+  propName: z.number().default(42).describe("Description of this prop"),
+});
+
+export type [PresetName]SchemaType = z.infer<typeof [PresetName]Schema>;
+```
+
+**Rules:**
+
+- Schema field names must match prop names exactly
+- Every prop in the component gets a corresponding schema field
+- Use `z.coerce.number()` for numeric props (CLI passes strings)
+- Use `.default()` matching the component's destructured default
+- Export both the schema and its inferred type
+- Add to `schemas/index.ts` barrel export
+
+### 3. Barrel Exports
+
+**Category `index.ts`:**
 
 ```ts
 export { [PresetName], type [PresetName]Props } from "./[PresetName]";
 ```
 
+**Schema `index.ts`:**
+
+```ts
+export { [PresetName]Schema, type [PresetName]SchemaType } from "./[PresetName]Schema";
+```
+
 Add to existing exports. Never break existing imports.
 
-### 3. Playground: `[PresetName]Composition.tsx`
+### 4. Playground: `[PresetName]Composition.tsx`
 
 ```tsx
 import React from "react";
@@ -108,13 +143,13 @@ export const [PresetName]Composition: React.FC<[PresetName]Props> = (props) => {
 - Show preset at its best — good colors, readable text
 - Keep demo simple, not distracting
 
-### 4. Root.tsx Registration
+### 5. Root.tsx Registration
 
 Add inside appropriate `<Folder>` or create new Folder:
 
 ```tsx
 import { [PresetName]Composition } from "./shared/presets/[category]/compositions/[PresetName]Composition";
-import { [PresetName]Props } from "./shared/presets/[category]";
+import { [PresetName]Schema } from "./shared/presets/[category]/schemas/[PresetName]Schema";
 
 // Inside return:
 <Folder name="[category]">
@@ -125,30 +160,35 @@ import { [PresetName]Props } from "./shared/presets/[category]";
     fps={FPS}
     width={1280}
     height={720}
-    defaultProps={{
-      // All props with sensible defaults
-      // satisfies [PresetName]Props
-    } satisfies [PresetName]Props}
+    defaultProps={
+      {
+        // All props with sensible defaults
+        // satisfies [PresetName]Props
+      }
+    }
+    schema={[PresetName]Schema}
   />
 </Folder>
 ```
 
 **Rules:**
 
-- Use `satisfies` for type safety
-- Duration: 3-10 seconds for most presets (15 _ FPS to 30 _ FPS)
-- Background presets: 20 \* FPS for full animation cycle
+- Include `schema` prop pointing to the Zod schema
+- Duration: 3-10 seconds for most presets (3 * FPS to 10 * FPS)
+- Background presets: 20 * FPS for full animation cycle
 - fps import: `import { FPS } from "./shared/constatns/fps"`
 - id: PascalCase matching component name
 
-### 5. CATALOG.md Update
+### 6. Preset Catalog Update
 
-Read existing catalog. Append entry following schema in `rules/catalog-update.md`.
+Add entry to `.opencode/skills/preset-catalog/SKILL.md`. Follow schema in `rules/catalog-update.md`.
 
 ## Naming Conventions
 
-- Component: PascalCase, descriptive. `DarkGradientBackground`, `TypewriterText`, `SlideReveal`
+- Component: PascalCase, descriptive. `DarkGradientBackground`, `TypewriterText`, `ShadowingScene`
 - Props type: `[ComponentName]Props`
+- Schema: `[ComponentName]Schema`
+- Schema type: `[ComponentName]SchemaType`
 - Playground: `[ComponentName]Composition`
 - File names match component names exactly
 
@@ -162,11 +202,12 @@ Read existing catalog. Append entry following schema in `rules/catalog-update.md
 
 ## Anti-Patterns (Forbidden)
 
-- ❌ Hardcoded values inside component logic
-- ❌ CSS `@keyframes` or `animation` properties
-- ❌ `setState` inside render loop for animation
-- ❌ `requestAnimationFrame` — use Remotion hooks
-- ❌ Ignoring `useVideoConfig` dimensions
-- ❌ Missing Props type export
-- ❌ Forgetting to update CATALOG.md
-- ❌ Forgetting to register in Root.tsx
+- Hardcoded values inside component logic
+- CSS `@keyframes` or `animation` properties
+- `setState` inside render loop for animation
+- `requestAnimationFrame` — use Remotion hooks
+- Ignoring `useVideoConfig` dimensions
+- Missing Props type export
+- Missing Zod schema file
+- Forgetting to update preset-catalog
+- Forgetting to register in Root.tsx

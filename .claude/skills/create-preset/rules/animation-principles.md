@@ -1,6 +1,23 @@
 # Animation Principles for Remotion
 
-Apply the 12 principles of animation adapted for frame-driven React video.
+Apply the 12 principles of animation adapted for frame-driven React video, plus the Zajno 8-technique motion framework.
+
+## The Zajno Motion Framework
+
+Comprehensive vocabulary for UI/motion animation techniques:
+
+| Technique | Description | Remotion Equivalent |
+|---|---|---|
+| **Easing** | Non-linear speed — acceleration and deceleration | `Easing.out(quad)`, `Easing.inOut(back)`, `spring()` |
+| **Offset & Delay** | Staggered timing between elements | `staggerDelay` props, `i * stagger` in mapped elements |
+| **Fade In/Fade Out** | Opacity transition from/to transparent | `interpolate(frame, [start, end], [0, 1])` on opacity |
+| **Transform & Morph** | Shape change between states | SVG path interpolation, scale/rotate transitions |
+| **Masking** | Reveal content through shaped window | `clipPath`, CSS `mask-image`, SVG masks |
+| **Dimension** | Conveying volume and depth | 3D transforms, floating dimensionality, `perspective` |
+| **Parallax** | Layered motion at different speeds | Background moves 0.3x foreground speed, multiple depth layers |
+| **Zoom** | Camera move into/out of scene | Scale interpolation with anchor point, combined with position |
+
+These 8 techniques are the building blocks of all interface animation. Every preset should use at least 2-3 of them.
 
 ## 1. Squash and Stretch
 
@@ -72,16 +89,18 @@ Natural motion accelerates and decelerates. Never linear for UI elements.
 
 **Easing cheat sheet:**
 
-| Curve                                             | Feel                      | Use Case                 |
-| ------------------------------------------------- | ------------------------- | ------------------------ |
-| `Easing.out(Easing.quad)`                         | Fast start, gentle stop   | UI entrances, reveals    |
-| `Easing.in(Easing.quad)`                          | Gentle start, abrupt stop | Exits, dismissals        |
-| `Easing.inOut(Easing.quad)`                       | Symmetric smooth          | Transitions, morphs      |
-| `Easing.out(Easing.back(1.5))`                    | Overshoot, settle         | Playful entrances        |
-| `[0.22, 1, 0.36, 1]`                              | Apple-style smooth        | Premium UI, luxury       |
-| `[0.45, 0, 0.55, 1]`                              | Sine-like, dreamy         | Backgrounds, atmospheric |
-| `[0.16, 1, 0.3, 1]`                               | Strong ease-out, snappy   | Modern UI, responsive    |
-| `spring({ fps, frame, config: { damping: 10 } })` | Physics-based bounce      | Organic, natural motion  |
+| Curve | Feel | Use Case |
+|---|---|---|
+| `Easing.out(Easing.quad)` | Fast start, gentle stop | UI entrances, reveals |
+| `Easing.in(Easing.quad)` | Gentle start, abrupt stop | Exits, dismissals |
+| `Easing.inOut(Easing.quad)` | Symmetric smooth | Transitions, morphs |
+| `Easing.out(Easing.back(1.5))` | Overshoot, settle | Playful entrances |
+| `[0.22, 1, 0.36, 1]` | Apple-style smooth | Premium UI, luxury |
+| `[0.45, 0, 0.55, 1]` | Sine-like, dreamy | Backgrounds, atmospheric |
+| `[0.16, 1, 0.3, 1]` | Strong ease-out, snappy | Modern UI, responsive |
+| `spring({ fps, frame, config: { damping: 10 } })` | Physics-based bounce | Organic, natural motion |
+| `Easing.out(Easing.ease)` | Standard ease-out | Explainer videos, educational content |
+| `Easing.inOut(Easing.exp)` | Exponential — very dramatic | Cinematic reveals, luxury |
 
 **Rule:** Default to `Easing.out(Easing.quad)` unless mood demands otherwise.
 
@@ -111,15 +130,15 @@ Keep secondary at 20-30% intensity of primary. Don't steal focus.
 
 ## 9. Timing
 
-**Frame count reference (at 30fps):**
+**Frame count reference (at 60fps):**
 
-| Duration     | Feel                 | Use Case                |
-| ------------ | -------------------- | ----------------------- |
-| 5-8 frames   | Instant, snappy      | Micro-interactions      |
-| 10-15 frames | Quick, efficient     | UI entrances            |
-| 20-30 frames | Smooth, comfortable  | Standard reveals        |
-| 45-60 frames | Dramatic, deliberate | Title cards, emphasis   |
-| 90+ frames   | Cinematic, slow      | Backgrounds, atmosphere |
+| Duration | Feel | Use Case |
+|---|---|---|
+| 10-15 frames | Instant, snappy | Micro-interactions |
+| 20-30 frames | Quick, efficient | UI entrances |
+| 40-60 frames | Smooth, comfortable | Standard reveals |
+| 90-120 frames | Dramatic, deliberate | Title cards, emphasis |
+| 180+ frames | Cinematic, slow | Backgrounds, atmosphere |
 
 **Pacing rules:**
 
@@ -135,7 +154,7 @@ Push motion beyond realism for clarity and impact.
 - Opacity flash: briefly hit 1.2 (with mix-blend) then normalize
 - Position: move 20% further than "correct" position, then snap back
 
-**When to use:** Playful, energetic, youthful content. Skip for corporate/medical.
+**When to use:** Playful, energetic, youthful content. Skip for corporate/medical/educational.
 
 ## 11. Solid Drawing (Spatial Awareness)
 
@@ -146,7 +165,7 @@ Respect 3D space even in 2D.
 - Scale implies distance
 
 ```tsx
-// Parallax: background moves at 0.3x speed of foreground
+// Parallax: background moves at 0.3x speed of foreground (Zajno Dimension technique)
 const bgX = interpolate(frame, [0, 100], [0, 30]);
 const fgX = interpolate(frame, [0, 100], [0, 100]);
 ```
@@ -193,10 +212,10 @@ const value = spring({
 
 **Spring vs Interpolate:**
 
-- Use `interpolate` for precise timing control (must hit frame 30 exactly)
+- Use `interpolate` for precise timing control (must hit frame 30 exactly, e.g., audio sync)
 - Use `spring` for organic, physics-based feel (timing emergent)
 
-### Sequencing Helper
+### Sequencing Helper (Zajno Offset & Delay)
 
 ```tsx
 // Multiple elements, staggered
@@ -233,3 +252,42 @@ const exit = interpolate(
 );
 const opacity = Math.min(entrance, exit);
 ```
+
+### Masking Pattern (Zajno Masking)
+
+```tsx
+// Reveal text through expanding mask
+const clipWidth = interpolate(frame, [0, 30], [0, 100], {
+  extrapolateLeft: "clamp",
+  extrapolateRight: "clamp",
+});
+
+<div style={{ overflow: "hidden", width: `${clipWidth}%` }}>
+  <span>Revealed text</span>
+</div>
+```
+
+### Zoom Pattern (Zajno Zoom)
+
+```tsx
+// Camera zoom into scene
+const scale = interpolate(frame, [0, 60], [1, 1.5], {
+  extrapolateLeft: "clamp",
+  extrapolateRight: "clamp",
+  easing: Easing.inOut(Easing.quad),
+});
+
+<div style={{ transform: `scale(${scale})`, transformOrigin: "center center" }}>
+  {children}
+</div>
+```
+
+## Educational/Explainer-Specific Timing
+
+When creating educational or explainer presets:
+
+- Hold text static for minimum 15 frames after it appears (learners need time to read)
+- Speak window (shadowing): 60-180 frames after audio ends for learner response
+- Scene holds between major points: 30-60 frames for information absorption
+- Keyword emphasis: brief scale pop (8-12 frames) at audio alignment point
+- Never animate text during the moment voiceover reads it — text must be static and readable

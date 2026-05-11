@@ -1,8 +1,8 @@
 # preset-catalog
 
-Complete catalog of 75 Remotion presets across 6 categories. AI selection guide for picking right preset based on tone, mood, energy, context.
+Complete catalog of 100+ Remotion presets across 7 categories. AI selection guide for picking right preset based on tone, mood, energy, context.
 
-**Auto-load when**: user asks for backgrounds, text animations, data visualizations, charts, lists, overlays, lower-thirds, chat UI, language practice, or any video element.
+**Auto-load when**: user asks for backgrounds, text animations, data visualizations, charts, lists, overlays, lower-thirds, chat UI, language practice, explainer videos, educational content, shadowing practice, pronunciation drills, engineering English, professional English, British RP, workplace English, remote work English, interview preparation, English speaking practice, or any video element.
 
 ## Selection Workflow
 
@@ -77,6 +77,28 @@ Complete catalog of 75 Remotion presets across 6 categories. AI selection guide 
 | Bold colored stack zoom | Assertive punchy | High | ColorStackText |
 | Sequential word fade-in | Grateful closing | Low-Med | SequentialWordText |
 | Single word dramatic zoom | Impactful bold | High | SingleWordZoomText |
+| Bold modern right-aligned | Confident sleek | Medium | BoldRightTitle |
+| Glitch stroke outline | Edgy futuristic | High | GlitchStrokeTitle |
+| Heavy stacked weight | Intense powerful | High | HeavyStackTitle |
+| Highlighted bar accent | Editorial refined | Medium | HighlightBarTitle |
+| Kinetic slam impact | Aggressive punchy | High | KineticSlamTitle |
+| Label stack layered | Organized structured | Medium | LabelStackTitle |
+| Letter spacing expand title | Cinematic wide | Medium | LetterSpacingRevealTitle |
+| Minimal duo paired | Elegant subtle | Low | MinimalDuoTitle |
+| Minimal style understated | Clean subtle | Low | MinimalStyleTitle |
+| Mixed emphasis varied | Dynamic editorial | Medium | MixedEmphasisTitle |
+| Modern right layout | Contemporary sleek | Medium | ModernRightTitle |
+| Number framed badge | Structured indexed | Medium | NumberFrameTitle |
+| Outline fill stroke | Graphic bold | Medium | OutlineFillTitle |
+| Quote block reference | Editorial authoritative | Low-Med | QuoteBlockTitle |
+| Rotate 3D spin in | Dynamic energetic | High | RotateInText |
+| Rounded box contained | Friendly contained | Medium | RoundedBoxTitle |
+| Sandwich label rule | Structured elegant | Medium | SandwichLabelTitle |
+| Shadow depth dimensional | Atmospheric dramatic | Medium | ShadowDepthTitle |
+| Smear stretch liquid | Fluid organic | Medium | SmearStretchText |
+| Stacked centered block | Bold commanding | High | StackedCenterTitle |
+| Stacked right aligned | Modern asymmetric | Medium | StackedRightTitle |
+| Stacked trio center | Grand ceremonial | High | StackedTrioCenterTitle |
 
 ### Data Visualizations
 
@@ -504,6 +526,182 @@ Complete catalog of 75 Remotion presets across 6 categories. AI selection guide 
 - **Trigger**: "zoom text" "single word reveal" "dramatic title" "impact word" "big entrance"
 - **Props**: `text, scaleStart, overshoot, animationDuration, fontSize, fontWeight`
 
+#### BoldRightTitle
+- **Tone**: bold confident sleek modern
+- **Condition**: right-aligned bold titles, modern editorial layouts, confident brand statements
+- **NotWhen**: centered compositions, multi-paragraph body text, subtle/minimal scripts
+- **Persona**: Editorial layout designer — bold right-aligned title with clean geometric precision
+- **Trigger**: "bold title right" "modern title" "right aligned headline" "confident brand text"
+- **Props**: `text, accentColor, animationDuration, fontSize, fontWeight, letterSpacing`
+
+#### GlitchStrokeTitle
+- **Tone**: edgy futuristic cyberpunk disruptive
+- **Condition**: tech/cyberpunk intros, gaming/music titles, digital distortion aesthetic
+- **NotWhen**: corporate/formal scripts, clean/minimal designs, small text (stroke reduces readability)
+- **Persona**: Cyberpunk title designer — outlined text with glitch offset and chromatic aberration
+- **Trigger**: "glitch title" "stroke outline text" "cyberpunk header" "digital distortion"
+- **Props**: `text, outlineColor, glitchOffset, animationDuration, fontSize`
+
+#### HeavyStackTitle
+- **Tone**: intense powerful commanding massive
+- **Condition**: sports/gaming intros, bold impactful headlines, maximum weight emphasis
+- **NotWhen**: subtle/elegant scripts, body text, multi-line paragraphs
+- **Persona**: Sports broadcast designer — ultra-bold stacked text blocks, intense visual weight
+- **Trigger**: "heavy title" "massive text" "ultra bold headline" "sports intro text"
+- **Props**: `text, weight, animationDuration, fontSize, letterSpacing, lineHeight`
+
+#### HighlightBarTitle
+- **Tone**: editorial refined structured modern
+- **Condition**: editorial/feature intros, magazine-style titles, accent bar emphasis
+- **NotWhen**: full-screen text only, background competes with accent bar
+- **Persona**: Magazine art director — title with colored accent bar underline or side stripe
+- **Trigger**: "highlight bar title" "accent underline headline" "editorial accent text"
+- **Props**: `text, barColor, barPosition, barWidth, animationDuration, fontSize`
+
+#### KineticSlamTitle
+- **Tone**: aggressive punchy impactful kinetic
+- **Condition**: high-energy intros, sports/gaming, dramatic reveals with physical weight
+- **NotWhen**: calm/minimal scripts, corporate/formal, body text
+- **Persona**: Kinetic type animator — text slams into place with heavy impact and overshoot
+- **Trigger**: "slam title" "impact text" "kinetic headline" "dramatic slam"
+- **Props**: `text, slamDirection, impactIntensity, animationDuration, fontSize`
+
+#### LabelStackTitle
+- **Tone**: organized structured clean modern
+- **Condition**: label-above-title layouts, structured information hierarchy, role/title displays
+- **NotWhen**: single-line titles without labels, dense paragraphs
+- **Persona**: Information architect — small label above large title, clean spatial hierarchy
+- **Trigger**: "label stack" "title with label" "role title display" "hierarchical text"
+- **Props**: `label, title, labelColor, animationDuration, staggerDelay, fontSize`
+
+#### LetterSpacingRevealTitle
+- **Tone**: cinematic wide elegant spacious
+- **Condition**: cinematic title cards, luxury brand intros, wide letter-spacing reveals
+- **NotWhen**: body text, fast-paced scripts, dense content blocks
+- **Persona**: Cinematic title designer — typography revealed through expanding letter spacing
+- **Trigger**: "letter spacing title" "cinematic wide text" "spread text reveal" "luxury headline"
+- **Props**: `text, expandAmount, animationDuration, fontSize, letterSpacing`
+
+#### MinimalDuoTitle
+- **Tone**: elegant subtle refined paired
+- **Condition**: minimalist two-part titles, elegant brand intros, refined editorial headers
+- **NotWhen**: complex multi-line content, high-energy scripts, need for visual impact
+- **Persona**: Minimalist brand designer — two complementary text lines, subtle weight contrast
+- **Trigger**: "minimal duo title" "elegant pair headline" "refined two-line text"
+- **Props**: `line1, line2, weight1, weight2, animationDuration, staggerDelay, fontSize`
+
+#### MinimalStyleTitle
+- **Tone**: clean subtle understated modern
+- **Condition**: ultra-minimal intros, design/architecture content, letting imagery dominate
+- **NotWhen**: needing text hierarchy, dramatic impact, complex layouts
+- **Persona**: Architecture/design presenter — barely-there typography, refined restraint
+- **Trigger**: "minimal title" "clean simple headline" "understated text" "design title"
+- **Props**: `text, animationDuration, fontSize, fontWeight, letterSpacing`
+
+#### MixedEmphasisTitle
+- **Tone**: dynamic editorial varied expressive
+- **Condition**: variable emphasis headlines, editorial features, word-level weight contrast
+- **NotWhen**: monochrome scripts, uniform weight needs, small text
+- **Persona**: Editorial designer — per-word weight alternation for visual rhythm
+- **Trigger**: "mixed emphasis" "varied weight title" "editorial contrast text"
+- **Props**: `segments, animationDuration, fontSize, staggerDelay`
+
+#### ModernRightTitle
+- **Tone**: contemporary sleek asymmetric modern
+- **Condition**: modern right-aligned headers, asymmetric layouts, contemporary brand intros
+- **NotWhen**: centered compositions, traditional left-aligned content, RTL languages
+- **Persona**: Contemporary brand designer — right-aligned title with modern typographic details
+- **Trigger**: "modern right title" "asymmetric headline" "contemporary right text"
+- **Props**: `text, accentColor, animationDuration, fontSize, fontWeight`
+
+#### NumberFrameTitle
+- **Tone**: structured indexed systematic organized
+- **Condition**: numbered sections/chapters, step-by-step content, indexed title cards
+- **NotWhen**: non-sequential content, small text layouts, decorative/emotional scripts
+- **Persona**: Systems designer — title framed by numbered badge, systematic indexing
+- **Trigger**: "numbered title" "chapter number text" "step title with number"
+- **Props**: `number, text, frameColor, animationDuration, fontSize`
+
+#### OutlineFillTitle
+- **Tone**: graphic bold modern striking
+- **Condition**: outlined-to-filled text transitions, brand intros, graphic design aesthetic
+- **NotWhen**: small text (outline loses clarity), subtle/elegant scripts
+- **Persona**: Graphic designer — text transitions from outline to solid fill, bold visual impact
+- **Trigger**: "outline fill text" "stroke to solid title" "graphic text transition"
+- **Props**: `text, outlineColor, fillColor, animationDuration, fontSize`
+
+#### QuoteBlockTitle
+- **Tone**: editorial authoritative refined literary
+- **Condition**: testimonial quotes, editorial pull quotes, citation-heavy content
+- **NotWhen**: action-oriented content, fast-paced scripts, minimal layouts
+- **Persona**: Literary editor — quotation mark framed title, editorial authority
+- **Trigger**: "quote title" "testimonial headline" "pull quote text" "citation style"
+- **Props**: `quote, attribution, accentColor, animationDuration, fontSize`
+
+#### RotateInText
+- **Tone**: dynamic energetic playful kinetic
+- **Condition**: kinetic 3D-rotate entrances, gaming/creative content, playful brand intros
+- **NotWhen**: corporate/formal scripts, small text, readability-critical content
+- **Persona**: 3D motion designer — text rotates into view from configurable axis
+- **Trigger**: "rotate in text" "3D spin text" "rotation reveal" "kinetic twist"
+- **Props**: `text, rotationAxis, rotationAmount, animationDuration, fontSize`
+
+#### RoundedBoxTitle
+- **Tone**: friendly contained approachable modern
+- **Condition**: UI card titles, friendly brand intros, contained callout headers
+- **NotWhen**: full-bleed layouts, dramatic scripts, luxury branding
+- **Persona**: UI designer — pill-shaped or rounded rectangle containing title text
+- **Trigger**: "rounded box title" "pill container text" "friendly header box"
+- **Props**: `text, boxColor, borderRadius, animationDuration, fontSize`
+
+#### SandwichLabelTitle
+- **Tone**: structured elegant refined formal
+- **Condition**: formal title layouts with rule lines, certificate/achievement headers, structured hierarchy
+- **NotWhen**: casual/friendly scripts, minimal flat design, fast-paced content
+- **Persona**: Formal designer — title sandwiched between thin horizontal rules, elegant framing
+- **Trigger**: "sandwich label" "rule line title" "formal header" "certificate style text"
+- **Props**: `label, title, ruleColor, ruleWidth, animationDuration, fontSize`
+
+#### ShadowDepthTitle
+- **Tone**: atmospheric dramatic dimensional layered
+- **Condition**: 3D shadow depth titles, cinematic/dramatic intros, dimensional typography
+- **NotWhen**: flat design aesthetic, small text, readability-first content
+- **Persona**: 3D typographer — deep layered text shadows creating dimensional depth
+- **Trigger**: "shadow title" "3D depth text" "dimensional headline" "deep shadow typography"
+- **Props**: `text, shadowDepth, shadowColor, animationDuration, fontSize`
+
+#### SmearStretchText
+- **Tone**: fluid organic liquid dynamic
+- **Condition**: liquid/smear motion text, music/creative intros, organic brand reveals
+- **NotWhen**: corporate/formal scripts, precise typography needs, small text
+- **Persona**: Liquid motion designer — text stretches and smears like fluid during entrance
+- **Trigger**: "smear text" "liquid typography" "stretch text animation" "organic motion"
+- **Props**: `text, smearIntensity, animationDuration, fontSize, letterSpacing`
+
+#### StackedCenterTitle
+- **Tone**: bold commanding central authoritative
+- **Condition**: centered stacked headlines, main title cards, formal presentations
+- **NotWhen**: left-aligned content, multi-column layouts, small screens
+- **Persona**: Presentation designer — multi-line heading stacked and centered, commanding presence
+- **Trigger**: "stacked center title" "centered headline block" "main title card"
+- **Props**: `lines, lineGap, animationDuration, staggerDelay, fontSize`
+
+#### StackedRightTitle
+- **Tone**: modern asymmetric sophisticated editorial
+- **Condition**: right-aligned stacked headlines, modern editorial layouts, asymmetric design
+- **NotWhen**: centered compositions, RTL languages, left-dominant layouts
+- **Persona**: Editorial layout designer — right-stacked heading with asymmetric visual balance
+- **Trigger**: "stacked right title" "right aligned heading" "asymmetric headline stack"
+- **Props**: `lines, lineGap, animationDuration, staggerDelay, fontSize`
+
+#### StackedTrioCenterTitle
+- **Tone**: grand ceremonial monumental formal
+- **Condition**: grand three-line titles, ceremonial/formal intros, event announcements
+- **NotWhen**: casual content, single-line needs, fast-paced scripts
+- **Persona**: Ceremony designer — three-tiered centered heading, monumental presence
+- **Trigger**: "trio center title" "three line heading" "grand title" "ceremonial text"
+- **Props**: `lines, lineGap, animationDuration, staggerDelay, fontSize`
+
 ### Data Visualizations
 
 #### AnimatedLineChart
@@ -731,12 +929,12 @@ Complete catalog of 75 Remotion presets across 6 categories. AI selection guide 
 - **Props**: `messages, position, enterDuration, staggerDelay, defaultBubbleColor, bubbleMaxWidth`
 
 #### ShadowingScene
-- **Tone**: focused calm motivating structured
-- **Condition**: language learning listen-and-repeat, pronunciation drills, echo repetition exercises, karaoke sing-alongs, meditative mantras
-- **NotWhen**: all-at-once text reveals (use text preset), non-audio contexts where progress bar is meaningless
-- **Persona**: Language education designer — staggered word reveal, mic pulse with scale breathing, echo trails, waveform bars, phonetic guides
-- **Trigger**: "shadowing practice" "language learning" "pronunciation drill" "listen and repeat" "karaoke overlay"
-- **Props**: `phrase, accentColor, idleColor, audioSrc, voDurationInFrames, durationInFrames`
+- **Tone**: focused calm motivating structured instructional professional
+- **Condition**: language learning listen-and-repeat, pronunciation drills, echo repetition exercises, engineering English practice, professional English shadowing, British RP pronunciation, workplace English drills, remote work English practice, engineering vocabulary building, interview English preparation, karaoke sing-alongs, meditative mantras
+- **NotWhen**: all-at-once text reveals (use text preset), non-audio contexts where progress bar is meaningless, static content without voiceover, content where learner doesn't need to speak
+- **Persona**: Language education designer — staggered word reveal, mic pulse with scale breathing, echo trails, waveform bars, phonetic guides, progress tracking. Designs for non-native English engineers and professionals seeking speaking fluency.
+- **Trigger**: "shadowing practice" "language learning" "pronunciation drill" "listen and repeat" "english shadowing" "shadowing english" "engineering english" "professional english" "british RP" "describe your role in english" "engineering interview" "english speaking practice" "introduce yourself engineer" "workplace english" "remote job english" "remote work english" "engineering vocabulary" "english shadowing drill" "non-native english engineers" "karaoke overlay" "echo repetition" "speak after me"
+- **Props**: `accentColor, audioSrc, durationInFrames, echoCount, enablePronunciation, enableWaveform, idleColor, micIconUrl, phrase, phraseIndex, phraseTotal, pronunciations, pulseNotSpeakingColor, pulseSpeakingColor, rippleStyle, sceneTitle, voDurationInFrames, waveformBars`
 
 ---
 
@@ -750,3 +948,4 @@ Complete catalog of 75 Remotion presets across 6 categories. AI selection guide 
 | list | `@/shared/presets/list` |
 | lower-thirds | `@/shared/presets/lower-thirds` |
 | misc | `@/shared/presets/misc` |
+| icons | `@/shared/presets/icons/microphones` |

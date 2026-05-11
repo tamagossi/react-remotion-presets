@@ -41,7 +41,7 @@ Ask user (if not provided):
 
 ### Step 2: Expand
 
-Read relevant rule files:
+Load the `design-motion-principles` skill to inform your motion design perspective weighting (Emil Kowalski's restraint/speed, Jakub Krehel's production polish, Jhey Tompkins' playful experimentation). Use the context-to-perspective mapping to weight your creative directions, then read relevant rule files:
 
 - `rules/persona.md` → embody the top-tier motion designer identity
 - `rules/categories.md` → understand category conventions
